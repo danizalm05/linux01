@@ -1,0 +1,307 @@
+https://overthewire.org/wargames/bandit
+
+www.youtube.com/watch?v=PRAjBlys-7g&list=PL1H1sBF1VAKUsYdQd94dO9MgSaY2p1AJ4
+
+
+
+
+13 → 14
+https://overthewire.org/wargames/bandit/bandit14.html
+ssh bandit13@bandit.labs.overthewire.org -p 2220
+pass 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
+
+problem: Password stored in /etc/bandit_pass/bandit14
+and can only be read by user bandit14.
+For this level, you don’t get the next password, but you get
+a private SSH key that can be used to log into the next level.
+Note: localhost is a hostname that refers to the machine you are working on
+
+So we need to use ssh to login to another users account:
+bandit14@localhost for us.
+
+solution:
+1. ls
+output: A file sshkey.private. This is a private ssh key
+2. cat sshkey.private
+3. ssh -i ./sshkey.private bandit14@localhost
+4. print yes to question are you sure
+5. Now we are login as bandit14
+6. cat /etc/bandit_pass/bandit14
+pass = 4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
+
+14 → 15
+https://overthewire.org/wargames/bandit/bandit15.html
+ssh bandit14@bandit.labs.overthewire.org -p 2220
+pass: y
+
+problem:password for the next level can be retrieved by submitting the password of the current level to port 30000 on localhost.
+
+
+solution: 1. echo 4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e | nc localhost 30000
+
+pass = BfMYroe26WYalil77FoDi9qh59eK5xNr
+
+15 → 16
+https://www.youtube.com/watch?v=yKXDB2bg-wc&list=PL1H1sBF1VAKUsYdQd94dO9MgSaY2p1AJ4&index=5
+https://overthewire.org/wargames/bandit/bandit16.html
+ssh bandit15@bandit.labs.overthewire.org -p 2220
+pass BfMYroe26WYalil77FoDi9qh59eK5xNr
+
+problem: Password can be retrieved by submitting password of the
+current level to port 30001 on localhost using SSL encryption
+
+
+solution: 1. echo BfMYroe26WYalil77FoDi9qh59eK5xNr | openssl s_client -quiet -connect localhost:30001
+
+Anoter solution: cat /etc/bandit_pass/bandit15 | openssl s_client -quiet -connect localhost:30001
+
+output :
+depth=0 CN = localhost
+verify error:num=18:self signed certificate
+verify return:1
+depth=0 CN = localhost
+verify return:1
+Correct!
+cluFn7wTiGryunymYOu4RcffSxQluehd
+
+pass = cluFn7wTiGryunymYOu4RcffSxQluehd
+
+16 → 17
+https://overthewire.org/wargames/bandit/bandit17.html
+ssh bandit16@bandit.labs.overthewire.org -p 2220
+pass = cluFn7wTiGryunymYOu4RcffSxQluehd
+
+medium.com/@theGirlWhoEncrypts/overthewire-bandit-level-16-level-17-958bd0bfcbc4
+
+problem: The credentials for the next level can be retrieved by
+submitting the password of the current level to a port on
+localhost in the range 31000 to 32000.
+a: find out which of these ports have a server listening.
+b: find out which of those speak SSL .
+There is only 1 server that will give the next credentials,
+the others will simply send back to you whatever you send to it.
+
+Write up
+1. nmap -p 31000-32000 localhost
+output: 5 open ports with services unknown:
+...
+PORT STATE SERVICE
+31046/tcp open unknown
+31518/tcp open unknown
+31691/tcp open unknown
+31790/tcp open unknown
+31960/tcp open unknown
+...
+2. Send bandit16’s password to all 5 ports, using openssl
+with s_client tool, was in our previous challenge.
+cat /etc/bandit_pass/bandit16 | openssl s_client -connect localhost:31046 -quiet
+cat /etc/bandit_pass/bandit16 | openssl s_client -connect localhost:31518 -quiet
+cat /etc/bandit_pass/bandit16 | openssl s_client -connect localhost:31691 -quiet
+cat /etc/bandit_pass/bandit16 | openssl s_client -connect localhost:31960 -quiet
+cat /etc/bandit_pass/bandit16 | openssl s_client -connect localhost:31790 -quiet
+
+output:
+Finally, at port 31790, the output we received is a
+RSA private key.
+3. Save the RSA private key into a file.
+we don’t have write permission in the home or current
+working directory.
+a. create a folder named /tmp/name123 & navigate
+rm -rf /tmp/name123 # Optional. Remove if /tmp/name123 exist
+mkdir /tmp/name123
+cd /tmp/name123
+b. vim sshkey.private Press Enter.
+press i to switch to insert mode.
+Copy and paste the RSA private key.
+Press ESC to switch back to command mode.
+Type :wq to save changes to file & quit Vim.
+
+c. chmod 400 sshkey.private:Allow only the owner to change
+ssh -i sshkey.private bandit17@localhost
+Now we are connected to server as bandit16
+4. cat /etc/bandit_pass/bandit17: obtain bandit17‘s password,
+
+Password : xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn
+
+
+
+
+
+
+
+
+
+
+
+17 → 18
+https://overthewire.org/wargames/bandit/bandit17.html
+ssh bandit17@bandit.labs.overthewire.org -p 2220
+pass: xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn
+
+problem: Password is in passwords.new and is the only line that
+has been changed between passwords.old and passwords.new
+
+Write up: 1. diff passwords.new passwords.old
+output:42c42
+< kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd
+---
+> w0Yfolrc5bwjS4qw5mq1nnQi6mF03bii
+
+- Lines preceded by a < are lines from the 1st file.
+- Lines preceded by a > are lines from the 2nd file.
+- The 3 dashes --- separating the lines of 1st 2nd file ones.
+
+Password : kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd
+
+
+18 → 19
+https://overthewire.org/wargames/bandit/bandit18.html
+ssh bandit18@bandit.labs.overthewire.org -p 2220
+pass:kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd
+
+problem: The password for the next level is stored in a file
+readme in the home directory. Unfortunately,
+someone has modified .bashrc to log you out when you log in
+with SSH
+
+solution 1: medium.com/@theGirlWhoEncrypts/overthewire-bandit-level-18-level-19-a446576eaa75
+ssh bandit18@bandit.labs.overthewire.org -p 2220 cat readme
+output IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x
+Password: IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x
+
+solution 2 Create “Pseudo Terminal”, with -t option in our ssh command
+ssh bandit18@bandit.labs.overthewire.org -p 2220 -t /bin/sh and enter bandit18's password to login.
+next run cat readme
+
+
+
+
+
+19 → 20
+https://overthewire.org/wargames/bandit/bandit20.html
+ssh bandit19@bandit.labs.overthewire.org -p 2220
+pass:IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x
+https://medium.com/@theGirlWhoEncrypts/overthewire-bandit-level-19-level-20-d6b15b5d803
+problem: To gain access to the next level, you should use the setuid binary in the homedirectory.
+
+The password is in (/etc/bandit_pass), after you have used the setuid binary.
+
+solution
+Write up
+1. ls -l
+output: ...
+-rwsr-x--- 1 bandit20 bandit19 7296 May 7 2020 bandit20-do
+...
+a. you can see the 's' in the permissions for the user instad of 'x'
+b. Additionally, the owner of the file 'bandit20-do' is bandit20.
+The red highlight signifies that this file has elevated permissions.
+Hence, any
+commands executing with ./bandit20-do will run as user bandit20 instead
+of bandit19.
+c. (Optional) Since the file bandit20-do is an executable,
+simply execute ./bandit20-do. The output the is following:
+
+"
+Run a command as another user.
+Example: ./bandit20-do id
+"
+
+
+2. Thus, run
+./bandit20-do cat /etc/bandit_pass/bandit20
+
+output: GbKksEFF4yrVs6il55v6gwY5aVje5f0j
+
+
+Bandit Level 20 → Level 21
+
+https://overthewire.org/wargames/bandit/bandit21.html
+ssh bandit20@bandit.labs.overthewire.org -p 2220
+pass: GbKksEFF4yrVs6il55v6gwY5aVje5f0j
+problem: There is a setuid binary in the homedirectory
+that does the following:
+it makes a connection to localhost on the port you specify as
+a command line argument.
+It then reads a line of text from the connection and compares it
+to the password in the previous level (bandit20).
+If the password is correct, it will transmit the password for the
+next level (bandit21).
+
+write up:
+1. Run ls -l in the current working directory,
+to identify the file with a “setuid” file permission setting
+output:
+-rwsr-x--- 1 bandit21 bandit20 12088 May 7 2020 suconnect
+
+As mentioned in the previous level, in the image above, the file
+'suconnect', has an s bit located in the “User” permission classes.
+Hence, this is the file we are finding with the setuid binary
+permission set.
+Additionally, the owner of the file 'suconnect' is bandit21.
+The red highlight signifies that this file has elevated permissions.
+Hence, any commands executing with ./suconnect will run as
+user bandit21 instead of bandit20.
+
+2. Run ./suconnect
+output:
+This program will connect to the given port on localhost using TCP.
+If it receives the correct password from the other side, the next password is transmitted back.
+
+3. Open 2'nd terminal and connect with ssh
+
+a. In 1st Terminal sand passward with netcat listener on 6000 port
+    echo "GbKksEFF4yrVs6il55v6gwY5aVje5f0j" | nc -lp 6000
+
+b. 2nd Terminal will connect to it using ./suconnect
+    ./suconnect 6000
+
+3. In term 1 output is gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr
+
+
+
+
+Bandit Level 21 → Level  22
+
+https://overthewire.org/wargames/bandit/bandit21.html
+ssh bandit21@bandit.labs.overthewire.org -p 2220
+pass: gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr
+problem: A program is running automatically at regular intervals
+from cron, the time–based job scheduler.
+Look in /etc/cron.d/ for the configuration and see
+what command is being executed.
+
+Write up:
+
+1. cd /etc/cron.d
+2. ls -la
+output:
+. . .
+-rw-r--r-- 1 root root 120 May 7 2020 cronjob_bandit22
+. . .
+3. cat cronjob_bandit22
+output:
+@reboot bandit22 /usr/bin/cronjob_bandit22.sh &> /dev/null
+* * * * * bandit22 /usr/bin/cronjob_bandit22.sh &> /dev/null
+  a. @reboot   means: Run once after reboot.
+  b.  * * * * * means Run at every minute. 
+        Execute the shell executable file, cronjob_bandit22.sh, 
+          located in the directory /usr/bin/.
+
+4. run cat /usr/bin/cronjob_bandit22.sh
+   output:
+         #!/bin/bash
+         chmod 644 /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+         cat /etc/bandit_pass/bandit22 > /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+
+5. cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+    output:
+     Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI
+
+
+/dev/null is a special file. Whatever you write to /dev/null
+will be discarded.
+It’s known as the null device in a UNIX system
+
+ 
+
+

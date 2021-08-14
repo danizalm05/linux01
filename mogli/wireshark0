@@ -1,0 +1,23 @@
+echo "Start wireshark"
+iwconfig
+
+ 
+echo "airmon-ng check kill"
+echo "-------------------------------------------"
+airmon-ng check kill #List of processes that could cause trouble
+echo "-------------------------------------------"
+echo "a airmon-ng start wlan0"
+echo "-------------------------------------------"
+airmon-ng start wlan0 # Start monitoring wlan0
+
+ 
+
+wireshark &
+ 
+#Stop monitor status and  return to manger  status
+#airmon-ng stop wlan0mon
+#service networking restart
+#service network-manager restart
+ifconfig
+iwconfig
+

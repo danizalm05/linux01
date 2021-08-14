@@ -1,0 +1,75 @@
+#!/bin/bash
+# https://www.youtube.com/watch?v=hwrnmQumtPw
+ 
+# chmod 755 loop
+  
+####  44:03 440
+
+
+  	num=1
+	
+	while [ $num -le 10 ]; do
+		echo $num
+		num=$((num + 1))
+	done
+
+ # Continue and Break
+	 num=1
+	echo "Don't print evens"
+	while [ $num -le 20 ]; do
+	
+		# Don't print evens
+
+		if (( ((num % 2)) == 0 )); then
+ 			num=$((num + 1))
+ 			continue
+ 		fi
+
+ 		
+ 		# Jump out of the loop with break
+ 		if ((num >= 15)); then
+ 			break
+ 		fi
+ 		
+		echo $num
+		num=$((num + 1))
+	done
+
+    echo
+	echo "Until loops until the loop is true"
+	echo "---------------------"
+	
+	num=1
+	
+	until [ $num -gt 10 ]; do
+		echo $num
+		num=$((num + 1))
+	done
+
+	# Use read and a loop to output file info
+    # doesn't work
+	echo 
+	echo " read and a loop to output file info"
+  	while read x y hrs; do
+  	    
+  		# printf allows you to use \n
+  		printf "x:${x}\n y:${y}\n z:${z}\n"
+  		
+  	# Pipe data into the while loop
+  	done < demo_file.txt
+   echo "hhh" 
+
+  # There are many for loop options. Here is the C form.
+   
+  	for (( i=0; i <= 10; i=i+1 )); do
+  		echo $i
+  	done
+  	
+  # We can cycle through ranges
+   
+  	for i in {A..Z}; do
+  	 echo $i
+  	done
+
+	#50:57 line  507
+	

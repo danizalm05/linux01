@@ -1,0 +1,388 @@
+Bandit Level 27 → Level 28
+
+https://overthewire.org/wargames/bandit/bandit28.html
+ssh bandit27@bandit.labs.overthewire.org -p 2220
+pass: 3ba3118a22e93127a4ed485be72ef5ea
+
+Problem: There is a git repository at
+ssh://bandit27-git@localhost/home/bandit27-git/repo.
+The password for the user bandit27-git is the same as for
+the user bandit27.
+
+Clone the repository and find the password for the next level.
+Write up:
+1. mkdir -p /tmp/zulu
+cd /tmp/zulu
+git clone ssh://bandit27-git@localhost/home/bandit27-git/repo
+
+output:
+Cloning into 'repo'...
+Could not create directory '/home/bandit27/.ssh'.
+The authenticity of host 'localhost (127.0.0.1)' can't be established.
+ECDSA key fingerprint is SHA256:98UL0ZWr85496EtCRkKlo20X3OPnyPSB5tB5RPbhczc.
+Are you sure you want to continue connecting (yes/no)?
+
+2. print yes
+output:
+failed to add the host to the list of known hosts (/home/bandit27/.ssh/known_hosts).
+This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
+
+bandit27-git@localhost's password:
+3. print the password
+output:
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0)
+Receiving objects: 100% (3/3), done.
+4 ls
+output: repo
+cd repo
+ls
+output README
+cat README
+output:
+The password to the next level: 0ef186ac70e04ea33b4c1853d2526fa2
+
+
+Bandit Level 28 → Level 29
+
+https://overthewire.org/wargames/bandit/bandit29.html
+ssh bandit28@bandit.labs.overthewire.org -p 2220
+pass: 0ef186ac70e04ea33b4c1853d2526fa2
+
+Problem: There is a git repository at
+ssh://bandit28-git@localhost/home/bandit28-git/repo.
+The password for the user bandit28-git is the same as for the
+user bandit28.
+
+Clone the repository and find the password for the next level.
+Write up:
+
+1. mkdir -p /tmp/mog
+cd /tmp/mog
+2. git clone ssh://bandit28-git@localhost/home/bandit28-git/repo
+output:
+Cloning into 'repo'...
+Could not create directory '/home/bandit28/.ssh'.
+The authenticity of host 'localhost (127.0.0.1)' can't be established.
+ECDSA key fingerprint is SHA256:98UL0ZWr85496EtCRkKlo20X3OPnyPSB5tB5RPbhczc.
+Are you sure you want to continue connecting (yes/no)? y
+Please type 'yes' or 'no': yes
+Failed to add the host to the list of known hosts (/home/bandit28/.ssh/known_hosts).
+This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
+
+bandit28-git@localhost's password:
+remote: Counting objects: 9, done.
+remote: Compressing objects: 100% (6/6), done.
+Receiving objects: 100% (9/9), 796 bytes | 0 bytes/s, done.
+remote: Total 9 (delta 2), reused 0 (delta 0)
+Resolving deltas: 100% (2/2), done.
+3. ls -lah
+ls -lah repo
+output: -rw-r--r-- 1 bandit28 root 111 Aug 10 11:05 README.md
+4. cat repo/README.md
+output
+# Bandit Notes
+Some notes for level29 of bandit.
+
+## credentials
+
+- username: bandit29
+- password: xxxxxxxxxx
+There’s no password in the README file.
+Now, we check the committed history of this repo using git log .
+
+5. cd repo/
+git log
+
+output:
+commit edd935d60906b33f0619605abd1689808ccdd5ee
+Author: Morla Porla <morla@overthewire.org>
+Date: Thu May 7 20:14:49 2020 +0200
+
+fix info leak
+
+commit c086d11a00c0648d095d04c089786efef5e01264
+Author: Morla Porla <morla@overthewire.org>
+Date: Thu May 7 20:14:49 2020 +0200
+
+add missing data
+
+commit de2ebe2d5fd1598cd547f4d56247e053be3fdc38
+Author: Ben Dover <noone@overthewire.org>
+Date: Thu May 7 20:14:49 2020 +0200
+
+initial commit of README.md
+
+6.
+Obviously, the password leakage had been fixed.
+Use git log command with -p option, which shows the diff introduced in
+each commit.
+We can also use -1 option, which limits the output to only the last entry.
+
+bandit28@bandit:/tmp/secttp/repo$ git log -p -1
+output:
+commit 073c27c130e6ee407e12faad1dd3848a110c4f95
+Author: Morla Porla <morla@overthewire.org>
+Date: Tue Oct 16 14:00:39 2018 +0200fix info leakdiff --git a/README.md b/README.md
+index 3f7cee8..5c6457b 100644
+--- a/README.md
++++ b/README.md
+@@ -4,5 +4,5 @@ Some notes for level29 of bandit.
+## credentials- username: bandit29
+-- password: bbc96594b4e001778eee9975372716b2
++- password: xxxxxxxxxx
+
+password: bbc96594b4e001778eee9975372716b2
+
+
+
+
+Bandit Level 29 → Level 30
+
+https://overthewire.org/wargames/bandit/bandit30.html
+ssh bandit29@bandit.labs.overthewire.org -p 2220
+pass: bbc96594b4e001778eee9975372716b2
+
+Problem: There is a git repository at
+ssh://bandit29-git@localhost/home/bandit29-git/repo.
+The password for the user bandit29-git is the same as for the user bandit29.
+
+Clone the repository and find the password for the next level.
+
+Write up:
+
+1. mkdir -p /tmp/mog1
+cd /tmp/mog1
+git clone ssh://bandit29-git@localhost/home/bandit29-git/repo
+
+2. ls -lah repo
+output:
+total 16K
+....
+-rw-r--r-- 1 bandit29 root 131 Aug 11 09:50 README.md
+3. cd repo
+cat README.md
+output:
+# Bandit Notes
+Some notes for bandit30 of bandit.
+
+## credentials
+
+- username: bandit30
+- password:
+5. Reading the file, we are informed that there is
+“no passwords in production”.
+git branch -a
+output:
+* master
+remotes/origin/HEAD -> origin/master
+remotes/origin/dev
+remotes/origin/master
+remotes/origin/sploits-dev
+6.There is a branch named remotes/origin/dev branch.
+git checkout dev
+output:
+Branch dev set up to track remote branch dev from origin.
+Switched to a new branch 'dev'
+7.ls
+output:
+code README.md
+
+cat README.md
+output:
+# Bandit Notes
+Some notes for bandit30 of bandit.
+
+## credentials
+
+- username: bandit30
+- password: 5b90576bedb2cc04c86a9e924ce42faf
+5b90576bedb2cc04c86a9e924ce42faf
+
+Bandit Level 30 → Level 31
+
+https://overthewire.org/wargames/bandit/bandit31.html
+ssh bandit30@bandit.labs.overthewire.org -p 2220
+pass: 5b90576bedb2cc04c86a9e924ce42faf
+Problem:
+There is a git repository at
+ssh://bandit30-git@localhost/home/bandit30-git/repo.
+The password for the user bandit30-git is the same as
+for the user bandit30.
+
+Clone the repository and find the password for the next level.
+
+Write up:
+
+1. mkdir -p /tmp/mog1
+cd /tmp/mog1
+git clone ssh://bandit29-git@localhost/home/bandit29-git/repo
+
+2. ls -lah repo
+output:
+total 16K
+....
+-rw-r--r-- 1 bandit29 root 131 Aug 11 09:50 README.md
+3. cd repo
+cat README.md
+output:
+just an epmty file... muahaha
+
+4. git tag
+output:
+secret
+(Git tags lets developers mark important checkpoints in the course of their projects )
+
+5. git show secret
+output: 47e603bb428404d265f59c42920d81e5
+
+
+Bandit Level 31→ Level 32
+
+https://overthewire.org/wargames/bandit/bandit32.html
+ssh bandit31@bandit.labs.overthewire.org -p 2220
+pass: 47e603bb428404d265f59c42920d81e5
+Problem:
+There is a git repository at ssh://bandit31-git@localhost/home/bandit31-git/repo.
+The password for the user bandit31-git is the same as for the user bandit31.
+
+Clone the repository and find the password for the next level.
+
+Write up:
+
+1. mkdir -p /tmp/mog1
+cd /tmp/mog1
+git clone ssh://bandit29-git@localhost/home/bandit29-git/repo
+2. cd repo
+cat README.md
+output:
+This time your task is to push a file to the remote repository.
+Details:
+File name: key.txt
+Content: 'May I come in?'
+Branch: master
+
+3. a. git branch * master
+b. touch key.txt
+c. echo "May I come in?" > key.txt
+d. git add key.txt
+output:
+The following paths are ignored by one of your .gitignore files:
+key.txt
+Use -f if you really want to add them.
+4. ls -al
+output:
+total 24
+drwxr-sr-x 3 bandit31 root 4096 Aug 13 13:57 .
+drwxr-sr-x 3 bandit31 root 4096 Aug 13 13:49 ..
+drwxr-sr-x 8 bandit31 root 4096 Aug 13 13:57 .git
+-rw-r--r-- 1 bandit31 root 6 Aug 13 13:50 .gitignore
+-rw-r--r-- 1 bandit31 root 15 Aug 13 13:57 key.txt
+-rw-r--r-- 1 bandit31 root 147 Aug 13 13:50 README.md
+
+5. cat .gitignore
+output:
+*.txt
+6. According to the message the ".gitignore" all '*.txt'files specified intentionally untracked files to ignore.
+So We must remove the .gitignore file first then push the file to the repository again.
+
+a. rm .gitignore
+b. git add key.txt
+c. git commit -m "Upload a file"
+d. git push origin master
+output:
+Could not create directory '/home/bandit31/.ssh'.
+The authenticity of host 'localhost (127.0.0.1)' can't be established. ........
+password:
+47e603bb428404d265f59c42920d81e5
+
+output:
+Counting objects: 3, done.
+Delta compression using up to 2 threads.
+<<<<<<< HEAD
+..
+remote: Well done! Here is the password for the next level:
+remote: 56a9bf19c63d650ce78e6ec0354ee45e
+remote: .oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.
+
+
+
+
+Bandit Level 32 → Level 33
+
+https://overthewire.org/wargames/bandit/bandit33.html
+=======
+   ..
+     remote: Well done! Here is the password for the next level:
+     remote: 56a9bf19c63d650ce78e6ec0354ee45e
+     remote: .oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.oOo.
+ 
+ 
+>>>>>>> 008ab12bba7d618d57ed66902a0d91e9b204648c
+
+ssh bandit32@bandit.labs.overthewire.org -p 2220
+pass: 56a9bf19c63d650ce78e6ec0354ee45e
+
+Problem: After all this git stuff its time for another escape. Good luck!
+
+
+<<<<<<< HEAD
+
+Write up:
+The shell converts every command into uppercase. We need to fix it and gain the
+normal shell again.
+Since this is an interactive shell, we have the chance to execute it again using the variable $0 .
+
+1. pwd
+output:
+/home/bandit32
+2. ls -al *
+output:
+-rwsr-x--- 1 bandit33 bandit32 7556 Oct 16 14:00 uppershell
+$ 3. cat /etc/bandit_pass/bandit33
+output:
+c9c3199ddf4121b10cf581a98d51caee
+
+=======
+https://overthewire.org/wargames/bandit/bandit33.html
+ 
+ssh bandit32@bandit.labs.overthewire.org -p 2220
+pass:   56a9bf19c63d650ce78e6ec0354ee45e
+        
+Problem: After all this git stuff its time for another escape. Good luck!
+      
+    
+
+Write up:
+  The shell converts every command into uppercase. We need to fix it and gain the 
+  normal shell again.
+   Since this is an interactive shell, we have the chance to execute it again using the variable $0 .
+
+  1.  pwd
+     output: 
+        /home/bandit32
+  2. ls -al *
+   output:
+       -rwsr-x--- 1 bandit33 bandit32 7556 Oct 16 14:00 uppershell
+$ 3. cat /etc/bandit_pass/bandit33   
+    output:
+      c9c3199ddf4121b10cf581a98d51caee
+>>>>>>> 008ab12bba7d618d57ed66902a0d91e9b204648c
+
+
+
+
+
+<<<<<<< HEAD
+
+Bandit Level 33
+Level Goal
+=======
+Bandit Level 33  
+Level Goal
+
+At this moment, level 34 does not exist yet.
+>>>>>>> 008ab12bba7d618d57ed66902a0d91e9b204648c
+
+At this moment, level 34 does not exist yet.

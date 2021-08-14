@@ -1,0 +1,89 @@
+#!/bin/bash
+# https://www.youtube.com/watch?v=hwrnmQumtPw
+ 
+# chmod 755 arrays
+  
+#  50:57 line  507
+	
+# Bash arrays can only have one dimension 
+# and indexes start at 0
+
+# Create an array
+	 
+	fav_nums=(3.14 2.718 .57721 4.6692)
+	
+	echo "Pi : ${fav_nums[0]}"
+	
+	# Add value to array
+	fav_nums[4]=1.618
+	
+	echo "GR : ${fav_nums[4]}"
+	
+	# Add group of values to array
+	fav_nums+=(1 7)
+	
+	# Output all array values
+	for i in ${fav_nums[*]}; do
+		echo $i;
+	done
+	
+	# Output indexes
+	for i in ${!fav_nums[@]}; do
+		echo $i;
+	done
+	
+	# Get number of items in array
+	echo "Array Length : ${#fav_nums[@]}"
+	
+	# Get length of array element
+	echo "Index 3 length : ${#fav_nums[3]}"
+	
+	# Sort an array
+	sorted_nums=($(for i in "${fav_nums[@]}"; do
+		echo $i;
+	done | sort))
+	
+	for i in ${sorted_nums[*]}; do
+		echo $i;
+	done
+	
+	# Delete array element
+	unset 'sorted_nums[1]'
+	
+	# Delete Array
+	unset sorted_nums
+ 
+	
+# Positional Parameters
+# 1. Positional parameters are variables 
+# that can store data on the command line in 
+# variable names 0 - 9
+	
+# a. $0 always contains the path to the
+#  executed script
+		
+# b. You can access names past 9 by using
+#  parameter expansion like this ${10}
+		
+# 2. Add all numbers on the command line
+	 
+	
+	# Print the first argument
+	echo "1st Argument : $1"
+	
+	sum=0
+	
+	# $# tells you the number of arguments
+	while [[ $# -gt 0 ]]; do
+	
+		# Get the first argument
+		num=$1
+		sum=$((sum + num))
+		
+	# shift moves the value of $2 into $1 
+	# until none are left
+	# The value of $# decrements as well
+		shift
+	done
+	
+	echo "Sum : $sum"

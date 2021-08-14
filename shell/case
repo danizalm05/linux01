@@ -1,0 +1,40 @@
+#!/bin/bash
+# https://www.youtube.com/watch?v=hwrnmQumtPw
+ 
+# chmod 755 case
+#39:06  line 380
+
+# Use case to when it makes more sense then if
+ 
+  
+  read -p "How old are you : " age
+  
+  
+  case $age in  # Check the value of age
+  
+  
+     [0-4])   # Match numbers 0 - 4
+          echo "To young for school"
+          ;; # Stop checking further
+     5) # Match only 5
+          echo "Go to kindergarten"
+          ;;
+     [6-9]|1[0-8])   # Check 6 - 18
+          grade=$((age-5))
+          echo "Go to grade $grade"
+          ;;
+  
+     *)   # Default action
+         echo "You are to old for school"
+          ;;
+  esac # End case
+
+  #Ternary Operator performs different 
+  #actions based on a condition
+ 
+  can_vote=0
+  age=18
+  
+  ((age>=18?(can_vote=1):(can_vote=0)))
+  echo "Can Vote : $can_vote"
+

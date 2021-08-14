@@ -1,0 +1,55 @@
+#!/bin/bash
+# https://www.youtube.com/watch?v=hwrnmQumtPw
+      
+# chmod 755 strings
+  
+####  42:03 421
+ # To  run this script if  file has  no  permission bash  ./pyton
+
+ #   List only hidden file:    ls -a
+ #  or Go to the top menu -->      View->Show hidden files
+
+ # sudo apt update
+ # sudo apt-get install python3.5
+     echo
+     printf "python --version =>  "
+     python --version
+     echo  
+
+     echo
+     printf "python3 --version =>  "
+     python3 --version
+     echo
+	 printf "PATH =>  "
+	 echo  $PATH
+	 echo
+     printf "which python =>  "
+	 which python  
+
+    echo 
+    echo 
+    echo "printenv   "
+    echo '-------------------------'
+	printenv  
+    echo 
+    printenv PYTHONPATH
+     echo '-------------------------'
+    # to  run python 3  run python3
+    # cd /usr/local/lib/python3.5/dist-packages
+    #  sudo fdisk -l   
+    #            /dev/sdb2  18.6G  b W95 FAT32
+    #  ll /media/ display the mounted partitions
+    #            mint@mint ~ $ ll /media/
+# total 12
+# drwxr-xr-x  3 root root 4096 Jan 26 08:56 ./
+# drwxr-xr-x 35 root root 4096 Jan 26 13:43 ../
+# lrwxrwxrwx  1 root root    6 Jan 26 08:55 cdrom -> /cdrom/
+# drwx------  3 mint root 4096 Jan 26 13:43 mint/
+
+ #sudo blkid
+#     /dev/sdb2: UUID="6AD6-A8C0" TYPE="vfat" PARTUUID="49c05eb6-02"
+# This is the  name of partition: UUID="6AD6-A8C0"
+
+# ll /dev/sdb2
+#          brw-rw---- 1 root disk 8, 18 Jan 26 13:43 /dev/sdb2
+# sudo mount -t ntfs -o rw,auto,user,fmask=0022,dmask=0000 /dev/sdb2 /mnt/mint

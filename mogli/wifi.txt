@@ -1,0 +1,63 @@
+Kali Wireless Security.pdf
+
+ ESSID: Extended basic Service Set IDentifier (Access point name)
+ BSSID: Basic Service Set IDentifier: MAC/Physicaladdress of AP
+ SSID:  Service Set Identifier (Default Wireless Network Name)
+ WPA2-PSK: Wi-Fi Protected Access - Pre-Shared Key
+iwconfig
+ifconfig
+iwlist
+
+find ip
+---------------
+ipconfig: find ip public/private in win 10
+hostname -I
+ifconfig
+ip addr: Show private  ip 
+ip a s | grep -w inet | awk '{ print $2}': Find privte IP
+curl ifconfig.me
+netdiscover
+
+
+Setting up Wireless Adapter
+---------------------------
+ iwlist wlan0 scan:   Scan the air for available access points
+ iwlist wlan0 scan | grep ESSID:   filter the output to show ESSID
+ iwlist wlan0 scan | grep -i "essid\| channel:"   :filter the output to show ESSID and channel
+ iwlist wlan0 scan | grep -i --color "essid\| channel:\|quality\|address":
+  
+restart wifi
+-------------
+1 service networking restart
+2 service network-manager restart
+
+
+         Connecting to Wi-Fi hotspot viaTerminal
+         ------------------------------------------
+ service network-manager stop: Kill network-manager 
+ wpa_passphrase:  Connecting to Wi-Fi hotspot viaTerminal
+ wpa_passphrase [ssid] [passward] > wpa.conf:  Create configuration file 'wpa.conf'
+  
+
+ wpa_supplicant: Stock utility to associate the wireless cards with access points from terminal
+ wpa_supplicant can only connect to WPA/2 type networks
+ 
+ 
+ wpa_supplicant -D nl80211 -i wlan0 -c wpa.conf
+    -D nl80211: Wireless drivers to carry the authentication/association process.
+    -i wlan0: Wireless interface to use. 
+    -c wpa.conf:Configuration file created with wpa_passphrase  utility.
+
+Example file to connect to wifi from wlan0 (conn0):
+
+    echo 'Connecting to Wi-Fi hotspot viaTerminal'
+    echo 'Kill network-manager'
+    killall wpa_supplicant
+    echo ' Kill network-manager'
+    service network-manager stop 
+    echo 'create configuration file'
+    wpa_passphrase [Access point name] [password] > wpa.conf  #Create configuration file 'wpa.conf'
+    echo 'connect to wlan0' 
+    wpa_supplicant -D nl80211 -i wlan0 -c wpa.conf
+    echo ' You are connected  to ==>  '
+    ifconfig wlan0  

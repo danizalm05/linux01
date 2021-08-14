@@ -1,0 +1,49 @@
+#!/bin/bash
+
+# https://www.youtube.com/watch?v=YinR8zIK_3g&list=PLgYy5YCbiYbHh1ST5__ffj99eAjVfAwgy&index=5
+#
+
+
+echo "ssh demo"
+echo "1: whereis ssh"
+whereis ssh
+echo "2: which ssh "
+which ssh
+
+echo "ssh://[user@]hostname[:port]"
+ssh bandit4@bandit.labs.overthewire.org -p 2220
+# password = pIwrPrtPN36QITSp3EQaw936yaFoFgAB
+# whoami -> bandit4
+# exit
+
+
+When ssh used with -i option will use a file with a private key to use for login.
+We will use our sshkey.private file. We now know our full command to type to
+remote into bandit14 user.
+
+ssh -i ./sshkey.private bandit14@localhost
+-i says use a specified privatekey file, ./sshkey.private is our key location,
+a
+After we enter this command we will be asked: Are you sure you want to
+continue connecting (yes/no)?
+Type yes
+We are now connected to bandit14
+
+ssh bandit4@bandit.labs.overthewire.org -p 2220 <command>
+# After login the command will be run automatically
+
+      Pseudo Termina
+      -------------------
+   “Pseudo Terminal”: emulates terminal hardware, handling input and output, the same way a physical device would so that the software connected is unaware that it is not a real device attached.
+
+    To understand what is “Pseudo Terminal”, read https://renenyffenegger.ch/notes/development/misc/pseudo-terminal
+
+To create “Pseudo Terminal”, we would use -t option in our ssh command to force pseudo-tty allocation:
+
+     1. ssh bandit18@bandit.labs.overthewire.org -p 2220 -t /bin/sh 
+     2.  enter  password to login.
+
+Here /bin/sh, is the shell   used in our “Pseudo Terminal”.
+
+
+

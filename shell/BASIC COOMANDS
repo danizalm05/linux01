@@ -1,0 +1,39 @@
+ 
+
+Show hidden folders: Ctrl H (browser) 
+                     ls -a  (terminal) 
+
+remove hidden dir: rm -rf .directory_name:    
+
+
+
+
+Shortcut List
+
+
+'Super' key Switch between the Activities overview and desktop. In the overview, start typing to instantly search your applications, contacts, and documents.
+
+
+Add/remove an icon  :    ALT + Windows Key + Right Click on the item
+Change eng to heb:   Super + Space 
+Close window:  Alt+F4
+
+sudo apt install glances
+
+Switch between windows:Super + Tab  
+
+
+
+Super+M:  Open the message tray. Press Super+M again or Esc to close.
+Open command window:   Alt+F2
+
+
+Turn zoom on/off  : Alt+Super+8
+Zoom in :  Alt+Super+=
+Zoom out:  Alt+Super+-
+
+Screenshot: Print
+
+Screenshot of a window to clipboard: Ctrl+Alt+Print
+
+

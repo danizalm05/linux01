@@ -1,0 +1,46 @@
+ 
+find: Search for files that meet a desired criteria
+  
+find -name "filename": Find file by its file name
+
+find ./ -size 1033c ! -executable: find a file somewhere under the inhere directory and has following  properties:  
+     human-readable   • 1033 bytes in size  • not executable
+
+find / -type f -user bandit7 -group bandit6 -size 33c :   find a file  somewhere on the
+        server and has all of the following properties:
+          owned by user bandit7   owned by group bandit6  33 bytes in size
+
+find / -type f -user bandit7 -group bandit6 -size 33c  2>/dev/null
+    The same as the above but all  errors will be send to error output (2>/dev/null) so they will not showen 
+    on the out put display
+
+
+
+ find / -user bandit20:   find all  file  owned  by user = bandit20
+ 
+
+ 
+ find $HOME -mtime 0
+    Search  for files in your home directory which have been modified in the last twenty-four hours. 
+   This command
+       works this way because the time since each file was last modified is divided by 24 hours and any remainder  is
+       discarded.   That  means  that to match -mtime 0, a file will have to have a modification in the past which is
+       less than 24 hours ago.
+
+ find /sbin /usr/sbin -executable \! -readable -print
+
+       Search for files which are executable but not readable.
+
+ find . -perm 664
+
+       Search for files which have read and write permission for their owner, and group, but which  other  users  can
+       read  but  not  write to.  Files which meet these criteria but have other permissions bits set (for example if
+       someone can execute the file) will not be matched.
+
+
+find . -perm -220
+       find . -perm -g+w,u+w
+
+       Both  these  commands  do  the  same  thing; search for files which are writable by both their owner and their
+       group.
+

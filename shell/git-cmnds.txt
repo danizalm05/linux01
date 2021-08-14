@@ -1,0 +1,124 @@
+The git process 'https://help.github.com/articles/create-a-repo/'
+------------------------
+
+
+
+Download git dir
+----------------------------
+1.  git init
+2.  git remote add origin https://github.com/username/new_repo.git
+3:  git remote -v
+4:  git pull origin mater
+
+
+
+Git in local computer
+--------------------------------------
+ 
+
+1:   git add .  
+2:   git commit -m "Fix such and such"  
+3:   git push   originn  master
+
+
+
+
+log
+---------------
+git log : history of this repo
+git log -p: shows the diff introduced in each commit.
+git log -p -1 : limits the output to only the last entry.
+
+tag
+------------
+git tag: List of tag
+git show <tag name>: Show   content of  a tag
+
+Create  a new Repository
+-------------------
+1: At the 'https://github.com/username' press the '+' (Upper-right corner of any page, click , and then click New repository.) and choose: 'Create a new repository'.
+2: choose 'Repository name'.
+3: Choose creating a public repository.
+4: Select Initialize this repository with a README
+5: Click Create repository.
+
+
+How commit a change to the README file.
+-------------------------------------------
+1: In your repository's list of files, click README.md.
+2: Above the file's content, click 'the pencil tag'
+3: On the Edit file tab , type some information about yourself.
+4: Above the new content, click Preview changes.
+5: At the bottom of the page, type a short, meaningful commit message
+6: Below the commit message fields, decide whether to add your commit to the current branch or to a new branch. If your current branch is master, you should choose to create a new branch for your commit and then create a pull request.
+7:Click Propose file change.
+
+
+
+
+
+
+Push an existing repository
+---------------
+1: git remote add origin https://github.com/username/new_repo.git
+2: git remote -v
+3: git push -u origin master
+you need to print user name and passward
+if the next message appears:
+! [rejected] master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com//username/new_repo'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+you shold run :
+git pull origin master and after that run git push -u origin master
+
+changing remote
+------------------
+git remote set-url origin https://github.com/USERNAME/PRJECT_NAME.git
+
+
+
+Switched to a new branch  
+--------------------------------------------
+git branch -a:  Show  list of  branchs
+git checkout <rrrr> :Switched to a new branch 'rrrr'
+ 
+----------------------------------------------------------------
+git push -u origin gh-pages:gh-pages
+
+
+
+dos commands
+show hidden file in cmd 'dir /ah'
+delete non empty dir rmdir /s 'dir name'
+
+Fork A Repo
+-----------------
+
+
+A fork is a copy of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project.
+Most commonly, forks are used to:
+1 Changes to someone else's project
+2 Use someone else's project as a starting point for your own idea.
+
+
+
+Fork process
+-------------
+1 On GitHub, navigate to the repository.
+2 In the top-right corner of the page, click Fork.
+//Create a local clone of your fork
+3 On GitHub, navigate to your fork of the repository
+4 Under your repository name, click Clone or download.
+5 In the Clone with HTTPs section, click icon with arrow to copy the clone URL for the repository.
+6 open terminl
+7 Type git clone, and then paste the URL you copied in Step 5.
+It will look like this:
+git clone https://github.com/usr-name/building-products-with-js.git
+
+more in https://help.github.com/articles/fork-a-repo/
+ 
+
+
+

@@ -1,0 +1,74 @@
+#!/bin/bash
+# https://www.youtube.com/watch?v=hwrnmQumtPw
+ 
+Summary of the common regular expressions:
+
+[ ]:                             Matches any one of a set characters
+[ ] with hyphen:      Matches any one of a range characters
+^:                              The pattern following it must occur at the beginning of each line
+^ with [ ] :                The pattern must not contain any character in the set specified
+$:                             The pattern preceding it must occur at the end of each line
+. (dot):                     Matches any one character
+\ (backslash):        Ignores the special meaning of the character following it
+*:                              Zero or more occurrences of the previous character
+(dot).*:                    Nothing or any numbers of characters.
+
+ 
+grep "was" demo.txt :Output all lines that contains the word was
+[ ] : Matches any one of a set characters:
+$grep "[CcFf]a[RrTt]"  kafka.txt : A 3 letters sequence in a word like hjcarh,jjFarjj,4ftCaTbn
+
+Use [ ] with hyphen: Matches any one of a range characters:
+
+$grep  --color=always "da[a-z]" kafka.txt: 12dab456
+$grep  --color=always "da[a-i][a-z]" kafka.txt: 12daix456
+
+Use ^: The pattern following it must occur at the beginning of each line:
+$grep  "^He" kafka.txt
+
+Display list of directories only:
+$ls –l |grep  "^d"
+
+Display list of regular files only:
+$ls –l |grep  "^-"
+
+Use ^ with [ ]: The pattern must not contain any character in the set specified:
+$grep  "d[^a-i]e" kafka.txt
+
+Use $: The pattern preceding it must occur at the end of each line:
+$ grep "got$" kafka.txt
+
+Use . (dot): Matches any one character:
+$ grep "st..id" kafka.txt
+
+Use \ (backslash): Ignores the special meaning of the character following it:
+$ grep "out\.$" kafka.txt
+$ grep "Hell\!" kafka.txt
+
+Use *: zero or more occurrences of the previous character:
+$ grep "hap*[e-z]n[a-i]d" kafka.txt
+
+Use (dot).*: Nothing or any numbers of characters:
+$ grep "hap.*ed" kafka.txtchmod 755 reg-exp
+ #
+
+#  Regular Expressions
+#  http://regexstorm.net/tester
+#  http://regexr.com/
+ 	read -p "Validate Date : " date
+	
+	pat="^[0-9]{8}$"
+	# The "=~"" is a Regular Expression matching 
+	# operator 	within a double 
+	# brackets test expression
+	# The caret "^ " matches the beginning of 
+	# a line( sometimes, depending on 
+	#context, negates meaning )
+
+	if [[ $date =~ $pat ]]; then
+		echo "$date is valid"
+	else
+		echo "$date is not valid"
+	fi
+
+	#30:40 312

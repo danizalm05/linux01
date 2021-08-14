@@ -1,0 +1,32 @@
+Shortcut List 
+
+
+'Super' key is the left "system" button   - between left "CTRL" and left "ALT".
+ 
+
+
+'Super' key Switch between the Activities overview and desktop. In the overview, start typing to instantly search your applications, contacts, and documents.
+
+
+ 	
+
+Super + Tab:  Quickly switch between windows.
+
+Super + Space:  change lengu 	fffכככ
+
+Super+M:  Open the message tray. Press Super+M again or Esc to close.
+Open command window:   Alt+F2
+
+Close window:  Alt+F4
+Turn zoom on/off  : Alt+Super+8
+Zoom in :  Alt+Super+=
+Zoom out:  Alt+Super+-
+
+Screenshot: Print
+
+Screenshot of a window to clipboard: Ctrl+Alt+Print
+
+Add/remove an icon in Kali Linux top panel:    ALT + Windows Key + Right Click on the item
+
+
+ 

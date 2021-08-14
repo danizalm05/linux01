@@ -1,0 +1,5 @@
+ 
+ 
+  
+ /etc/bandit_pass/bandit14
+ /etc/passwd : Password stored 

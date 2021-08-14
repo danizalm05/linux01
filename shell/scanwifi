@@ -1,0 +1,79 @@
+#!/bin/bash
+
+# chmod 755
+clear
+ifconfig
+echo "-------------------------"
+iwconfig
+echo
+
+ 
+
+if [ $# -lt 1 ]
+then
+echo "Usage : $0 port number"
+echo " 0 - wlan0 "
+echo " 1 - wlan1 "
+echo " 2 - wlp1s0 "
+echo " 3 - wlp4s0 gme Pop "
+exit 1
+fi
+
+
+case "$1" in
+0)
+echo "Scaning wlan0"
+port="wlan0"
+monport="wlan0mon"
+;;
+
+1)
+   port="wlan1"
+   monport="wlan1mon"
+;;
+
+2)
+   port="wlp1s0"
+   monport="wlp1s0mon" 
+;;
+
+  3) #yoga  ext wifi
+   port="wlxe894f6236dc9"
+   monport="wlan0mon" 
+ 
+  ;;
+  
+   4) # gMea
+   port="wlp4s0"
+   monport="wlp4s0mon" 
+ 
+  ;;
+
+*)
+echo "Option does not exists"
+exit 1
+
+esac
+
+echo "[1]: airmon-ng check kill"
+airmon-ng check kill
+
+echo "[2]: airmon-ng start $port"
+airmon-ng start $port # Start monitoring $port
+
+echo "[3]: airodump-ng $monport -w test_data_capture"
+  
+airodump-ng $monport -w test_data_capture
+
+echo "[4]: besside-ng $monport"
+besside-ng $monport
+
+echo "[5]: airmon-ng stop $monport # Stop monitor"
+#Stop monitor status and return to manger status
+airmon-ng stop $monport
+
+echo "[6]: service networking restart"
+service networking restart
+
+echo "[7]: service network-manager restart"
+service network-manager restart

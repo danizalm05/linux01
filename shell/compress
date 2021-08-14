@@ -1,0 +1,18 @@
+ https://www.youtube.com/watch?v=_q9ww3pF0U4&list=PLgYy5YCbiYbHh1ST5__ffj99eAjVfAwgy&index=7
+ 
+ 5:52
+
+7. file myfile1.bin
+output: myfile1.bin: gzip compressed data, was "data2.bin",
+8. zcat myfile1.bin > myfile2
+9. file myfile2
+output:myfile2: bzip2 compressed data, block size = 900k
+10. bzcat myfile2 > myfile3
+11. file myfile3
+output: myfile3: gzip compressed data, was "data4.bin",
+12 zcat myfile3 > myfile4
+13. file myfile4
+output: myfile4: POSIX tar archive (GNU)
+14 tar -xvf myfile4
+15 file data5.bin
+output: data5.bin: POSIX tar archive (GNU)

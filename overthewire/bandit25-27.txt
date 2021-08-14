@@ -1,0 +1,147 @@
+Bandit Level 25 → Level 26
+
+https://overthewire.org/wargames/bandit/bandit26.html
+ssh bandit25@bandit.labs.overthewire.org -p 2220
+pass: uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG
+Problem: Logging in to bandit26 from bandit25 should be fairly easy… The shell 
+for user bandit26  not /bin/bash, but something else.
+Find out what it is, how it works and how to break out of it
+Write up:
+
+1. ls
+output: bandit26.sshkey
+
+2. ssh -i bandit26.sshkey bandit26@localhost
+#-i :use a file with a private key to for login
+output: A successful login but immediate logged out.
+The cause of the immediate logged out is mostly attributed to user bandit26
+NOT using the normal /bin/bash shell.
+As hinted in the description, “The shell for user bandit26 is NOT /bin/bash, but something else”.
+
+Therefore, in order to login to bandit26 and stay in the connection, we have to find out what shell
+is user bandit26 using
+
+3. cat /etc/passwd | grep bandit26
+output:
+bandit26:x:11026:11026:bandit level 26:/home/bandit26:/usr/bin/showtext
+so user bandit26 is using /usr/bin/showtext
+
+4. cat /usr/bin/showtext
+otput:
+#!/bin/sh
+
+export TERM=linux # sets the terminal emulator to linux
+
+more ~/text.txt # view ~/text.txt
+exit 0
+
+
+The only way to obtain bandit26‘s password is to gain access to ~/text.txt file
+BEFORE the connection terminates.
+
+The more command will NOT exit if there are more contents to be display.
+
+So we need Reduce the size of the terminal to provoke/enable 'more' command
+to page through text one screenful at a time. Maximum terminal height = 6
+
+5.
+a. Reduce the size of the terminal to less than 6 lines
+b. ssh -i bandit26.sshkey bandit26@localhost
+c. v # display the Vim editor
+d. :e /etc/bandit_pass/bandit26 and hit ENTER.
+
+output:5czgV9L3Xx8JPOyRbXh6lQbmIOWvPT6Z
+
+Hint for the next level: Don’t Logout or Exit from Vim editor.
+
+
+
+Bandit Level 26 → Level 27
+
+https://overthewire.org/wargames/bandit/bandit27.html
+ssh bandit26@bandit.labs.overthewire.org -p 2220
+pass: 5czgV9L3Xx8JPOyRbXh6lQbmIOWvPT6Z
+
+Problem: Good job getting a shell!
+    Now hurry and grab the password for bandit27!
+Write up:
+1. Logging in with the above credentials is only POSSIBLE
+if we MINIMISE the terminal window like we have done in previous
+level.
+This is because of the different shell used for user
+bandit26: usr/bin/showtext.
+Upon successful login, due to reduced terminal size,
+the script will trigger the more command
+2. more command consist of interactive commands and one of
+the command is: v
+press v
+3. Next, run the following commands to set the shell to /bin/bash:
+
+:set shell ? to display the current shell used
+:set shell=/bin/bash to set it to /bin/bash
+Run :set shell ? again to confirm
+we can execute a command by entering :!
+
+E.g. :!ls
+4. :!./bandit27-do
+output:
+bandit26@bandit:~$ ./bandit27-do
+Run a command as another user.
+Example: ./bandit27-do id
+5. :!file ./bandit27-do
+output :
+!file ./bandit27-do
+./bandit27-do: setuid ELF 32-bit LSB executable,
+........
+
+6.
+:!./bandit27-do cat /etc/bandit_pass/bandit27
+output:
+3ba3118a22e93127a4ed485be72ef5ea
+
+Bandit Level 27 → Level 28
+
+https://overthewire.org/wargames/bandit/bandit28.html
+ssh bandit27@bandit.labs.overthewire.org -p 2220
+pass: 3ba3118a22e93127a4ed485be72ef5ea
+
+Problem: There is a git repository at
+ssh://bandit27-git@localhost/home/bandit27-git/repo.
+The password for the user bandit27-git is the same as for
+the user bandit27.
+
+Clone the repository and find the password for the next level.
+Write up:
+1. mkdir -p /tmp/zulu
+cd /tmp/zulu
+git clone ssh://bandit27-git@localhost/home/bandit27-git/repo
+
+output:
+Cloning into 'repo'...
+Could not create directory '/home/bandit27/.ssh'.
+The authenticity of host 'localhost (127.0.0.1)' can't be established.
+ECDSA key fingerprint is SHA256:98UL0ZWr85496EtCRkKlo20X3OPnyPSB5tB5RPbhczc.
+Are you sure you want to continue connecting (yes/no)?
+
+2. print yes
+output:
+failed to add the host to the list of known hosts (/home/bandit27/.ssh/known_hosts).
+This is a OverTheWire game server. More information on http://www.overthewire.org/wargames
+
+bandit27-git@localhost's password:
+3. print the password
+output:
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0)
+Receiving objects: 100% (3/3), done.
+4 ls
+output: repo
+cd repo
+ls
+output README
+cat README
+output:
+The password to the next level: 0ef186ac70e04ea33b4c1853d2526fa2
+
+ 

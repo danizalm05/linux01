@@ -1,0 +1,26 @@
+#!/bin/bash
+# https://www.youtube.com/watch?v=hwrnmQumtPw
+ 
+# chmod 755 reg-exp
+ #
+
+#  Regular Expressions
+#  http://regexstorm.net/tester
+#  http://regexr.com/
+ 	read -p "Validate Date : " date
+	
+	pat="^[0-9]{8}$"
+	# The "=~"" is a Regular Expression matching 
+	# operator 	within a double 
+	# brackets test expression
+	# The caret "^ " matches the beginning of 
+	# a line( sometimes, depending on 
+	#context, negates meaning )
+
+	if [[ $date =~ $pat ]]; then
+		echo "$date is valid"
+	else
+		echo "$date is not valid"
+	fi
+
+	#30:40 312
