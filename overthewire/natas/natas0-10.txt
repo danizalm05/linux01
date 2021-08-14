@@ -1,0 +1,64 @@
+https://www.hackingarticles.in/overthewire-natas-walkthrough-0-11/
+
+Level 0 → 
+https://overthewire.org/wargames/natas/natas0.html
+Username: natas0
+Password: natas0
+URL:      http://natas0.natas.labs.overthewire.org
+
+Write up:
+1.  Right click on the webpage and select ‘View Page Source’. 
+output:
+ ......!--The password for natas1 is gtVrDuiDfck831PqWsLEZy5gyDz1clto -->
+   
+
+
+Level 1 → Level 2
+Username: natas1
+URL:      http://natas1.natas.labs.overthewire.org
+password: gtVrDuiDfck831PqWsLEZy5gyDz1clto
+problem:  You can find the password for the next level on this page,
+ but right clicking has been blocked! 
+ 
+Write up:
+ 1. Ctrl u
+  output:
+     !--The password for natas2 is ZluruAthQk7Q2MqmDeTiUij2ZvWy2mBi -->
+ 
+ 
+Level 2 → Level 3
+Username: natas2
+URL:      http://natas2.natas.labs.overthewire.org
+password: ZluruAthQk7Q2MqmDeTiUij2ZvWy2mBi
+problem: There is nothing on this page 
+
+Write up:
+ 1.  check the Source Code
+   output:
+        .... <img src="files/pixel.png">
+		
+ 2. Opened the files directory:
+       http://natas2.natas.labs.overthewire.org/files/ 
+	output:
+      Parent Directory	 	- 	 
+           	pixel.png	2016-12-15 16:07 	303 	 
+           	users.txt	2016-12-20 05:15 	145 	 	
+ 3.	 Open   'users.txt'
+       output:
+	    # username:password
+			....
+			charlie:G5vCxkVV3m
+			natas3:sJIJNW6ucpu6HPZ1ZAchaDtwd7oGrD14
+
+Leve3 → Level4
+Username: natas3
+URL:      http://natas3.natas.labs.overthewire.org
+password: sJIJNW6ucpu6HPZ1ZAchaDtwd7oGrD14
+problem: There is nothing on this page 
+
+1.  check the Source Code
+   output:
+    commented hint. It says “Not even Google will find it this time”. 
+2.
+    Search Engine spiders always leave the links that are disallowed the robots.txt file.
+   So, we thought to check if this website has one.
