@@ -83,5 +83,8 @@ Leve4 → Level5
 Username: natas4
 URL:      http://natas4.natas.labs.overthewire.org
 password: Z9tkRkWmpt9Qr7XrR5jWRkgOU901swEZ
-problem:
+problem: 
+    Access disallowed. You are visiting from "" while authorized users
+    should come only from "http://natas5.natas.labs.overthewire.org/"
+         Refresh page
 
