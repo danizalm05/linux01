@@ -59,6 +59,29 @@ problem: There is nothing on this page
 1.  check the Source Code
    output:
     commented hint. It says “Not even Google will find it this time”. 
-2.
+ 
     Search Engine spiders always leave the links that are disallowed the robots.txt file.
    So, we thought to check if this website has one.
+
+2. Open 'robots.txt' file
+http://natas3.natas.labs.overthewire.org/robots.txt
+  output:
+         User-agent: *
+         Disallow: /s3cr3t/
+3. open 's3cr3t'  
+      http://natas3.natas.labs.overthewire.org/s3cr3t/
+   output:
+      users.txt	2016-12-20 05:15 	40 	 
+
+4.  open ' users.txt' 
+       http://natas3.natas.labs.overthewire.org/s3cr3t/users.txt
+    output:
+   natas4:Z9tkRkWmpt9Qr7XrR5jWRkgOU901swEZ
+
+
+Leve4 → Level5
+Username: natas4
+URL:      http://natas4.natas.labs.overthewire.org
+password: Z9tkRkWmpt9Qr7XrR5jWRkgOU901swEZ
+problem:
+
