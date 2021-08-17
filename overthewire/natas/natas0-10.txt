@@ -191,5 +191,8 @@ through the following proccess:
     echo base64_decode(strrev(hex2bin($encodedSecret)));
 
  result: oubWYf2kBq
+3. Input this string in the input box
+
+output: W0mMhUcRRnG8dcghE4qvk3JA9lGt8nDl  
 
 
