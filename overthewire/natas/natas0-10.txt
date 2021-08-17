@@ -170,3 +170,26 @@ write up:
 	 function encodeSecret($secret) {
              return bin2hex(strrev(base64_encode($secret)));
 }
+
+  So it looks like they tried to hide the secret by encoding the input in the following order:
+
+1) base64_encode - Regular Base64 encoding
+2) strrev - reverses a string
+3) bin2hex - Convert binary data into hexadecimal representation
+ We simply need to run the string 
+         3d3d516343746d4d6d6c315669563362
+through the following proccess:
+
+1) hex2bin
+2) strrev
+3) base64_decode
+
+1. open  interactive php command line in the next url
+        https://sandbox.onlinephpfunctions.com/   
+2.  Run the next commands
+    $encodedSecret = "3d3d516343746d4d6d6c315669563362";
+    echo base64_decode(strrev(hex2bin($encodedSecret)));
+
+ result: oubWYf2kBq
+
+
