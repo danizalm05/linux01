@@ -234,9 +234,39 @@ problem :
         passthru("grep -i $key dictionary.txt");
        }
    } 
-   
+ Write up:
+   1. Put this command:
+         grep -i -v - /etc/natas_webpass/natas11 dictionary.txt 
+		 
+   output: 
+        /etc/natas_webpass/natas11:U82q5TCMMQ9xuFoI3dYX61s7OZD9JKoK
+		dictionary.txt:
+		dictionary.txt:African
+		dictionary.txt:Africans
+         ..........
  This sourcecode is similar to the one from the last level.
     The difference is, that the characters ;, | and & are not allowed. 
 	This means, no simple Linux command chaining is possible.
+Lets look at the  grep command
+ grep -i $key dictionary.txt
 
-https://burakb.net/writeup/overthewire-natas-level-9-level-10/	
+      grep      executes /bin/grep
+      -i        Perform case insensitive matching.
+      $key      Our user controllable parameter
+      dictionary.txt     the file to search
+we can search multiple files in a single grep command.	  
+    -v, --invert-match
+          Invert the sense of matching, to select non-matching lines
+
+
+Leve11 → Level12
+Username: natas11
+URL:      http://natas11.natas.labs.overthewire.org	
+password:		 
+	U82q5TCMMQ9xuFoI3dYX61s7OZD9JKoK	  
+problem :	
+	Cookies are protected with XOR encryption
+    Background color: 
+Write up:
+   1.	
+	
