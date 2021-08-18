@@ -1,0 +1,14 @@
+https://www.hackingarticles.in/overthewire-natas-walkthrough-0-11/
+ 
+
+Leve11 → Level12
+Username: natas11
+URL:      http://natas11.natas.labs.overthewire.org	
+password:		 
+	U82q5TCMMQ9xuFoI3dYX61s7OZD9JKoK	  
+problem :	
+	Cookies are protected with XOR encryption
+    Background color: 
+Write up:
+   1.	
+	
