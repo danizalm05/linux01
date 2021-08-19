@@ -1,0 +1,32 @@
+https://overthewire.org/wargames/leviathan/
+GitHub: https://github.com/JohnHammond
+https://programmercave0.github.io/blog/2020/01/06/Leviathan-Level-0-to-Level-1-OverTheWire
+https://www.youtube.com/watch?v=v2xuEtvqN_0&list=PL1H1sBF1VAKVsJ0dIDJzZw_QmO1J02YvG
+Data for the levels can be found in the homedirectories. 
+You can look at /etc/leviathan_pass for the various level passwords.
+
+To login to the first level use:
+SSH Information
+Host: leviathan.labs.overthewire.org
+Port: 2223
+
+
+
+Level 0
+ ssh leviathan0@bandit.labs.overthewire.org -p 2223
+ password: leviathan0
+ 
+leviathan0  Level 1
+  ssh leviathan1@bandit.labs.overthewire.org -p 2223 
+  password:
+
+
+leviathan1 Level 1 → Level 2
+leviathan2 Level 2 → Level 3
+leviathan3 Level 3 → Level 4
+leviathan4 Level 4 → Level 5
+leviathan5 Level 5 → Level 6
+leviathan6 Level 6 → Level 7
+
+ 
+  
