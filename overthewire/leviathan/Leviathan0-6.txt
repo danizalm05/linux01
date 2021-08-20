@@ -2,26 +2,74 @@ https://overthewire.org/wargames/leviathan/
 GitHub: https://github.com/JohnHammond
 https://programmercave0.github.io/blog/2020/01/06/Leviathan-Level-0-to-Level-1-OverTheWire
 https://www.youtube.com/watch?v=v2xuEtvqN_0&list=PL1H1sBF1VAKVsJ0dIDJzZw_QmO1J02YvG
-Data for the levels can be found in the homedirectories. 
-You can look at /etc/leviathan_pass for the various level passwords.
+  
+/etc/leviathan_pass = various level passwords.
 
-To login to the first level use:
+ 
 SSH Information
-Host: leviathan.labs.overthewire.org
-Port: 2223
+      Host: leviathan.labs.overthewire.org
+      Port: 2223
 
 
 
 Level 0
  ssh leviathan0@bandit.labs.overthewire.org -p 2223
  password: leviathan0
- 
+Write up:
+1. ls -la
+   output:
+    drwxr-x---  2 leviathan1 leviathan0 4096 Aug 26  2019 .backup
+2.  cd .backup
+    ls -la
+      output:
+     -rw-r----- 1 leviathan1 leviathan0 133259 Aug 26  2019 bookmarks.html
+3. grep --color=always  "pass" bookmarks.html 
+   output:
+ ....  This will be fixed later, 
+    the password for leviathan1 is rioGegei8m" ADD_DATE=......... 
+
+password: rioGegei8m
+
+
 leviathan0  Level 1
   ssh leviathan1@bandit.labs.overthewire.org -p 2223 
-  password:
+  password: rioGegei8m
+
+Write up:
+ 1. ls  -la
+   output:
+    .....   -r-sr-x---  1 leviathan2 leviathan1 7452 Aug 26  2019 check
+ 2.  ./check
+     output:
+       password: assfdv
+       Wrong password, Good Bye ...
+   So we can't  find passward  this way
+3.  ltrace ./check
+    enter test 
+     output:
+    ....strcmp("tes", "sex")      = 1
+     puts("Wrong password, Good Bye ..."Wrong password, Good Bye ...
+ 
+   It compares test with sex. This means sex is the password the binary file need.
+
+4.  ./check
+  enter sex 
+  now we are in root shell  
+5. cat /etc/leviathan_pass/leviathan2 
+     output:
+       ougahZi8Ta  
 
 
-leviathan1 Level 1 → Level 2
+
+leviathan2   
+ssh leviathan2@bandit.labs.overthewire.org -p 2223 
+  password:  ougahZi8Ta
+
+Write up:
+ 1. ls
+  output:  printfile
+
+ 
 leviathan2 Level 2 → Level 3
 leviathan3 Level 3 → Level 4
 leviathan4 Level 4 → Level 5

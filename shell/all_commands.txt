@@ -232,6 +232,9 @@ lprintd Abort a print job
 lprintq List the print queue
 lprm Remove jobs from the print queue
 ls List information about file(s)
+
+ltrace:  runs a specified command until it exits.    
+   ltrace <Program name>
 lsof List open files
 
       m
