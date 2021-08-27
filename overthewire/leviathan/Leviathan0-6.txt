@@ -157,7 +157,11 @@ leviathan4 Level 4 → Level 5
 ssh leviathan4@bandit.labs.overthewire.org -p 2223 
   password: vuH0coox6m
 
-
+ 1. ls  -lah
+   output :
+         dr-xr-x---  2 root leviathan4 4.0K Aug 26  2019 .trash
+2.
+   
 leviathan5 Level 5 → Level 6
 leviathan6 Level 6 → Level 7
 
