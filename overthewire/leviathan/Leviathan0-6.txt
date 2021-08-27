@@ -120,10 +120,44 @@ leviathan3
 ssh leviathan3@bandit.labs.overthewire.org -p 2223 
   password: Ahdiemoo1j
   
-  
-  
-  
+  1. ls -lah
+     output :
+        -r-sr-x---  1 leviathan4 leviathan3  11K Aug 26  2019 level3
+
+  2. ltrace   ./level3
+     output :
+       
+       __libc_start_main(0x8048618, 1, 0xffffd794, 0x80486d0 <unfinished ...>
+      strcmp("h0no33", "kakaka")                                                = -1
+      printf("Enter the password> ")                                            = 20
+      fgets(Enter the password> h0no33
+      "h0no33\n", 256, 0xf7fc55a0)                                        = 0xffffd5a0
+      strcmp("h0no33\n", "snlprintf\n")                                         = -1
+      puts("bzzzzzzzzap. WRONG"bzzzzzzzzap. WRONG
+       )                                                = 19
+      +++ exited (status 0) +++
+
+   3. 
+     The function strcmp compares test with snlprintf means the password is 'snlprintf'.
+      ./level3 
+       password ----> snlprintf
+
+   output :
+      
+     Enter the password> snlprintf
+     [You've got shell]!
+   4.
+      cat /etc/leviathan_pass/leviathan4  
+      vuH0coox6m
+
+
 leviathan4 Level 4 → Level 5
+ 
+
+ssh leviathan4@bandit.labs.overthewire.org -p 2223 
+  password: vuH0coox6m
+
+
 leviathan5 Level 5 → Level 6
 leviathan6 Level 6 → Level 7
 
