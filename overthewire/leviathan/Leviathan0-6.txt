@@ -160,9 +160,21 @@ ssh leviathan4@bandit.labs.overthewire.org -p 2223
  1. ls  -lah
    output :
          dr-xr-x---  2 root leviathan4 4.0K Aug 26  2019 .trash
-2.
-   
+2. cd .trash
+3. ./bin
+   output :
+     01010100 01101001 01110100 01101000 00110100 01100011 01101111 01101011 01100101 01101001 00001010
+3.  python3
+    import binascii
+    binary_str = '0101010001101001011101000110100000110100011000110110111101101011011001010110100100001010'
+    n=int(binary_str,2)       # n= 102047764659378522658531594
+    n.to_bytes((n.bit_length() + 7) // 8, 'big').decode()
+  output :
+  'Tith4cokei\n'
+
 leviathan5 Level 5 → Level 6
+ssh leviathan5@bandit.labs.overthewire.org -p 2223 
+  password: Tith4cokei
 leviathan6 Level 6 → Level 7
 
  
