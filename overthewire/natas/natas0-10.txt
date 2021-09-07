@@ -91,8 +91,9 @@ write up:
   The  idea  is to change  the  headr been sand so:
    Add "Tamper Data for FF Quantum"  addon
   1. Press "Tamper" addon button
-   
-  2. In the header part change 'Referer' value  to  http://natas5.natas.labs.overthewire.org/index.php
+  2. Refresh Firefox 
+  3. In the header part change 'Referer' value  to: 
+                      http://natas5.natas.labs.overthewire.org/index.php
   output:
     Access granted. The password for natas5 is iX6IOfmpN7AYOQGPwtn3fXpbaJVJcHfq   
 	
