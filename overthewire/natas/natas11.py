@@ -9,8 +9,8 @@ import re
 import urllib
 import base64
 
-username = 'natas11'
-password = 'U82q5TCMMQ9xuFoI3dYX61s7OZD9JKoK'
+username =  'natas11'
+password =  'U82q5TCMMQ9xuFoI3dYX61s7OZD9JKoK'
 
 url = 'http://%s.natas.labs.overthewire.org/' % username
 
