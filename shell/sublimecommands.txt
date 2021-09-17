@@ -1,6 +1,4 @@
-
-https://stackoverflow.com/questions/21659717/sublime-text-editor-opens-with-no-menu-bar-unless-started-with-sudo
-
+ 
 
 Editing
 Keypress 	Command
