@@ -1,4 +1,5 @@
-#!D:/prog/xampp/php php
+#!/usr/bin/php
+
 <?php
 
 #Running php <file name>
