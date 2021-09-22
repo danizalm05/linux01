@@ -12,7 +12,7 @@ $:                             The pattern preceding it must occur at the end of
 \ (backslash):        Ignores the special meaning of the character following it
 *:                              Zero or more occurrences of the previous character
 (dot).*:                    Nothing or any numbers of characters.
-  -i               Perform case insensitive matching.
+  -i    :           Perform case insensitive matching.
  
 grep "was" demo.txt :Output all lines that contains the word was
 [ ] : Matches any one of a set characters:
