@@ -6,8 +6,7 @@ TIMING ATTACK SQL Injection
 
 github.com/JohnHammond/overthewire_natas_solutions/blob/master/natas18.py
 
-https://www.youtube.com/watch?v=GDOpW-LShy8&list=PL1H1sBF1VAKWM3wMCn6H5Ql6OrgIivt2V&index=16
-
+https://www.youtube.com/watch?v=C9yxUTQLbRI&list=PL1H1sBF1VAKWM3wMCn6H5Ql6OrgIivt2V&index=16
 https://www.youtube.com/watch?v=vz3XVCPBSbA
 
 Username: natas18
