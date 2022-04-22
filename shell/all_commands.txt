@@ -1,11 +1,17 @@
  
+  
+  ~/Desktop/d/linux01$ 
+
+  
+  
             a
 ------------------
 apropos: Search Help manual pages (man -k)
 
 apt-get : general command for installing programs and manipulating installed programs.
-apt-get --purge remove gimp : uninstalls gimp and deletes all the configuration files
- 
+     apt-get --purge remove gimp : uninstalls gimp and deletes all the configuration files
+     apt-get install <name>: install aprogram
+     apt-get remove <name>: Remove a program
 aptitude Search for and install software packages (Debian/Ubuntu)
 aspell Spell Checker
 awk Find and Replace text, database sort/validate/index
