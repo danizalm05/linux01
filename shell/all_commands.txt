@@ -21,7 +21,8 @@ awk Find and Replace text, database sort/validate/index
 
    b
 ---------
-base64
+base64: group of binary-to-text encoding schemes that transforms binary data 
+    into a  sequence of printable characters,
    base64 -d <file name> : decodes base64 encoded file  
 
 basename Strip directory and suffix from filenames
