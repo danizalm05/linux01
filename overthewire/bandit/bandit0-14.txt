@@ -316,9 +316,9 @@ ssh bandit14@bandit.labs.overthewire.org -p 2220
 pass:  fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq
 
 problem:password for the next level can be retrieved by submitting the password of the current level to port 30000 on localhost.
-
+     
 
 solution:
- 1. echo fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq | nc localhost 30000
+ 1.  echo fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq | nc localhost 30000
 
 pass = BfMYroe26WYalil77FoDi9qh59eK5xNr
