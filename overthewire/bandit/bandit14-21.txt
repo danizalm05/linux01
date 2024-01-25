@@ -1,51 +1,29 @@
-https://overthewire.org/wargames/bandit
+ 
+Bandit Level 14
 
-www.youtube.com/watch?v=PRAjBlys-7g&list=PL1H1sBF1VAKUsYdQd94dO9MgSaY2p1AJ4
-
-
-
-
-13 → 14
-https://overthewire.org/wargames/bandit/bandit14.html
-ssh bandit13@bandit.labs.overthewire.org -p 2220
-pass 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
-
-problem: Password stored in /etc/bandit_pass/bandit14
-and can only be read by user bandit14.
-For this level, you don’t get the next password, but you get
-a private SSH key that can be used to log into the next level.
-Note: localhost is a hostname that refers to the machine you are working on
-
-So we need to use ssh to login to another users account:
-bandit14@localhost for us.
-
-solution:
-1. ls
-output: A file sshkey.private. This is a private ssh key
-2. cat sshkey.private
-3. ssh -i ./sshkey.private bandit14@localhost
-4. print yes to question are you sure
-5. Now we are login as bandit14
-6. cat /etc/bandit_pass/bandit14
-pass = 4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
-
-14 → 15
+------------------------
 https://overthewire.org/wargames/bandit/bandit15.html
 ssh bandit14@bandit.labs.overthewire.org -p 2220
-pass: y
+
+pass: fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq
 
 problem:password for the next level can be retrieved by submitting the password of the current level to port 30000 on localhost.
 
 
-solution: 1. echo 4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e | nc localhost 30000
+solution:
+1.
+echo fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq | nc localhost 30000
+nc is similar to cat command but for network(TCP, UDP.).
 
-pass = BfMYroe26WYalil77FoDi9qh59eK5xNr
+pass = jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt
 
-15 → 16
+ 
+
+Bandit Level 15       ################################
 https://www.youtube.com/watch?v=yKXDB2bg-wc&list=PL1H1sBF1VAKUsYdQd94dO9MgSaY2p1AJ4&index=5
 https://overthewire.org/wargames/bandit/bandit16.html
 ssh bandit15@bandit.labs.overthewire.org -p 2220
-pass BfMYroe26WYalil77FoDi9qh59eK5xNr
+pass jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt
 
 problem: Password can be retrieved by submitting password of the
 current level to port 30001 on localhost using SSL encryption
