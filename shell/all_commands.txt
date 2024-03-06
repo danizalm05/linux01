@@ -85,8 +85,9 @@ cut Divide a file into several parts
 
 curl:  transferring data using various network protocols.  
  curl -O  <url>: Download file 
-d
-
+ 
+                    d
+-----------------------------------
 date Display or change the date & time
 dc Desk Calculator
 dd Convert and copy a file, write disk headers, boot records
@@ -164,7 +165,7 @@ ftp File Transfer Protocol
 function Define Function Macros
 fuser Identify/kill the process that is accessing a file
 
-g
+         g
 ----------------------
 gawk Find and Replace text within file(s)
 getopts Parse positional parameters
@@ -185,7 +186,7 @@ gzip: Compress or decompress named file(s)
  gzip -d data.gz: Decompress file
 
 
-h
+        h
 ------------------
 hash Remember the full pathname of a name argument
 head Output the first part of file(s)
@@ -298,12 +299,16 @@ nslookup Query Internet name servers interactively
 
 open Open a file in its default application
 
-openssl:  Cryptography toolkit implementing the Secure Sockets
-       openssl s_client -quiet -connect <url:port>
-        echo password | openssl s_client -quiet -connect <url:port>
+openssl:  library for applications that provide secure communications over 
+   computer networks against eavesdropping, and identify the party at the other end. 
+   It is widely used by Internet servers, including the majority of HTTPS websites. 
+    
 
-       p
---------------
+    openssl s_client -quiet -connect <url:port>
+    echo password | openssl s_client -quiet -connect <url:port>
+
+                   p
+---------------------------
 passwd Modify a user password
 paste Merge lines of files
 pathchk Check file name portability
@@ -381,7 +386,12 @@ ssh Secure Shell client (remote login program)
   ssh://[user@]hostname[:port]
   ssh bandit4@bandit.labs.overthewire.org -p 2220
        # password = pIwrPrtPN36QITSp3EQaw936yaFoFgAB 
-
+  ssh bandit18@bandit.labs.overthewire.org -p 2220 cat readme
+       the above commands runs  'cat readme' after correct conntecd
+  
+  ssh bandit18@bandit.labs.overthewire.org -p 2220 -t /bin/sh   
+        -t option Create “Pseudo Terminal”, with in our ssh   in  /bin/sh
+  
 stat: display file or file system status
     stat <file name>
     stat -f  <file name>:report   the filesystem that the file resides
