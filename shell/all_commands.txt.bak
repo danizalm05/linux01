@@ -390,7 +390,7 @@ ssh Secure Shell client (remote login program)
        the above commands runs  'cat readme' after correct conntecd
   
   ssh bandit18@bandit.labs.overthewire.org -p 2220 -t /bin/sh   
-      -t option Create “Pseudo Terminal”, with in our ssh in /bin/sh
+        -t option Create “Pseudo Terminal”, with in our ssh   in  /bin/sh
   In case of problem  remove ECDSA key is in :
   1. windows file:       C:\Users\[user name]\.ssh\known_hosts
   2. Kali linux file:    /home/kali/.ssh/known_host

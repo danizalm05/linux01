@@ -273,13 +273,13 @@ output: data5.bin: POSIX tar archive (GNU)
 password is        wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw
 https://medium.com/secttp/overthewire-bandit-level-12-439f655f6fd5
 
-
-
-
 Bandit Level 13       https://dev.to/christianpaez/bandit-level-13-level-14-1no0
 
 ------------------------
-  
+
+ 
+
+   
 https://overthewire.org/wargames/bandit/bandit14.html
 ssh bandit13@bandit.labs.overthewire.org -p 2220
 pass       wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw
@@ -305,5 +305,22 @@ output: A file sshkey.private. This is a private ssh key
 
 pass = fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq
 
-    
  
+
+Bandit Level 14      
+
+------------------------
+
+https://overthewire.org/wargames/bandit/bandit15.html
+ssh bandit14@bandit.labs.overthewire.org -p 2220
+pass:  fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq
+
+problem:password for the next level can be retrieved by submitting the password of the current level to port 30000 on localhost.
+     
+
+solution:
+ 1.  echo fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq | nc localhost 30000
+
+   nc is similar to cat command but for network(TCP, UDP.).  
+
+pass =  
