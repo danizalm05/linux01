@@ -108,9 +108,7 @@ Now we are connected to server as bandit16
 Password :   VwOSWtCA7lRKkTfbr2IDh6awj9RNZM5e
 
 
-
-
-Bandit Level 17    *************
+Bandit Level 17     
 
 https://overthewire.org/wargames/bandit/bandit17.html
 ssh bandit17@bandit.labs.overthewire.org -p 2220
@@ -120,23 +118,26 @@ problem: Password is in passwords.new and is the only line that
 has been changed between passwords.old and passwords.new
 
 Write up: 1. diff passwords.new passwords.old
-output:42c42
-< kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd
+output: 
+
+42c42
+< hga5tuuCLF6fFzUpnagiMN8ssu9LFrdg
 ---
-> w0Yfolrc5bwjS4qw5mq1nnQi6mF03bii
+> p6ggwdNHncnmCNxuAt0KtKVq185ZU7AW
+
 
 - Lines preceded by a < are lines from the 1st file.
 - Lines preceded by a > are lines from the 2nd file.
 - The 3 dashes --- separating the lines of 1st 2nd file ones.
 
-Password : kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd
+Password : hga5tuuCLF6fFzUpnagiMN8ssu9LFrdg
 
-
-18 → 19
+Bandit Level 18     
+ 
 https://overthewire.org/wargames/bandit/bandit18.html
 ssh bandit18@bandit.labs.overthewire.org -p 2220
-pass:kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd
-
+pass:   hga5tuuCLF6fFzUpnagiMN8ssu9LFrdg
+ 
 problem: The password for the next level is stored in a file
 readme in the home directory. Unfortunately,
 someone has modified .bashrc to log you out when you log in
@@ -147,22 +148,26 @@ ssh bandit18@bandit.labs.overthewire.org -p 2220 cat readme
 output IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x
 Password: IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x
 
-solution 2 Create “Pseudo Terminal”, with -t option in our ssh command
-ssh bandit18@bandit.labs.overthewire.org -p 2220 -t /bin/sh and enter bandit18's password to login.
-next run cat readme
+solution 2 Create “Pseudo Terminal”, with -t option in our ssh 
+command
+1. ssh bandit18@bandit.labs.overthewire.org -p 2220 -t /bin/sh 
+2. enter bandit18's password to login.  (hga5tuuCLF6fFzUpnagiMN8ssu9LFrdg)
+3. run cat readme
+output:
+awhqfNnAbc1naukrpqDYcF95h7HoMTrC
 
 
-
-
-
-19 → 20
+Bandit Level 19    *************
+ 
 https://overthewire.org/wargames/bandit/bandit20.html
 ssh bandit19@bandit.labs.overthewire.org -p 2220
-pass:IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x
+pass:  awhqfNnAbc1naukrpqDYcF95h7HoMTrC
 https://medium.com/@theGirlWhoEncrypts/overthewire-bandit-level-19-level-20-d6b15b5d803
-problem: To gain access to the next level, you should use the setuid binary in the homedirectory.
+problem: To gain access to the next level, you should use the 
+setuid binary in the homedirectory.
 
-The password is in (/etc/bandit_pass), after you have used the setuid binary.
+The password is in (/etc/bandit_pass), after you have used the 
+setuid binary.
 
 solution
 Write up
@@ -170,12 +175,12 @@ Write up
 output: ...
 -rwsr-x--- 1 bandit20 bandit19 7296 May 7 2020 bandit20-do
 ...
-a. you can see the 's' in the permissions for the user instad of 'x'
+
+a. you can see the 's' in the permissions for the user instead of 'x'
 b. Additionally, the owner of the file 'bandit20-do' is bandit20.
 The red highlight signifies that this file has elevated permissions.
-Hence, any
-commands executing with ./bandit20-do will run as user bandit20 instead
-of bandit19.
+Hence, any commands executing with   ./bandit20-do 
+will run as user bandit20 instead of bandit19.
 c. (Optional) Since the file bandit20-do is an executable,
 simply execute ./bandit20-do. The output the is following:
 

@@ -48,7 +48,7 @@ cluFn7wTiGryunymYOu4RcffSxQluehd
 pass = cluFn7wTiGryunymYOu4RcffSxQluehd
 JQttfApK4SeyHwDlI9SXGR50qclOAil1
 
-Bandit Level 16       ################################
+Bandit Level 16     
  
 https://overthewire.org/wargames/bandit/bandit17.html
 ssh bandit16@bandit.labs.overthewire.org -p 2220
@@ -90,38 +90,31 @@ RSA private key.
 we don’t have write permission in the home or current
 working directory.
 a. create a folder named /tmp/name123 & navigate
-mkdir /tmp/name123
-cd /tmp/name123
+mkdir /tmp/itom1738
+cd /tmp/itom1738
+  The next comman will save the RSA  of port  31790  in 
+the file 'cd /tmp/itom1738'
 
-rm -rf /tmp/name123 # Optional. Remove if /tmp/name123 exist
+cat /etc/bandit_pass/bandit16 | openssl s_client -connect localhost:31790 -quiet > /tmp/itom1738/b16pkey
 
-b. vim sshkey.private Press Enter.
-press i to switch to insert mode.
-Copy and paste the RSA private key.
-Press ESC to switch back to command mode.
-Type :wq to save changes to file & quit Vim.
+4. cat /tmp/itom1738/b16pkey    ## view the key
+5. chmod 600 /tmp/itom1738/b16pkey      # Change permisson
+6.  ssh bandit17@localhost -i /tmp/itom1738/b16pkey -p 2220     #Connect to bandit17 using the RSA in : '/tmp/itom1738/b16pkey'
 
-c. chmod 600 sshkey.private:Allow only the owner to change
-ssh -i sshkey.private bandit17@localhost
+
 Now we are connected to server as bandit16
-4. cat /etc/bandit_pass/bandit17: obtain bandit17‘s password,
+7. cat /etc/bandit_pass/bandit17: obtain bandit17‘s password,
 
-Password : xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn
-
-
+Password :   VwOSWtCA7lRKkTfbr2IDh6awj9RNZM5e
 
 
 
 
+Bandit Level 17    *************
 
-
-
-
-
-17 → 18
 https://overthewire.org/wargames/bandit/bandit17.html
 ssh bandit17@bandit.labs.overthewire.org -p 2220
-pass: xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn
+pass: VwOSWtCA7lRKkTfbr2IDh6awj9RNZM5e
 
 problem: Password is in passwords.new and is the only line that
 has been changed between passwords.old and passwords.new
