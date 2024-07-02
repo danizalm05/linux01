@@ -9,8 +9,8 @@ overthewire.org/wargames/bandit/bandit0.htmll
 ssh bandit0@bandit.labs.overthewire.org -p 2220
 passward bandit0
 cat readme
-
-pass = NH2SXQwcBdpmTEzi3bvBHMM9H66vVXjL
+ 
+pass = ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
 
 Bandit Level  1
 overthewire.org/wargames/bandit/bandit1.htmll
@@ -18,21 +18,21 @@ ssh bandit1@bandit.labs.overthewire.org -p 2220
 
 cat ./-
 
-pass  =  rRGizSaX8Mk1RTb1CNQoXTcYZWU6lgzi
-   
+pass  =  263JGJPfgU6LtdEvgfWU1XP5yac29mFx
+    
 
 Bandit Level  2
 
 ---------------------------------
 overthewire.org/wargames/bandit/bandit3.html
 ssh bandit2@bandit.labs.overthewire.org -p 2220
-pass CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9
+pass 263JGJPfgU6LtdEvgfWU1XP5yac29mFx
 problem:
 password is stored in a file called: 'spaces in this filename'
 solution:
 cat 'spaces in this filename'
 output:
-aBZ0W5EmUfAf7kHTQeOwd8bauFJ2lAiG
+MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
 
 https://www.youtube.com/watch?v=DOvh5ybBUPk&list=PL1H1sBF1VAKUsYdQd94dO9MgSaY2p1AJ4&index=2
 
@@ -45,29 +45,28 @@ Bandit Level  3
 
 overthewire.org/wargames/bandit/bandit4.html
 ssh bandit3@bandit.labs.overthewire.org -p 2220
-pass      aBZ0W5EmUfAf7kHTQeOwd8bauFJ2lAiG
+pass      MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
 problem: password stored in a hidden file in inhere directory.
 solution: cd inhere
-cat .hidden
+cat cat ...Hiding-From-You
 
 output:
-2EW7BBsr6aMMoJ2HjW067dm8EgX26xNe
-
+2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
 
 Bandit Level  4
 
 ------------------------
 overthewire.org/wargames/bandit/bandit5.html
 ssh bandit4@bandit.labs.overthewire.org -p 2220
-pass       2EW7BBsr6aMMoJ2HjW067dm8EgX26xNe
+pass       2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
 problem: Password stored in the only human-readable file in inhere dir
 
 solution:
-
-1. file ./*        #       this command displays types for all  the files in this directory 
-2. output: ./-file00: data .  . ..        ./-file07: ASCII text               ./-file08: data
-3. cat ./-file07
-output:     lrIWWI6bB37kxfiCQZqUdOIYfr6eEeqR
+1.cd inhere
+2. file ./*        # displays types for all  the files in this directory 
+3. output: ./-file00: data .  . ..        ./-file07: ASCII text               ./-file08: data
+4. cat ./-file07
+output:     4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
 
  
 
@@ -77,7 +76,7 @@ Bandit Level 5
 
 overthewire.org/wargames/bandit/bandit6.html
 ssh bandit5@bandit.labs.overthewire.org -p 2220
-pass            lrIWWI6bB37kxfiCQZqUdOIYfr6eEeqR
+pass            4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
 problem: Password is stored in a file somewhere under the  /inhere directory
 and has all of the following properties:
 human-readable
@@ -92,7 +91,7 @@ solution:
 3. cat ./maybehere07/.file2
 
 
-output:   P4L4vucdmLnm8I7Vl7jG1ApGSfjYKqJU
+output:   HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
 
  
 
@@ -105,8 +104,10 @@ Bandit Level 6
 
 https://overthewire.org/wargames/bandit/bandit7.html
 ssh bandit6@bandit.labs.overthewire.org -p 2220
-pass  P4L4vucdmLnm8I7Vl7jG1ApGSfjYKqJU
-problem: Password stored some where on the server and has the following properties:
+pass  HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
+
+problem: Password stored some where on the server and has the following 
+  properties:
 
 owned by user bandit7
 owned by group bandit6
@@ -115,13 +116,16 @@ owned by group bandit6
 
 solution:
 
-1. We need to scan from root becase it is some were in the host so will use the '/'
+1. We need to scan from root becase it is some were in the host so will use 
+the '/'
 
-    find / -type f -user bandit7 -group bandit6 -size 33c
+find / -type f -user bandit7 -group bandit6 -size 33c
 
-  output:  A lot of 'Permission denied' messages (errors) only one file is not part of this error
+output:  A lot of 'Permission denied' messages (errors) only one file is 
+not part of this error
 
-So  we will output the  errors to standard error console by adding at the end   '2>/dev/null'
+So  we will output the  errors to standard error console by adding at the
+ end   '2>/dev/null'
 
 so run:
 
@@ -130,7 +134,7 @@ find / -type f -user bandit7 -group bandit6 -size 33c 2>/dev/null
 output:          /var/lib/dpkg/info/bandit7.password
 
 2. cat /var/lib/dpkg/info/bandit7.password
-3. output:      z7WtoNQU2XfjmMtWA8u5rN4vzqu4v99S
+3. output:      morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
 
 -------------------------------------------------------------------------------------------
 
@@ -142,12 +146,12 @@ Bandit Level 7
 
 https://overthewire.org/wargames/bandit/bandit8.html
 ssh bandit7@bandit.labs.overthewire.org -p 2220
-pass      z7WtoNQU2XfjmMtWA8u5rN4vzqu4v99S
+pass      morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
 problem: Password is in the file data.txt next to the word millionth
 
 solution: cat data.txt | grep "millionth"
 
-output:   millionth TESKZC0XvTetK0S9xNwm25STk5iWrBvP
+output:   millionth dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
 
  
 
@@ -158,7 +162,7 @@ Bandit Level 8
 
 https://overthewire.org/wargames/bandit/bandit9.html
 ssh bandit8@bandit.labs.overthewire.org -p 2220
-pass TESKZC0XvTetK0S9xNwm25STk5iWrBvP
+pass dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
 
 
 problem: Password is stored in 'data.txt'
@@ -166,7 +170,7 @@ and is the only line of text that occurs only once
 
 solution: cat data.txt |sort | uniq -u
    
-output: EN632PlfYiZbn3PhVK3XOGSlNInNE00t
+output: 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
 
  
 
@@ -176,7 +180,7 @@ Bandit Level 9
 
 https://overthewire.org/wargames/bandit/bandit10.html
 ssh bandit9@bandit.labs.overthewire.org -p 2220
-pass       EN632PlfYiZbn3PhVK3XOGSlNInNE00t
+pass       4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
 
 problem: password stored in the file data.txt
 in one of the few human-readable strings, preceded by several ‘=’ characters.
@@ -184,9 +188,9 @@ in one of the few human-readable strings, preceded by several ‘=’ characters
 solution:
 
 1. strings data.txt | grep '==='
-2. output:      ========== G7w8LIi6J3kTb8A7j9LgrywtEUlyyp6s
+2. output:      ========== FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
 
-pass   G7w8LIi6J3kTb8A7j9LgrywtEUlyyp6
+pass   FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
 
  
 
@@ -197,16 +201,16 @@ Bandit Level 10
 
 https://overthewire.org/wargames/bandit/bandit11.html
 ssh bandit10@bandit.labs.overthewire.org -p 2220
-pass G7w8LIi6J3kTb8A7j9LgrywtEUlyyp6s
+pass FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
  
 problem: Password is stored in data.txt, which contains base64 encoded data
 
 solution:
 
 1. base64 -d data.txt
-2. result:T he password is 6zPeziLdR2RKNdNYFNb6nVCKzphlXHBM
+2. result:T he password is dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
 3.
-output: 6zPeziLdR2RKNdNYFNb6nVCKzphlXHBM
+output: dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
 
 https://www.youtube.com/watch?v=WVazel70ZzM&list=PL1H1sBF1VAKUsYdQd94dO9MgSaY2p1AJ4&index=5
 
@@ -218,7 +222,7 @@ Bandit Level 11
 
 https://overthewire.org/wargames/bandit/bandit12.html
 ssh bandit11@bandit.labs.overthewire.org -p 2220
-pass        6zPeziLdR2RKNdNYFNb6nVCKzphlXHBM
+pass        dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
 
 
 problem: Password is stored in the file data.txt, where
@@ -227,9 +231,9 @@ problem: Password is stored in the file data.txt, where
 solution:
 
 1. cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
-2. The pasword is JVNBBFSmZwKKOP0XbFXOoW8chDz5yVRv
+2. The pasword is  7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
 
-password:  JVNBBFSmZwKKOP0XbFXOoW8chDz5yVRv
+password:   7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
 
 Bandit Level 12
 
@@ -237,7 +241,7 @@ Bandit Level 12
 
 https://overthewire.org/wargames/bandit/bandit13.html
 ssh bandit12@bandit.labs.overthewire.org -p 2220
-pass: JVNBBFSmZwKKOP0XbFXOoW8chDz5yVRv
+pass:  7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
 
 
 problem: Password is stored in 'data.txt'
@@ -267,10 +271,28 @@ output: myfile4: POSIX tar archive (GNU)
 14 tar -xvf myfile4
 15 file data5.bin
 output: data5.bin: POSIX tar archive (GNU)
-16 .....   there are more  steos
-
-
-password is        wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw
+16 mv data5.bin data6.tar
+16  tar -xf data6.tar
+17  file data6.bin
+  output: data6.bin: bzip2 compressed data, block size = 900k
+18 mv data6.bin data7.bz
+19 bzip2 -d data7.bz
+20 file data7
+    output:  data7: POSIX tar archive (GNU)
+21  mv data7 data8.tar	
+22 tar -xf data8.tar
+23 file data8.bin
+    output: data8.bin: gzip compressed data, was "data9.bin", 
+	last modified: Thu 
+	  Jun 20 04:06:52 2024, max compression, from Unix, 
+	  original size modulo 2^32 49
+24 mv data8.bin data9.gz	
+25 gzip -d data9.gz 
+26 file data9
+   output:   data9: ASCII text
+27 cat data9
+   output: The password is FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn	
+password is       FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
 https://medium.com/secttp/overthewire-bandit-level-12-439f655f6fd5
 
 
@@ -282,7 +304,7 @@ Bandit Level 13       https://dev.to/christianpaez/bandit-level-13-level-14-1no0
   
 https://overthewire.org/wargames/bandit/bandit14.html
 ssh bandit13@bandit.labs.overthewire.org -p 2220
-pass       wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw
+pass       FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
 
 problem: Password stored in     /etc/bandit_pass/bandit14
 and can only be read by user bandit14.
@@ -303,7 +325,7 @@ output: A file sshkey.private. This is a private ssh key
 5. Now we are login as bandit14
 6. cat /etc/bandit_pass/bandit14
 
-pass = fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq
+pass = MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS
 
     
  
