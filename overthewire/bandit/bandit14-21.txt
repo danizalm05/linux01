@@ -17,9 +17,9 @@ echo MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS | nc localhost 30000
 nc is similar to cat command but for network(TCP, UDP.).
 
 pass = 8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo
+  
  
- 
-******************************   new passward fro \her
+
 Bandit Level 15      
 https://www.youtube.com/watch?v=yKXDB2bg-wc&list=PL1H1sBF1VAKUsYdQd94dO9MgSaY2p1AJ4&index=5
 https://overthewire.org/wargames/bandit/bandit16.html
@@ -31,7 +31,8 @@ current level to port 30001 on localhost using SSL encryption
 
 
 solution: 1. 
- echo BfMYroe26WYalil77FoDi9qh59eK5xNr | openssl s_client -quiet -connect localhost:30001
+
+ echo 8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo | openssl s_client -quiet -connect localhost:30001
 
 Anoter solution: 
  cat /etc/bandit_pass/bandit15 | openssl s_client -quiet -connect localhost:30001
@@ -43,16 +44,16 @@ verify return:1
 depth=0 CN = localhost
 verify return:1
 Correct!
-cluFn7wTiGryunymYOu4RcffSxQluehd
+kSkvUpMQ7lBYyCM4GBPvCvT1BfWRy0Dx
 
-pass = cluFn7wTiGryunymYOu4RcffSxQluehd
-JQttfApK4SeyHwDlI9SXGR50qclOAil1
+pass = kSkvUpMQ7lBYyCM4GBPvCvT1BfWRy0Dx
+ 
 
 Bandit Level 16     
  
 https://overthewire.org/wargames/bandit/bandit17.html
 ssh bandit16@bandit.labs.overthewire.org -p 2220
-pass = JQttfApK4SeyHwDlI9SXGR50qclOAil1
+pass = kSkvUpMQ7lBYyCM4GBPvCvT1BfWRy0Dx
 
 medium.com/@theGirlWhoEncrypts/overthewire-bandit-level-16-level-17-958bd0bfcbc4
 
@@ -84,35 +85,34 @@ cat /etc/bandit_pass/bandit16 | openssl s_client -connect localhost:31960 -quiet
 cat /etc/bandit_pass/bandit16 | openssl s_client -connect localhost:31790 -quiet
 
 output:
-Finally, at port 31790, the output we received is a
-RSA private key.
-3. Save the RSA private key into a file.
-we don’t have write permission in the home or current
-working directory.
-a. create a folder named /tmp/name123 & navigate
-mkdir /tmp/itom1738
-cd /tmp/itom1738
-  The next comman will save the RSA  of port  31790  in 
-the file 'cd /tmp/itom1738'
+Finally, at port 31790, the output we received is a RSA private key.
 
-cat /etc/bandit_pass/bandit16 | openssl s_client -connect localhost:31790 -quiet > /tmp/itom1738/b16pkey
+3. Save the RSA private key into a file.
+    But we don’t have write permission in the home or current working directory.
+    a. create a folder named /tmp/name123 & navigate
+       1. mkdir /tmp/itom1738
+       2. cd /tmp/itom1738
+       3. save the RSA of port 31790 in   the file 'cd /tmp/itom1738'
+           with the next command
+              cat /etc/bandit_pass/bandit16 | openssl s_client -connect localhost:31790 -quiet > /tmp/itom1738/b16pkey
 
 4. cat /tmp/itom1738/b16pkey    ## view the key
 5. chmod 600 /tmp/itom1738/b16pkey      # Change permisson
-6.  ssh bandit17@localhost -i /tmp/itom1738/b16pkey -p 2220     #Connect to bandit17 using the RSA in : '/tmp/itom1738/b16pkey'
+6.  ssh bandit17@localhost -i /tmp/itom1738/b16pkey -p 2220    
+      #Connect  to  bandit17 using the RSA in : '/tmp/itom1738/b16pkey'
 
 
 Now we are connected to server as bandit16
 7. cat /etc/bandit_pass/bandit17: obtain bandit17‘s password,
 
-Password :   VwOSWtCA7lRKkTfbr2IDh6awj9RNZM5e
+Password:   EReVavePLFHtFlFsjn3hyzMlvSuSAcRD
 
-
-Bandit Level 17     
+******************************   new passward 
+Bandit Level 17 
 
 https://overthewire.org/wargames/bandit/bandit17.html
 ssh bandit17@bandit.labs.overthewire.org -p 2220
-pass: VwOSWtCA7lRKkTfbr2IDh6awj9RNZM5e
+pass: EReVavePLFHtFlFsjn3hyzMlvSuSAcRD
 
 problem: Password is in passwords.new and is the only line that
 has been changed between passwords.old and passwords.new
