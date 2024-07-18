@@ -194,7 +194,7 @@ Example: ./bandit20-do id
 
 output: 0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO
 
-***************************************************
+************************    ***************************
 Bandit Level 20 → Level 21
 
 https://overthewire.org/wargames/bandit/bandit21.html
