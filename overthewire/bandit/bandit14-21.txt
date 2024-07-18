@@ -107,7 +107,7 @@ Now we are connected to server as bandit16
 
 Password:   EReVavePLFHtFlFsjn3hyzMlvSuSAcRD
 
-******************************   new passward 
+
 Bandit Level 17 
 
 https://overthewire.org/wargames/bandit/bandit17.html
@@ -121,22 +121,22 @@ Write up: 1. diff passwords.new passwords.old
 output: 
 
 42c42
-< hga5tuuCLF6fFzUpnagiMN8ssu9LFrdg
+< x2gLTTjFwMOhQ8oWNbMN362QKxfRqGlO
 ---
-> p6ggwdNHncnmCNxuAt0KtKVq185ZU7AW
+> bSrACvJvvBSxEM2SGsV5sn09vc3xgqyp
 
 
 - Lines preceded by a < are lines from the 1st file.
 - Lines preceded by a > are lines from the 2nd file.
 - The 3 dashes --- separating the lines of 1st 2nd file ones.
 
-Password : hga5tuuCLF6fFzUpnagiMN8ssu9LFrdg
+Password : x2gLTTjFwMOhQ8oWNbMN362QKxfRqGlO
 
-Bandit Level 18     
+Bandit Level 18 
  
 https://overthewire.org/wargames/bandit/bandit18.html
 ssh bandit18@bandit.labs.overthewire.org -p 2220
-pass:   hga5tuuCLF6fFzUpnagiMN8ssu9LFrdg
+pass:   x2gLTTjFwMOhQ8oWNbMN362QKxfRqGlO
  
 problem: The password for the next level is stored in a file
 readme in the home directory. Unfortunately,
@@ -145,23 +145,22 @@ with SSH
 
 solution 1: medium.com/@theGirlWhoEncrypts/overthewire-bandit-level-18-level-19-a446576eaa75
 ssh bandit18@bandit.labs.overthewire.org -p 2220 cat readme
-output IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x
-Password: IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x
+output cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8
+Password: cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8
 
 solution 2 Create “Pseudo Terminal”, with -t option in our ssh 
 command
 1. ssh bandit18@bandit.labs.overthewire.org -p 2220 -t /bin/sh 
-2. enter bandit18's password to login.  (hga5tuuCLF6fFzUpnagiMN8ssu9LFrdg)
+2. enter bandit18's password to login.  
 3. run cat readme
-output:
-awhqfNnAbc1naukrpqDYcF95h7HoMTrC
+ 
 
 
-Bandit Level 19    *************
+Bandit Level 19  
  
 https://overthewire.org/wargames/bandit/bandit20.html
 ssh bandit19@bandit.labs.overthewire.org -p 2220
-pass:  awhqfNnAbc1naukrpqDYcF95h7HoMTrC
+pass:   cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8
 https://medium.com/@theGirlWhoEncrypts/overthewire-bandit-level-19-level-20-d6b15b5d803
 problem: To gain access to the next level, you should use the 
 setuid binary in the homedirectory.
@@ -193,14 +192,14 @@ Example: ./bandit20-do id
 2. Thus, run
 ./bandit20-do cat /etc/bandit_pass/bandit20
 
-output: GbKksEFF4yrVs6il55v6gwY5aVje5f0j
+output: 0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO
 
-
+***************************************************
 Bandit Level 20 → Level 21
 
 https://overthewire.org/wargames/bandit/bandit21.html
 ssh bandit20@bandit.labs.overthewire.org -p 2220
-pass: GbKksEFF4yrVs6il55v6gwY5aVje5f0j
+pass: 0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO
 problem: There is a setuid binary in the homedirectory
 that does the following:
 it makes a connection to localhost on the port you specify as
