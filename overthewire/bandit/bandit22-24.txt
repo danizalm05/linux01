@@ -36,8 +36,8 @@ output:
 
 5. cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
     output:
-     Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI
-
+    
+     tRae0UfB9v0UzbCdn9cY0gQnds9GF58Q
      
 /dev/null is a special file. Whatever you write to /dev/null
 will be discarded.
@@ -45,12 +45,12 @@ It’s known as the null device in a UNIX system
 
  
 
-
+*************************
 Bandit  Level 22 → Level  23
 
 https://overthewire.org/wargames/bandit/bandit23.html
 ssh bandit22@bandit.labs.overthewire.org -p 2220
-pass: Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI
+pass: tRae0UfB9v0UzbCdn9cY0gQnds9GF58Q
 
 Problem:A program is running automatically at regular intervals from 
 cron, the time-based job scheduler. 

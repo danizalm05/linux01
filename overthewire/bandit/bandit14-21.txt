@@ -231,13 +231,12 @@ If it receives the correct password from the other side, the next password is tr
 
 3. Open 2'nd terminal and connect with ssh
 
-a. In 1st Terminal sand passward with netcat listener on 6000 port
-    echo "GbKksEFF4yrVs6il55v6gwY5aVje5f0j" | nc -lp 6000
+a. In 1'st Terminal sand passward with netcat listener on 6000 port
+    echo "0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO" | nc -lp 6000
 
-b. 2nd Terminal will connect to it using ./suconnect
-    ./suconnect 6000
-
-3. In term 1 output is gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr
+b.In 2'nd Terminal   connect to it using  ./suconnect 6000
+ 
+3. In term 1 output is EeoULMCra2q0dSkYj561DX7s1CpBuOBt
 
 
 
@@ -246,7 +245,8 @@ Bandit Level 21 → Level  22
 
 https://overthewire.org/wargames/bandit/bandit21.html
 ssh bandit21@bandit.labs.overthewire.org -p 2220
-pass: gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr
+pass: EeoULMCra2q0dSkYj561DX7s1CpBuOBt
+
 problem: A program is running automatically at regular intervals
 from cron, the time–based job scheduler.
 Look in /etc/cron.d/ for the configuration and see
@@ -264,6 +264,7 @@ output:
 output:
 @reboot bandit22 /usr/bin/cronjob_bandit22.sh &> /dev/null
 * * * * * bandit22 /usr/bin/cronjob_bandit22.sh &> /dev/null
+
   a. @reboot   means: Run once after reboot.
   b.  * * * * * means Run at every minute. 
         Execute the shell executable file, cronjob_bandit22.sh, 
@@ -277,8 +278,8 @@ output:
 
 5. cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
     output:
-     Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI
-
+      
+     tRae0UfB9v0UzbCdn9cY0gQnds9GF58Q
 
 /dev/null is a special file. Whatever you write to /dev/null
 will be discarded.
