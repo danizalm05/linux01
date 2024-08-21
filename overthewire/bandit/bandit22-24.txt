@@ -89,57 +89,28 @@ Write up: https://dynamicparallax.wordpress.com/2015/09/22/bandit-level-22-%E2%8
      on        /etc/bandit_pass/$myname 
      to        /tmp/$mytarget
 
-4. cat /tmp/$mytarget
-   output:
-       cat: /tmp/: Permission denied
+4.  looking at the ‘/usr/bin/cronjob_bandit23.sh’ script 
+ 
+	The first variable is ‘myname’ and saves the output from the whoami command.  ( ‘bandit23’).
+	last line tells us that the password from bandit23 will be written into a file in the ‘/tmp’ folder
+	The filename is created by the line echo I am user $myname | md5sum | cut -d ' ' -f 1. We only need to substitute $myname with bandit23, execute it and the result is the filename.
+    
+   1  echo I am user bandit23 | md5sum | cut -d ' ' -f 1
+   2. 8ca319486bfbbc3663ea0fbe81326349
+   3. cat /tmp/8ca319486bfbbc3663ea0fbe81326349
 
-   Looks like the $ may have blocked  our full file location 
-   because it only shows /tmp/ in the output. 
+   md5sum:  return the md5 hash from the string
+    cut -d ' ' -f 1: removes everything after the space
+   output : 0Zf11ioIjMVN551jX3CmStKLYqjk54Ga
 
-5. Step 5.
-  run: /usr/bin/cronjob_bandit23.sh
-  output:  
-         Copying passwordfile /etc/bandit_pass/bandit22 
-                 to /tmp/8169b67bd894ddbb4412f91573b38db3
-
-6.  cat /tmp/8169b67bd894ddbb4412f91573b38db3
-    output:  
-        Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI
-     This is our current password output. Not what we want.
-
-7. Let’s go back and look at cronjob_bandit23.sh script 
-Type /usr/bin/cronjob_bandit23.sh
- output: 
-       Copying passwordfile /etc/bandit_pass/bandit22 
-       to /tmp/8169b67bd894ddbb4412f91573b38db3 
-It says bandit22, but we want bandit23 password. 
-
-
-8. Let’s look at how the script works again.
-   The second part: 
-       mytarget=$(echo I am user $myname | md5sum | cut -d ‘ ‘ -f 1) 
-  
-   $myname is set to bandit22 and we  want bandit23 password.
-
-  Let’s Replace the $myname part with bandit23 instead of letting 
-   the script set it to our current uid.
-   mytarget=$(echo I am user bandit23 | md5sum | cut -d ' ' -f 1)
-   
-   cat /etc/bandit_pass/bandit23 > /tmp/$mytarget
-9. 
-   cat /tmp/8ca319486bfbbc3663ea0fbe81326349
-
-  output:
-     jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n
-
-####################################################
+###############    21/08/24    ##############
 
 
 Bandit Level 23 → Level  24
 
 https://overthewire.org/wargames/bandit/bandit24.html
 ssh bandit23@bandit.labs.overthewire.org -p 2220
-pass: jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n
+pass: 0Zf11ioIjMVN551jX3CmStKLYqjk54Ga
 
 Problem: A program is running automatically at regular 
 intervals from cron, the time-based job scheduler. 
