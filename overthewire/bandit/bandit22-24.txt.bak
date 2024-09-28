@@ -181,12 +181,7 @@ Write up:
    running automatically in a minute.
 
   cp secttp.sh /var/spool/bandit24/
-
-
-
- &&&&&&      error  :::    The above opration is not permitted 
-
-
+  
 7. Wait 1  minute
    ls -al password
 -rw-rw-rw- 1 bandit23 root 33 Mar 26 08:18 password
