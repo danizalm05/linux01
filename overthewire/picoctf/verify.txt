@@ -1,0 +1,34 @@
+Verify
+https://play.picoctf.org/practice/challenge/450
+https://medium.com/@dudleydaniel.raj2005/pico-ctf-2024-verify-writeup-b712afae8c45
+
+FORENSIC:
+
+description:
+
+People keep trying to trick my players with imitation flags.
+I want to make sure they get the real thing! I’m going to 
+provide the SHA-256 hash and  a decrypt script to help you know 
+that my flags are legitimate.
+
+answer:
+1.ssh -p 52925 ctf-player@rhea.picoctf.net
+  password 6dd28e9b
+  Checksum: 03b52eabed517324828b9e09cbbf8a7b0911f348f76cf989ba6d51acede6d5d8
+2. ls
+   checksum.txt  decrypt.sh  files
+3. Check the file type of the checksum.txt
+   cat checksum.txt
+   03b52eabed517324828b9e09cbbf8a7b0911f348f76cf989ba6d51acede6d5d8
+4. sha256sum files/*
+   output of many lines of the format 03b52ede6d5d8......  files/00011a60
+5.  compare these files with he checksum.txt:
+     sha256sum files/* | grep "03b52eabed517324828b9e09cbbf8a7b0911f348f76cf989ba6d51acede6d5d8"
+  
+    output: files/00011a60
+6.  check the file type:  
+    file files/00011a60
+    output: files/00011a60: openssl enc'd data with salted password	
+7.  use the ./decrypt.sh to run this file salted hash 
+    run ./decrypt.sh files/00011a60
+    output: picoCTF{trust_but_verify_00011a60}
