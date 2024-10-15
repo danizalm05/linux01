@@ -1,12 +1,35 @@
-Verify
-https://play.picoctf.org/practice/challenge/450
-https://medium.com/@shreethaar/picoctf-2024-scan-surprise-48f899064523
+heap0
+https://play.picoctf.org/practice/challenge/438
 
-Forensic:
+https://medium.com/@erichdryn/heap-0-picoctf-writeup-a1a20406608b
+ 
+from picoctf run WebShall and from there run ' nc tethys.picoctf.net 54516 '
+
+
 Description:
-I’ve gotten bored of handing out flags as text. Wouldn’t it 
-be cool if they were an image instead?
 
+ The program 'chall.c' that runs at the moment of contact allocates two 
+ variables, on the heap:
+ 
+    1. input_data  =  "pico"
+    2. safe_var = "bico"
+ 
+ modify the content of safe_var will print the flag stored in a file.
+  
+To modify the content of safe_var, I focused on the write_buffer() function, 
+which allows us to write input directly to input_data
+  
+     void write_buffer() {
+			printf("Data for buffer: ");
+			fflush(stdout);
+			scanf("%s", input_data);
+	 }
+
+picoCTF{my_first_heap_overflow_0c473fe8}
+
+0x5e4efee792b0  ->   pico
++-------------+----------------+
+0x5e4efee792d0  ->   bico
 
 
 answer:
