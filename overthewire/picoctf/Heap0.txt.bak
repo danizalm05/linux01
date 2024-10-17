@@ -6,7 +6,7 @@ https://medium.com/@erichdryn/heap-0-picoctf-writeup-a1a20406608b
 from picoctf run WebShall and from there run ' nc tethys.picoctf.net 54516 '
 copy the id from the decription
 
-Description :
+Description:
 
  The program 'chall.c' that runs at the moment of contact and it  allocates two 
  variables, on the heap:
