@@ -267,6 +267,13 @@ lsof List open files
 make Recompile a group of programs
 man: Help manual
    man ls
+   
+md5sum: calculates and verifies 128-bit MD5 has
+      echo -n 'Greenpeace' | md5sum  
+      or use 'https://www.md5hashgenerator.com/'
+   
+   
+   
 mkdir: Create new folder(s)
   mkdir /tmp/yourname 
 mkfifo Make FIFOs (named pipes)

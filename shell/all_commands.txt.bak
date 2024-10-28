@@ -1,9 +1,23 @@
  
+ windows :
+  1.run  cmd as adminstrator
   
-  ~/Desktop/d/linux01$ 
+2.netsh wlan show profiles   :    
+        print history Profiles on interfac 
+
+3. netsh wlan show profiles name="network name" key=clear   
+       print wifi password
+
+   netsh wlan show profiles <>  
+ 
+
+ ~/Desktop/d/linux01$ 
 
   https://www.youtube.com/watch?v=fDeLtKUxTmM  02:54:00  install   tor
-  
+
+   
+   
+   
             a
 ------------------
 apropos: Search Help manual pages (man -k)
