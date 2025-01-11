@@ -9,7 +9,15 @@
        print wifi password
 
    netsh wlan show profiles <>  
- 
+   
+   
+   
+   
+How to Install Fedora on a USB Flash Drive With Persistence Install!
+https://www.instructables.com/How-to-install-Fedora-on-a-USB-flash-drive-with-pe/
+
+
+
 
  ~/Desktop/d/linux01$ 
  
