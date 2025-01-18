@@ -13,10 +13,8 @@
    
    
    
-How to Install Fedora on a USB Flash Drive With Persistence Install!
-https://www.instructables.com/How-to-install-Fedora-on-a-USB-flash-drive-with-pe/
-
-
+How to Install  Andeoid
+https://www.osradar.com/how-to-install-android-on-a-usb-key/
  ~/Desktop/d/linux01$ 
  
   Complete Python Hacking Tutorial! 
