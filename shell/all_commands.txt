@@ -14,8 +14,8 @@
    
    
 How to Install  Andeoid
-https://www.osradar.com/how-to-install-android-on-a-usb-key/
- ~/Desktop/d/linux01$ 
+ https://www.youtube.com/watch?v=zAJoNVbBSdc
+ 
  
   Complete Python Hacking Tutorial! 
   https://www.youtube.com/watch?v=qattlDUVNj8
