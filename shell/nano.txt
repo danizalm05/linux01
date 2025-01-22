@@ -1,4 +1,6 @@
                                 
   nano <fileName>   Open file using   nano                    
   
-^w string   :Search for a string  
+^w string   :Search for a string 
+^o          :save the program
+^x exit program   
