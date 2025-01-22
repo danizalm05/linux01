@@ -1,5 +1,5 @@
  
-  windows :
+  windows    :
   1.run  cmd as adminstrator
   
 2.netsh wlan show profiles   :    
