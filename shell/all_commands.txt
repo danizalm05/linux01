@@ -10,15 +10,18 @@
 
    netsh wlan show profiles <>  
    
+Linux Alternatives for Netsh Command in Linux
+
+    ifconfig
+    ip
+    route
+    netstat
+    systemd (Service Manager)
+
    
    
    
-How to Install  Andeoid
- https://www.youtube.com/watch?v=zAJoNVbBSdc
- 
- 
-  Complete Python Hacking Tutorial! 
-  https://www.youtube.com/watch?v=qattlDUVNj8
+
  
  
   The Complete Ethical Hacking Course for 2023! 7  
