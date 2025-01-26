@@ -20,8 +20,8 @@ Linux Alternatives for Netsh Command in Linux
 
    
    
-   
-
+   kali install
+  https://linuxsimply.com/linux-basics/os-installation/single-os/kali-linux/
  
  
   The Complete Ethical Hacking Course for 2023! 7  
