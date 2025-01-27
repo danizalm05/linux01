@@ -22,7 +22,8 @@ Linux Alternatives for Netsh Command in Linux
    
    kali install
   https://linuxsimply.com/linux-basics/os-installation/single-os/kali-linux/
- 
+  
+   https://www.youtube.com/watch?v=Hxau-bh8gr4
  
   The Complete Ethical Hacking Course for 2023! 7  
   https://www.youtube.com/watch?v=fDeLtKUxTmM  02:54:00  install   tor
