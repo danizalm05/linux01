@@ -1,0 +1,22 @@
+
+netsh wlan show profiles:   listing all stored WLAN profiles on our computer
+
+netsh wlan show profile name=<name of  network>  :information about the stored wireless network. 
+
+netsh wlan show profile name=<name of  network>  key=clear:   view the stored password of a wireless network
+
+# Set the connection mode the manual
+netsh wlan set profileparameter name=LinkTest connectionmode=manual
+
+
+# Set the connection mode the automatic
+netsh wlan set profileparameter name=LinkTest connectionmode=auto
+
+netsh wlan delete profile name=<name of  network>: Delete a profile
+
+netsh wlan show interfaces:   read out current  wireless network interfaces, find the access 
+                            point to which a device is connected
+							
+netsh wlan show networks:  list all wireless networks in range of the clients.	
+
+netsh wlan connect name= <name of  network>: connect to a wireless network from the command line 
