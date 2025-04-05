@@ -7,8 +7,10 @@ iwconfig
 echo "-------------------------"
 
 
-port="wlp1s0"
-monport="wlp1s0mon"
+port="wlxe894f6236dc9"
+monport="wlan0mon" 
+
+
 
 echo "[1]:airmon-ng check kill"
 airmon-ng check kill
