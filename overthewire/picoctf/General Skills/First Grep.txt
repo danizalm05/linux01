@@ -1,10 +1,8 @@
 
 https://play.picoctf.org/practice?category=5&page=1
 https://github.com/kevinjycui/picoCTF-2019-writeup/tree/master/General%20Skills
-
-Category
-
-General Skills
+https://github.com/Cajac/picoCTF-Writeups/
+ 
 Problem Statement
 
     Can you find the flag in file? This would be really tedious to look 
