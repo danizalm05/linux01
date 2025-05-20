@@ -20,7 +20,8 @@ Hints
  was '22',  you would submit 'picoCTF{22}' as the flag.
 
 Solution
-
   
+  You can print 0x3d  in python and you will get 61
+  or python -c "print('picoCTF{%s}'  %  0x3D)"
 
  picoCTF{ }

@@ -70,6 +70,8 @@ c
 cal Display a calendar
 case Conditionally perform a command
 cat Concatenate and print (display) the content of files
+ cat >file1: creates a new file file1 if it doesn't exist.  
+           if exists  it is overwritten.
  cat ./- : out a file called ‘- ’
  cat "spaces in this filename":  output a file called “spaces in this filename” 
  cat .inhere :output  a hidden file name “ihere”
