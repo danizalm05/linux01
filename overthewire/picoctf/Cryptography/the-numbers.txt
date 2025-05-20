@@ -1,0 +1,40 @@
+
+                         The Numbers
+                     =====================
+
+problem URL:
+https://play.picoctf.org/practice?page=1&search=The%20Numbers
+
+Solutions :           
+
+https://www.youtube.com/watch?v=wXKIle63Czo&list=PL1H1sBF1VAKUmJio8DWjY0tHLwf3bl2ku&index=4
+
+https://github.com/kevinjycui/picoCTF-2019-writeup/tree/master/Cryptography/The%20Numbers
+https://github.com/Cajac/picoCTF-Writeups/blob/main/picoCTF_2019/Cryptography/The_Numbers.md
+
+Problem Statement:
+
+ The numbers... what do they mean?
+
+Hints:
+ 1. The flag is in the format PICOCTF{}
+ 
+ 
+  
+
+Solution
+  When we  open this file and simply look at the image, we can see that 
+  there are a sequence of numbers. We can quickly realise that these 
+  numbers are   1 to 26. When we manually find the characters at each index 
+  in the alphabet in uppercase, we get our flag. 
+   
+  We could also use a this  script :
+  
+  nums = [16, 9, 3, 15, 3, 20, 6, '{', 20, 8, 5, 14, 21, 13, 2, 5, 18, 19, 13, 1, 19, 15, 14, '}']
+  for n in nums:
+    if type(n) is int:
+        print(chr(n+64), end='')
+    else:
+        print(n, end='')
+  
+ picoCTF{ }
