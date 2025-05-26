@@ -29,28 +29,24 @@ A new modular challenge! Download the message here:
       is 1 modulo z   y*x = 1 mod z
   2. It's recommended to use a tool to find the modular inverses
   
+  
+  A modular inverse of integer a is an integer x such   
+  the remainder after dividing ax by the integer m is 1.
+  ax mod m = 1
+  
+  example:
+  What is the modular inverse of (3 mod 7)?
+   5 is the modular inverse of 3 mod 7, since ( 5*3) mod 7 = 1
+  
+   What is the modular inverse of (2 mod 6)?
+     There is no modular inverse of (2 mod 6) because there is no integer m such that
+     m*2 mod 6 =1 
+  
 Solutions :
 
 
 
-python pogram
-nums ="432 331 192 108 180 50 231 188 105 51 364 168 344 195 297 342 292 198 448 62 236 342 63"
-nums = nums.split(" ")
-
-nums = [int(i, 10) for i in nums]
-
-print("picoCTF{",  end="")      
-for i in nums:
-    t = i % 37
-    if t <= 25:
-        print(chr(ord('A') + t), end="")
-    elif t == 36:
-        print("_", end="")
-    else:
-        print(t-26, end="")
-print("}", end="")
-#picoCTF{R0UND_N_R0UND_79C18FB3}
->>>>>>> 7a5c5ac45000b4fae0ee88639ff1ed776154724c
+python pogram 
 
 
 import string
@@ -58,21 +54,26 @@ letters = string.ascii_uppercase  #  ABC...Z
 dgt = string.digits              #  0..9
 
 flag = "picoCTF{"
-contents ="128 322 353 235 336 73 198 332 202 285 57 87 262 221 218 405 335 101 256 227 112 140" 
+contents ="432 331 192 108 180 50 231 188 105 51 364 168 344 195 297 342 292 198 448 62 236 342 63"
+
+  
 numbers = contents.split(" ")
 numbers = [int(val, 10) for val in numbers]
 
 for number in numbers:
-    modulus = number % 37
-    if modulus in range (26):# 0 to  25
-        flag += letters[modulus]
-    elif  modulus in range (26, 36):# 26 to  35
-        flag += dgt[modulus % 26]# 0 is 26 1 is 27 ...
-    else:     #this is an under score
-       flag += '_'  
-        
+    modulus = number % 41
+    print(modulus)
+    
+    
 flag +="}"
 print(flag)   
 
-Flag :
-    picoCTF{R0UND_N_R0UND_79C18FB3}
+
+'''
+if modulus in range (26):# 0 to  25
+    flag += letters[modulus]
+elif  modulus in range (26, 36):# 26 to  35
+    flag += dgt[modulus % 26]# 0 is 26 1 is 27 ...
+else:     #this is an under score
+   flag += '_'  
+    '''
