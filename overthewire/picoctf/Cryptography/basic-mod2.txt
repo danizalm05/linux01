@@ -18,36 +18,16 @@ A new modular challenge! Download the message here:
   b. 27-36 are the decimal digits,  
   c. 37 is an underscore. 
   
-  Wrap your decrypted message
- in the picoCTF flag format (i.e. picoCTF{decrypted_message})
-  
-  
-  
+ 
   
  Hints:
-  1. The inverse modulo z of x is the number, y that when multiplied by x 
-      is 1 modulo z   y*x = 1 mod z
-  2. It's recommended to use a tool to find the modular inverses
+   
   
+   
   
-  A modular inverse of integer a is an integer x such   
-  the remainder after dividing ax by the integer m is 1.
-  ax mod m = 1
-  
-  example:
-  What is the modular inverse of (3 mod 7)?
-   5 is the modular inverse of 3 mod 7, since ( 5*3) mod 7 = 1
-  
-   What is the modular inverse of (2 mod 6)?
-     There is no modular inverse of (2 mod 6) because there is no integer m such that
-     m*2 mod 6 =1 
+ 
   
 Solutions :
-
-
-
-python pogram 
-
 
 import string
 letters = string.ascii_uppercase  #  ABC...Z 
@@ -61,19 +41,18 @@ numbers = contents.split(" ")
 numbers = [int(val, 10) for val in numbers]
 
 for number in numbers:
-    modulus = number % 41
+    modulus = pow(number, -1, 41) #   modular inverse, Valid only in Python 3.8+
     print(modulus)
-    
+    if modulus in range (1,27):# 
+        flag += letters[modulus - 1]
+    elif  modulus in range (27, 37):# 
+        flag += dgt[modulus % 27]#  
+    else:     #this is an under score
+       flag += '_'  
     
 flag +="}"
 print(flag)   
 
 
-'''
-if modulus in range (26):# 0 to  25
-    flag += letters[modulus]
-elif  modulus in range (26, 36):# 26 to  35
-    flag += dgt[modulus % 26]# 0 is 26 1 is 27 ...
-else:     #this is an under score
-   flag += '_'  
-    '''
+Flag:
+picoCTF{1NV3R53LY_H4RD_C680BDC1}
