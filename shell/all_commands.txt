@@ -459,6 +459,7 @@ tail Output the last part of file
 
 tar: Tape ARchiver
   tar -xf data5.bin :Decompress  file
+  tar -xvf data5.bin :Decompress  file verbosly
   tar -ztf data5.bin :Output list of files No Decompress    
   tar -cfv a.tar /etc: store all files from the  directory  /etc into a.tar verbosely   
   tar -xzvf logz.tgz: Uncompress  tgz file)
