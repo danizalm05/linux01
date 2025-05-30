@@ -1,58 +1,27 @@
 
-                       basic-mod2   
-                     =====================
+                       ROT13 Caesar Cipher (PicoCTF 2022 #05 credstuff)
+                          =====================
 
 problem URL: 
-https://play.picoctf.org/practice/challenge/254?originalEvent=70&page=1&search=basic-mod2
-
-https://www.youtube.com/watch?v=KqoIlojTrmw&list=PL1H1sBF1VAKUbRWMCzEBi61Z_7um7V5Sd&index=3
-
+https://play.picoctf.org/practice/challenge/261?page=1&search=credstuff
+https://www.youtube.com/watch?v=JO3taR0xa5Q&list=PL1H1sBF1VAKUbRWMCzEBi61Z_7um7V5Sd&index=5
  
 Description
-A new modular challenge! Download the message here:
-         https://artifacts.picoctf.net/c/178/message.txt.
+ 
+ We found a leak of a blackmarket website's login credentials. Can you find the password of the user "cultiris" and successfully decrypt it? Download the leak here:
+    https://artifacts.picoctf.net/c/151/leak.tar
 
- Take each number mod 41 and find the modular inverse for the result. 
- Then map to the following character set: 
-  a. 1-26 are the alphabet, 
-  b. 27-36 are the decimal digits,  
-  c. 37 is an underscore. 
-  
- 
-  
- Hints:
-   
-  
-   
-  
- 
-  
+ The first user in usernames.txt corresponds to the first password in passwords.txt. The second user corresponds to the second password, and so on.
+
+
+Hints:Hints
+   Maybe other passwords will have hints about the leak?
 Solutions :
-
-import string
-letters = string.ascii_uppercase  #  ABC...Z 
-dgt = string.digits              #  0..9
-
-flag = "picoCTF{"
-contents ="432 331 192 108 180 50 231 188 105 51 364 168 344 195 297 342 292 198 448 62 236 342 63"
-
-  
-numbers = contents.split(" ")
-numbers = [int(val, 10) for val in numbers]
-
-for number in numbers:
-    modulus = pow(number, -1, 41) #   modular inverse, Valid only in Python 3.8+
-    print(modulus)
-    if modulus in range (1,27):# 
-        flag += letters[modulus - 1]
-    elif  modulus in range (27, 37):# 
-        flag += dgt[modulus % 27]#  
-    else:     #this is an under score
-       flag += '_'  
-    
-flag +="}"
-print(flag)   
+   1.tar -xvf leak.tar: Create a new directory 'leak'  with two files
+       passwords.txt
+       usernames.txt
+ 
 
 
 Flag:
-picoCTF{1NV3R53LY_H4RD_C680BDC1}
+picoCTF{ }
