@@ -199,7 +199,9 @@ fuser Identify/kill the process that is accessing a file
 gawk Find and Replace text within file(s)
 getopts Parse positional parameters
 grep: Search file(s) for lines that match a given pattern
-  grep "millionth"  data.txt:  find the line in file data.txt next to the word millionth
+  grep -n "millionth"  data.txt:  find the lines in file data.txt of 
+          string  millionth
+      
 
 gzip: Compress file 
    gzip <file name>
@@ -219,6 +221,8 @@ gzip: Compress or decompress named file(s)
 ------------------
 hash Remember the full pathname of a name argument
 head Output the first part of file(s)
+   head -25 file_name | tail +20 : display line numbers from 20 to 25
+
 help Display help for a built-in command •
 history Command History
 hostname: Print or set system name
@@ -401,7 +405,8 @@ runlevel: Return 0-6 number  that representswhat system services are operating.
 screen Multiplex terminal, run remote shells via ssh
 scp Secure copy (remote file copy)
 sdiff Merge two files interactively
-sed Stream Editor
+sed Stream Editor:
+     sed -n '13p' file.txt # output line 13
 select Accept keyboard input
 seq Print numeric sequences
 set Manipulate shell variables and functions
