@@ -15,9 +15,10 @@ Description
  The first user in usernames.txt corresponds to the first password in passwords.txt. The second user corresponds to the second password, and so on.
 
 
-Hints:Hints
+Hints: 
    Maybe other passwords will have hints about the leak?
-Solutions :
+   
+Solutions:
    1.tar -xvf leak.tar: This will create a new directory 'leak'  with
    two files
        passwords.txt
