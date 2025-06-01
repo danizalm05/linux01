@@ -12,7 +12,67 @@ Description
 
 Hints: 
 Solutions:
-    the  flg is in the source code
+     At the last of the file, we can see something similar to a flag,  
+    The source code that contain the flg looks like this:
+     " sodipodi:role="line"
+         x="107.43014"
+         y="132.08501"
+         style="font-size:0.00352781px;line-height:1.25;fill:#ffffff;stroke-width:0.26458332;"
+         id="tspan3748">p </tspan><tspan
+    "
+    The above code contains the "p " form "picoctf"
+    
+   we need to extract the flag from it. We can do this manually, but,
+   I am gonna do some bash tricks using tools like grep, cut, and tr.
+   
+   
+   1. grep "</tspan>" - Here we are basically filtering down the lines that contain the part of the flag.
 
+    Output:
+
+    id="tspan3748">p </tspan><tspan
+    id="tspan3754">i </tspan><tspan
+    id="tspan3756">c </tspan><tspan
+    id="tspan3758">o </tspan><tspan
+    id="tspan3760">C </tspan><tspan
+    id="tspan3762">T </tspan><tspan
+    id="tspan3764">F { 3 n h 4 n </tspan><tspan
+    id="tspan3752">c 3 d _ 2 4 3 7 4 6 7 5 }</tspan></text>
+
+   2.cat drawing.flag.svg | grep "</tspan>" | cut -d ">" -f 2
+   Here we are removing anything before the part of the flag.  -f 2 means 2'nd field  the ">" is the delimiter that sprates the fields
+
+
+	p </tspan
+	i </tspan
+	c </tspan
+	o </tspan
+	C </tspan
+	T </tspan
+	F { 3 n h 4 n </tspan
+	c 3 d _ d 0 a 7 5 7 b f }</tspan
+
+ 3. cat drawing.flag.svg | grep "</tspan>" | cut -d ">" -f 2 | cut -d "<" -f1
+  cut -d "<" -f1 - Here we are removing anything after the part of the flag.
+
+    Output:
+	p 
+	i 
+	c 
+	o 
+	C 
+	T 
+	F { 3 n h 4 n 
+	c 3 d _ d 0 a 7 5 7 b f }
+	
+ 4.cat drawing.flag.svg | grep "</tspan>" | cut -d ">" -f 2 | cut -d "<" -f1 | tr -d "\n"
+ tr -d "\n" - Here we are removing all the new lines.	
+ 
+  output: p i c o C T F { 3 n h 4 n c 3 d _ d 0 a 7 5 7 b f }
+  
+ 5 cat drawing.flag.svg | grep "</tspan>" | cut -d ">" -f 2 | cut -d "<" -f1 | tr -d "\n"|tr -d " "
+ 
+  Here we are removing all the spaces between the parts of the flag.
+  
 Flag:
    picoCTF{3nh4nc3d_d0a757bf}

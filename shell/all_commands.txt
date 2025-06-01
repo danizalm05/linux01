@@ -111,7 +111,9 @@ cron Daemon to execute scheduled commands
 crontab Schedule a command to run at a later time
 csplit Split a file into context-determined pieces
 cut Divide a file into several parts
-
+ cut -b 1,2,3 <file> :cut bits 1,2,3 from file
+ cut -d "delimiter" -f (field number) file.txt: cut field number . Fiels are counted according to the "delimiter"
+   
 curl:  transferring data using various network protocols.  
  curl -O  <url>: Download file 
  
