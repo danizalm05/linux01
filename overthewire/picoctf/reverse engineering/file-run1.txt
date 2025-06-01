@@ -1,0 +1,22 @@
+
+                                file-run1
+                          =====================
+
+problem URL: 
+https://play.picoctf.org/practice/challenge/266?originalEvent=70&page=1&search=file-run1
+https://www.youtube.com/watch?v=brzMO-Vz5rU&list=PL1H1sBF1VAKUbRWMCzEBi61Z_7um7V5Sd&index=8
+
+Description
+A program has been provided to you, what happens if you try to run it on the command line? Download the program here:
+  https://artifacts.picoctf.net/c/220/run
+
+Hints:  
+   1. To run the program at all, you must make it executable (i.e. $ chmod +x run)
+   2. Try running it by adding a '.' in front of the path to the file (i.e. $ ./run)
+
+
+Solutions:
+  
+  
+Flag:
+   picoCTF{}
