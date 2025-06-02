@@ -1,0 +1,10 @@
+
+git status
+rem "Start  new  commit to github."
+ 
+git add .
+git commit -m   %RANDOM%
+ 
+
+git push -u origin master
+
