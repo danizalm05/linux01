@@ -1,0 +1,22 @@
+
+                                File types
+                          =====================
+
+problem URL: 
+https://play.picoctf.org/practice/challenge/268?originalEvent=70&page=1&search=File%20types
+https://www.youtube.com/watch?v=420mItn8bzo&list=PL1H1sBF1VAKUbRWMCzEBi61Z_7um7V5Sd&index=10
+
+Description
+This file was found among some files marked confidential but my pdf reader cannot read it, maybe yours can. You can download the file from here:
+     https://artifacts.picoctf.net/c/82/Flag.pdf
+
+Hints:  
+  
+  Remember that some file types can contain and nest other files
+
+
+Solutions:
+  
+  
+Flag:
+   picoCTF{}
