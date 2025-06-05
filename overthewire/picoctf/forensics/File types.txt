@@ -6,6 +6,9 @@ problem URL:
 https://play.picoctf.org/practice/challenge/268?originalEvent=70&page=1&search=File%20types
 https://www.youtube.com/watch?v=420mItn8bzo&list=PL1H1sBF1VAKUbRWMCzEBi61Z_7um7V5Sd&index=10
 
+https://github.com/arvindshima/PicoCTF-2022/blob/main/Forensics/file-types.md
+https://github.com/noamgariani11/picoCTF-2022-Writeup/blob/main/Forensics/File%20Types/FileTypes.md
+
 Description
 This file was found among some files marked confidential but my pdf reader cannot read it, maybe yours can. You can download the file from here:
      https://artifacts.picoctf.net/c/82/Flag.pdf
@@ -16,7 +19,40 @@ Hints:
 
 
 Solutions:
-  
-  
+  1. wget https://artifacts.picoctf.net/c/82/Flag.pdf
+  2. file Flag.pdf 
+     Flag.pdf: shell archive text
+  3. After doing 'cat Flag.pdf' you can see that this looks like a script  at the top of it says:
+        run the file with sh.
+  4. When doing 'sh Flag.pdf' we get this message:	
+     
+      x - created lock directory _sh00046.
+      x - extracting flag (text)
+      x - removed lock directory _sh00046.  
+	  
+	and a a file  named 'flag'  is created.  
+	
+ 5. 'file flag'
+    output: flag: current ar archive 
+	
+ 6	By look in man ar you can see that "x" is how you extract. (man ar):
+	 
+
+    	 ar - create, modify, and extract from archives
+	   ....
+	   ....
+	    x   Extract members (named member) from the archive.  You can use the v modifier with this operation, to request that ar list each name as it extracts it.
+       If you do not specify a member, all files in the archive are extracted.
+
+ 7. ar x flag
+     a new file is created (overwrite the previous file named flag 
+ 8. file flag
+    output: flag: cpio archive
+	
+ 9. looking at the man page to see the correct syntax for extracting:
+        cpio --file flag -i	
+	
+	
+ 5:00
 Flag:
    picoCTF{}
