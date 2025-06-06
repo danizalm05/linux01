@@ -30,8 +30,8 @@ Solutions:
       x - extracting flag (text)
       x - removed lock directory _sh00046.  
 	  
-	and a a file  named 'flag'  is created.  
-	
+	and a a file  named 'flag'  i s created.  
+	(in case of an error run: sudo apt install sharutils)
  5. 'file flag'
     output: flag: current ar archive 
 	
@@ -51,8 +51,30 @@ Solutions:
 	
  9. looking at the man page to see the correct syntax for extracting:
         cpio --file flag -i	
-	
-	
- 5:00
+	  ouptput: Erro meassage flag no created: newer or same age version exists
+    This is because it can't overide
+ 
+ 10.  mv flag flag.cpio
+ 11.  cpio --file flag.cpio -i	
+ 12.  file flag
+     output :flag bzip2 compressed data, block size = 900
+ 13. bunzip2 flag
+      output : Can't guess original name for flag using flag.out
+
+ 14. file flag.out
+   output:
+     flag.out: gzip compresse data, was "flag" .... 
+ 15. mv flag.out flag.gz
+ 16. gunzip flag.gz
+ 17. file flag
+     output: lzip compressed data, version 1
+ 18: lzip  -d flag	 
+ 19: file flag.out
+     output: flag.out  LZ$ compressed data
+ 20  If lz4 id missing run :sudo apt install lz4
+     lz4 -d flag.out flag
+ 21  file flag
+     output:flag LZMA compressed data. non-streamed size 233
+ 11:10
 Flag:
    picoCTF{}
