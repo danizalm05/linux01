@@ -84,21 +84,6 @@ Solutions:
  26. lzop -d flag.lzop	 
  27. file flag
      output: lzip compressed data version11
- 28. lzip -d flag
- 29. file flag.out
-     output : XZ compressed data
- 30. mv flag.out flag.xz	
- 31. unxz  flag.xz 
- 32. file flag
-     output: ASCII text
-33. cat flag
-    output:706963............	 
-34.
-    cat flag |  xxd -r -p   
- xxd: make a hexdump or do the reverse.
- xxd test.txt: Output  hexdump to  console
- xxd -r data.txt data.out: Reverse from hex dump  to  original 
-
-output:
- 
-   picoCTF{f1len@m3_m@n1pul@t10n_f0r_0b2cur17y_950c4fee}
+ 11:10
+Flag:
+   picoCTF{}
