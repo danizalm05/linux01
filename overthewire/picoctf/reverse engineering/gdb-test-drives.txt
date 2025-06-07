@@ -1,0 +1,35 @@
+
+                            gdb-test-drive
+                          =====================
+
+problem URL: 
+https://play.picoctf.org/practice/challenge/273?page=1&search=GDB
+https://www.youtube.com/watch?v=Tmdnsre9z7s&list=PL1H1sBF1VAKUbRWMCzEBi61Z_7um7V5Sd&index=12
+
+ 
+
+
+Description
+Can you get the flag? Download this binary:
+   https://artifacts.picoctf.net/c/87/gdbme 
+
+Here's the test drive instructions:
+
+    $ chmod +x gdbme
+    $ gdb gdbme
+    (gdb) 
+    (gdb) break *(main+99)
+    (gdb) run
+    (gdb) jump *(main+104)
+
+ 
+
+Solutions:
+  1. wget  https://artifacts.picoctf.net/c/87/gdbme 
+  2. chmod +x  gdbme
+  3. gdb gdbme    # start the debuger on 'gdbme' program file
+  4. layout asm# start asm layout window
+  
+output:
+ 
+   picoCTF{f1len@m3_m@n1pul@t10n_f0r_0b2cur17y_950c4fee}
