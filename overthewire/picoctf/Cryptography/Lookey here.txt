@@ -1,0 +1,34 @@
+
+                             'morse-code'
+                            =====================
+
+https://play.picoctf.org/practice/challenge/280
+https://www.youtube.com/watch?v=pecvtjWJmJM&list=PL1H1sBF1VAKUbRWMCzEBi61Z_7um7V5Sd&index=16
+
+https://github.com/Cajac/picoCTF-Writeups/blob/main/picoCTF_2022/Cryptography/morse-code.md
+
+
+ 
+Description:
+Morse code is well known. Can you decrypt this?
+ 
+Download the file here: https://artifacts.picoctf.net/c/79/morse_chal.wav
+
+Wrap your answer with picoCTF{}, put underscores in place of pauses, and use all lowercase.
+
+Hints:
+1. Audacity is a really good program to analyze morse code audio.
+
+Solutions:
+ 1. This two urls will can translate the morse code:
+    https://databorder.com/transfer/morse-sound-receiver/
+    https://morsecode.world/international/decoder/audio-decoder-adaptive.html
+
+ the output is: WH47 H47H W20U9H7
+ add underscore in place of space
+ 
+ picoCTF{WH47_H47H_90D_W20U9H7}
+ 
+
+ 
+
