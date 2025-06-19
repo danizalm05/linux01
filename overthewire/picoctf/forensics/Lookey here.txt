@@ -1,0 +1,28 @@
+
+                             Looky here
+                            =====================
+
+problem URL: 
+
+https://play.picoctf.org/practice/challenge/279
+https://www.youtube.com/watch?v=X5JHPtd1IJQ&list=PL1H1sBF1VAKUbRWMCzEBi61Z_7um7V5Sd&index=16
+
+https://github.com/Cajac/picoCTF-Writeups/blob/main/picoCTF_2022/Forensics/Lookey_here.md
+
+Description
+
+ Attackers have hidden information in a very large mass of data in the past, 
+ maybe they are still doing it.
+ Download the data :
+       https://artifacts.picoctf.net/c/124/anthem.flag.txt
+
+Solutions:
+ 1. grep -i 'picoctf{'  anthem.flag.txt 
+  output:    we think that the men of picoCTF{gr3p_15_@w3s0m3_4c479940}
+
+ 2. The most efficient way to get the flag is to use grep with -o to only
+ output the matched text and -E to say that your pattern is an extended 
+ regular expression
+  grep -oE 'picoCTF{.*}' anthem.flag.txt
+ 
+
