@@ -1,0 +1,30 @@
+
+                            gdb-test-drive
+                          =====================
+
+problem URL: 
+https://play.picoctf.org/practice/challenge/289
+https://www.youtube.com/watch?v=UiV734BUu58&list=PL1H1sBF1VAKUbRWMCzEBi61Z_7um7V5Sd&index=19
+
+A type of transposition cipher is the rail fence cipher, which is described here:
+   https://en.wikipedia.org/wiki/Rail_fence_cipher  
+ Here is one such cipher encrypted using the rail fence with 4 rails. Can you decrypt it?
+ Download the message here. 
+ Put the decoded message in the picoCTF flag format, picoCTF{decoded_message}.
+
+Hints: 
+Once you've understood how the cipher works, it's best to draw it out yourself on paper
+ 
+
+Solutions:
+   
+ you can use this online service at Planet Calc.
+ https://planetcalc.com/6946/
+It "brute-forces" the number of rails up to a maximum number (with a default of 10).
+Enter the given encoded text in the Encoded message text box and press 'CALCULATE'.
+And you will get the flag in the output with 4 rails in the Decode table.
+
+
+output:
+  The flag is: WH3R3_D035_7H3_F3NC3_8361N_4ND_3ND_83F6D8D7
+   picoCTF{WH3R3_D035_7H3_F3NC3_8361N_4ND_3ND_83F6D8D7}
