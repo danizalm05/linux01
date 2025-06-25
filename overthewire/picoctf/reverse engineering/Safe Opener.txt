@@ -1,0 +1,68 @@
+
+                              Safe Opener
+                          =====================
+
+problem URL: 
+
+https://play.picoctf.org/practice/challenge/294
+https://www.youtube.com/watch?v=zhtc12sZ61U&list=PL1H1sBF1VAKUbRWMCzEBi61Z_7um7V5Sd&index=21
+
+https://github.com/Cajac/picoCTF-Writeups/blob/main/picoCTF_2022/Reverse_Engineering/Safe_Opener.md
+
+
+Challenge information:
+
+ Can you open this safe? I forgot the key to my safe but this program 
+     https://artifacts.picoctf.net/c/83/SafeOpener.java
+ is supposed to help me with retrieving the lost key. Can you help me unlock my safe? Put the password you recover into the picoCTF flag format like: picoCTF{password}
+
+Solutions:
+Let's start by looking at the Java source code:
+
+import java.io.*;
+import java.util.*;  
+public class SafeOpener {
+
+    public static void main(String args[]) throws IOException {
+        BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
+        Base64.Encoder encoder = Base64.getEncoder();
+        String encodedkey = "";
+        String key = "";
+        int i = 0;
+        boolean isOpen;
+        
+
+        while (i < 3) {
+            System.out.print("Enter password for the safe: ");
+            key = keyboard.readLine();
+
+            encodedkey = encoder.encodeToString(key.getBytes());
+            System.out.println(encodedkey);
+              
+            isOpen = openSafe(encodedkey);
+            if (!isOpen) {
+                System.out.println("You have  " + (2 - i) + " attempt(s) left");
+                i++;
+                continue;
+            }
+            break;
+        }
+    }
+    
+    public static boolean openSafe(String password) {
+        String encodedkey = "cGwzYXMzX2wzdF9tM18xbnQwX3RoM19zYWYz";
+        
+        if (password.equals(encodedkey)) {
+            System.out.println("Sesame open");
+            return true;
+        }
+        else {
+            System.out.println("Password is incorrect\n");
+            return false;
+        }
+    }
+}
+  
+  
+  
+  picoCTF{}
