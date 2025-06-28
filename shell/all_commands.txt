@@ -203,8 +203,9 @@ getopts Parse positional parameters
 grep: Search file(s) for lines that match a given pattern
   grep -n "millionth"  data.txt:  find the lines in file data.txt of 
           string  millionth
-      
+  grep -r pico web_copy:  recursively search (-r) for string 'pico' in the directory 'web_copy'
 
+     
 gzip: Compress file 
    gzip <file name>
    
@@ -549,7 +550,9 @@ which: Search the user's $path for a program file
 while Execute commands
 who Print all usernames currently logged in
 whoami Print the current user id and name (`id -un')
-wget "url"  Retrieve web pages or files via HTTP, HTTPS or FTP
+wget "url":  Retrieve web pages or files via HTTP, HTTPS or FTP
+  wget -m  -P D:\local_mirror
+  wget --mirror --convert-links --adjust-extension --page-requisites --no-parent  http://ex.url
 write Send a message to another user
 
          x
