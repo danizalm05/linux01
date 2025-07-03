@@ -1,0 +1,45 @@
+
+                             substitution2
+                          =====================
+Kasiski's Test in Cryptograph
+problem URL: 
+
+https://play.picoctf.org/practice/challenge/309
+
+https://www.youtube.com/watch?v=8YFEC5IXY8Q&list=PL1H1sBF1VAKUbRWMCzEBi61Z_7um7V5Sd&index=26
+https://github.com/Cajac/picoCTF-Writeups/blob/main/picoCTF_2022/Cryptography/substitution2.md
+
+Description:
+
+Description:
+It seems that another encrypted message has been intercepted. 
+The encryptor seems to have learned their lesson though and now there isn't any punctuation! 
+Can you still crack the cipher?
+
+Download the message here: https://artifacts.picoctf.net/c/114/message.txt
+
+Hints:
+1. Try refining your frequency attack, maybe analyzing groups of letters would improve your results?
+Download the message here.
+ https://artifacts.picoctf.net/c/181/message.txt
+ 
+This is the Message
+ ZfnjdjjzqsfsjpjdxwmfnjdcjwwjsfxhwqsnjynqensknmmwkmuvafjdsjkadqftkmuvjfqfqmgsqgkwayqgekthjdvxfdqmfxgyaskthjdknxwwjgejfnjsjkmuvjfqfqmgslmkasvdquxdqwtmgstsfjusxyuqgqsfdxfqmglagyxujgfxwscnqknxdjpjdtasjlawxgyuxdojfxhwjsoqwwsnmcjpjdcjhjwqjpjfnjvdmvjdvadvmsjmlxnqensknmmwkmuvafjdsjkadqftkmuvjfqfqmgqsgmfmgwtfmfjxknpxwaxhwjsoqwwshafxwsmfmejfsfayjgfsqgfjdjsfjyqgxgyjzkqfjyxhmafkmuvafjdskqjgkjyjljgsqpjkmuvjfqfqmgsxdjmlfjgwxhmdqmasxllxqdsxgykmujymcgfmdaggqgeknjkowqsfsxgyjzjkafqgekmglqeskdqvfsmlljgsjmgfnjmfnjdnxgyqsnjxpqwtlmkasjymgjzvwmdxfqmgxgyquvdmpqsxfqmgxgymlfjgnxsjwjujgfsmlvwxtcjhjwqjpjxkmuvjfqfqmgfmaknqgemgfnjmlljgsqpjjwjujgfsmlkmuvafjdsjkadqftqsfnjdjlmdjxhjffjdpjnqkwjlmdfjknjpxgejwqsufmsfayjgfsqgxujdqkxgnqensknmmwsladfnjdcjhjwqjpjfnxfxgagyjdsfxgyqgemlmlljgsqpjfjkngqiajsqsjssjgfqxwlmdumagfqgexgjlljkfqpjyjljgsjxgyfnxffnjfmmwsxgykmglqeadxfqmglmkasjgkmagfjdjyqgyjljgsqpjkmuvjfqfqmgsymjsgmfwjxysfayjgfsfmogmcfnjqdjgjutxsjlljkfqpjwtxsfjxknqgefnjufmxkfqpjwtfnqgowqojxgxffxkojdvqkmkflqsxgmlljgsqpjwtmdqjgfjynqensknmmwkmuvafjdsjkadqftkmuvjfqfqmgfnxfsjjosfmejgjdxfjqgfjdjsfqgkmuvafjdskqjgkjxumgenqensknmmwjdsfjxknqgefnjujgmaenxhmafkmuvafjdsjkadqftfmvqiajfnjqdkadqmsqftumfqpxfqgefnjufmjzvwmdjmgfnjqdmcgxgyjgxhwqgefnjufmhjffjdyjljgyfnjqduxknqgjsfnjlwxeqsvqkmKFL{G6D4U_4G41T515_15_73Y10A5_42JX1770}
+
+Hints:
+1. Try a frequency attack
+
+
+Soultion: 
+   1.As suggested in the hint we can use an online tool such as 
+	    https://www.dcode.fr/monoalphabetic-substitution 
+		or 
+		https://quipqiup.com/
+    the answer is     PICOCTF{N6R4M_4N41Y515_15_73D10U5_42EA1770}
+  
+ 
+ 
+	
+	  
+
+

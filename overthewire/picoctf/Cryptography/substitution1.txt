@@ -23,13 +23,17 @@ This is the Message
 Hints:
 1. Try a frequency attack
 2. Do the punctuation and the individual words help you make any substitutions?
- 
- 
- 
- 
+
+Soultion: 
+   1.As suggested in the hint we can use an online tool such as 
+	    https://www.dcode.fr/monoalphabetic-substitution 
+		or 
+		https://quipqiup.com/
+    the answer is     PICOCTF{FR3QU3NCY_4774CK5_4R3_C001_4871E6FB}
+  
  
  
 	
 	  
-  PICOCTF{}
+
 
