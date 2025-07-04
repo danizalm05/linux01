@@ -3,6 +3,12 @@
 Security Operations (SOC) 101 Course - 10+ Hours of Content!
 https://www.youtube.com/watch?v=56NDgBOSpUg&list=PLLKT__MCUeixqHJ1TRqrHsEd6_EdEvo47&index=15
 
+Course Repository:  https://github.com/MalwareCube/SOC101_Free
+https://github.com/MalwareCube/SOC101_Free/blob/main/resources/Reference_Booklet.md
+
+
+
+
  
  goto: https://www.eicar.org/download-anti-malware-testfile/
  clock on EICAR.TXT
@@ -17,4 +23,18 @@ https://www.youtube.com/watch?v=56NDgBOSpUg&list=PLLKT__MCUeixqHJ1TRqrHsEd6_EdEv
  So to disable window defender open the start menu and  
     window security/virous-threat protection/virous-threat protection setting/manage settings
 	   /Tamper protection   and turn it off
- 36:00	   
+ 36:00	 
+open powershell  as adminstrator  and run these commands: 
+ 
+1. Disable real-time protection 
+   Set-MpPreference -DisableRealtimeMonitoring $true
+   
+2. Disable the scanning of network files
+  Set-MpPreference -DisableScanningNetworkFiles $true
+37:00
+3. Disable the blocking of files at first sight
+   Set-MpPreference -DisableBlockAtFirstSeen $true
+
+4. Disable Windows Defender AntiSpyware
+  reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender" /v DisableAntiSpyware /t REG_DWORD /d 1 /f
+ 
