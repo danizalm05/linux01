@@ -446,7 +446,8 @@ stat: display file or file system status
     stat --format "%U" <file name> : user name of the owner
     stat --printf="File %n is %s bytes, and is a %F owner %U\n" s*  a*
 
-strace Trace system calls and signals
+strace: Trace system calls and signals
+        strace <executabe file name>> 
 strings:  print the strings of printable characters in files.
  strings data.txt | grep '^=' : Find strings beginning with several ‘=’ characters.
  
@@ -505,7 +506,9 @@ true Do nothing, successfully
 tsort Topological sort
 tty Print filename of terminal on stdin
 type Describe a command •
+
 u
+
 ulimit Limit user resources •
 umask Users file creation mask
 umount Unmount a device
@@ -520,6 +523,8 @@ unshar Unpack shell archive scripts
 until Execute commands (until error)
 unzip ".zip":  uzip a zip file
 uptime Show uptime
+upx:    packer for several executable formats 
+    upx -d  <upx file name > :     decompress   file
 useradd Create new user account
 userdel Delete a user account
 usermod Modify user account

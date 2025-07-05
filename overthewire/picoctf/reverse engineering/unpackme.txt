@@ -1,58 +1,51 @@
 
-                           transposition-trial
+                            unpackme
                           =====================
  
 problem URL: 
+https://play.picoctf.org/practice/challenge/313
+https://www.youtube.com/watch?v=0jVikfySiII
 
-https://play.picoctf.org/practice/challenge/312
-https://www.youtube.com/watch?v=37xo7KQVl8c&list=PL1H1sBF1VAKUbRWMCzEBi61Z_7um7V5Sd&index=27
-
-https://github.com/Cajac/picoCTF-Writeups/blob/main/picoCTF_2022/Cryptography/transposition-trial.md
+https://picoctf2022.haydenhousen.com/reverse-engineering/unpackme
 
 Description:
- 
-Our data got corrupted on the way here. 
-Luckily, nothing got replaced, but every block of 3 got scrambled around! 
-
-The first word seems to be three letters long, maybe you can use that to recover the rest of the message.
-
-Download the corrupted message here:
-   https://artifacts.picoctf.net/c/191/message.txt
-
-The meassage :
-   heTfl g as iicpCTo{7F4NRP051N5_16_35P3X51N3_V6E5926A}4
+ Can you get the flag? Reverse engineer this binary:
+   https://artifacts.picoctf.net/c/203/unpackme-upx
+  
 
 Hints:
-1. Split the message up into blocks of 3 and see how the first block is scrambled
-  
- 
-
+ What is UPX?
 
 
 Soultion: 
- It looks like in each block of three characters the first is shifted to the end of the block.
+    1.  file unpackme-upx
+      unpackme-upx: ELF 64-bit LSB executable, x86-64, version 1 (GNU/Linux), 
+	   statically linked, no section heade 
 
-Let's write a small Python script called solve.py to decode this
+   	2. chmod +x unpackme-upx
+	
+	3. ./unpackme-upx
+             What's my favorite number? 7
+               Sorry, that's not it!   
 
-#!/usr/bin/python
-# -*- coding: latin-1 -*-
+	4 strings unpackme-upx | grep upx
+       $Info: This file is packed with the UPX executable packer http://upx.sf.net 		   
+	 According to their website:
+	  "UPX is a free, portable, extendable, high-performance executable packer for 
+	   several executable formats."
+  
+   5.  upx -d unpackme-upx
+                         Ultimate Packer for eXecutables
+                            Copyright (C) 1996 - 2020
+       UPX 3.96        Markus Oberhumer, Laszlo Molnar & John Reiser   Jan 23rd 2020
 
-encrypted_msg = "heTfl g as iicpCTo{7F4NRP051N5_16_35P3X51N3_V091B0AE}4"
-                 
-i = 0
-flag = ""
+            File size         Ratio      Format      Name
+       --------------------   ------   -----------   -----------
+             1002528 <-    379188   37.82%   linux/amd64   unpackme-upx
 
-while i < len(encrypted_msg):
-    flag += encrypted_msg[i+2]
-    flag += encrypted_msg[i]
-    flag += encrypted_msg[i+1]
-    i += 3
-
-print(flag)
-
-     
-        
-	The flag is picoCTF{7R4N5P051N6_15_3XP3N51V3_56E6924A}
+        Unpacked 1 file.
+	5:32	
+	The flag is picoCTF{ }
   
  
  
