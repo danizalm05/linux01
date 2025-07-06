@@ -1,71 +1,28 @@
 
-                            unpackme
+                               unpackme
                           =====================
  
 problem URL: 
+
 https://play.picoctf.org/practice/challenge/313
 https://www.youtube.com/watch?v=0jVikfySiII
 
 https://picoctf2022.haydenhousen.com/reverse-engineering/unpackme
 
 Description:
- Can you get the flag? Reverse engineer this binary:
-   https://artifacts.picoctf.net/c/203/unpackme-upx
-  
+  Can you get the flag? Reverse engineer this binary:
+      https://artifacts.picoctf.net/c/203/unpackme-upx
 
-Hints:
- What is UPX?
-
-
-Soultion: 
-    1.  file unpackme-upx
-      unpackme-upx: ELF 64-bit LSB executable, x86-64, version 1 (GNU/Linux), 
-	   statically linked, no section heade 
-
-   	2. chmod +x unpackme-upx
-	
-	3. ./unpackme-upx
-             What's my favorite number? 7
-               Sorry, that's not it!   
-
-	4 strings unpackme-upx | grep upx
-       $Info: This file is packed with the UPX executable packer http://upx.sf.net 		   
-	 According to their website:
-	  "UPX is a free, portable, extendable, high-performance executable packer for 
-	   several executable formats."
-  
-   5.  upx -d unpackme-upx
-                         Ultimate Packer for eXecutables
-                            Copyright (C) 1996 - 2020
-       UPX 3.96        Markus Oberhumer, Laszlo Molnar & John Reiser   Jan 23rd 2020
-
-            File size         Ratio      Format      Name
-       --------------------   ------   -----------   -----------
-             1002528 <-    379188   37.82%   linux/amd64   unpackme-upx
-
-        Unpacked 1 file.
-	5:32
-	
-	
-	6. run	ghidra
-	   create project
-	   import the upx file
-	   
-	7.  in the decompressed  main function you will see the next commands
-	  if (iStack_44 == 0xb83cb) {
-          uStack_40 = rotate_encrypt(0,&uStack_38);
-          fputs(uStack_40,stdout);
-          putchar(10);
-          
-          0xb83cb in decimal is (754635)
-     9. Run the original ./unpackme-upx  in the *.rep directory
-        input the number  754635 and the output is
-        
-		picoCTF{up><_m3_f7w_77ad107e}
-     
-          
-   
+Hints: 
+      What is UPX?
  
+  
+ 
+Soultion: 
+  
+     
+        
+ picoCTF{}
   
  
  
