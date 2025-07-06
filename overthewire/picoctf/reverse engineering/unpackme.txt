@@ -44,7 +44,26 @@ Soultion:
              1002528 <-    379188   37.82%   linux/amd64   unpackme-upx
 
         Unpacked 1 file.
-	5:32	
+	5:32
+	
+	
+	6. run	ghidra
+	   create project
+	   import the upx file
+	   
+	7.  in the main function you will see the next commands
+	  if (iStack_44 == 0xb83cb) {
+          uStack_40 = rotate_encrypt(0,&uStack_38);
+          fputs(uStack_40,stdout);
+          putchar(10);
+          
+          0xb83cb in decimal is (754635)
+     9. Run the original ./unpackme-upx
+        input the number  754635 and the ouput is
+        picoCTF{up><_m3_f7w_77ad107e}
+     
+          
+   
 	The flag is picoCTF{ }
   
  
