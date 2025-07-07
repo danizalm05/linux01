@@ -26,14 +26,29 @@ f = Fernet(key_base64)
 plain = f.decrypt(payload)
 exec(plain.decode())
    
+soulution :
+
+ The payload is an inscripted program 
+ so we need to print the decrypted payload
+ so change the command 
+       exec(plain.decode())
+ to 	   
+	 print(plain.decode()) 
+
+ the ouput is :
+pw = input('What\'s the password? ')
 
 
+if pw == 'batteryhorse':
+  print('picoCTF{175_chr157m45_5274ff21}')
+else:
+  print('That password is incorrect.')
  
 
 
 Soultion:  
         
-		picoCTF{ }
+		picoCTF{175_chr157m45_5274ff21}
      
           
    
