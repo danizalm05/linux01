@@ -1,0 +1,21 @@
+   
+
+
+                 TCM Security Academy  
+				 -----------------------
+https://www.youtube.com/watch?v=3FNYvj2U0HM
+ 
+ network commands
+ ------------------
+ ip a:  List all all connections.
+ ip n:
+ ip route:  where the traffic is routing
+ arp -a: Displays the current ARP table for all interfaces. Address Resolution Protocol (ARP) table. 
+ ifconfig: showes only the ethernet connections(hardwired connection)
+ iwconfig: shows only wireless connection
+ ping:
+ netstat: displays active connections and ports
+ 
+ 
+ https://www.youtube.com/watch?v=3FNYvj2U0HM
+ 02:53:40
