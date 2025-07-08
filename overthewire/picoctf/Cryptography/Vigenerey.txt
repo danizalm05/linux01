@@ -1,0 +1,38 @@
+
+                              Vigenere
+                          =====================
+ 
+problem URL: 
+https://play.picoctf.org/practice/challenge/316
+https://www.youtube.com/watch?v=8AhAL1JRctY&list=PL1H1sBF1VAKUbRWMCzEBi61Z_7um7V5Sd&index=29
+
+https://github.com/Cajac/picoCTF-Writeups/blob/main/picoCTF_2022/Cryptography/Vigenere.md
+
+
+Description: 
+ Can you decrypt this message? 
+ Decrypt this message: https://artifacts.picoctf.net/c/160/cipher.txt 
+ 
+ The message is :   rgnoDVD{O0NU_WQ3_G1G3O3T3_A1AH3S_2951c89f}
+ 
+ using this key "CYLAB".
+ 
+ Hint:  
+  https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher
+ 
+soulution :
+  1.  input meassage and key in this  url:      https://www.boxentriq.com/code-breaking/vigenere-cipher
+
+        
+	picoCTF{D0NT_US3_V1G3N3R3_C1PH3R_2951a89h}
+     
+          
+   
+ 
+  
+ 
+ 
+	
+	  
+
+
