@@ -20,13 +20,44 @@ Description:
  Hint:  
   https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher
  
-soulution :
-  1.  input meassage and key in this  url:      https://www.boxentriq.com/code-breaking/vigenere-cipher
+soulution 1. 
+ input meassage and key in this  url:      https://www.boxentriq.com/code-breaking/vigenere-cipher
+ 
+  
+Soulutio 2 :
 
-        
+
+import string
+
+cipher_text =  "rgnoDVD{O0NU_WQ3_G1G3O3T3_A1AH3S_2951c89f}"
+key = 'CYLAB'
+
+universe = string.ascii_uppercase      # universe = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+uni_len = len(universe)                # uni_len =26
+
+flag = ''
+k_len = len(key)                       # k_len =26
+
+i = 0
+for c in cipher_text:
+    if c.islower():
+        txt_index = universe.index(c.upper())
+        key_index = universe.index(key[i % k_len])
+        i += 1
+        flag += universe[(txt_index - key_index) % uni_len].lower()
+    elif c.isupper():
+        txt_index = universe.index(c)
+        key_index = universe.index(key[i % k_len])
+        i += 1
+        flag += universe[(txt_index - key_index) % uni_len]
+    else:
+        flag += c    
+
+print(flag) 
+
+
+
 	picoCTF{D0NT_US3_V1G3N3R3_C1PH3R_2951a89h}
-     
-          
    
  
   
