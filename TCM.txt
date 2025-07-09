@@ -15,7 +15,24 @@ https://www.youtube.com/watch?v=3FNYvj2U0HM
  iwconfig: shows only wireless connection
  ping:
  netstat: displays active connections and ports
- 
- 
+ route
+   
  https://www.youtube.com/watch?v=3FNYvj2U0HM
- 02:53:40
+ 
+ 
+ starting services 
+ ----------------
+ sudo service apache2 start: starting the apache server
+ get the ip address of the local computer and input it as a url in the browser.
+ The index.html of the server is :/var/www/html/index.html
+ sudo service apache2 stop: stoping  the apache server.
+ 
+ python webserver
+ python3 -m http.server 80
+ get the ip address of the local computer and input it as a url in the browser.
+ it will show you the file directory of your system .
+ 
+ 
+ sudo systemctl enable ssh :enable ssh on mechine startup 
+ sudo systemctl disable ssh: disable ssh on mechine startup
+ 

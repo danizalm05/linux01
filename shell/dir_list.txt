@@ -1,5 +1,7 @@
  
  
   
- /etc/bandit_pass/bandit14
- /etc/passwd : Password stored 
+/etc/bandit_pass/bandit14
+/etc/passwd : Password stored 
+
+/var/www/html/index.html:   index.html of the  apache2 server 
