@@ -36,3 +36,5 @@ https://www.youtube.com/watch?v=3FNYvj2U0HM
  sudo systemctl enable ssh :enable ssh on mechine startup 
  sudo systemctl disable ssh: disable ssh on mechine startup
  
+ 03:18 bash scriping
+ 
