@@ -22,10 +22,11 @@ Hints:
  
  
  
-Soulutio  :
- 
-
-
+Soulutio 2 :
+    1. Download decompiler for Java from :
+      https://github.com/java-decompiler/jd-gui/releases/download/v1.6.6/jd-gui-windows-1.6.6.zip
+    2. run 'jd-gui.exe' and open 'KeygenMe.class'
+	3. Save the file to 'KeygenMe.java'
 	picoCTF{ }
    
  
