@@ -397,7 +397,7 @@ remsync Synchronize remote files via email
 return Exit a shell function
 rev Reverse lines of a file
 rm: Remove files
-   rm -f <file name": remove file ignore nonexistent files, never prompt
+   rm -f <file name>: remove file ignore nonexistent files, never prompt
 rmdir Remove folder(s)
 rpm: RPM Package Manager QUERYING AND VERIFYING PACKAGES
 
@@ -409,9 +409,10 @@ screen Multiplex terminal, run remote shells via ssh
 scp Secure copy (remote file copy)
 sdiff Merge two files interactively
 sed Stream Editor:
-     sed -n '13p' file.txt # output line 13
+         sed -n '13p' file.txt # output line 13
 select Accept keyboard input
-seq Print numeric sequences
+seq Print numeric sequences:
+         seq 1 255
 set Manipulate shell variables and functions
 sftp Secure File Transfer Program
 shift Shift positional parameters
