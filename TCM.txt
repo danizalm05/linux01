@@ -4,7 +4,7 @@
                  TCM Security Academy  
 				 -----------------------
 https://www.youtube.com/watch?v=3FNYvj2U0HM
- 
+https://github.com/TCM-Course-Resources/Practical-Ethical-Hacking-Resources 
  network commands
  ------------------
  ip a:  List all all connections.
@@ -36,5 +36,5 @@ https://www.youtube.com/watch?v=3FNYvj2U0HM
  sudo systemctl enable ssh :enable ssh on mechine startup 
  sudo systemctl disable ssh: disable ssh on mechine startup
  
- 03:18 bash scriping
+ 03:38:08 bash scriping
  
