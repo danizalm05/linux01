@@ -36,5 +36,5 @@ https://github.com/TCM-Course-Resources/Practical-Ethical-Hacking-Resources
  sudo systemctl enable ssh :enable ssh on mechine startup 
  sudo systemctl disable ssh: disable ssh on mechine startup
  
- 03:38:08 bash scriping
+ 05:23:08  port_scanner.py
  
