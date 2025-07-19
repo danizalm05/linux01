@@ -1,0 +1,33 @@
+
+                                Sleuthkit Apprentice
+                               =====================
+ 
+problem URL: 
+
+https://play.picoctf.org/practice/challenge/300
+https://www.youtube.com/watch?v=9EQV-dKy2A4&list=PL1H1sBF1VAKUbRWMCzEBi61Z_7um7V5Sd&index=39
+
+https://github.com/Cajac/picoCTF-Writeups/blob/main/picoCTF_2022/Forensics/Sleuthkit_Apprentice.md
+
+Description:
+ 
+Download this disk image and find the flag:
+       https://artifacts.picoctf.net/c/136/disk.flag.img.gz 
+ Note: if you are using the webshell, download the disk image into /tmp not your home directory.
+
+		
+Hints:
+      
+Souluion:
+  
+	
+	picoCTF{ }
+   
+ 
+  
+ 
+ 
+	
+	  
+
+
