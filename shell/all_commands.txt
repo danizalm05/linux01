@@ -392,9 +392,11 @@ quotactl Set disk quotas
 --------------------
 ram ram disk device
 rcp Copy files between two machines
-read Read a line from standard input •
-readarray Read from stdin into an array variable •
+read Read a line from standard input  
+readarray Read from stdin into an array variable  
 readonly Mark variables/functions as readonly
+realpath: find the full path of a file 
+        realpath <file name>
 reboot Reboot the system
 rename Rename files
 renice Alter priority of running processes
@@ -406,7 +408,7 @@ rm: Remove files
 rmdir Remove folder(s)
 rpm: RPM Package Manager QUERYING AND VERIFYING PACKAGES
 
-runlevel: Return 0-6 number  that representswhat system services are operating. 
+runlevel: Return 0-6 number  that represents what system services are operating. 
 
           s
 -------------------
@@ -455,7 +457,13 @@ stat: display file or file system status
 strace: Trace system calls and signals
         strace <executabe file name>> 
 strings:  print the strings of printable characters in files.
- strings data.txt | grep '^=' : Find strings beginning with several ‘=’ characters.
+       strings data.txt | grep '^=' : Find strings beginning with several ‘=’ characters.
+     take text encoding into account (  16-bit big endian in this case.)
+       strings -n 8 -es disk.flag.img | grep -oE 'picoCTF{.*}'
+       strings -n 8 -eS disk.flag.img | grep -oE 'picoCTF{.*}'
+       strings -n 8 -eb disk.flag.img | grep -oE 'picoCTF{.*}'
+ 
+ 
  
 su: Substitute user identity
 sudo Execute a command as another user
