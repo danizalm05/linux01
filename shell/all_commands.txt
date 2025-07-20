@@ -301,10 +301,15 @@ mkdir: Create new folder(s)
 mkfifo Make FIFOs (named pipes)
 mkisofs Create an hybrid ISO9660/JOLIET/HFS filesystem
 mknod Make block or character special files
- 
+
+mmls :list the partition table contents 
+
+
 more: Display output one screen at a time
            =         Display current line number.
            v         Start up an editor at current line.   
+		   
+		   
 
 mount Mount a file system
 mtools Manipulate MS-DOS files

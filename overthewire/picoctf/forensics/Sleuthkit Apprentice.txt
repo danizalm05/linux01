@@ -19,9 +19,85 @@ Download this disk image and find the flag:
 Hints:
       
 Souluion:
-  
+  1. wget  https://artifacts.picoctf.net/c/136/disk.flag.img.gz
+  2. file disk.flag.img.gz
+     output:
+       disk.flag.img.gz: gzip compressed data, was "disk.flag.img",
+	   last modified: Thu Mar 16 01:46:08 2023, from Unix, 
+	   original size modulo 2^32 314572800
+  3.gunzip disk.flag.img.gz
+     output:
+	   a new file: disk.flag.img
+  4. file 	 disk.flag.img   
+	   output: 
+          disk.flag.img: DOS/MBR boot sector; 
+		 
+		  partition 1 : ID=0x83, active, start-CHS (0x0,32,33), end-CHS (0xc,223,19), startsector 2048, 204800 sectors; 
+		
+	      partition 2 : ID=0x82, start-CHS (0xc,223,20), end-CHS (0x16,111,25), startsector 206848, 153600 sectors;
 	
-	picoCTF{ }
+    	  partition 3 : ID=0x83, start-CHS (0x16,111,26), end-CHS (0x26,62,24), startsector 360448, 253952 sectors
+  5.   Next we check the partition table with the mmls tool from The Sleuth Kit
+         mmls disk.flag.img  
+      output:
+	        DOS Partition Table
+			Offset Sector: 0
+			Units are in 512-byte sectors
+
+				  Slot      Start        End          Length       Description
+			000:  Meta      0000000000   0000000000   0000000001   Primary Table (#0)
+			001:  -------   0000000000   0000002047   0000002048   Unallocated
+			002:  000:000   0000002048   0000206847   0000204800   Linux (0x83)
+			003:  000:001   0000206848   0000360447   0000153600   Linux Swap / Solaris x86 (0x82)
+			004:  000:002   0000360448   0000614399   0000253952   Linux (0x83)
+
+                        Strings and grep solution
+                       ==============================
+					   
+     The fastest and easiest solution is to run strings on the unpacked disk image and grep for the flag.
+       However, we need to take text encoding into account and do several tries to find the right encoding,
+    16-bit big endian in this case.
+
+    strings -n 8 -es disk.flag.img | grep -oE 'picoCTF{.*}'
+    strings -n 8 -eS disk.flag.img | grep -oE 'picoCTF{.*}'
+    The Correct version is :
+    strings -n 8 -eb disk.flag.img | grep -oE 'picoCTF{.*}'
+	
+    output:
+         	picoCTF{by73_5urf3r_3497ae6b}
+	
+
+                            using  autopsy   solution
+                       ==============================
+            1. sudo autopsy
+            2. from web browser run:  http://localhost:9999/autopsy
+            3. chose :Create Case
+			      Creating Case: picoctf
+                  Case directory (/var/lib/autopsy/picoctf/) created
+                  Configuration file (/var/lib/autopsy/picoctf/case.aut) created
+                  
+                 We must now create a host for this case. 
+                 Please select your name from the list: 
+             4. click add  host button
+			 5. Adding host: host1 to case picoctf
+               Host Directory (/var/lib/autopsy/picoctf/host1/) created
+               Configuration file (/var/lib/autopsy/picoctf/host1/host.aut) created
+            6.press  add image
+			7.press add image file
+			8. find the full oath of the image file 
+			   realpath disk.flag.img
+               output :/home/itom/Desktop/disk.flag.img
+			   and put it 
+            9.press next
+           10.press ok
+		   11.press details
+           12.chose the last partiatio  and click analze
+		   
+		   
+		   I AM  LOST
+		   
+		   
+picoCTF{by73_5urf3r_3497ae6b}
    
  
   
