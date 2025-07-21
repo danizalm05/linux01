@@ -1,0 +1,31 @@
+
+                                 Bbbbloat
+                          =====================
+               GHIDRA for Reverse Engineering (PicoCTF 2022 #42 'bbbloat')
+                
+
+problem URL: 
+https://play.picoctf.org/practice/challenge/255
+https://www.youtube.com/watch?v=oTD_ki86c9I&list=PL1H1sBF1VAKUbRWMCzEBi61Z_7um7V5Sd&index=42
+
+https://medium.com/@asmolia/picoctf-bbbbloat-d25b9d2e046b
+https://picoctf2022.haydenhousen.com/reverse-engineering/bbbbloat
+
+Description
+Can you get the flag? Reverse engineer this binary:
+    https://artifacts.picoctf.net/c/46/bbbbloat
+
+ 
+Solution:
+ 
+  ===============================
+	ppicoCTF{}
+   
+ 
+  
+ 
+ 
+	
+	  
+
+
