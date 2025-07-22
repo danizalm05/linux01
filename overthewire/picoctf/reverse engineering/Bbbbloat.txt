@@ -17,9 +17,37 @@ Can you get the flag? Reverse engineer this binary:
 
  
 Solution:
- 
+   1. wget  https://artifacts.picoctf.net/c/46/bbbbloat
+   2. chmod +x 
+   3. Ghidra.
+      open the file in Ghidra and analyze it,
+       
+   4. Reverse the program using Ghidra. 
+       We see FUN_00101307 contains most of the code:	  
+	  
+   5. the importend lins are:
+          .....
+		   printf("What\'s my favorite number? ");
+          __isoc99_scanf();
+         if (local_48 == 0x86187) {
+             __s = (char *)FUN_00101249(0,&local_38);
+             fputs(__s,stdout);
+             putchar(10);
+             free(__s);
+         }
+        else {
+         puts("Sorry, that\'s not it!");
+		 ....
+     6.
+	    Our input local_48 is compared against 0x86187, which is 549255
+		in decimal.
+		Running the program and entering 549255 prints the flag:
+   
+
+   picoCTF{cu7_7h3_bl047_695036e3}
+
   ===============================
-	ppicoCTF{}
+	picoCTF{cu7_7h3_bl047_695036e3}
    
  
   
