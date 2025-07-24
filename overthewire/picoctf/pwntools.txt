@@ -1,0 +1,71 @@
+                                    pwntools
+                          --------------------------
+    
+install  pwntools
+		          
+				  (https://docs.pwntools.com/en/stable/elf/elf.html)
+        run   'pip3 install pwntools' if not working then
+        run:  'apt install python3-pwntools'
+
+pwn [-h]
+           {asm,checksec,constgrep,cyclic,debug,disasm,disablenx,elfdiff,elfpatch,errno,hex,libcdb,phd,pwnstrip,scramble,shellcraft,template,unhex,update,version}
+           ...
+pwn cyclic 12
+aaaabaaacaaa
+
+
+
+
+
+
+
+
+ Downloas the program:     https://artifacts.picoctf.net/c/143/vuln
+
+ The source code      https://artifacts.picoctf.net/c/143/vuln.c
+
+
+To make sure everyting is working run  this python program, in the dir  of the program  'vuln' :
+	    
+	      #! /usr/bin/env python3
+		  import argparse
+		  import pwn # pwntools lib 
+		  elf = pwn.ELF("./vuln")   #  ELF = Executable and Linkable Format file  in Unix
+	      print(elf)
+          print("\nAddress = ",hex(elf.address))
+          print("win function Address = ",hex(elf.symbols['win'])) 
+         
+         
+		  p = elf.process()
+		  g= pwn.gdb.attach(p)
+		  print(p.recv().decode('utf-8'))
+          p.interactive()
+          
+	   the output sould be:
+				 
+				 [*] '/home/itom/Desktop/vuln'
+			     Arch:     i386-32-little
+			  	 RELRO:    Partial RELRO
+				 Stack:    No canary found
+				 NX:       NX enabled
+				 PIE:      No PIE (0x8048000)
+			   
+			    ELF('/home/itom/Desktop/vuln')
+				
+				Address =  0x8048000
+                win function Address =  0x8049296
+               
+				[+] Starting local process '/home/itom/Desktop/d/vuln': pid 2287
+				[*] Switching to interactive mode
+				Please enter your string: 
+
+ 
+   
+ 
+  
+ 
+ 
+	
+	  
+
+

@@ -199,6 +199,12 @@ fuser Identify/kill the process that is accessing a file
          g
 ----------------------
 gawk Find and Replace text within file(s)
+gdb:  debugging  a Linux programs 
+    gdb <program name>
+	     info function <function name>: Find the address of a function
+gef - GDB Enhanced Features
+        install bash -c "$(curl -fsSL https://gef.blah.cat/sh)"
+        run: gdb
 getopts Parse positional parameters
 grep: Search file(s) for lines that match a given pattern
   grep -n "millionth"  data.txt:  find the lines in file data.txt of 
