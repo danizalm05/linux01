@@ -204,7 +204,9 @@ gdb:  debugging  a Linux programs
 	     info function <function name>: Find the address of a function
 gef - GDB Enhanced Features
         install bash -c "$(curl -fsSL https://gef.blah.cat/sh)"
-        run: gdb
+        run: gdb <file name>
+		b,break <address>: run  up to  <address>
+		r,run: run current program
 getopts Parse positional parameters
 grep: Search file(s) for lines that match a given pattern
   grep -n "millionth"  data.txt:  find the lines in file data.txt of 
@@ -366,6 +368,9 @@ openssl:  library for applications that provide secure communications over
 passwd Modify a user password
 paste Merge lines of files
 pathchk Check file name portability
+perl:
+    perl -e 'print "A" x 112 . "\x96\x92\x04\x08" ' > payload
+	    payload =  "aaaaaa....  .... "\x96\x92\x04\x08"
 pgrep: Lists the process IDs which match the selection criteria  
     pgrep -u root sshd: list the processes called sshd AND owned by root. 
 
