@@ -1,0 +1,38 @@
+
+                               Eavesdrop   
+					 --------------------------------------		  
+                         
+
+problem URL: 
+https://play.picoctf.org/practice/challenge/264
+https://www.youtube.com/watch?v=Sb5PS-DddXY&list=PL1H1sBF1VAKUbRWMCzEBi61Z_7um7V5Sd&index=46
+
+https://medium.com/@kautsar.muwahhid/picoctf-write-up-eavesdrop-a26aeaa4b9cc
+
+
+Description
+  Download this packet capture :
+           'https://artifacts.picoctf.net/c/135/capture.flag.pcap'
+  and find the flag
+ 
+Hints:
+  All we know is that this packet capture includes a chat conversation 
+  and a file transfer.
+  
+ 
+Solution:
+  1. wget   https://artifacts.picoctf.net/c/135/capture.flag.pcap
+  2. strings capture.flag.pcap
+
+$ strings capture.flag.pcap
+  ===============================
+	picoCTF{ }
+   
+ 
+  
+ 
+ 
+	
+	  
+
+
