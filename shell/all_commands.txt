@@ -58,6 +58,11 @@ basename Strip directory and suffix from filenames
 bash GNU Bourne-Again SHell
 bc Arbitrary precision calculator language
 bg Send to background
+binwalk:    searching a given binary image for embedded files and executable code
+       binwalk capture.flag.pcap: serach  for files
+	   binwalk --dd=".*" capture.flag.pcap: extrect the files 
+
+
 break Exit from a loop •
 builtin Run a shell builtin
 
