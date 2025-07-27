@@ -34,10 +34,7 @@ Solution:
      output:
         among the mant lines next one is interesting 
 	      '*sigh* openssl des3 -d -salt -in file.des3 -out file.txt -k supersecretpassword123'
-	    this command translater 'file.des3' to 'file.txt'
-		So we can't run it becase the file 'file.des3' does not exists. 
-
-	 note:
+	   note:
 	      3DES is an encryption  a symmetric-key algorithm both for encryption and decryption. 
 	
 	 The next lines in the ouput are importent too.
@@ -69,29 +66,54 @@ Solution:
 			You're unbelievable
             ------------------------------------------------
 			
- 5.
- By increasing the TCP Stream to 2,( in the url window write 
-   'tcp.stream eq 2')
+5. By increasing the TCP Stream to 2,( in the url window write 'tcp.stream eq 2')
     we can see a stream starting with Salted_			
 	'Salted__<K&....,J.......o..%....I{97X...........'		
-
-  another way to do that is :
-      right click on a coulmn and chose column prefence
-	  press + to add a new cloumn. Change the name to Src port.
-	  change type to    'source port'
-	  Add another port Change the name to Dst port.
-	  change type to    'destination port'
-	
-	  look in the source dst clomn for port 9002
-	  right click and chose flow
-	  the screen will show  'Salted__<K&....,J.......o..%....I{97X...........'
 			
 6. After that, change the value of field Show and save data as to raw, 
     then click Save as	and chose the file name	'fil.des3'	
 			
-7. Next, apply the command we noted down before to decrypt the file we saved 
- just now:			
+7. Next, apply the command we noted down before to decrypt the file we saved just now:			
 	 openssl des3 -d -salt -in fil.des3 -out file.txt -k supersecretpassword123		
-8. run 'more file.txt'			
+8. more file.txt			
 	output 	  picoCTF{nc_73115_411_0ee7267a}	
+	
+	
+	--------------------------------------------------------------------------------------
+	
+	
+	
+  5. 
+    Since   there weren't any files to export from this packet capture.
+    maybe the file transfer doesn't have to be through the network and since this is
+		a forensics challenge, the file might just be within the packet capture file.
+     run binwalk capture.flag.pcap got:
+
+		DECIMAL       HEXADECIMAL     DESCRIPTION
+       ----------------------------------------------- 
+       0             0x0             Libpcap capture file, little-endian, version 2.4, Ethernet,  snaplen: 262144
+      5882          0x16FA          OpenSSL encryption, salted, salt: 0x3C4B26E8B8F91E2C
+
+   6. meaning there is indeed another file hidden inside. 
+      run 'binwalk --dd=".*" capture.flag.pcap' to extract the files, 
+      renamed the OpenSSL file to file.des3
+
+    change the name of the file '_capture.flag.pcap-0'  to  'file.des3'
+	mv _capture.flag.pcap-0.extracted file.des3
+	
+	
+    copy the 'openssl des3 -d -salt -in file.des3 -out file.txt -k supersecretpassword123'
+     and run it in a new teminal.
+	  
+  ===============================
+   
+}
+   
+ 
+  
+ 
+ 
+	
+	  
+
 
