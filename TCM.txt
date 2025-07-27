@@ -38,3 +38,13 @@ https://github.com/TCM-Course-Resources/Practical-Ethical-Hacking-Resources
  
  05:23:08  port_scanner.py
  
+ 
+ https://www.bugcrowd.com/programs    
+ https://bugcrowd.com/engagements?category=bug_bounty&page=1&sort_by=promoted&sort_direction=desc
+
+ tesla
+--------------
+https://bugcrowd.com/engagements?category=bug_bounty&sort_by=promoted&sort_direction=desc&search=tesla&page=1
+ 
+ Email 
+ 6:40:00
