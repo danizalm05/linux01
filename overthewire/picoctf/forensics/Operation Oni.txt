@@ -1,12 +1,15 @@
 
                               Operation Oni
-					 ----- --------------------------------		  
+					 -------------------------------------		  
                        
 
 problem URL: 
-https://play.picoctf.org/practice/challenge/284
-https://www.youtube.com/watch?v=DhVRI33s-D0&list=PL1H1sBF1VAKUbRWMCzEBi61Z_7um7V5Sd&index=47
- 
+https://play.picoctf.org/practice/challenge/284  
+https://www.youtube.com/watch?v=6NcIbiKhIis&list=PL1H1sBF1VAKUbRWMCzEBi61Z_7um7V5Sd&index=47
+
+
+
+
 https://github.com/KathleenX7/PicoCTF-2022-Writeup/blob/main/Forensics/Operation%20Oni/README.md
 
 Description
@@ -28,8 +31,17 @@ Hints:
   
  
 Solution:
-  
-
-
+   1. wget  https://artifacts.picoctf.net/c/71/disk.img.gz
+      gunzip disk.img.gz
+      file disk.img
+	  
+   2. sudo autopsy	  
+   3. create new case
+   4. change name to  'Oni'
+   5.to get the full past open another teminal run 'realpath disk.img' 
+	   the ouput will be  the full path	   
+	
+	
+	
 	picoCTF{ }
 
