@@ -54,7 +54,7 @@ https://bugcrowd.com/engagements?category=bug_bounty&sort_by=promoted&sort_direc
  https://www.youtube.com/watch?v=sH4JCwjybGs
  
  burpsuite    00:18:12
-    run brupsuite
+    run  burpsuite
     in firefox goto settings
 	And  go  to 'Network Settings'  (on the bottom )
     chose manual proxy
@@ -68,4 +68,7 @@ https://bugcrowd.com/engagements?category=bug_bounty&sort_by=promoted&sort_direc
 	press import and chose the  file 'cacert.der' chose the two check boxes
 	gotto  the 'tesla.com' web
 	
+	on burpsuite you can press Proxy and forward to see the dialog
 	
+    in the intercept page intercept is off will alow regular use with the browser  
+	 when intercept is on the browser wont wark but the conversion will  appear in the burpsuite
