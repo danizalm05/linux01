@@ -15,15 +15,45 @@ Description:
 
 Hints: 
       What is UPX?
- 
-  
+	  UPX (Ultimate Packer for eXecutables) is a free and open source executable packer supporting a number of file formats from different operating systems.  
  
 Soultion: 
   
-     
-        
- picoCTF{}
-  
+   1. wget  https://artifacts.picoctf.net/c/203/unpackme-upx
+   2. file unpackme-upx
+       unpackme-upx: ELF 64-bit LSB executable, x86-64, version 1 (GNU/Linux),
+	   statically linked, 
+	   no section header
+   3. chmod +x   unpackme-upx
+   4. run unpackme-upx
+        What's my favorite number? sddfd
+        Sorry, that's not it!
+   5. upx -d   unpackme-upx
+      output:
+	                       Ultimate Packer for eXecutables
+                          Copyright (C) 1996 - 2024
+       UPX 4.2.2       Markus Oberhumer, Laszlo Molnar & John Reiser    Jan 3rd 2024
+
+              File size            Ratio      Format      Name
+            --------------------   ------   -----------   -----------
+           1006445 <-    379188    37.68%   linux/amd64   unpackme-upx
+
+   6.  try strings unpackme-upx
+       or strings unpackme-upx | grep CTF 
+	   
+	   No results
+   7  open this binary with the ‘ghidra’ tool to reverse engineer.
+     The Symbol Tree section shows the binary's imports, exports, functions, labels, classes, and namespaces..
+	8. After reviewing the files in each section, I noticed the ‘main’ file inside the ‘m’    
+	 folder in the ‘functions’  section. 
+     There is a command  
+	 
+         If the ‘local_44’ equals the ‘0xb83cb’ 	‘0xb83cb’ = 754635  
+	  
+   9. run unpackme-upx and input 754635 
+   
+  picoCTF{up><_m3_f7w_77ad107e}
+
  
  
 	
