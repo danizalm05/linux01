@@ -60,8 +60,8 @@ bc Arbitrary precision calculator language
 bg Send to background
 binwalk:    searching a given binary image for embedded files and executable code
        binwalk capture.flag.pcap: serach  for files
-	   binwalk --dd=".*" capture.flag.pcap: extrect the files 
-
+	   binwalk --dd=".*" capture.flag.pcap:  extrect the files 
+       binwalk -e  capture.flag.pcap :  extrect the files 
 
 break Exit from a loop •
 builtin Run a shell builtin
@@ -213,6 +213,10 @@ gef - GDB Enhanced Features
         run: gdb <file name>
 		b,break <address>: run  up to  <address>
 		r,run: run current program
+		
+gem : Ruby langage
+      gem install <file name >:   install a proram 	
+		
 getopts Parse positional parameters
 grep: Search file(s) for lines that match a given pattern
   grep -n "millionth"  data.txt:  find the lines in file data.txt of 

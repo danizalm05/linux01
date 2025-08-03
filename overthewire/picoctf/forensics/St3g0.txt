@@ -1,0 +1,62 @@
+
+                                St3g0
+					 -------------------------------------	
+ 
+problem URL: 
+https://play.picoctf.org/practice/challenge/305
+https://www.youtube.com/watch?v=OPRGfJJ8bmU&list=PL1H1sBF1VAKUbRWMCzEBi61Z_7um7V5Sd&index=50
+
+
+
+
+Description
+  Download this image and find the flag.
+
+    Download image
+        https://artifacts.picoctf.net/c/216/pico.flag.png  
+ 
+Solution:
+  
+	zsteg:  Detect stegano-hidden data in PNG & BMP
+	https://github.com/zed-0xff/zsteg
+	RubyGems is a package manager for Ruby.
+    install  zsteg:  gem install zsteg
+	uninstall zsteg:  gem uninstall zsteg
+	
+	
+	1. wget  https://artifacts.picoctf.net/c/216/pico.flag.png  
+	
+	2. zsteg -a pico.flag.png # --all                        try all known method
+	3. The flag will  paer at begining of the output
+	
+	picoCTF{7h3r3_15_n0_5p00n_a1062667}
+	
+	
+	
+	
+	
+	
+	2.  binwalk pico.flag.png 
+
+			DECIMAL       HEXADECIMAL     DESCRIPTION
+			--------------------------------------------------------------------------------
+			0             0x0             PNG image, 585 x 172, 8-bit/color RGBA, non-interlaced
+			41            0x29            Zlib compressed data, default compression
+			
+   As you can see above, the file contains two compartments the png image data and also a zip file. 
+	 Often in these instances, an extraction of the zip file will give you the flag,
+	 however in other cases, it's a pandora's box with encapsulation within encapsulation
+	 (files within files) and you'll have to follow the method a few times to 
+	 extract the final.
+
+ 3. extract the hidden files, run the command with the flag '-e' to extract the unknown files:
+
+  This will automatically unzip the foreign file into your current directory.
+  At this point, 'cat' the file to print the contents, 
+  examine the type of file that's been extracted using 'file' and 'strings' and 
+  repeat the process again.	
+	
+	
+	picoCTF{ }
+
+
