@@ -21,6 +21,3 @@ A Step-by-Step Guide to Using BurpSuite for Web Application Security Testing
 	
     in the intercept page intercept is off will alow regular use with the browser  
 	 when intercept is on the browser wont wark but the conversion will  appear in the burpsuite
-	 
-	  burp suite David Bombal
-     https://www.youtube.com/watch?v=IWWYNDiwYOA

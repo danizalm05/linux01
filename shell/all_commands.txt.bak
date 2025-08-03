@@ -121,7 +121,6 @@ cut Divide a file into several parts
    
 curl:  transferring data using various network protocols.  
  curl -O  <url>: Download file 
- curl -c  cookies.txt “<url>” # Extract session cookies from a request
  
                     d
 -----------------------------------
