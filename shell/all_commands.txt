@@ -189,7 +189,8 @@ find: Search for files that meet a desired criteria
   find -name "filename": Find file by its file name
   find / -user bandit20:   find all  file  owned  by user = bandit20
  
-
+fls:  command from the Sleuth Kit that lists files and directories.
+         fls -o 2048 disk.flag.img        # fls -o <offset> <File Name>
 
 
 fmt Reformat paragraph text
@@ -253,6 +254,8 @@ hostname: Print or set system name
        i
 -------------------
 iconv Convert the character set of a file
+icat - Output the contents of a file based on its inode number. 
+
 id: Print user and group id's
 if Conditionally perform a command
 ifconfig Configure a network interface
@@ -320,9 +323,8 @@ mkfifo Make FIFOs (named pipes)
 mkisofs Create an hybrid ISO9660/JOLIET/HFS filesystem
 mknod Make block or character special files
 
-mmls :list the partition table contents 
-
-
+mmls :list the partition table contents,  shows the offset point of a partition in byte unites
+       
 more: Display output one screen at a time
            =         Display current line number.
            v         Start up an editor at current line.   
@@ -372,6 +374,13 @@ openssl:  library for applications that provide secure communications over
 
     openssl s_client -quiet -connect <url:port>
     echo password | openssl s_client -quiet -connect <url:port>
+  
+    openssl aes256 -salt -in <inp-file> -out <output.enc> -k <password>  :   incrypt
+   
+	 openssl aes256 -d -salt -in <inp.enc>-out <output file> -k   <password>  : decrypt  
+
+
+
 
                    p
 ---------------------------
@@ -483,8 +492,8 @@ strings:  print the strings of printable characters in files.
        strings -n 8 -es disk.flag.img | grep -oE 'picoCTF{.*}'
        strings -n 8 -eS disk.flag.img | grep -oE 'picoCTF{.*}'
        strings -n 8 -eb disk.flag.img | grep -oE 'picoCTF{.*}'
- 
- 
+       strings -t d disk.flag.img   
+                               -t d => prints the offset of strings 
  
 su: Substitute user identity
 sudo Execute a command as another user
