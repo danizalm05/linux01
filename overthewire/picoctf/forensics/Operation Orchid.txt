@@ -1,54 +1,27 @@
 
-                           unpackme.py
+                            Operation Orchid
                           =====================
  
 problem URL: 
-https://play.picoctf.org/practice/challenge/314
-https://www.youtube.com/watch?v=dMAVHIt6ITw&list=PL1H1sBF1VAKUbRWMCzEBi61Z_7um7V5Sd&index=28
+https://play.picoctf.org/practice/challenge/285
+ 
 
-https://github.com/Cajac/picoCTF-Writeups/blob/main/picoCTF_2022/Reverse_Engineering/unpackme.py.md
+https://medium.com/@atigamli/picoctf-1-writeup-operation-orchid-af876fd2b392
 
-
-Description: 
-Can you get the flag? Reverse engineer this Python program:
-   https://artifacts.picoctf.net/c/48/unpackme.flag.py
-   
-import base64
-from cryptography.fernet import Fernet
-
-
-
-payload = b'gAAAAABkzWGO_8MlYpNM0n0o718LL-w9m3rzXvCMRFghMRl6CSZwRD5DJOvN_jc8TFHmHmfiI8HWSu49MyoYKvb5mOGm_Jn4kkhC5fuRiGgmwEpxjh0z72dpi6TaPO2TorksAd2bNLemfTaYPf9qiTn_z9mvCQYV9cFKK9m1SqCSr4qDwHXgkQpm7IJAmtEJqyVUfteFLszyxv5-KXJin5BWf9aDPIskp4AztjsBH1_q9e5FIwIq48H7AaHmR8bdvjcW_ZrvhAIOInm1oM-8DjamKvhh7u3-lA=='
-
-key_str = 'correctstaplecorrectstaplecorrec'
-key_base64 = base64.b64encode(key_str.encode())
-f = Fernet(key_base64)
-plain = f.decrypt(payload)
-exec(plain.decode())
-   
+Description:  
+ Download this disk image and find the flag:
+                         https://artifacts.picoctf.net/c/212/disk.flag.img.gz
+    
+ Note: if you are using the webshell, download and extract the disk image into /tmp not your home directory.
+ 
 soulution :
-
- The payload is an inscripted program 
- so we need to print the decrypted payload
- so change the command 
-       exec(plain.decode())
- to 	   
-	 print(plain.decode()) 
-
- the ouput is :
-pw = input('What\'s the password? ')
-
-
-if pw == 'batteryhorse':
-  print('picoCTF{175_chr157m45_5274ff21}')
-else:
-  print('That password is incorrect.')
+ 
  
 
 
 Soultion:  
         
-		picoCTF{175_chr157m45_5274ff21}
+		picoCTF{}
      
           
    
