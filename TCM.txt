@@ -50,25 +50,15 @@ https://bugcrowd.com/engagements?category=bug_bounty&sort_by=promoted&sort_direc
  https://kodkodcyber.com/recon-ng/
  
  https://hashes.com/en/decrypt/hash
+ 
+ 
+ 
  part 2
  https://www.youtube.com/watch?v=sH4JCwjybGs
+ virtual machine: https://www.vulnhub.com/
+
+
+kioptrix
+ google drive directore: tcm-sec.com/kioptrix
  
- burpsuite    00:18:12
-    run  burpsuite
-    in firefox goto settings
-	And  go  to 'Network Settings'  (on the bottom )
-    chose manual proxy
-		   switch from:   'Use system proxy settings' 
-		            to:   'use manul proxy' 127.0.0.1 port 8080
-	on another tab goto 'https://burp/'			
-    press CA Certificate
-        a file named 'cacert.der'   will be save in the /download dir	
-	on firefox goto settings and  privect and security and goto    'Certificates'	
-	
-	press import and chose the  file 'cacert.der' chose the two check boxes
-	gotto  the 'tesla.com' web
-	
-	on burpsuite you can press Proxy and forward to see the dialog
-	
-    in the intercept page intercept is off will alow regular use with the browser  
-	 when intercept is on the browser wont wark but the conversion will  appear in the burpsuite
+ 00:41:50
