@@ -2,10 +2,12 @@
                           Torrent Analyze
                           =====================
  
-problem URL: 
+problem URL:  
 https://play.picoctf.org/practice/challenge/311
 https://www.youtube.com/watch?v=unjEg5KGEeU 
 
+
+https://prfalken.org/index.php/2022/03/29/picoctf-2022-torrent-analyze/
 https://github.com/pmateja/picoCTF_2022_writeups/blob/main/Torrent_Analyze.md
 
 Description:  
@@ -13,8 +15,9 @@ Description:
 SOS, someone is torrenting on our network. One of your colleagues has
  been using torrent to download some files on the company’s network. 
  Can you identify the file(s) that were downloaded? 
-The file name will be the flag, like picoCTF{filename}. 
-Captured traffic.
+The file name will be the flag, 'like picoCTF{filename}'. 
+
+Captured traffic:           https://artifacts.picoctf.net/c/165/torrent.pcap
 
 
 Hints:
@@ -23,12 +26,36 @@ Hints:
    3.Try to understand peers, leechers and seeds.
    https://www.techworm.net/2017/03/seeds-peers-leechers-torrents-language.html
    4.The file name ends with .iso
-soulution :
-    
- 
-	  
-     
-         picoCTF{h4un71ng_p457_0a710765}
+
+
+Soulution :
+   
+ We need to find filename, not file contents, of a file, that has been downloaded.
+ Another thing: we won't find the filename inside this pcap file. It will be a bit harder. 
+ Reading about torrents will sooner or later direct you to the term of info_hash, which is the SHA1 sum of the torrent file. 
+
+   
+   
+   
+   
+   1. wget https://artifacts.picoctf.net/c/165/torrent.pcap
+   2. file torrent.pcap 
+        torrent.pcap: pcapng capture file - version 1.0
+   3. In wireshark we need to focus on the packets that have th BT-DHT protocol   that is 
+     torrent traffic . So we apply a filter bt-dht on the filter input window.
+  
+    If we observe the PCAP file, we can see one IP address stand out from others,   192.168.73.132,
+    as it appears in both ‘Source’ and ‘Destination’ columns.
+    Other IP addresses are either seeders for our host or leechers.
+  
+    So we can say that the host IP address,is  is 192.168.73.132.
+  
+  4.We can see the request and response packets for these standard queries by filtering on the host IP address, 
+    ip.addr = 92.168.73.132
+  5. Since we are dealing with some kind of P2P torrent protocol, we can search and enable them in Wireshark to get all the data templates. 
+    search 'torrent'ctr-f    
+  
+         picoCTF{}
 
 
 
