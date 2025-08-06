@@ -1,6 +1,7 @@
 
                           Torrent Analyze
                           =====================
+						  NOT WORKING 
  
 problem URL:  
 https://play.picoctf.org/practice/challenge/311
@@ -19,7 +20,7 @@ The file name will be the flag, 'like picoCTF{filename}'.
 
 Captured traffic:           https://artifacts.picoctf.net/c/165/torrent.pcap
 
-
+                             
 Hints:
    2.You may want to enable BitTorrent protocol (BT-DHT, etc.) on Wireshark. 
        Analyze -> Enabled Protocols.
@@ -29,7 +30,8 @@ Hints:
 
 
 Soulution :
-   
+ 
+  
  We need to find filename, not file contents, of a file, that has been downloaded.
  Another thing: we won't find the filename inside this pcap file. It will be a bit harder. 
  Reading about torrents will sooner or later direct you to the term of info_hash, which is the SHA1 sum of the torrent file. 
@@ -41,8 +43,9 @@ Soulution :
    1. wget https://artifacts.picoctf.net/c/165/torrent.pcap
    2. file torrent.pcap 
         torrent.pcap: pcapng capture file - version 1.0
-   3. In wireshark we need to focus on the packets that have th BT-DHT protocol   that is 
-     torrent traffic . So we apply a filter bt-dht on the filter input window.
+   3. enable BitTorrent related protocols.  Analyized/Enable protocol (Ctrl-Shift-E)
+      In wireshark we need to focus on the packets that have th BT-DHT protocol   that is 
+      torrent traffic . So we apply a filter bt-dht on the filter input window.
   
     If we observe the PCAP file, we can see one IP address stand out from others,   192.168.73.132,
     as it appears in both ‘Source’ and ‘Destination’ columns.
@@ -64,10 +67,21 @@ Soulution :
           
    
  
+  BitTorrent : A protocol of peer-to-peer file sharing (“P2P“) 
+  which is used to distribute fiels on the  Internet.
+  Rather than downloading a file from a single source server, the BitTorrent protocol allows users to join a “swarm” (a group of people downloading and uploading the same file) of hosts to download and upload from each other at the same time.
   
+  Seed: A person who has a torrent file open in their client (let’s say the same file you are trying to download) and the only difference between you and them is that they have the complete file downloaded already and are now “seeding” – sharing the file with peers but not downloading any parts of the file from others. 
+  
+  Leechers are those who are downloading and uploading at the same time. If a user starts sharing a file that he already has, and downloads what other users have already uploaded or are in the process of uploading a torrent file, he becomes a leecher.
  
- 
+  The process of uploading and downloading continues simultaneously. In fact, a leecher tends to download files that are not present in the system resources and starts sharing what already is present in its repository or database.
 	
-	  
+  Generally, the more people who seed a file the faster it downloads. When the file of the leechers downloads 100% and still they don’t remove it from uploading, then they become seeds.  
+  
+  A Peer is someone who is both downloading and uploading the file in the swarm. Files are downloaded in pieces. When a user downloads some pieces, he then automatically starts uploading it.
+  
+  A file will be downloaded faster if more people are involved in the swarm. A peer becomes a seed when he has completed 100% of the file and wishes to continue uploading.
+  
 
 
