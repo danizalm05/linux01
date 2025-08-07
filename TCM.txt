@@ -10,7 +10,16 @@ https://github.com/TCM-Course-Resources/Practical-Ethical-Hacking-Resources
  ip a:  List all all connections.
  ip n:
  ip route:  where the traffic is routing
+ 
  arp -a: Displays the current ARP table for all interfaces. Address Resolution Protocol (ARP) table. 
+ 
+ arp-scan:  identify active devices on a network. 
+     arp-scan --localnet:  scan the entire local network. 
+
+  netdiscover -r 10.0.2.0/24
+	 
+	 
+ 
  ifconfig: showes only the ethernet connections(hardwired connection)
  iwconfig: shows only wireless connection
  ping:
@@ -59,6 +68,15 @@ https://bugcrowd.com/engagements?category=bug_bounty&sort_by=promoted&sort_direc
 
 
 kioptrix
+
+https://www.geeksforgeeks.org/installation-guide/how-to-install-kioptrix-level-1-on-virtualbox/
  google drive directore: tcm-sec.com/kioptrix
  
  00:41:50
+ 
+ login:  john  
+ passward: TwoCows2
+ ip 192.168.1.100      parot 10.0.2.15
+ apt-get install arp-scan
+ 
+ nmap  -T4 -p-  -A 10.0.2.3  

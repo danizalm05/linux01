@@ -40,6 +40,11 @@ apt-get : general command for installing programs and manipulating installed pro
      apt-get install <name>: install aprogram
      apt-get remove <name>: Remove a program
 apt-cache policy <name>: Information about the program 
+arp-scan:  identify active devices on a network. 
+     arp-scan --localnet:  scan the entire local network. 
+	 
+       
+
 aptitude Search for and install software packages (Debian/Ubuntu)
 aspell Spell Checker
 awk Find and Replace text, database sort/validate/index
