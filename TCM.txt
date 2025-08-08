@@ -77,6 +77,23 @@ https://www.geeksforgeeks.org/installation-guide/how-to-install-kioptrix-level-1
  login:  john  
  passward: TwoCows2
  ip 192.168.1.100      parot 10.0.2.15
- apt-get install arp-scan
+ arp-scan -l
  
- nmap  -T4 -p-  -A 10.0.2.3  
+10.0.2.4	52:54:00:12:35:04	QEMU
+
+ netdiscover -r 10.0.2.0/24
+ 
+ Currently scanning: Finished!   |   Screen View: Unique Hosts               
+                                                                             
+ 3 Captured ARP Req/Rep packets, from 3 hosts.   Total size: 180             
+ _____________________________________________________________________________
+   IP            At MAC Address     Count     Len  MAC Vendor / Hostname      
+ -----------------------------------------------------------------------------
+ 10.0.2.2        52:54:00:12:35:02      1      60  Unknown vendor            
+ 10.0.2.3        52:54:00:12:35:03      1      60  Unknown vendor            
+ 10.0.2.4        52:54:00:12:35:04      1      60  Unknown vendor 
+ 
+ 
+ 
+00:49:11
+ nmap  -T4 -p-  -A  
