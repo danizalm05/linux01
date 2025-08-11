@@ -65,14 +65,15 @@ https://bugcrowd.com/engagements?category=bug_bounty&sort_by=promoted&sort_direc
  part 2
  https://www.youtube.com/watch?v=sH4JCwjybGs
  virtual machine: https://www.vulnhub.com/
-
+ in oracle chose tool  and add new network and give it a name
+  change network of  each vm to net network and chose the previos name
 
 kioptrix
 
 https://www.geeksforgeeks.org/installation-guide/how-to-install-kioptrix-level-1-on-virtualbox/
 https://dev.to/babsarena/kioptrix-level-1-walkthrough-27jg
  google drive directore: tcm-sec.com/kioptrix
- 
+ etwork bridge Adapter
  00:41:50
  
  login:  john  
@@ -102,3 +103,7 @@ https://dev.to/babsarena/kioptrix-level-1-walkthrough-27jg
  
 https://www.youtube.com/watch?v=s4jhe4XsoZI&list=PLiYa0cuKkwo5vDBubtk8a6O7kk0Z4QRYV
 https://medium.com/@gavinloughridge/a-beginners-guide-to-vulnhub-part-1-52b06466635d
+
+
+
+https://www.alickgardiner.com/getting-started-with-vulnhub/
