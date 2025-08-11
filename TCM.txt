@@ -65,8 +65,8 @@ https://bugcrowd.com/engagements?category=bug_bounty&sort_by=promoted&sort_direc
  part 2
  https://www.youtube.com/watch?v=sH4JCwjybGs
  virtual machine: https://www.vulnhub.com/
- in oracle chose tool  and add new network and give it a name
-  change network of  each vm to net network and chose the previos name
+ in oracle chose tool    add new network  'net network' and give it a name
+  change network of  each vm to that net network and chose the   name
 
 kioptrix
 
