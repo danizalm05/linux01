@@ -42,7 +42,8 @@ apt-get : general command for installing programs and manipulating installed pro
 apt-cache policy <name>: Information about the program 
 arp-scan:  identify active devices on a network. 
      arp-scan --localnet:  scan the entire local network. 
-	 
+	 sudo arp-scan -l:     scan the entire local network. 
+
        
 
 aptitude Search for and install software packages (Debian/Ubuntu)
@@ -354,6 +355,8 @@ nc(ncat):   similar to cat command but for network(TCP, UDP.).
  nc -l localhost -p 12345 < /etc/bandit_pass/bandit20: Listen  and use conntend of file
  ncat 192.168.1.100 8080 --send-only < data.txt:send file
 
+
+nbtscan <ip>:  providing information  about NetBIOS like NetBIOS name and the User ,services 
 netstat Networking information
 
 
@@ -361,7 +364,14 @@ nice Set the priority of a command or job
 nl Number lines and write files
 nmap:Network exploration tool and security / port scanner
     nmap -p 31000-32000 localhost: Scan a ports 31000-32000   
+    nmap -p- -A 192.168.216.129
+    nmap -A -sV 10.0.2.4:     aggressive scan on the IP address
+    nmap  -T4 -p-  -A  10.0.2.4 
+
+nikto: web server and CGI scanner , informational checks.
+
  
+
 
 nohup Run a command immune to hangups
 notify-send Send desktop notifications
