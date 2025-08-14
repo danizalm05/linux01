@@ -157,6 +157,9 @@ passward: TwoCows2
  
   01:34:00  
  
+ https://github.com/brandon-rhodes/fopnp
+ 
+ https://z-library.sk/s/Foundations%20of%20Python%20Network%20Programming%20The%20comprehensive%20guide%20to%20building%20network%20applications%20%20
  Demo Report
  --------------------
  80/443 http://10.0.2.4
