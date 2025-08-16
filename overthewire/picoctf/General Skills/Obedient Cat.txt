@@ -1,0 +1,22 @@
+
+                      Obedient Cat
+                     =====================
+
+problem URL:
+ https://play.picoctf.org/practice/challenge/147
+https://www.youtube.com/watch?v=J6RLhabbwJU&list=PLUrAjkLbvTpLu74KRg0JcrBuc5nilUZLM&index=2
+ 
+
+
+Problem Statement:
+This file has a flag in plain sight (aka "in-the-clear").   
+  https://mercury.picoctf.net/static/0e428b2db9788d31189329bed089ce98/flag
+ 
+Hints 
+  
+
+Solution
+  just read yhe file
+  
+
+picoCTF{s4n1ty_v3r1f13d_2fd6ed29} 
