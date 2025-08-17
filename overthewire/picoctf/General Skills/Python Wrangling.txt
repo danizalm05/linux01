@@ -1,0 +1,53 @@
+
+                        Python Wrangling
+                      =====================
+
+problem URL:
+https://play.picoctf.org/practice/challenge/166?page=1&search=pyt
+https://www.youtube.com/watch?v=lXappsgJWiw&list=PLUrAjkLbvTpLu74KRg0JcrBuc5nilUZLM&index=4
+
+Problem Statement:
+
+Python scripts are invoked kind of like programs in the Terminal... 
+Can you run  this program:
+     https://mercury.picoctf.net/static/325a52d249be0bd3811421eacd2c877a/ende.py
+ using this passward:
+    https://mercury.picoctf.net/static/325a52d249be0bd3811421eacd2c877a/pw.txt
+ to get the flag
+     https://mercury.picoctf.net/static/325a52d249be0bd3811421eacd2c877a/flag.txt.en
+Hints 
+  
+
+Solution
+  the script takes 2 arguments:
+         a.   -e or -d to encrypt or decrypt the file, 
+         b.   the name of file to encrypt or decrypt.
+  So  we need run the script with the -d argument and the flag.txt.en file  
+       python3 ende.py -d flag.txt.en
+        output:
+		  Enter password: 
+
+   enter the password in the pw.txt file   we get the flg
+
+ 
+picoCTF{4p0110_1n_7h3_h0us3_ac9bd0ff}
+
+  
+  
+  notes:
+1.  in  Line 49 of the Python script:
+     change the command :   sys.stdout.buffer.write(data_c)
+     to:   print(data_c)
+
+2. in order to change the command line in spyder goto  main menu and navigate to: 
+      /run / configuration per file / custom configuration / command line option  
+      add  '-d flag.txt.en'    to the box 
+
+
+
+b'picoCTF{4p0110_1n_7h3_h0us3_ac9bd0ff}\n'
+  
+  
+  
+
+ 
