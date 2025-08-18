@@ -156,14 +156,101 @@ passward: TwoCows2
 		            to:   'use manul proxy' 127.0.0.1 port 8080
  
   01:34:00  
+  
+  
+            enumerating SMB   port 139 (file share)
+         SMB Server Message Block: protocol used to share files 
+           -------------------------------
  
+ 
+ 9.  msfconsole
+ 
+     search smb
+	 output: A long list but the importent option is:
+	           111  auxiliary/scanner/smb/smb_version
+ 9.1   at the prompt write:  use auxiliary/scanner/smb/smb_version   
+	[msf](Jobs:0 Agents:0)   >>     use auxiliary/scanner/smb/smb_version
+    [msf](Jobs:0 Agents:0)          auxiliary(scanner/smb/smb_version) >> 
+ 9.2 At the prompt write: info 
+ 9.3 At the prompt write: set RHOSTS  10.0.2.4
+       output: RHOSTS => 10.0.2.4
+ 9.4 run
+  output:
+   
+     [*] 10.0.2.4:139          - SMB Detected (versions:) (preferred dialect:) (signatures:optional)
+     [*] 10.0.2.4:139          -   Host could not be identified: Unix (Samba 2.2.1a)
+     [*] 10.0.2.4:             - Scanned 1 of 1 hosts (100% complete)
+     [*] Auxiliary module execution completed
+
+  9.5 we can see the smb version  (Samba 2.2.1a)
+  
+   01:44:50  
+  
+ 10.  smbclient  try to connect to the file share
+     smbclient  -L \\\\10.0.2.4\\
+    output:
+	  Server does not support EXTENDED_SECURITY  but 'client use spnego = yes' and 'client ntlmv2 auth = yes' is set
+      Anonymous login successful
+      Password for [WORKGROUP\burguli]:
+   since we don't no the passward just press enter .
+  
+  output:
+  -----------------------------------------
+   Server does not support EXTENDED_SECURITY  but 'client use spnego = yes' and 'client ntlmv2 auth = yes' is set
+   Anonymous login successful
+   Password for [WORKGROUP\burguli]:
+
+	Sharename       Type      Comment
+	---------       ----      -------
+	IPC$            IPC       IPC Service (Samba Server)
+	ADMIN$          IPC       IPC Service (Samba Server)
+  Reconnecting with SMB1 for workgroup listing.
+  Server does not support EXTENDED_SECURITY  but 'client use spnego = yes' and 'client ntlmv2 auth = yes' is set
+   Anonymous login successful
+
+	Server               Comment
+	---------            -------
+	KIOPTRIX             Samba Server
+
+	Workgroup            Master
+	---------            -------
+	MYGROUP              KIOPTRIX
+------------------------------End of output
+  
+  We cand see there are two file shares: IPC$,  ADMIN$
+  run:
+  smbclient   \\\\10.0.2.4\\ADMIN$
+output:
+   Password for [WORKGROUP\itom]:
+   press enter
+ output:  
+   Server does not support EXTENDED_SECURITY  but 'client use spnego = yes' and 'client ntlmv2 auth = yes' is set
+  Anonymous login successful
+ tree connect failed: NT_STATUS_WRONG_PASSWORD
+ so we can't connect 
+
+ run :   smbclient   \\\\10.0.2.4\\IPC$ 
+   Password for [WORKGROUP\itom]:
+ press Enter and now we are in.
+ you can run help but there is no acses here.
+ so we are in a dead end.
+  
+  
+  01:53:12 https://www.youtube.com/watch?v=sH4JCwjybGs
+ 
+
+ 11.    Reserching Potential Vulnerabilities
+  ===================================
+  
+  from nmap scan ( stage 4 )we get that ssh version is  OpenSSH 2.9p2 (protocol 1.99)  
+  
  Demo Report
  --------------------
  80/443 http://10.0.2.4
  default webpage - Apache - php
  Server: Apache/1.3.20 (Unix)  (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b
- 
- 
+ ssh: OpenSSH 2.9p2 (protocol 1.99)  
+ SMB version  (Samba 2.2.1a)
  Information disclosure - 404 page http://10.0.2.4/manual/index.html
        http://10.0.2.4/manual/- directory                   
   nikto -h  http://10.0.2.4 output

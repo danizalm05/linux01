@@ -264,7 +264,7 @@ output:
 
 
  in case "SSL_ERROR_NO_CYPHER_OVERLAP” Error
-	 changeyour browser’s privacy settings.
+	  changeyour browser’s privacy settings.
 	 To do so, open your Firefox menu, then navigate to Options > Privacy & Security:
 	 navigate to Security section(At the bottm of the page)
 	 Under the Security section, deselect Block dangerous and deceptive content:
