@@ -1,0 +1,184 @@
+   
+
+
+                 TCM Security Academy  
+				 -----------------------
+https://www.youtube.com/watch?v=3FNYvj2U0HM
+https://github.com/TCM-Course-Resources/Practical-Ethical-Hacking-Resources 
+ network commands
+ ------------------
+ ip a:  List all all connections.
+ ip n:
+ ip route:  where the traffic is routing
+ 
+ arp -a: Displays the current ARP table for all interfaces. Address Resolution Protocol (ARP) table. 
+ 
+ arp-scan:  identify active devices on a network. 
+     arp-scan --localnet:  scan the entire local network. 
+
+  netdiscover -r 10.0.2.0/24
+ nbtscan 10.40.1.120 : providing information  about NetBIOS like NetBIOS name and the User ,services  
+	 
+ 
+ ifconfig: showes only the ethernet connections(hardwired connection)
+ iwconfig: shows only wireless connection
+ ping:
+ netstat: displays active connections and ports
+ route
+   
+ https://www.youtube.com/watch?v=3FNYvj2U0HM
+ 
+ 
+ starting services 
+ ----------------
+ sudo service apache2 start: starting the apache server
+ get the ip address of the local computer and input it as a url in the browser.
+ The index.html of the server is :/var/www/html/index.html
+ sudo service apache2 stop: stoping  the apache server.
+ 
+ python webserver
+ python3 -m http.server 80
+ get the ip address of the local computer and input it as a url in the browser.
+ it will show you the file directory of your system .
+ 
+ 
+ sudo systemctl enable ssh :enable ssh on mechine startup 
+ sudo systemctl disable ssh: disable ssh on mechine startup
+ 
+ 05:23:08  port_scanner.py
+ 
+ 
+ https://www.bugcrowd.com/programs    
+ https://bugcrowd.com/engagements?category=bug_bounty&page=1&sort_by=promoted&sort_direction=desc
+
+ tesla
+--------------
+https://bugcrowd.com/engagements?category=bug_bounty&sort_by=promoted&sort_direction=desc&search=tesla&page=1
+ 
+ Email 
+ https://kodkodcyber.com/recon-ng/
+ 
+ https://hashes.com/en/decrypt/hash
+ 
+ 
+ 
+ part 2
+ https://www.youtube.com/watch?v=sH4JCwjybGs
+ virtual machine: https://www.vulnhub.com/
+ in oracle chose tool    add new network  'net network' and give it a name
+  change network of  each vm to that net network and chose the   name
+
+kioptrix
+
+
+https://dev.to/babsarena/kioptrix-level-1-walkthrough-27jg
+
+login:  john  
+passward: TwoCows2
+1. in kioptrix run  ping 8.8.8.8 -c1
+   The IP addres  is the IP address of kioptrix machine: 10.0.2.4
+
+
+2. Anothe r way to discover the IP is :
+     netdiscover -r 10.0.2.0/24
+ 
+   output:
+   ------------------------------   
+  Currently scanning: Finished!   |   Screen View: Unique Hosts               
+  Captured ARP Req/Rep packets, from 3 hosts.   Total size: 180             
+  _____________________________________________________________________________
+    IP            At MAC Address     Count     Len  MAC Vendor / Hostname      
+  -----------------------------------------------------------------------------
+   10.0.2.2        52:54:00:12:35:02      1      60  Unknown vendor            
+   10.0.2.3        52:54:00:12:35:03      1      60  Unknown vendor            
+   10.0.2.4        52:54:00:12:35:04      1      60  Unknown vendor 
+   --------------------------------------
+   
+   we can assume that the IP is  10.0.2.4   
+3. Lets check that
+  sudo  nbtscan 10.0.2.4
+  output:
+        =======================================
+		Doing NBT name scan for addresses from 10.0.2.4
+
+		IP address       NetBIOS Name     Server    User             MAC address      
+		------------------------------------------------------------------------------
+		10.0.2.4         KIOPTRIX         <server>  KIOPTRIX         00:00:00:00:00:00
+        ==================================
+
+   so  10.0.2.4  is the ip of KIOPTRIX
+
+4. Now that we know the IP address of the machine, we run an NMAP SCAN on the machine from our 
+ LINUX machine to determine any open ports using the syntax:
+    nmap  -T4 -p-  -A  10.0.2.4 
+
+ From the nmap scan results, we can learn that the open ports are :
+ 
+     PORT      STATE SERVICE     VERSION
+     ====================================
+     22/tcp    open  ssh         OpenSSH 2.9p2 (protocol 1.99)
+	 80/tcp    open  http        Apache httpd 1.3.20 ((Unix)  (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b)
+     111/tcp   open  rpcbind     2 (RPC #100000)
+     139/tcp   open  netbios-ssn Samba smbd (workgroup: 1MYGROUP)
+     443/tcp   open  ssl/https   Apache/1.3.20 (Unix)  (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b
+     32768/tcp open  status      1 (RPC #100024)
+	 
+     MAC Address: 08:00:27:DF:A3:F2 (Oracle VirtualBox virtual NIC)
+
+  From the nmap scan it can be seen that kioptrix is a linux machine running
+  Apache httpd 1.3.20 ((Unix) (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b),  
+ 
+ 
+ So now it is our job to look up the information of the open port and find expolits
+ 
+ 5. Navigate to the website
+     In fire fox got to setting/network setting and chose: "use system proxy settings"
+     in firefox goto to the URL  of our target " http://10.0.2.4 "
+	 
+	 
+	 
+	 
+ 01:019:00   enumerating ports
+ 
+ 6. run nikto -h  http://10.0.2.4 
+   The ouptut is a long list of problem with the server.
+ 7 dirbuster &
+    navigate to /usr/share/wordlists/dirbuster
+	and chose  file 'directory-list-2.3-small.txt'.
+	since we know that the server uses Apache, change extension to php.
+	You can add more extensions like txt,zip,rar,pdf,docx.... but this will 
+	increase the time.
+ 
+ 8.In  run  burpsuite
+    in firefox goto settings/Network Settings  (on the bottom )
+    chose manual proxy
+		   switch from:   'Use system proxy settings' 
+		            to:   'use manul proxy' 127.0.0.1 port 8080
+ 
+  01:34:00  
+ 
+ Demo Report
+ --------------------
+ 80/443 http://10.0.2.4
+ default webpage - Apache - php
+ Server: Apache/1.3.20 (Unix)  (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b
+ 
+ 
+ Information disclosure - 404 page http://10.0.2.4/manual/index.html
+       http://10.0.2.4/manual/- directory                   
+  nikto -h  http://10.0.2.4 output
+  + mod_ssl/2.8.4 - mod_ssl 2.8.7 and lower are vulnerable to a remote buffer overflow 
+  which may allow a remote shell.
+
+
+
+
+
+
+
+ in case "SSL_ERROR_NO_CYPHER_OVERLAP” Error
+	 changeyour browser’s privacy settings.
+	 To do so, open your Firefox menu, then navigate to Options > Privacy & Security:
+	 navigate to Security section(At the bottm of the page)
+	 Under the Security section, deselect Block dangerous and deceptive content:
+	 
