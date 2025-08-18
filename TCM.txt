@@ -241,16 +241,21 @@ output:
 
  11.    Reserching Potential Vulnerabilities
   ===================================
-  
-  from nmap scan ( stage 4 )we get that ssh version is  OpenSSH 2.9p2 (protocol 1.99)  
-  
+  on google look for samba 2.2.1a exploit  
+   and open: https://www.rapid7.com/db/modules/exploit/linux/samba/trans2open/
+ 
+ 02:01:12 https://www.youtube.com/watch?v=sH4JCwjybGs
+ 
  Demo Report
  --------------------
  80/443 http://10.0.2.4
  default webpage - Apache - php
  Server: Apache/1.3.20 (Unix)  (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b
  ssh: OpenSSH 2.9p2 (protocol 1.99)  
- SMB version  (Samba 2.2.1a)
+ SMB version: unix  (Samba 2.2.1a)
+ mod_ssl/2.8.4 - mod_ssl 2.8.7 and lower are vlunrable to remote buffer 
+     overflow. which allow remote shall
+ 
  Information disclosure - 404 page http://10.0.2.4/manual/index.html
        http://10.0.2.4/manual/- directory                   
   nikto -h  http://10.0.2.4 output
