@@ -239,12 +239,27 @@ output:
   01:53:12 https://www.youtube.com/watch?v=sH4JCwjybGs
  
 
- 11.    Reserching Potential Vulnerabilities
+ 11.    Reserching Potential Vulnerabilities in the internet 
   ===================================
   on google look for samba 2.2.1a exploit  
    and open: https://www.rapid7.com/db/modules/exploit/linux/samba/trans2open/
- 
- 02:01:12 https://www.youtube.com/watch?v=sH4JCwjybGs
+  
+   According to the document there is a  Vulnerabilit to trans2open
+   https://www.exploit-db.com/exploits/7
+   https://www.exploit-db.com/exploits/10
+   
+12. 
+      Reserching Potential Vulnerabilities in the local system   
+          -------------------------------------
+	 install searchsploit
+	  sudo git clone https://gitlab.com/exploit-database/exploitdb /opt/exploitdb
+      sudo ln -sf /opt/exploitdb/searchsploit /usr/local/bin/searchsploit
+    
+	  To look for samba 2.2.1a exploit
+      run:  searchsploit  samba 2
+	  output  a long list of ppossible explotations
+   
+ 02:08:00 https://www.youtube.com/watch?v=sH4JCwjybGs
  
  Demo Report
  --------------------
