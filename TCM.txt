@@ -257,9 +257,29 @@ output:
     
 	  To look for samba 2.2.1a exploit
       run:  searchsploit  samba 2
-	  output  a long list of ppossible explotations
+	  output  a long list of possible explotations
    
- 02:08:00 https://www.youtube.com/watch?v=sH4JCwjybGs
+   
+ 13. Scanning w/ Nessus part 1  ( proprietary vulnerability scanner developed by )
+   install  Nessus: https://www.geeksforgeeks.org/linux-unix/how-to-install-nessus-on-linux/
+    13.1 download the file from
+	    https://www.tenable.com/downloads/nessus?loginAttempted=true
+    13.2 cd download
+	13.3 run: dpkg   -i  Nessus-10.9.3-ubuntu1604_amd64.deb
+       output:
+	    You can start Nessus Scanner by typing /bin/systemctl start nessusd.service
+        - Then go to  https://localhost:8834  to configure your scanner
+		   
+           Activation Code: RA88-FJBW-K3P9-4TNW-JWXY
+           za-brg   6g312     
+		   uninstall Nessus
+		   --------------
+	    13.3.1: sudo service nessusd stop
+        13.3.2:sudo dpkg -r Nessus
+
+     
+ 
+ 02:11:00 https://www.youtube.com/watch?v=sH4JCwjybGs
  
  Demo Report
  --------------------
