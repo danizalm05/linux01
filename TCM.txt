@@ -275,8 +275,8 @@ output:
            itom  lus  
 		   uninstall Nessus
 		   --------------
-	    13.3.1: sudo service nessusd stop
-	       in windos go to services and navigate to 'Tenable Nessus'
+	    13.3.1: linux  sudo service nessusd stop
+	       in windows   search for services.  start as a manger and navigate to 'Tenable Nessus'
 		    open it's properties and change startup to "manual", now it won't start on startup. Download my .bat files and you are good to go! (Don't forget to run them as admin)
 		   
 		   
