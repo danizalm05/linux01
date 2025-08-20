@@ -270,14 +270,20 @@ output:
 	    You can start Nessus Scanner by typing /bin/systemctl start nessusd.service
         - Then go to  https://localhost:8834  to configure your scanner
 		   
-           Activation Code: RA88-FJBW-K3P9-4TNW-JWXY
-           za-brg   6g312     
+           Activation Code: 8PRL-S57J-67DC-JNQJ-HVTH
+           itom  lus  
 		   uninstall Nessus
 		   --------------
 	    13.3.1: sudo service nessusd stop
         13.3.2:sudo dpkg -r Nessus
 
-     
+    13.4 using 
+          Click on the "Scans" tab in the top navigation bar.
+          Create a New Scan
+          Select the "Basic Network Scan" template.
+          In the "Targets"  IP   or hostname  
+          Start the Scan
+          
  
  02:11:00 https://www.youtube.com/watch?v=sH4JCwjybGs
  
