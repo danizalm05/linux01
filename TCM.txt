@@ -260,7 +260,7 @@ output:
 	  output  a long list of possible explotations
    
    
- 13. Scanning w/ Nessus part 1  ( proprietary vulnerability scanner developed by )
+ 13. Scanning w/ Nessus part 1  ( proprietary vulnerability scanner )
    install  Nessus: https://www.geeksforgeeks.org/linux-unix/how-to-install-nessus-on-linux/
     13.1 download the file from
 	    https://www.tenable.com/downloads/nessus?loginAttempted=true
@@ -276,7 +276,11 @@ output:
 		   uninstall Nessus
 		   --------------
 	    13.3.1: sudo service nessusd stop
-	    
+	       in windos go to services and navigate to 'Tenable Nessus'
+		    open it's properties and change startup to "manual", now it won't start on startup. Download my .bat files and you are good to go! (Don't forget to run them as admin)
+		   
+		   
+		   
         13.3.2:sudo dpkg -r Nessus
 
 
@@ -292,7 +296,7 @@ output:
           Start the Scan
           
  
- 02:11:00 https://www.youtube.com/watch?v=sH4JCwjybGs
+ 02:21:00 https://www.youtube.com/watch?v=sH4JCwjybGs
  
  Demo Report
  --------------------
