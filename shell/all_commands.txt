@@ -61,6 +61,8 @@ base64: group of binary-to-text encoding schemes that transforms binary data
    echo SGkK  | base64 -d : output Hi
    
 basename Strip directory and suffix from filenames
+base64 :Base64 encode or decode FILE, or standard input.
+       base64  -d  [FILE] : decode data.
 bash GNU Bourne-Again SHell
 bc Arbitrary precision calculator language
 bg Send to background
@@ -170,6 +172,7 @@ ethtool Ethernet card settings
 eval Evaluate several commands/arguments
 exec Execute a command
 exit Exit the shell
+exiftool:    extract metadata from images
 expect Automate arbitrary applications accessed over a terminal
 expand Convert tabs to spaces
 export Set an environment variable

@@ -4,7 +4,7 @@
 
 problem URL:
 https://play.picoctf.org/practice/challenge/156
- 
+https://www.youtube.com/watch?v=yG_Kp_49jgY&list=PLUrAjkLbvTpLu74KRg0JcrBuc5nilUZLM&index=6 
  
 hthttps://medium.com/@sobatistacyber/picoctf-writeup-nice-netcat-2d97351299a9
  

@@ -1,0 +1,46 @@
+
+                        information
+                      =====================
+
+problem URL:
+https://play.picoctf.org/practice/challenge/186
+https://www.youtube.com/watch?v=fteVJetnHbE&list=PLUrAjkLbvTpLu74KRg0JcrBuc5nilUZLM&index=7
+ 
+ 
+https://medium.com/@iritt/picoctf-information-forensicschallenge-challenge-walkthrough-0dac21f76105
+ 
+Description
+Files can always be changed in a secret way. Can you find the flag? cat.jpg
+
+ https://mercury.picoctf.net/static/7cf6a33f90deeeac5c73407a1bdc99b6/cat.jpg
+ 
+Hints:
+Look at the details of the file
+Make sure to submit the flag as picoCTF{XXXXX}
+
+Solution:  
+    
+ 1. wget   https://mercury.picoctf.net/static/7cf6a33f90deeeac5c73407a1bdc99b6/cat.jpg  
+ 2. exiftool cat.jpg
+    output: exif data, the importent lines are:
+	     Copyright Notice                : PicoCTF
+         ...
+         License                         : cGljb0NURnt0aGVfbTN0YWRhdGFfMXNfbW9kaWZpZWR9
+                (which appears to be Base64-encoded)
+
+         Decoded  cGljb0NURnt0aGVfbTN0YWRhdGFfMXNfbW9kaWZpZWR9
+		  Base64 string using CyberChef (serach to option in the serach window)
+         https://gchq.github.io/CyberChef/
+		 output: 
+		 picoCTF{the_m3tadata_1s_modified}
+    another way is to run :
+       echo cGljb0NURnt0aGVfbTN0YWRhdGFfMXNfbW9kaWZpZWR9| base64 -d	
+
+
+ 
+ 
+  
+  
+  
+
+ 
