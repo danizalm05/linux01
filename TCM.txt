@@ -276,7 +276,7 @@ output:
 		   uninstall Nessus
 		   --------------
 	    13.3.1: linux  sudo service nessusd stop
-	       in windows   search for services.  start as a manger and navigate to 'Tenable Nessus'
+	       in windows  open search window and serach for  for services.  start as a manger and navigate to 'Tenable Nessus'
 		    open it's properties and change startup to "manual", now it won't start on startup. Download my .bat files and you are good to go! (Don't forget to run them as admin)
 		   
 		   
@@ -296,7 +296,7 @@ output:
           Start the Scan
           
  
- 02:21:00 https://www.youtube.com/watch?v=sH4JCwjybGs
+ 02:28:00 https://www.youtube.com/watch?v=sH4JCwjybGs
  
  Demo Report
  --------------------
