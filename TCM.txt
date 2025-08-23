@@ -275,19 +275,28 @@ output:
            itom  lus  
 		   uninstall Nessus
 		   --------------
-	    13.3.1: linux  sudo service nessusd stop
-	       in windows  open search window and serach for  for services.  start as a manger and navigate to 'Tenable Nessus'
-		    open it's properties and change startup to "manual", now it won't start on startup. Download my .bat files and you are good to go! (Don't forget to run them as admin)
+	    13.3.1: linux  
+	             sudo service nessusd stop
+	             sudo dpkg -r Nessus
+	    
+	       windows
+	        
+	          open search window and serach for  for services.  start as a manger and navigate to 'Tenable Nessus'
+		    open it's properties and change startup to "manual", now it won't start on startup. Download my .bat files and you are good to go!  (Don't forget to run them as admin)
 		   
 		   
 		   
-        13.3.2:sudo dpkg -r Nessus
+         
 
 
      13.4   start the Nessus service:                         sudo systemctl start nessusd
            Verify that the service is running by running:     sudo systemctl status nessusd  
            If it is disabled then run enable it:              sudo systemctl enable nessusd
-           Now check whether it is enabled or not.            sudo systemctl status nessusd 
+           Now check whether it is enabled or not.            sudo systemctl status nessusd : 
+           
+           running:  
+                    https://localhost:8834 
+           
     13.5 using 
           Click on the "Scans" tab in the top navigation bar.
           Create a New Scan
@@ -296,7 +305,22 @@ output:
           Start the Scan
           
  
- 02:28:00 https://www.youtube.com/watch?v=sH4JCwjybGs
+ 
+ 
+ 
+    shall:   access to a machine 
+   
+   reverse shall  (the usual    method)
+    --------------------
+    the target machine connect to us
+   
+   bind shall
+   ---------------
+   we open a port in the target computer and we connect to it. and it is listing to us to connect 
+ 02:35:00 https://www.youtube.com/watch?v=sH4JCwjybGs
+ 
+ 
+ 
  
  Demo Report
  --------------------
