@@ -317,7 +317,7 @@ output:
    bind shall
    ---------------
    we open a port in the target computer and we connect to it. and it is listing to us to connect 
- 02:35:00 https://www.youtube.com/watch?v=sH4JCwjybGs
+ 02:38:00 https://www.youtube.com/watch?v=sH4JCwjybGs
  
  
  
