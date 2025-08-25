@@ -317,8 +317,16 @@ output:
    bind shall
    ---------------
    we open a port in the target computer and we connect to it. and it is listing to us to connect 
- 02:38:00 https://www.youtube.com/watch?v=sH4JCwjybGs
+ 02:40:00 https://www.youtube.com/watch?v=sH4JCwjybGs
  
+ 
+  Geting Root w/ metasploit
+ --------------------------------------------------
+ searchsploit  samba 2.2 
+      in the output list you will  find many strings 'trans2open'
+ run msfconsole  
+ inside msfconsole 
+       search trans2open 
  
  
  
