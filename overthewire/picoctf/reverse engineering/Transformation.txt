@@ -1,0 +1,53 @@
+
+                      Transformation
+					  ===============
+
+problem URL:
+https://play.picoctf.org/practice/challenge/104
+ https://www.youtube.com/watch?v=vwVrQZYQcg8&list=PLUrAjkLbvTpLu74KRg0JcrBuc5nilUZLM&index=8
+
+https://medium.com/@sayantanHack/picoctf-2021-transformation-walkthrough-45721c6c6bb1
+ 
+Problem :
+  Description
+I wonder what this really is... enc:
+  https://mercury.picoctf.net/static/e47483f88b12f2ab0c46315afc12f64d/enc 
+
+''.join([chr((ord(flag[i]) << 8) + ord(flag[i + 1])) for i in range(0, len(flag), 2)])
+Hints :
+    You may find some decoders online
+Solution:  
+   1. Navigate to  online decoders:  https://dencode.com/en/
+      change to UTF-16
+	  look at 'Quoted-printable'
+   2.
+   import random
+
+   def decode():
+    
+    enc_file = open("enc","r")
+    encoded_string = ""
+    flag=""
+    print("Flag should be empty: ",flag)
+    for line in enc_file:
+        encoded_string = line
+    
+    for i in range(len(encoded_string)):
+        flag+=(chr(ord(encoded_string[i])>>8))
+        flag+=(chr((ord(encoded_string[i]))-((ord(encoded_string[i])>>8)<<8)))
+    print(flag)
+
+ decode() 
+  # '.join([chr((ord(flag[i]) << 8) + ord(flag[i + 1])) for i in range(0, len(flag), 2)])
+ 
+output:
+      
+picoCTF{16_bits_inst34d_of_8_e141a0f7}
+
+ 
+ 
+  
+  
+  
+
+ 
