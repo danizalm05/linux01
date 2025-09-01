@@ -5,3 +5,6 @@
 /etc/passwd : Password stored 
 
 /var/www/html/index.html:   index.html of the  apache2 server 
+
+
+ /usr/share/metasploit-framework/data/wordlists : passward list files
