@@ -348,7 +348,7 @@ install insrtuctios: https://github.com/heltonWernik/OpenLuck
 
 
                 ----------       Brute force attacks     -------------
-  02:59:00 https://www.youtube.com/watch?v=sH4JCwjybGs
+  02:59:00
   
   1.ls -la  /usr/share/metasploit-framework/data/wordlists
   there is a long list of file that contains passward fo verios systems
@@ -369,8 +369,18 @@ install insrtuctios: https://github.com/heltonWernik/OpenLuck
 			  run
 	
      it will sand passward for root login but there is no success.	
+	 
+ Credential stuffing  03:07:00 
+ -------------------------------------
 
-
+ foxproxy   advanced proxy managemen extension for firefox
+  1. install foxyproxy and add new proxy 127.0.0.1
+  2. start with the command: 'burpsuite'
+  3. in proxy press intercept on
+  
+  https://www.youtube.com/watch?v=sH4JCwjybGs     03:21:00 
+  
+  
  Demo Report
  --------------------
  80/443 http://10.0.2.4
