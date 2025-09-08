@@ -130,7 +130,8 @@ cut Divide a file into several parts
 curl:  transferring data using various network protocols.  
  curl -O  <url>: Download file 
  curl -c  cookies.txt “<url>” # Extract session cookies from a request
- curl -o  h.zi ftp://sp.ee.st/M.zi # Download file 'M.zi' and save as 'h.zip'
+ curl -o  h.zip   ftp://speedtest/M.zip # Download file 
+   'M.zip' and save it as 'h.zip'
  curl -i <url>
   The output includes HTTP response status line, headers, response  content 
  curl -I <url>  outputs the header and exists. 
