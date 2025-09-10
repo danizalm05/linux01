@@ -370,13 +370,11 @@ install insrtuctios: https://github.com/heltonWernik/OpenLuck
 	
      it will sand passward for root login but there is no success.	
 	 
- Credential stuffing  03:07:00 
- -------------------------------------
-
- foxproxy   advanced proxy managemen extension for firefox
-  1. install foxyproxy and add new proxy 127.0.0.1
-  2. start with the command: 'burpsuite'
-  3. in proxy press intercept on
+ 
+  
+ 04:16:00
+ 
+  
   
   https://www.youtube.com/watch?v=sH4JCwjybGs     03:21:00 
   
