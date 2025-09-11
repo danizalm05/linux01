@@ -1,0 +1,48 @@
+
+                       Mind your Ps and Qs
+					     ===============
+
+problem URL:
+https://play.picoctf.org/practice/challenge/162
+https://www.youtube.com/watch?v=17SYQieisMA&list=PLUrAjkLbvTpLu74KRg0JcrBuc5nilUZLM&index=11
+ 
+ 
+https://ctf.amanroy.me/2022/04/19/mind-your-ps-and-qs
+Problem :
+ In RSA, a small e value can be problematic, but what about N? Can you decrypt this? 
+  values:
+   Decrypt my super sick RSA:
+    c: 62324783949134119159408816513334912534343517300880137691662780895409992760262021
+    n: 1280678415822214057864524798453297819181910621573945477544758171055968245116423923
+    e: 65537
+    
+Hints :
+   Bits are expensive, I used only a little bit over 100 to save money
+   
+Solution:
+  
+                  
+   a ≡ b (mod n):  a and b have the same remainder when divided by m.
+   or  equivalently, the difference a − b is a multiple of n, 
+     
+	 
+	 
+   modular multiplicative inverse     הופכי כפלי מודולרי
+   a x ≡ 1 ( mod m ):  
+    modular multiplicative inverse of an integer a is an integer x such that 
+	the product ax is congruent to 1 with respect to the modulus m.
+	 
+ Example 
+    in modulo 9, what is the  modular multiplicative inverse of 2.
+    So we need the find X  in the next Euation: 
+                           2 * X  ≡ 1 ( mod  9 )
+	the answer  is 5, because
+                           2 * 5  ≡ 1 ( mod  9 )
+  
+  In RSA-based cryptography, 
+  a user's private key used  decrypt messages 
+   
+  
+  A user's public key—which can be used to verify messages from the user, 
+  or encrypt messages so 
+  that only that user can decrypt them—is the product of the prime numbers. 
