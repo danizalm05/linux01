@@ -38,11 +38,44 @@ Solution:
                            2 * X  ≡ 1 ( mod  9 )
 	the answer  is 5, because
                            2 * 5  ≡ 1 ( mod  9 )
+						   
+	
+    Relatively Prime and Coprime Numbers:
+     are integers that share no common positive divisor other than 1. This means that the greatest common divisor (GCD) of these numbers is 1.
+    Euler's Totient Function:
+     denoted as φ(n), counts the number of positive integers up to a given integer n that are relatively prime to n					   
   
-  In RSA-based cryptography, 
-  a user's private key used  decrypt messages 
+   RSA-based cryptography 
+   ------------------------------------
+   Public Key:  used for encryption and can be shared freely with others.
+   Private Key:  used for decryption and remain secret. 
+    It is mathematically linked to the public key but cannot be easily derived from it.
    
   
-  A user's public key—which can be used to verify messages from the user, 
-  or encrypt messages so 
-  that only that user can decrypt them—is the product of the prime numbers. 
+  
+   
+  To generate these keys:
+
+  1. Choose two large prime numbers p and q
+  2. Compute their product  n = p * q
+  3. Calculate  φ(n) = (p−1)(q−1)      (φ(n) is Euler's totient function)
+  4. Choose an encryption exponent e such that  1 < e < φ(n)  and  e is coprime with φ(n)
+  5. Calculate the decryption exponent d such that  e * d ≡ 1(mod ϕ(n) )
+
+  The public key is  (n,e)  and the private key is  (n,d)
+ 
+  Encryption
+  =========================
+   Alice wants to send a secure message M to Bob:
+    Alice will use Bob's public key  (n,e)
+    The encryption formula is: C = (M ^ e ) mod  n
+    where C is the ciphertext,   M is the plaintext message (converted to a number), and  n and  e
+    are part of the public key.
+ 
+   Decryption
+ =========================
+ Bob can decrypt the message using his private key  (n,d)
+  The decryption formula is: M = (C ^ d ) mod n
+  where  C is the ciphertext and  d is part of Bob's private key.
+
+  
