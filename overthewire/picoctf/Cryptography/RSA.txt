@@ -20,6 +20,12 @@ Hints :
    Bits are expensive, I used only a little bit over 100 to save money
    
 Solution:
+   Input c,n,e in  https://www.dcode.fr/rsa-cipher
+   picoCTF{sma11_N_n0_g0od_05012767}
+  
+  ===============================================================
+  
+  
   
                   
    a ≡ b (mod n):  a and b have the same remainder when divided by m.
