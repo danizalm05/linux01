@@ -515,9 +515,10 @@ strings:  print the strings of printable characters in files.
        strings -n 8 -es disk.flag.img | grep -oE 'picoCTF{.*}'
        strings -n 8 -eS disk.flag.img | grep -oE 'picoCTF{.*}'
        strings -n 8 -eb disk.flag.img | grep -oE 'picoCTF{.*}'
-       strings -t d disk.flag.img   
-                               -t d => prints the offset of strings 
- 
+       strings -t d disk.flag.img        # -t d => prints the offset of strings 
+                               
+                               
+       strings -a -t x  <file>
 su: Substitute user identity
 sudo Execute a command as another user
 sum Print a checksum for a file
