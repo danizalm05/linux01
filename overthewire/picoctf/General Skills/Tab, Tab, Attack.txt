@@ -20,6 +20,15 @@ Addadshashanammu.zip
 
     
 Solution:
-    
-   picoCTF{ }
+    1.wget https://mercury.picoctf.net/static/fe16c756149cfa85f23e73cd9dbd6a25/Addadshashanammu.zip
+	2  unzip Addadshashanammu.zip
+	3. we will gey a directory called Addadshashanammu. If we cd into the 
+	directory, we will find another long named directory, we can write cd and 
+	then press tab to autocomplete the directory name. 
+	and we will keep doing this until we get to the flag file:   
+	                                fang-of-haynekhtnamet
+	4. strings fang-of-haynekhtnamet
+	
+	picoCTF{l3v3l_up!_t4k3_4_r35t!_76266e38}
+
    
