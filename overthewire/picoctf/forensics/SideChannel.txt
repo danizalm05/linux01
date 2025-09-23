@@ -1,0 +1,25 @@
+
+                               SideChannel
+                            =====================
+
+problem URL: 
+
+https://play.picoctf.org/practice/challenge/298
+https://www.youtube.com/watch?v=6-GmrNobEyA&list=PLUrAjkLbvTpLu74KRg0JcrBuc5nilUZLM&index=19
+
+ 
+
+Description
+
+  here's something fishy about this PIN-code checker, can you figure out the PIN and get the flag? Download the PIN checker program here pin_checker
+
+Additional details will be available after launching your challenge instance.
+
+Hints
+1. Read about "timing-based side-channel attacks."
+2. Attempting to reverse-engineer or exploit the binary won't help you, you can figure out the PIN just by interacting with it and measuring certain properties about it.
+3. Don't run your attacks against the master server, it is secured against them. The PIN code you get from the pin_checker binary is the same as the one for the master server
+Solutions:
+  
+ 
+
