@@ -14,12 +14,75 @@ Description
   here's something fishy about this PIN-code checker, can you figure out the PIN and get the flag? Download the PIN checker program here pin_checker
 
 Additional details will be available after launching your challenge instance.
-
+ nc saturn.picoctf.net 56932
 Hints
 1. Read about "timing-based side-channel attacks."
 2. Attempting to reverse-engineer or exploit the binary won't help you, you can figure out the PIN just by interacting with it and measuring certain properties about it.
 3. Don't run your attacks against the master server, it is secured against them. The PIN code you get from the pin_checker binary is the same as the one for the master server
+
+
+
 Solutions:
+
+     wget https://artifacts.picoctf.net/c/149/pin_checker`
+     chmod +x ./pin_checker  
+    ./pin_checker #run the pin checker binary
+
+
+   you can use chatGPT for python code for password comparison attack. 
+   
+   Password Comparison Attack:
+   ===============================
+  Many password validation functions compare strings character by character and return as soon
+  as a mismatch is found.This creates a timing side-channel:
+
+    If your guess is partially correct, the comparison takes slightly longer.
+    By measuring these differences, you can brute force the password one character at a time.
+   
+   
+  ================     source code  ==============================
+import time
+import subprocess 
+
+def test_pin(pin):
+  start_time = time.time()
+  result= subprocess.run(["./pin_checker"], input=pin.encode(), capture_output=True)
+  end_time   = time.time()
+  return  end_time - start_time
+
+pin = ""
+
+for i in range(8):
+  best=''
+  max_time = 0 
+  for d in '0123456789':
+    attempt = pin + d + '0'*(7-i)
+    time_taken = test_pin(attempt)
+    if time_taken > max_time:
+      max_time = time_taken
+      best = d 
+
+  pin += best 
+  print(f"[+] Pin found so far: {pin}")
   
- 
+  
+  
+ ouput:
+        python test.py
+        [+] Pin found so far: 4
+        [+] Pin found so far: 48
+        [+] Pin found so far: 483
+        [+] Pin found so far: 4839
+        [+] Pin found so far: 48390
+        [+] Pin found so far: 483905
+        [+] Pin found so far: 4839051
+        [+] Pin found so far: 48390513
+
+  
+     nc saturn.picoctf.net 56932
+      Verifying that you are a human...
+      Please enter the master PIN code:
+      48390513
+       Password correct. Here's your flag:
+       picoCTF{t1m1ng_4tt4ck_914c5ec3}
 
