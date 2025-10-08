@@ -1,5 +1,8 @@
 https://www.youtube.com/watch?v=a_4MjV_-7Sw
 
 sudo   wireshark
+capture filter:What to cpature 
+display filter: what to disply .Chose from the url window
 
-9:20
+filters write  tcp for http  or udp  for video
+14:00
