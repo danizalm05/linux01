@@ -365,8 +365,9 @@ nc(ncat):   similar to cat command but for network(TCP, UDP.).
 
 
 nbtscan <ip>:  providing information  about NetBIOS like NetBIOS name and the User ,services 
-netstat Networking information
 
+netdiscover:  detect live network nodes. 
+    netdiscover -r 10.0.2.0/24
 
 nice Set the priority of a command or job
 nl Number lines and write files
