@@ -5,30 +5,28 @@
 				 -----------------------
 				 
 			The  ip appears on start up screen 	 192.168.1.205
-1. try yo run ping 192.168.1.205 
+1. try to run ping 192.168.1.205 
  
 2.  sudo  netdiscover -r  192.168.1.0/24
     output: 
      
 
 3.  nmap -sC -sV -vvv 192.168.1.205
-      Scanning 192.168.1.205 [1000 ports]
-		Discovered open port 993/tcp on 192.168.1.205
-		Discovered open port 80/tcp on 192.168.1.205
-		Discovered open port 25/tcp on 192.168.1.205
-		Discovered open port 445/tcp on 192.168.1.205
-		Discovered open port 143/tcp on 192.168.1.205
-		Discovered open port 995/tcp on 192.168.1.205
-		Discovered open port 139/tcp on 192.168.1.205
-		Discovered open port 587/tcp on 192.168.1.205
-		Discovered open port 110/tcp on 192.168.1.205
-		Discovered open port 465/tcp on 192.168.1.205
-		Discovered open port 20000/tcp on 192.168.1.205
+   output(importent lines  :
+     PORT      STATE SERVICE     REASON  VERSION
+     80/tcp    open  http        syn-ack Apache httpd 2.4.51 ((Debian))
+                      |_http-server-header: Apache/2.4.51 (Debian)
+     20000/tcp open  http        syn-ack MiniServ 1.830 (Webmin httpd)
+|       http-methods: 
+|         _  Supported Methods: GET HEAD POST OPTIONS
 
+     you can also run 
+	    nmap -p80,139,445,10000,20000 -A 192.168.1.205
  
- 4.you cant open firefox on http://192.168.1.205/  
-   and look at the source code 
- at the end  you will find this string :
+ 4. since we found port 80 there is  aserver so we can open it 
+    you cant open firefox on http://192.168.1.205/  
+    and look at the source code 
+     at the end  you will find this string :
  
 
 <!--
@@ -38,6 +36,24 @@ don't worry no one will get here, it's safe to share with you my access. Its enc
 
 
 -->
+
+
+5. move to  https://www.dcode.fr/brainfuck-language
+   input the string and the Passward is:
+      .2uqPEfj3D<P'a-3
+
+6.  we now have a password, but no users?
+
+	run :
+       enum4linux 192.168.1.205
+	 at the end of a long output you will found the next line:
+	  S-1-22-1-1000 Unix User\cyber (Local User)
+
+7. TCP 10000 and TCP 20000, appear to be hosting websites 
+  	  
+	  in firefox goto: http://192.168.1.205:20000
+	      and input user=cyber   passward = .2uqPEfj3D<P'a-3
+	  
  ip a:  List all all connections.
  ip n:
  ip route:  where the traffic is routing
