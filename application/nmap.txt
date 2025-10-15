@@ -1,1 +1,67 @@
-Nmap (Network Mapper) is a free and open-source network detection and security scanning utility. Many network and system administrators also find it useful for tasks such as network inventory, managing service upgrade schedules, and monitoring server or service availability. Nmap uses raw IP packets in a novel way to determine the hosts available on the network, the services they offer (application name and version), and the operating systems they are running (and operating systems). version). It's designed to scan large networks quickly but works well with a single host.
+                Nmap (Network Mapper)
+========================================================				
+network detection and security scanning utility 
+
+nmap [<Scan Type>] [<Options>] {<target specification>}
+
+EXAMPLES:
+  nmap -sC -sV -vvv   192.168.1.205
+  
+  nmap -p80,139,445,10000,20000 -A 192.168.1.205# Scan ports 80, 139 ....
+  nmap -v -A scanme.nmap.org
+  nmap -v -sn 192.168.0.0/16 10.0.0.0/8
+  nmap -v -iR 10000 -Pn -p 80
+
+
+
+
+
+
+Basic Scanning Techniques
+=======================
+
+Scan a single target : nmap [target]
+"   multiple targets: nmap [target1,target2,etc]
+"   a list of targets: nmap -iL [list.txt]
+"   a range of hosts: nmap [range of IP addresses]
+"   an entire subnet: nmap [IP address/cdir]
+
+Perform an aggressive scan: nmap -A [target]
+
+        Discovery Options
+       ===================== 
+Perform a ping scan only	nmap -sP [target]
+Don’t ping	nmap -PN [target]
+TCP SYN Ping	nmap -PS [target]
+TCP ACK ping	nmap -PA [target]
+UDP ping	nmap -PU [target]
+SCTP Init Ping	nmap -PY [target]
+ICMP echo ping	nmap -PE [target]
+ICMP Timestamp ping	nmap -PP [target]
+ICMP address mask ping	nmap -PM [target]
+IP protocol ping	nmap -PO [target]
+ARP ping	nmap -PR [target]
+Traceroute	nmap –traceroute [target]
+Force reverse DNS resolution	nmap -R [target]
+Disable reverse DNS resolution	nmap -n [target]
+Alternative DNS lookup	nmap –system-dns [target]
+Manually specify DNS servers	nmap –dns-servers [servers] [target]
+Create a host list	nmap -sL [targets]
+
+
+                           Version Detection
+						   ======================
+Operating system detection	nmap -O [target]
+Attempt to guess an unknown	nmap -O –osscan-guess [target]
+Service version detection	nmap -sV [target]
+Troubleshooting version scans	nmap -sV –version-trace [target]
+Perform a RPC scan	nmap -sR [target]
+                           Output Options
+						=============================   
+Save output to a text file	nmap -oN [scan.txt] [target]
+Save output to a xml file	nmap -oX [scan.xml] [target]
+Grepable output	nmap -oG [scan.txt] [target]
+Output all supported file types	nmap -oA [path/filename] [target]
+Periodically display statistics	nmap –stats-every [time] [target]
+133t output	nmap -oS [scan.txt] [target]						   
+						   

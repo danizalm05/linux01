@@ -14,7 +14,7 @@ DHCP: The Dynamic Host Configuration Protocol:a network management protocol used
 		 
 The  ip will appear  on start up screen . 	 192.168.1.205
 1. try to run ping 192.168.1.205 
- 
+   
 2.  sudo  netdiscover -r  192.168.1.0/24
     output: 
      
@@ -66,7 +66,7 @@ don't worry no one will get here, it's safe to share with you my access. Its enc
 
 7. TCP 10000 and TCP 20000, appear to be hosting websites 
   	  
-	  in firefox goto: http://192.168.1.205:20000
+	  in firefox goto: http://192.168.1.205:10000
 	      and input user=cyber   passward = .2uqPEfj3D<P'a-3
 8. on the left lower part of the screen there is a console button	
    press the button  and run 'ls' . you will find a file named 'user.txt'
