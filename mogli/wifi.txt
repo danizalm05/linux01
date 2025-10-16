@@ -61,3 +61,8 @@ Example file to connect to wifi from wlan0 (conn0):
     wpa_supplicant -D nl80211 -i wlan0 -c wpa.conf
     echo ' You are connected  to ==>  '
     ifconfig wlan0  
+
+
+Wireless Penetration Testing: Crack WPA2 Passwords with Aircrack-NG	
+https://www.youtube.com/watch?v=MYrMOlyYsyg	
+	
