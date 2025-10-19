@@ -10,6 +10,8 @@
  https://tryhackme.com/room/whatisnetworking
  
  Basic Pentesting
-===========================
+ ===========================
+ https://tryhackme.com/room/basicpentestingjt
+
 This is a machine that allows you to practise web app hacking and privilege escalation הַסְלָמָה 
  https://youtu.be/xl2Xx5YOKcI?list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&t=419
