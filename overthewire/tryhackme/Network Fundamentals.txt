@@ -13,5 +13,29 @@
  ===========================
  https://tryhackme.com/room/basicpentestingjt
 
+
 This is a machine that allows you to practise web app hacking and privilege escalation הַסְלָמָה 
  https://youtu.be/xl2Xx5YOKcI?list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&t=419
+ 
+ ip: 10.10.205.158
+1. ping   10.10.205.158
+2. nmap -sC -sV -oN   ./initial  10.10.205.158
+results:
+   PORT     STATE SERVICE     VERSION
+   22/tcp   open  ssh         OpenSSH 8.2p1 Ubuntu 4ubuntu0.13 (Ubuntu Linux; protocol 2.0)
+   80/tcp   open  http        Apache httpd 2.4.41 ((Ubuntu))
+  139/tcp   open  netbios-ssn Samba smbd 4.6.2
+  445/tcp   open  netbios-ssn Samba smbd 4.6.2
+  8009/tcp  open  ajp13       Apache Jserv (Protocol v1.3)
+  8080/tcp open  http         Apache Tomcat 9.0.7
+ 
+3. open  10.10.205.158 in web browser. 
+ results: Web page : "Undergoing maintenance"
+ 
+4. Page source: <html>
+    	<h1>Undergoing maintenance</h1>
+		<h4>Please check back later</h4>
+		<!-- Check our dev note section if you need to know what to work on. -->
+ 		</html> 
+5. gobuster
+        https://youtu.be/xl2Xx5YOKcI?t=674

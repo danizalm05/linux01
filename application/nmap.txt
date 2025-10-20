@@ -13,6 +13,7 @@ EXAMPLES:
   nmap -v -iR 10000 -Pn -p 80
 
 
+  nmap -sC -sV -oN   ./init-nmp  10.10.205.158  #Store results in a file   ./init-nmp
 
 
 
