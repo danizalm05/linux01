@@ -17,9 +17,9 @@
 This is a machine that allows you to practise web app hacking and privilege escalation הַסְלָמָה 
  https://youtu.be/xl2Xx5YOKcI?list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&t=419
  
- ip: 10.10.205.158
-1. ping   10.10.205.158
-2. nmap -sC -sV -oN   ./initial  10.10.205.158
+ ip:  10.10.43.220     #10.10.205.158
+1. ping    10.10.43.220
+2. nmap -sC -sV -oN   ./initial   10.10.43.220
 results:
    PORT     STATE SERVICE     VERSION
    22/tcp   open  ssh         OpenSSH 8.2p1 Ubuntu 4ubuntu0.13 (Ubuntu Linux; protocol 2.0)
@@ -35,7 +35,18 @@ results:
 4. Page source: <html>
     	<h1>Undergoing maintenance</h1>
 		<h4>Please check back later</h4>
-		<!-- Check our dev note section if you need to know what to work on. -->
+		<!-- Check our dev note section if you need to know what
+    		to work on. -->
  		</html> 
-5. gobuster
-        https://youtu.be/xl2Xx5YOKcI?t=674
+5. gobuster dir -u "http://10.10.43.220" -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+
+
+   results:
+   /development          (Status: 301) [Size: 318] [--> http://10.10.43.220/development/]
+   /server-status        (Status: 403) [Size: 277]
+  
+       
+	open http://10.10.43.220/development/
+   results:  2 files  	dev.txt	,j.txt
+   
+    https://youtu.be/xl2Xx5YOKcI?t=780    

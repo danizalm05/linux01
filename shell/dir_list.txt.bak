@@ -9,6 +9,5 @@
 
 /usr/share/metasploit-framework/data/wordlists : passward list files
  
- /usr/share/wordlists/dirbuster/ 
-/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt	
-                   #Commonly used for directory brute-forcing.
+ 
+/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt	Commonly used for directory brute-forcing.
