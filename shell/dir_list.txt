@@ -7,8 +7,15 @@
 /var/www/html/index.html:   index.html of the  apache2 server 
 
 
-/usr/share/metasploit-framework/data/wordlists : passward list files
+passward list files
+/usr/share/metasploit-framework/data/wordlists  
+/usr/share/metasploit-framework/data/wordlists/sid.txt
  
- /usr/share/wordlists/dirbuster/ 
+/usr/share/wordlists/wifite.txt
 /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt	
                    #Commonly used for directory brute-forcing.
+
+
+dir lists
+/usr/share/dirb/wordlists
+/usr/share/dirb/wordlists/vulns

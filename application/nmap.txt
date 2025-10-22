@@ -13,9 +13,10 @@ EXAMPLES:
   nmap -v -iR 10000 -Pn -p 80
 
 
-  nmap -sC -sV -oN   ./init-nmp  10.10.205.158  #Store results in a file   ./init-nmp
-
-
+  nmap -sC -sV -oN   <file name to store> <ip>  #Store results in a file    
+    -sV parameter for version information 
+    -sC parameter for script information. 
+    To make the scan faster, we can included the -T4 
 
 
 Basic Scanning Techniques
