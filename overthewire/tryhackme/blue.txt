@@ -1,0 +1,16 @@
+                                Blue
+                     ===========================
+Deploy & hack into a Windows machine, leveraging common 
+misconfigurations issues					 
+					 
+serach page  
+https://tryhackme.com/hacktivities/search?page=2&kind=rooms&searchText=blue&order=most-popular
+ 
+room
+============= 
+https://tryhackme.com/room/blue
+
+https://github.com/DarkStar7471/CTF-Write-Ups-And-Items/tree/master/TryHackMe
+ walkthrough video (John Hammond)
+==============
+https://www.youtube.com/watch?v=s6rwS7UuMt8&list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&index=2
