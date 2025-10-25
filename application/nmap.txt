@@ -6,6 +6,10 @@ nmap [<Scan Type>] [<Options>] {<target specification>}
 
 EXAMPLES:
   nmap -sC -sV -vvv   192.168.1.205
+  sudo nmap -vv -sS    --script vuln 10.10.31.153
+   -vv:  very verbose
+   -sS: syn scan 
+   --script vuln: check for vlunnerabilities
   
   nmap -p80,139,445,10000,20000 -A 192.168.1.205# Scan ports 80, 139 ....
   nmap -v -A scanme.nmap.org
