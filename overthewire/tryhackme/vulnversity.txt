@@ -1,19 +1,20 @@
                                vulnversity
                            ======================
 Learn about active recon, web app attacks and privilege escalation
-serach page  
+ 
 https://tryhackme.com/hacktivities/search
  
- 
-room
-============= 
 https://tryhackme.com/room/vulnversity
-
  
-https://github.com/DarkStar7471/CTF-Write-Ups-And-Items/tree/master/TryHackMe/Blue-Win7
+ 
+https://github.com/fartaviao/tryhackme-vulnversity/blob/main/Vulnversity.md
     
 	walkthrough video (John Hammond)
                        ==============
 https://www.youtube.com/watch?v=hvYWCegfEZs&list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&index=3
 
-   nmap -sV --script vuln -v <IP>
+   
+
+remote ip = 10.10.254.146
+
+nmap -sV 10.10.254.146
