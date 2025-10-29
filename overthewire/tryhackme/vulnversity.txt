@@ -70,13 +70,22 @@ Search "foxyproxy extension" and add it
 
 We go into the FoxyProxy options and add a new proxy and click Save.
 
+click : option/ proxt/ add
+Input the next items:
+
 Title: burpsuite
-
 Type: HTTP
-
 Hostname: 127.0.0.1
+port: 8080
 
-Port: 8080
+Now we run Burpsuite from the terminal.  
 
+burpsuite
+Burpsuite will open, we can create a temporary project, use the default parameters, and launch it by clicking Start Burp.
 
+Go to the Proxy tab, Intercept, and put the option in "Intercept is ON".
+At this point, BurpSuite is intercepting. We can go back to Firefox and select the burpsuite Proxy we previously configured.
 
+Now we can upload the file we’ve created. Click on Submit, and we notice that the page keeps loading because the proxy has intercepted the request. So, we go to BurpSuite to see what has been intercepted.
+
+We obtain the HTML request information in text format. Additionally, we can see the file we’re trying to upload to the target machine, with the plain text content showing the different extensions included in our file phplist.txt
