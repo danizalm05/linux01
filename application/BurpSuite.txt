@@ -3,12 +3,37 @@ A Step-by-Step Guide to Using BurpSuite for Web Application Security Testing
 
  https://medium.com/@uhabiba503/a-step-by-step-guide-to-using-burpsuite-for-web-application-security-testing-da9fae620270
  
-   run  burpsuite
-    in firefox goto settings
-	And  go  to 'Network Settings'  (on the bottom )
+ 1. In linux from terminal run  burpsuite
+ 2. in firefox goto settings And  go  to 'Network Settings'  (on the bottom )
     chose manual proxy
-		   switch from:   'Use system proxy settings' 
+	 switch from:   'Use system proxy settings' 
 		            to:   'use manul proxy' 127.0.0.1 port 8080
+	
+3.	Setup Proxy
+     under the proxy tab in the Options sub-tab. Ensure IP is localhost IP & port is 8080.
+	 in the Intercept Sub-Tab  nsure that Intercept is ON 
+	
+	
+Step 2: Getting Content into Burp Suite
+
+1. go to the target normally by entering the URL in the address bar.
+ You can notice that the page will not be loading up. 
+ This is because Burp Suite is intercepting the connection.	
+2. in Burp Suite, you can see the request details. Click forward to forward the connection. Then you can see that the page has loaded up in the browser. 
+4. to move to a new page 
+      change URL
+      press intercept off : The screen is cleard
+	  press intercept on: The command are written 
+	  press forward: The browser move to the  new page
+	  
+Step 3: Scope Selection & Starting Spider	  (https://kalilinuxtutorials.com/burpsuite/) 
+	 
+	
+	
+	
+	
+	
+	
 	on another tab goto 'https://burp/'			
     press CA Certificate
         a file named 'cacert.der'   will be save in the /download dir	
