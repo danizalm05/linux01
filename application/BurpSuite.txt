@@ -23,12 +23,11 @@ Step 2: Getting Content into Burp Suite
 4. to move to a new page 
       change URL
       press intercept off : The screen is cleard
-	  press intercept on: The command are written 
+	  press intercept on: The command are written     The browser move to the  new page
 	  press forward: The browser move to the  new page
 	  
-Step 3: Scope Selection & Starting Spider	  (https://kalilinuxtutorials.com/burpsuite/) 
+
 	 
-	
 	
 	
 	
@@ -37,9 +36,9 @@ Step 3: Scope Selection & Starting Spider	  (https://kalilinuxtutorials.com/burp
 	on another tab goto 'https://burp/'			
     press CA Certificate
         a file named 'cacert.der'   will be save in the /download dir	
-	on firefox goto settings and  privect and security and goto    'Certificates'	
-	
-	press import and chose the  file 'cacert.der' chose the two check boxes
+	on firefox goto settings and  privect&security and goto    'Certificates'	
+	go down and on the down menu press import.
+	and chose the  file 'cacert.der' chose the two check boxes
 	gotto  the 'tesla.com' web
 	
 	on burpsuite you can press Proxy and forward to see 
