@@ -99,5 +99,5 @@ At this point, BurpSuite is intercepting. We can go back to Firefox and select t
 goto the upload url http://ip:3333/internal/
 Now we can upload the file we’ve created. Click on Submit, and we notice that the page keeps loading because the proxy has intercepted the request. So, we go to BurpSuite to see what has been intercepted.
 
-We obtain the HTML request information in text format. Additionally, we can see the file we’re trying to upload to the target machine, with the plain text content showing the different extensions included in our file phplist.txt
+ 
 https://kalilinuxtutorials.com/burpsuite/
