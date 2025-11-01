@@ -42,10 +42,11 @@ Try to open all the paths . you will find the uploa page in the next path:
 http://IP:3333/internal/
 
 
-Task 4: Compromise the Webserver
+  
+
 -------------------------------------------
 Now that you have found a form to upload files, 
-( http://10.10.4.113:3333/internal/ )
+( http:10.10.135.221:3333/internal/ )
 we can leverage this to upload and execute our payload, which will lead to compromising the web server.
 
     Answer the questions below:
