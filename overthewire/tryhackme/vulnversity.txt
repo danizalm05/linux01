@@ -84,7 +84,7 @@ Now we need t5o find wich extensio is allowed:
 .php5
 .phtml
 
-https://youtu.be/hvYWCegfEZs?list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&t=687 
+https://youtu.be/hvYWCegfEZs?list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&t=922
 
 
 
