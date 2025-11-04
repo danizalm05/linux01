@@ -17,7 +17,7 @@ https://www.youtube.com/watch?v=hvYWCegfEZs&list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp
     
    
 
-<IP  >= remote ip =  10.10.231.94
+<IP  >= remote ip =  10.10.121.171
 
 nmap -sV <IP>
 
@@ -46,7 +46,7 @@ http://IP:3333/internal/
 
 -------------------------------------------
 Now that you have found a form to upload files, 
-( http:10.10.135.221:3333/internal/ )
+( http:<ip>:3333/internal/ )
 we can leverage this to upload and execute our payload, which will lead to compromising the web server.
 
     Answer the questions below:
@@ -84,41 +84,34 @@ Now we need t5o find wich extensio is allowed:
 .php5
 .phtml
 
-https://youtu.be/hvYWCegfEZs?list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&t=922
+Qustion:
+ What extension is allowed after running the above exercise?
+answer:
+  run the ape.py the answer is   phtml
+
+ goto http://10.10.121.171:3333/internal/index.php
+   and try to upload    'revershall.phtml'   and you'll get sucesss .
+   
+
+check http://10.10.121.171:3333/internal/uploads
+the answer is :
+         Index of /internal/uploads
+         Name	               Last modified	Size	Description
+         Parent Directory	 	- 	 
+         revershall.phtml	2025-11-04 09:12 	4.0K	 
+
+
+  -----------------   Getting a Reverse Shell ==============
+We are going to use a PHP reverse shell as our payload. A reverse shell works by being called on the remote host and forcing this host to make a connection to you. So you'll listen for incoming connections, upload and execute your shell, which will beacon out to you to control! 
+
+To gain remote access to this machine, follow these steps:
+
+  a.  Edit the revershall.php file and edit the ip to be your local  ip  .
+
+
+
+https://youtu.be/hvYWCegfEZs?list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&t=1142
 
 
 
 
-
-
-
-Search "foxyproxy extension" and add it 
-
-We go into the FoxyProxy options and add a new proxy and click Save.
-
-click : option/proxy/add
-Input the next items:
-
-Title: burpsuite
-Type: HTTP
-Hostname: 127.0.0.1
-port: 8080
-
-save 
-
-
-
-  run Burpsuite from the terminal  :   burpsuite
-Burpsuite will open, chose the temporary project, use the default parameters, and launch it by clicking Start Burp.
-
-
-on the main manu, go to the Proxy tab, Intercept, and put the option in "Intercept is ON".
-
-
-At this point, BurpSuite is intercepting. We can go back to Firefox and select the burpsuite Proxy we previously configured.
-
-goto the upload url http://ip:3333/internal/
-Now we can upload the file we’ve created. Click on Submit, and we notice that the page keeps loading because the proxy has intercepted the request. So, we go to BurpSuite to see what has been intercepted.
-
- 
-https://kalilinuxtutorials.com/burpsuite/

