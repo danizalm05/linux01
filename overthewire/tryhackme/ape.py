@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 
-
- 
 '''
 https://www.youtube.com/watch?v=hvYWCegfEZs&list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&t=687s
 https://github.com/LegendSpam/VulnVersity/blob/main/ape.py
@@ -11,8 +9,8 @@ import os
 
 
 
-print("start ape,py\n===============\n")
-ip = "10.10.121.171"    # Get The ip from https://tryhackme.com/room/vulnversity
+print("start ape.py\n===============\n")
+ip = "10.10.239.131"    # Get The ip from   tryhackme.com/room/vulnversity
 url = f"http://{ip}:3333/internal/index.php"# This is the upload page 
  
 

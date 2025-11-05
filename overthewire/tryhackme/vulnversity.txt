@@ -106,10 +106,14 @@ We are going to use a PHP reverse shell as our payload. A reverse shell works by
 
 To gain remote access to this machine, follow these steps:
 
-  a.  Edit the revershall.php file and edit the ip to be your local  ip  .
-
-
-
+  a.  Opn the revershall.php file and edit the ip to be your local  tun0 ip
+         you can find it in the output .  from  sudo ifconfig
+  b.  From  http://10.10.121.171:3333/internal/    Upload 'revershall.phtml'
+  c.  check that the file is ploaded in http://10.10.239.131:3333/internal/uploads/ 
+  d.  We're now going to listen to incoming connections using netcat. 
+        Run the following command: nc -lvnp 9001.
+  e.  run revershall.phtml'  from the 'internal/uploads/'  dir  
+  f in the trminal you can run command on the remote host
 https://youtu.be/hvYWCegfEZs?list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&t=1142
 
 
