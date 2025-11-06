@@ -202,6 +202,9 @@ find: Search for files that meet a desired criteria
           owned by user bandit7   owned by group bandit6  33 bytes in size
   find -name "filename": Find file by its file name
   find / -user bandit20:   find all  file  owned  by user = bandit20
+  find / -perm -u=s -type f 2>/dev/null: 
+               lists files with the SUID bit enabled  
+ 
  
 fls:  command from the Sleuth Kit that lists files and directories.
          fls -o 2048 disk.flag.img        # fls -o <offset> <File Name>
@@ -357,6 +360,7 @@ mmv Mass Move and rename (files)
 nc(ncat):   similar to cat command but for network(TCP, UDP.).  
  nc -lp 6000 #  -l specify that nc should listen for an incoming 
           connection 
+ 
  nc -l localhost -p 5000: The netcat server is listening to port 5000.
  ncat 192.168.1.100 80:  connect to a remote system port 80
  nc -v localhost 5000: establishes connection to the server on port 5000.(-v verbose)

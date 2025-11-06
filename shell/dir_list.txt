@@ -6,6 +6,7 @@
 
 /var/www/html/index.html:   index.html of the  apache2 server 
 
+/bin/systemctl: primary tool for managing systemd services
 
 passward  files
 ===============

