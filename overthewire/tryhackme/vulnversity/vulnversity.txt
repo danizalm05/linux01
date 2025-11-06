@@ -130,7 +130,52 @@ To gain remote access to this machine, follow these steps:
 	 output :   8bd7992fbe8a6ad22a63361004cfcedb
 
                         task 5:	 Privilege Escalation
-===============================================================================						
+===============================================================================	
+In Linux, SUID (set owner userId upon execution) is a particular type of file permission given to a file. SUID gives temporary permissions to a user to run the program/file with the permission of the file owner (rather than the user who runs it).
+
+For example, the binary file to change your password has the SUID bit set on it (/usr/bin/passwd). This is because to change your password, you will need to write to the shadowers file that you do not have access to; root does, so it has root privileges to make the right changes.
+
+let's look at a specific example:
+run 
+  ls -l /usr/bin/passwd
+  output:
+     -rwsr-xr-x 1 root root 68208 Feb  6  2024 /usr/bin/passwd
+   
+    s in the user block indicates that the SUID bit is set.
+    The passwd file runs with root privileges even if another user executes it.
+   
+  cd /home/bill
+   
+  
+
+    Why is it important?
+
+The SUID bit can be a vector for privilege escalation if misconfigured. In pentesting or security auditing, finding files with active SUID bits is essential to detect potential security flaws.
+
+    Run the command to find files with SUID:
+
+find / -perm -u=s -type f 2>/dev/null 
+     
+question:
+On the system, search for all SUID files. Which file stands out?
+answer:
+ 
+   Run the command to find files with SUID:
+
+find / -perm -u=s -type f 2>/dev/null 
+This command lists all files with the SUID bit enabled on the system.
+output:
+/usr/bin/newuidmap
+....
+/bin/mount
+/bin/umount
+/bin/systemctl
+/bin/fusermount
+....
+
+
+
+					
 https://youtu.be/hvYWCegfEZs?list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&t=1282
 
 
