@@ -64,6 +64,8 @@ basename Strip directory and suffix from filenames
 base64 :Base64 encode or decode FILE, or standard input.
        base64  -d  [FILE] : decode data.
 bash GNU Bourne-Again SHell
+   bash -p : The  shell is privileged if the real user-id or group-id does not match the effective user-id or group 
+
 bc Arbitrary precision calculator language
 bg Send to background
 binwalk:    searching a given binary image for embedded files and executable code
