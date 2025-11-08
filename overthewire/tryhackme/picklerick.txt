@@ -1,0 +1,22 @@
+                             picklerick
+                           ======================
+Learn about active recon, web app attacks and privilege escalation
+ 
+https://tryhackme.com/hacktivities/search
+ 
+https://tryhackme.com/room/picklerick
+ 
+ 
+https://github.com/ 
+    
+	walkthrough video (John Hammond)
+                       ==============
+https://www.youtube.com/watch?v=oCAtfcr3iUw&list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&index=5
+
+   
+    
+   
+
+<IP  >= remote ip =   
+nmap -sV <IP>
+ 
