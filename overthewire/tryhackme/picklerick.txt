@@ -1,6 +1,11 @@
                              picklerick
                            ======================
-Learn about active recon, web app attacks and privilege escalation
+Learn about active recon, web app attacks and privilege escalation.
+This Rick and Morty-themed challenge requires you to exploit a web server and find 
+three ingredients to help Rick make his potion and transform himself back into a human from
+ a pickle.
+
+Deploy the virtual machine on this task and explore the web application: MACHINE_IP
  
 https://tryhackme.com/hacktivities/search
  
@@ -14,9 +19,32 @@ https://github.com/
 https://www.youtube.com/watch?v=oCAtfcr3iUw&list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&index=5
 
    
-    
+export IP=10.10.153.56
+nikto -h http://$IP | tee nikto.log    
    
 
-<IP  >= remote ip =   
-nmap -sV <IP>
- 
+
+
+nmap -sC -sV -oN  map.txt $IP
+
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.11 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 0d:44:f0:bb:cb:a3:08:87:52:9d:2a:29:02:23:9e:6a (RSA)
+|   256 38:c7:50:08:62:87:e5:b2:32:32:0a:99:53:dd:74:bb (ECDSA)
+|_  256 54:84:ff:a9:51:3d:b5:5d:50:66:41:1e:b9:ea:84:44 (ED25519)
+80/tcp open  http    Apache httpd 2.4.41 ((Ubuntu))
+|_http-title: Rick is sup4r cool
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+
+   goto http://IP
+
+ in the source code:     Note to self, remember username! Username: R1ckRul3
+1. What is the first ingredient that Rick needs?
+    
+    export IP=10.10.153.56
+	gobuster -u http://$IP
+	
+	https://youtu.be/oCAtfcr3iUw?list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&t=226

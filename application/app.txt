@@ -13,6 +13,7 @@ results: list of directiors
    
 	 
 enum4linux  (similar    to enum.exe  )
+======================
      obtaining information about SMB and Windows systems.
  enum4linux -a <ip> #10.10.151.122
 
@@ -52,10 +53,13 @@ results:  the output is a very long list
     so 'kay' has a private key.
 
   “John the Ripper.”  
-
+===============================
 chmod 600 a.txt
 ssh2john <RSA key file>  > decrypted1.txt
 run  John the Ripper to attempt to crack the passphrase by providing the 
 sudo john --wordlist=/usr/share/wordlists/rockyou.txt  decrypted1.txt
 
- 
+
+   nikto
+ nikto: web server and CGI scanner , informational checks.
+    nikto -h http://$IP 

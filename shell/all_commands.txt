@@ -384,7 +384,7 @@ nmap:Network exploration tool and security / port scanner
     nmap  -T4 -p-  -A  10.0.2.4 
 
 nikto: web server and CGI scanner , informational checks.
-
+    nikto -h http://$IP 
  
 
 

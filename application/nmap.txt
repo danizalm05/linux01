@@ -5,6 +5,10 @@ network detection and security scanning utility
 nmap [<Scan Type>] [<Options>] {<target specification>}
 
 EXAMPLES:
+  nmap -sC -sV -oN  outresult.txt <IP> 
+
+  
+  
   nmap -sV <ip>
   
   nmap -sV --script vuln -v <IP>
