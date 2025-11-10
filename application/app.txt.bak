@@ -6,8 +6,7 @@ gobuster dir -u "http://address" -w /usr/share/wordlists/dirbuster/directory-lis
 
 /usr/share/wordlists/dirbuster/directory-list-1.0.txt
 
-gobuster -u http://$IP  -w  /usr/share/wordlists/dirbuster/directory-list-1.0.txt
-	 -x php,sh,txt,cgi,html,js,css,py
+
 
 
 results: list of directiors

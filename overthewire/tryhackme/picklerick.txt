@@ -19,12 +19,12 @@ https://github.com/
 https://www.youtube.com/watch?v=oCAtfcr3iUw&list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&index=5
 
    
-export IP=10.10.153.56
-nikto -h http://$IP | tee nikto.log    
+export IP=10.10.220.214
+ 
    
 
 
-
+---------------    nmap      -------------------
 nmap -sC -sV -oN  map.txt $IP
 
 PORT   STATE SERVICE VERSION
@@ -37,14 +37,58 @@ PORT   STATE SERVICE VERSION
 |_http-title: Rick is sup4r cool
 |_http-server-header: Apache/2.4.41 (Ubuntu)
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+--------------     nikto     ---------------------------
+
+nikto -h http://$IP 
+
++ Server: Apache/2.4.41 (Ubuntu)
++ /: The anti-clickjacking X-Frame-Options header is not present. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
++ /: The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type. See: https://www.netsparker.com/web-vulnerability-scanner/vulnerabilities/missing-content-type-header/
++ No CGI Directories found (use '-C all' to force check all possible dirs)
++ /: Server may leak inodes via ETags, header found with file /, inode: 426, 
+   size: 5818ccf125686, mtime: gzip. 
+   See: http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2003-1418
++ Apache/2.4.41 appears to be outdated (current is at least Apache/2.4.54). 
+    Apache 2.2.34 is the EOL for the 2.x branch.
++ OPTIONS: Allowed HTTP Methods: HEAD, GET, POST, OPTIONS .
++ /login.php: Cookie PHPSESSID created without the httponly flag.
+     See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
++ /login.php: Admin login page/section found.
++ 8074 requests: 0 error(s) and 7 item(s) reported on remote host
++ End Time:           2025-11-10 12:40:04 (GMT2) (755 seconds)
+
+------------ gobuster    --------------
+gobuster dir -u http://$IP  -w  /usr/share/wordlists/dirbuster/directory-list-1.0.txt
+	 -x php,sh,txt,cgi,html,js,css,py
 
 
-   goto http://IP
+.php                 (Status: 403) [Size: 278]
+/.html                (Status: 403) [Size: 278]
+/index.html           (Status: 200) [Size: 1062]
+/assets               (Status: 301) [Size: 315] [--> http://10.10.220.214/assets/]
+/portal.php           (Status: 302) [Size: 0] [--> /login.php]
+/clue.txt             (Status: 200) [Size: 54]
+/robots.txt           (Status: 200) [Size: 17]
+/login.php            (Status: 200) [Size: 882]	
+-----------------	 
 
- in the source code:     Note to self, remember username! Username: R1ckRul3
-1. What is the first ingredient that Rick needs?
-    
-    export IP=10.10.153.56
-	gobuster -u http://$IP
+
+
+-----------------   dir -----------------
+ web page    http://$IP 
+
+ in the source code http://$IP  there is a comant:
+     'Note to self, remember username! Username: R1ckRul3'
+
+ in   http://$IP/robots.txt
+  there is a line:    Wubbalubbadubdub
+ http://$IP/assets/	
+    list of files
+ http://$IP/login.php
+    login page 
+---------	
 	
-	https://youtu.be/oCAtfcr3iUw?list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&t=226
+1. What is the first ingredient that Rick needs?	
+
+
+https://youtu.be/oCAtfcr3iUw?list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&t=284
