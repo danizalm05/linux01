@@ -243,6 +243,9 @@ grep: Search file(s) for lines that match a given pattern
           string  millionth
   grep -r pico web_copy:  recursively search (-r) for string 'pico' in the directory 'web_copy'
   grep -oE 'picoCTF{.*}' data.txt:   o  output only matched text.  E  regular expression
+  grep -r. : recursively scan for everything so all conntend of the directory is displayed
+
+
 ghidra: performing software reverse engineering     
 gzip: Compress file 
    gzip <file name>

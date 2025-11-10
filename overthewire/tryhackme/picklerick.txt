@@ -19,7 +19,7 @@ https://github.com/
 https://www.youtube.com/watch?v=oCAtfcr3iUw&list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&index=5
 
    
-export IP=10.10.220.214
+export IP=10.10.238.112
  
    
 
@@ -78,17 +78,31 @@ gobuster dir -u http://$IP  -w  /usr/share/wordlists/dirbuster/directory-list-1.
  web page    http://$IP 
 
  in the source code http://$IP  there is a comant:
-     'Note to self, remember username! Username: R1ckRul3'
+     'Note to self, remember username! Username:    R1ckRul3s
 
  in   http://$IP/robots.txt
-  there is a line:    Wubbalubbadubdub
+  there is a line:                             Wubbalubbadubdub
  http://$IP/assets/	
     list of files
  http://$IP/login.php
     login page 
----------	
+ http://$IP/clue.txt  	
+'Look around the file system for the other ingredient.'	
 	
-1. What is the first ingredient that Rick needs?	
+---------	
+
+move to  http://$IP/login.php       user = R1ckRul3s passward = Wubbalubbadubdub
+
+in the command line
+run grep -r . The result is: 
+   	recursively scan for everything so all conntend of the directory is displayed
+1. What is the first ingredient that Rick needs?
+  in command window run :ls
+  open file   Sup3rS3cretPickl3Ingred.txt 
+http://10.10.238.112/Sup3rS3cretPickl3Ingred.txt 
+ the connted is :
+'mr. meeseek hair'
 
 
-https://youtu.be/oCAtfcr3iUw?list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&t=284
+
+https://youtu.be/oCAtfcr3iUw?list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&t=478
