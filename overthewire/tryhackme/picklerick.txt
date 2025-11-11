@@ -19,7 +19,7 @@ https://github.com/
 https://www.youtube.com/watch?v=oCAtfcr3iUw&list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&index=5
 
    
-export IP=10.10.238.112
+export IP=10.10.219.157
  
    
 
@@ -87,22 +87,62 @@ gobuster dir -u http://$IP  -w  /usr/share/wordlists/dirbuster/directory-list-1.
  http://$IP/login.php
     login page 
  http://$IP/clue.txt  	
-'Look around the file system for the other ingredient.'	
+          'Look around the file system for the other ingredient.'	
 	
 ---------	
 
 move to  http://$IP/login.php       user = R1ckRul3s passward = Wubbalubbadubdub
 
-in the command line
-run grep -r . The result is: 
+in the command line window run ' grep -r . '
+ The result is: 
    	recursively scan for everything so all conntend of the directory is displayed
 1. What is the first ingredient that Rick needs?
   in command window run :ls
   open file   Sup3rS3cretPickl3Ingred.txt 
-http://10.10.238.112/Sup3rS3cretPickl3Ingred.txt 
- the connted is :
-'mr. meeseek hair'
+            in url: http://10.10.238.112/Sup3rS3cretPickl3Ingred.txt 
+			
+   you can use nl 	Sup3rS3cretPickl3Ingred.txt	
+    to get same results.   
+ the connted is :         'mr. meeseek hair'
+
+2. What is the second ingredient in Rick’s potion?
+  in clue.txt you will  find:
+          'Look around the file system for the other ingredient.'	
+     
+   So   Lets look at the home folder
+   in command line run ls /home
+   result: rick
+   run: ls /home/rick
+   result : second ingredients
+   run:   nl   '/home/rick/second ingredients'
+   
+   open  http://$IP/login.php
+    
 
 
 
-https://youtu.be/oCAtfcr3iUw?list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&t=478
+
+    What is the last and final ingredient?
+
+Another interesting folder to look at when we were enumerationg the system is the root folder. We don't have permissions to view the folder, so we must elevate our privileges somehow.
+
+Using sudo -l we can check what commands we are allowed to execute with sudo privileges.
+
+Looks like we can execute everything with sudo. So lets look in the root folder using: sudo ls /root.
+
+This works! And we can find a 3rd ingredient file in this folder.
+ 
+run  sudo   nl  /root/3rd.txt
+ 3rd ingredients: fleeb juice
+-----------------------------------------------------------
+
+
+Another war using python.
+
+try to run in the command line the commaand 
+ python3 -c "print('Hello')"
+ if the result is "hello"   then you can run python in the system
+
+https://youtu.be/oCAtfcr3iUw?list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&t=683
+
+ 
