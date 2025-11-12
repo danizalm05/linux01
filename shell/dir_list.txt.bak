@@ -3,8 +3,7 @@
   
 /etc/bandit_pass/bandit14
 /etc/passwd : Password stored 
-/etc/sudoers: the output for the command whicl lists what a user can  do 
-        
+
 /var/www/html/index.html:   index.html of the  apache2 server 
 
 /bin/systemctl: primary tool for managing systemd services
