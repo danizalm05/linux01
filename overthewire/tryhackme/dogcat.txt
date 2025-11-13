@@ -1,0 +1,31 @@
+                           dogcat
+                    ======================
+I made a website where you can look at pictures of dogs and/or cats
+! Exploit a PHP application via LFI and break out of a docker 
+container.					
+
+https://tryhackme.com/hacktivities/search
+ 
+https://tryhackme.com/room/dogcat
+ 
+ 
+  
+	walkthrough video (John Hammond)
+                       ==============
+https://www.youtube.com/watch?v=u_uuk7FWWF4&list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&index=6
+   
+export IP= 
+ping $IP
+ 
+   
+
+
+---------------    nmap      -------------------
+nmap -sC -sV -oN  map.txt $IP
+
+ Question Hint
+
+
+
+1. What is flag 1?
+Hint: There's more to *view* than just cats and dogs... 
