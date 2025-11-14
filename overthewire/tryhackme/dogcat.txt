@@ -14,14 +14,50 @@ https://tryhackme.com/room/dogcat
                        ==============
 https://www.youtube.com/watch?v=u_uuk7FWWF4&list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&index=6
    
-export IP= 
+export IP= 10.10.5.110
 ping $IP
  
-   
-
-
+  
 ---------------    nmap      -------------------
 nmap -sC -sV -oN  map.txt $IP
+
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+80/tcp open  http    Apache httpd 2.4.38 ((Debian))
+
+The classic ports 22 & 80.  
+------------------ nikto ----------------------
+nikto -h http://$ip
+
++ /: Retrieved x-powered-by header: PHP/7.4.3.
++ /: The anti-clickjacking X-Frame-Options header is not present.  
++ /: The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type.
++ No CGI Directories found (use '-C all' to force check all possible dirs)
++ Apache/2.4.38 appears to be outdated (current is at least Apache/2.4.54). Apache 2.2.34 is the EOL for the 2.x branch.
++ /: Web Server returns a valid response with junk HTTP methods which may cause false positives.
++ /icons/README: Apache default file found. 
+
+-------------------
+ HP 7.4.3 rings a bell to me as having a vulnerability, and a quick google confirms this
+
+Let’s use gobuster to find some additional subdirectories:
+
+------------- gobuster-------------------
+gobuster dir -u http://$ip  -w  /usr/share/wordlists/dirbuster/directory-list-1.0.txt
+
+/dogs                 (Status: 301) [Size: 309] [--> http://10.10.5.110/dogs/]
+/cats                 (Status: 301) [Size: 309] [--> http://10.10.5.110/cats/]
+
+
+sorce code of http://$ip
+
+we sould notice the commands :
+   <img src="cats/4.jpg">
+accessing /cats is forbidden — but using the format we found in the source code,
+
+ /cats/4.jpg gives us access. This could be crucial for if we find a way to upload a file.
+
+
 
  Question Hint
 
