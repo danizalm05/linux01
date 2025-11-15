@@ -1,13 +1,14 @@
 
+ Lazy Script  
+ -----------------------------
+sudo /bin/lscript/l
+
+
+https://medium.com/rakulee/kali-linux-the-lazy-scrypt-17338feca32f
 How to install (Kali Linux)
 
 (make sure you are a root user)
 
-Official Installation Tutorial on Kali Linux 2020.5: 
-https://youtu.be/xcb5uwP5nSU
-
-
- 
 sudo apt-get update
 git clone https://github.com/arismelachroinos/lscript.git
 cd lscript
@@ -15,20 +16,24 @@ chmod +x install.sh
 ./install.sh
 
 
-How to run it
-------------------------
-( root user)
-
+run (root user)
+----------------------
 open terminal
 type /bin/lscript/l
 
 type  "l"  # not  working
-press enter
+
 
 uninstall
 ----------------
 rm -r /bin/lscript
-rmdir -r /root/lscript 
+rmdir -r /root/lscrip
 
+Mannaged           Monitor 
+------------------------------------------
+wlp1s0             wlan0mon
+wlxe894f6236dc9    wlp1s0
+ 
+to make changes  run 'interface'    
 
-to change name of 
+10) Handshake     
