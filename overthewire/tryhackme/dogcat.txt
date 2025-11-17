@@ -12,7 +12,7 @@ https://tryhackme.com/room/dogcat
                        ==============
 https://www.youtube.com/watch?v=u_uuk7FWWF4&list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&index=6
    
-export IP=10.10.37.167
+export IP=10.10.157.124
 ping $IP
  
   
@@ -41,10 +41,26 @@ nikto -h http://$ip
 Let’s use gobuster to find some additional subdirectories:
 
 ------------- gobuster-------------------
-gobuster dir -u http://$ip  -w  /usr/share/wordlists/dirbuster/directory-list-1.0.txt
+gobuster dir -u http://$ip  -w  /usr/share/wordlists/dirbuster/directory-list-1.0.txt -x php, html,txt -t 60
+    -
+ 
 
-/dogs                 (Status: 301) [Size: 309] [--> http://10.10.5.110/dogs/]
-/cats                 (Status: 301) [Size: 309] [--> http://10.10.5.110/cats/]
+    dir to specify the scan should be done against directories and files
+    -u to specify the target URL
+    -w to specify the word list to use
+    -x to specify the extensions to enumerate
+    -t to specify the number of concurrent threads
+
+
+/.                    (Status: 200) [Size: 418]
+/index.php            (Status: 200) [Size: 418]
+/cat.php              (Status: 200) [Size: 26]
+/dogs                 (Status: 301) [Size: 313] [--> http://10.10.157.124/dogs/]
+/cats                 (Status: 301) [Size: 313] [--> http://10.10.157.124/cats/]
+/dog.php              (Status: 200) [Size: 26]
+/flag.php             (Status: 200) [Size: 0]
+
+
 
 
 sorce code of http://$ip
