@@ -80,12 +80,13 @@ lets try http://$IP/?view=dogs
     We gain following info:
 -------------
   1     We are currently in the /var/www/html/ directory.
+        to get to the root dir 'cd ../../../'
   2     We are currently accessing index.php and trying to include another file.
   3     It appends .php to the parameter value: dogs => dogs.php.
 
 Appending .php means we are limited to read PHP files.
 The only PHP files we sure exist are index.php, dog.php, and cat.php.
-       so the path to index,php from the current directory is:
+       so the path to index.php from the current directory is:
          	   /../../../../index.php
 Reading index.php will be useful because we can understand the PHP code used behind the scenes.
 
@@ -121,7 +122,8 @@ we will translate it using the command
 echo  $STR | base64 -d
 output 
 
-the page part of the source code is :
+the page part of the source code    'index.php'     is :
+
  <?php
             function containsStr($str, $substr) {
                 return strpos($str, $substr) !== false;
@@ -153,7 +155,11 @@ To exploit this for Local File Inclusion (LFI), we can upgrade our payload to by
 
 LFI = Local File Includes 
 https://apt2002.medium.com/tryhackme-dogcat-ctf-detailed-walkthrough-cd746fd232ef
+
+
+
 https://youtu.be/u_uuk7FWWF4?list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&t=355
+ 
  Question Hint
 
 
