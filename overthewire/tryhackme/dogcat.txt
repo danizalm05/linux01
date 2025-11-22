@@ -200,7 +200,11 @@ open another terminal and run :
    You will   get the usual response page with the option to choose between dogs and cats.
 
 launch a listening port using netcat and set the port number as mentioned in shell.php
+use Netcat on our machine and listen on the  port 9999
+ in terminal run:  nc   -lvnp  9999
+ and execute the script in the command line
 
+Now you can run commands in the remote host
 
 https://whokilleddb.medium.com/dogcat-walk-through-from-tryhackme-2c3c60ee2829
 
