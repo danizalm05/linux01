@@ -30,5 +30,6 @@ Host name filter	           ip.host = hostname
 MAC address filter	          eth.addr == 00:70:f4:23:18:c4
 RST flag filter	              tcp.flag.reset == 1
 
-
-15:00
+view/ coloring rools
+ 
+ https://youtu.be/a_4MjV_-7Sw?t=1138 profiles
