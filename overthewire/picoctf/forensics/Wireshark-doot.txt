@@ -1,0 +1,24 @@
+
+                        Wireshark doo dooo do doo...
+                      =====================
+
+problem URL:
+https://play.picoctf.org/practice/challenge/115 
+ 
+ 
+Problem :
+   Can you find the flag? shark1.pcapng.
+     https://mercury.picoctf.net/static/81c7862241faf4a48bd64a858392c92b/shark1.pcapng
+Solution:  
+ 
+output:
+      
+picoCTF{}
+
+ 
+ 
+  
+  
+  
+
+ 
