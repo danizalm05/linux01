@@ -12,10 +12,26 @@ Problem :
 
 
 Solution:  
-    1.  
-    output:
+  1. wget  https://mercury.picoctf.net/static/ea41c400c[…]d362ab/shark1.pcapng 
+  2.  restrict the displayed packages to HTTP-Packages only. I thought, that the flag couldn’t hide inside the TCP-Protocoll packages like the [ACK] / [PSH/ACK] or ARP ones and the HTTP-ones were the ones looking most promising.  
+  
+    apply  the Filter 'http'
+   
+   every package is encrypted. After scrolling a while, we finally get to a packet that isn’t. Package number 827 consists of text/html. Hey, thats a breadcrumb!
+   Opening the package in a new window we get 1 line of text/html that looks really promising
+   show package in a new window
+   the text is :
+      Gur synt vf cvpbPGS{c33xno00_1_f33_h_qrnqorrs}
+
+    it could be encrypted with a simple ROT-Cipher.  
+	 The ROT cipher, short for "rotation," is a simple encryption method that replaces each letter in a message with another letter located a fixed number of positions down the alphabet.
+     https://www.dcode.fr/rot-cipher	
+       	The flag is picoCTF{p33kab00_1_s33_u_deadbeef}
+    tcp.port==80
+	
+     
       
-picoCTF{}
+picoCTF{p33kab00_1_s33_u_deadbeef}
 
  
  
