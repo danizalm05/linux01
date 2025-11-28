@@ -10,7 +10,9 @@ display filter: what to disply .Chose from the url window
 filters write  tcp for http  or udp  for video
 
                     Common Filtering Commands
-		--------------------------------------------		   
+		--------------------------------------------		
+frame contains   "abcd"
+		
 Usage                                 Syntax
 ------	                         -----------------
 Filter by IP	               ip.add == 10.10.50.1
@@ -42,9 +44,18 @@ Statistics menu itemses
 2. Resolved Addresses:  list of resolved addresses and their host names.
      https://www.wireshark.org/docs/wsug_html_chunked/ChUseStatisticsMenuSection.html
 3.  
-     
+4. Conversation: between two entitys     
      
 7. I/O Graphs Display user specified graphs (e.g., the number of packets in the course of time)       
+
+
+Filter to a particular stream 
+--------------------------------
+Select a packet in the packet list
+Select (right click) or menu item you want under Analyze → Follow (or in the context menu in the packet list).
+ Wireshark will set an appropriate display filter and display a dialog box with the data from the stream laid out, 
+red clinet to server.
+blue server to clinet.
 
 
 https://youtu.be/a_4MjV_-7Sw?t=2491
