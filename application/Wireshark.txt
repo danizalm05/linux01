@@ -10,7 +10,10 @@ display filter: what to disply .Chose from the url window
 filters write  tcp for http  or udp  for video
 
                     Common Filtering Commands
-		--------------------------------------------		
+		--------------------------------------------	
+capture/option # chose adapter  (only wireless )
+capture/ capture filters 
+analyze/display filter		
 frame contains   "abcd"
 		
 Usage                                 Syntax
