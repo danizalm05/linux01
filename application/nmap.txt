@@ -1,6 +1,6 @@
                 Nmap (Network Mapper)
 ========================================================				
-network detection and security scanning utility 
+network detection and security scanning utility ,port scanning tool
 
 nmap [<Scan Type>] [<Options>] {<target specification>}
 
@@ -95,3 +95,8 @@ Output all supported file types	nmap -oA [path/filename] [target]
 Periodically display statistics	nmap –stats-every [time] [target]
 133t output	nmap -oS [scan.txt] [target]						   
 						   
+						   
+https://tryhackme.com/room/furthernmap
+https://github.com/technorraj/tryhackme.com-room-furthernmap		
+
+				   
