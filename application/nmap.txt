@@ -1,5 +1,9 @@
                 Nmap (Network Mapper)
-========================================================				
+========================================================		
+					   
+https://tryhackme.com/room/furthernmap
+https://github.com/technorraj/tryhackme.com-room-furthernmap	
+		
 network detection and security scanning utility ,port scanning tool
 
 nmap [<Scan Type>] [<Options>] {<target specification>}
@@ -99,4 +103,26 @@ Periodically display statistics	nmap –stats-every [time] [target]
 https://tryhackme.com/room/furthernmap
 https://github.com/technorraj/tryhackme.com-room-furthernmap		
 
+
+Nmap Switches
+
+-sS    The first switch listed in the help menu for a SYN scan?
+-sU    switch for a UDP scan?
+-O     detects the operating system?
+-sV    detects the version of services?
+-v     to increase verbosity?
+-vv    set verbosity level to two?
+-oA    Save results in all formats?
+-oN    Save results in normal format?
+-oG    Save results in grepable format?
+-A     Enable aggressive mode  ( OS detection, version detection, script scanning, and traceroute)
+-T5    Set timing template to level 5  used to increase the speed your scan runs at. 
+         But higher speeds are  noisier, and can incur errors!
+-p 80  Scan only port 80 
+-p 1000-1500   Scan ports 1000–1500?
+-p-     Scan all ports?
+--script  Activate a script from the library?
+--script=vuln  Activate all scripts in the "vuln" category
+
+ 
 				   
