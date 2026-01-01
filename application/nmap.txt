@@ -101,8 +101,9 @@ Periodically display statistics	nmap –stats-every [time] [target]
 						   
 						   
 https://tryhackme.com/room/furthernmap
+https://tryhackme.com/room/introtonetworking
 https://github.com/technorraj/tryhackme.com-room-furthernmap		
-
+https://medium.com/@ms3.sooraj.sivadas/introductory-networking-tryhackme-walkthrough-b2508058d6b7
 
 Nmap Switches
 
@@ -123,6 +124,21 @@ Nmap Switches
 -p-     Scan all ports?
 --script  Activate a script from the library?
 --script=vuln  Activate all scripts in the "vuln" category
+
+
+port scanning with Nmap
+-----------------------------
+1    TCP Connect Scans (-sT)
+2    SYN "Half-open" Scans (-sS)
+3    UDP Scans (-sU)
+
+ less common port scan types
+---------------------------------
+    TCP Null Scans (-sN)
+    TCP FIN Scans (-sF)
+    TCP Xmas Scans (-sX)
+
+
 
  
 				   
