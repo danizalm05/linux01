@@ -1,0 +1,11 @@
+#!/bin/bash
+echo  "View the clients connected to the one target network."
+
+BSSID="B2:BB:E5:A4:DA:07"
+CH=36 
+port="wlp1s0"
+monport="wlp1s0mon"   
+
+sudo airodump-ng -c $CH --bssid  $BSSID -w ./  $monport 
+
+

