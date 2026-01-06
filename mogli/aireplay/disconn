@@ -3,7 +3,7 @@
 port="wlp1s0"
 monport="wlp1s0mon"  
  
-BSSID="B2:BB:E5:A4:DA:07"
+BSSID="3C:7C:3F:B5:F3:A8"
  
 echo  "Open a new terminal window to disconnect the clients connected to the target network.  "
 
