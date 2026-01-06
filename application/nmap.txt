@@ -101,9 +101,8 @@ Periodically display statistics	nmap –stats-every [time] [target]
 						   
 						   
 https://tryhackme.com/room/furthernmap
-https://tryhackme.com/room/introtonetworking
+
 https://github.com/technorraj/tryhackme.com-room-furthernmap		
-https://medium.com/@ms3.sooraj.sivadas/introductory-networking-tryhackme-walkthrough-b2508058d6b7
 
 Nmap Switches
 

@@ -573,7 +573,11 @@ timeout: run a command with a time limit
 touch: Change file timestamps or create empty if file does not exist
     touch <file1> <file2> <file3>: Create multiple empty files
 top: List processes running on the system
-traceroute Trace Route to Host
+traceroute: Trace Route to Host
+
+
+
+
 trap Run a command when a signal is set(bourne)
 tr: Translate, squeeze, and/or delete characters
  cat greekfile | tr “[a-z]” “[A-Z]”: Translate lower to capital  letter
@@ -635,6 +639,8 @@ which: Search the user's $path for a program file
 while Execute commands
 who Print all usernames currently logged in
 whoami Print the current user id and name (`id -un')
+whois <domain>:   get a list of available information
+ about the domain registration:
 wget "url":  Retrieve web pages or files via HTTP, HTTPS or FTP
   wget -m  -P D:\local_mirror
   wget --mirror --convert-links --adjust-extension --page-requisites --no-parent  http://ex.url
