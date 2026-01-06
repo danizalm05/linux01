@@ -127,11 +127,14 @@ Nmap Switches
 
 port scanning with Nmap
 -----------------------------
-1    TCP Connect Scans (-sT)
-2    SYN "Half-open" Scans (-sS)
+1    TCP Connect Scans (-sT) :  Nmap tries to connect to each specified TCP port, and determines whether the service is open by the response it receives.
+If  it respond with a TCP packet with the RST (Reset) flag set.   Nmap can establish that the port is closed.
+If, however, the request is sent to an open port, the target will respond with a TCP packet with the SYN/ACK flags set. Nmap then marks this port as being open .
+
+2    SYN Scans (-sS)  referred to as "Half-open" scans, or "Stealth" scans.
 3    UDP Scans (-sU)
 
- less common port scan types
+less common port scan types
 ---------------------------------
     TCP Null Scans (-sN)
     TCP FIN Scans (-sF)
