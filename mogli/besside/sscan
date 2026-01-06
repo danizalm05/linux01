@@ -23,7 +23,7 @@ sudo airodump-ng $monport -w handshakes -b abg
 BSSID="B0:BB:E5:A4:DA:04"
 CH="10"
 
-
+echo  sudo besside-ng wlp1s0mon
 sudo besside-ng -W -c $CH -b $BSSID wlp1s0mon
     
  

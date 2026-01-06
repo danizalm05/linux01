@@ -21,6 +21,11 @@ echo "[3]: sudo airodump-ng $monport -w handshakes -b abg"
   
 sudo airodump-ng $monport -w handshakes -b abg
  
+ Launching Terminator terminator
+ Split Horizontally: Ctrl + Shift + O
+ Split Vertically: Ctrl + Shift + E
+Customization: right-click
+ 
 echo  " in terminal 2 rename to scan1wifi run ./scan1wifi"
 echo "  in terminal 3 rename to discon   run ./disconn
  
