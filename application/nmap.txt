@@ -1,6 +1,6 @@
                 Nmap (Network Mapper)
 ========================================================		
-					   
+ MAN PAGE (https://nmap.org/book/man.html) FOR MORE OPTIONS AND EXAMPLES					   
 https://tryhackme.com/room/furthernmap
 https://github.com/technorraj/tryhackme.com-room-furthernmap	
 		
@@ -127,20 +127,49 @@ Nmap Switches
 
 port scanning with Nmap
 -----------------------------
-1    TCP Connect Scans (-sT) :  Nmap tries to connect to each specified TCP port, and determines whether the service is open by the response it receives.
+1    TCP Connect Scans (-sT) :  Nmap tries to connect to each specified TCP port, and determines
+  whether the service is open by the response it receives.
 If  it respond with a TCP packet with the RST (Reset) flag set.   Nmap can establish that the port is closed.
-If, however, the request is sent to an open port, the target will respond with a TCP packet with the SYN/ACK flags set. Nmap then marks this port as being open .
+If, however, the request is sent to an open port, the target will respond with a TCP packet with 
+the SYN/ACK flags set. Nmap then marks this port as being open .
 
-2    SYN Scans (-sS)  referred to as "Half-open" scans, or "Stealth" scans.
-3    UDP Scans (-sU)
+                    TCP scans   stages  
+				======================================	  
+            A. connecting terminal sends  SYN flag .
+            B.  server acknowledges  sends the SYN flag and   ACK flag.  
+            C. connecting terminal  sends   ACK flag.
+
+2    SYN Scans (-sS) : referred to as "Half-open" scans, or "Stealth" scans.
+
+                    SYN Scans   stages  
+	           ======================================
+            A. connecting terminal sends  SYN flag .
+            B.  server acknowledges  sends the SYN flag and   ACK flag.  
+            C. connecting terminal  sends   RST  flag.
+
+
+		  
+
+3 UDP Scans (-sU)   UDP connections rely on sending packets to a target port and essentially
+  hoping that they make it. 
+  If a UDP port doesn't respond to an Nmap scan,  it be marked as   open|filtered 
 
 less common port scan types
 ---------------------------------
-    TCP Null Scans (-sN)
-    TCP FIN Scans (-sF)
-    TCP Xmas Scans (-sX)
+  NULL, FIN and Xmas scans generally used for Firewall evasion
+
+ 1.   TCP Null Scans (-sN): TCP request is sent with no flags set at all. 
+          The target host should respond with a RST if the port is closed.
+ 2.   TCP FIN Scans (-sF)
+ 3,   TCP Xmas Scans (-sX)
 
 
-
+ ICMP Network Scanning
+ ------------------------
+ ping sweep". 
+ Nmap sends an ICMP packet to each possible IP address for the specified network. 
+ When it receives a response, it marks the IP address that responded as being alive
+ 
+     nmap -sn 192.168.0.1-254  or nmap -sn 192.168.0.0/24
  
 				   
