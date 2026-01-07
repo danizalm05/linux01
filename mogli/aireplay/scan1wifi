@@ -7,5 +7,5 @@ port="wlp1s0"
 monport="wlp1s0mon"   
 
 sudo airodump-ng -c $CH --bssid  $BSSID -w ./  $monport 
-
+echo sudo airodump-ng -c 44 --bssid  00:25:00:FF:94:73   -w ./  wlp1s0mon 
 

