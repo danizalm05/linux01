@@ -171,5 +171,34 @@ less common port scan types
  When it receives a response, it marks the IP address that responded as being alive
  
      nmap -sn 192.168.0.1-254  or nmap -sn 192.168.0.0/24
- 
+ The -sn switch tells Nmap not to scan any ports -- 
+ forcing it to rely primarily on ICMP echo packets  to identify targets. In addition to the ICMP echo requests, the -sn switch will also cause nmap to send a TCP SYN packet to port 443 of the target, as well as a TCP ACK (or TCP SYN if not run as root) packet to port 80 of the target.
 				   
+				   
+Nmap Scripting Engine (NSE)  (https://nmap.org/book/nse-usage.html)
+--------------------------------------------
+ NSE Scripts can be used to do a variety of things:  
+    scanning for vulnerabilities,  
+	automating exploits for them. 
+	 useful for reconnaisance 
+
+ Some useful categories include: ( https://nmap.org/nsedoc/)
+
+    safe:- Won't affect the target
+    intrusive:- Not safe: likely to affect the target
+    vuln:- Scan for vulnerabilities
+    exploit:- Attempt to exploit a vulnerability
+    auth:- Attempt to bypass authentication for running services (e.g. Log into an FTP server anonymously)
+    brute:- Attempt to bruteforce credentials for running services
+    discovery:- Attempt to query running services for further information about the network (e.g. query an SNMP server).
+
+ how to find these scripts.
+----------------------------------
+ 1. http://nmap.org/nsedoc/ : list of all official scripts.
+ 2. /usr/share/nmap/scripts: All of the NSE scripts are stored in this directory by default  
+	
+cd 	/usr/share/nmap/scripts
+file script.db
+head script.db
+ls -l  /usr/share/nmap/scripts/*ftp*
+grep "safe" /usr/share/nmap/scripts/script.db
