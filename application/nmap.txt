@@ -201,4 +201,9 @@ cd 	/usr/share/nmap/scripts
 file script.db
 head script.db
 ls -l  /usr/share/nmap/scripts/*ftp*
-grep "safe" /usr/share/nmap/scripts/script.db
+
+
+Example Usage
+
+nmap --script smb-os-discovery.nse -p445 127.0.0.1
+sudo nmap -sU -sS --script smb-os-discovery.nse -p U:137,T:139 127.0.0.1
