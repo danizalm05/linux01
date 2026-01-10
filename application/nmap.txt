@@ -12,6 +12,7 @@ EXAMPLES:
   nmap -sC -sV -oN  outresult.txt <IP> 
 
   
+
   
   nmap -sV <ip>
   
@@ -27,6 +28,8 @@ EXAMPLES:
    -vv:  very verbose
    -sS: syn scan 
    --script vuln: check for vlunnerabilities
+   
+  sudo nmap 10.82.181.162 -sS -p 0-4999 -vv
   
   nmap -p80,139,445,10000,20000 -A 192.168.1.205# Scan ports 80, 139 ....
   nmap -v -A scanme.nmap.org
@@ -127,7 +130,7 @@ Nmap Switches
 
 port scanning with Nmap
 -----------------------------
-1    TCP Connect Scans (-sT) :  Nmap tries to connect to each specified TCP port, and determines
+1.    TCP Connect Scans (-sT) :  Nmap tries to connect to each specified TCP port, and determines
   whether the service is open by the response it receives.
 If  it respond with a TCP packet with the RST (Reset) flag set.   Nmap can establish that the port is closed.
 If, however, the request is sent to an open port, the target will respond with a TCP packet with 
@@ -139,8 +142,10 @@ the SYN/ACK flags set. Nmap then marks this port as being open .
             B.  server acknowledges  sends the SYN flag and   ACK flag.  
             C. connecting terminal  sends   ACK flag.
 
-2    SYN Scans (-sS) : referred to as "Half-open" scans, or "Stealth" scans.
 
+2    SYN Scans (-sS) : referred to as "Half-open" scans, or "Stealth" scans.
+   sudo nmap 10.82.181.162 -sS -p 0-4999 -vv
+   
                     SYN Scans   stages  
 	           ======================================
             A. connecting terminal sends  SYN flag .
@@ -161,8 +166,8 @@ less common port scan types
  1.   TCP Null Scans (-sN): TCP request is sent with no flags set at all. 
           The target host should respond with a RST if the port is closed.
  2.   TCP FIN Scans (-sF)
- 3,   TCP Xmas Scans (-sX)
-
+ 3.   TCP Xmas Scans (-sX)     nmap <target ip> -sX -p 0-998
+        nmap <target ip> -sX -p 0-998 -vv
 
  ICMP Network Scanning
  ------------------------

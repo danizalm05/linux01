@@ -1,5 +1,6 @@
                              picklerick
                            ======================
+To run    server:  run  'sudo openvpn  <name of ovpn.ovpn>'
 Learn about active recon, web app attacks and privilege escalation.
 This Rick and Morty-themed challenge requires you to exploit a web server and find 
 three ingredients to help Rick make his potion and transform himself back into a human from
