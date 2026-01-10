@@ -3,9 +3,12 @@ echo  "View the clients connected to the one target network."
 
 BSSID="3C:7C:3F:B5:F3:A8"
 CH=100
-port="wlp1s0"
-monport="wlp1s0mon"   
+
+# port="wlp1s0"
+# monport="wlp1s0mon"  
+port="wlxe894f6236dc9"
+monport="wlan0mon" 
 
 sudo airodump-ng -c $CH --bssid  $BSSID -w ./  $monport 
 echo sudo airodump-ng -c 44 --bssid  00:25:00:FF:94:73   -w ./  wlp1s0mon 
-
+# sudo airodump-ng -c 4 --bssid  3C:7C:3F:B5:F3:A0   -w ./  wlan0mon
