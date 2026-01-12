@@ -6,7 +6,14 @@ echo "-------------------------"
 iwconfig
 echo "-------------------------"
  
+#port="wlp1s0"
+#monport="wlp1s0mon"
 
+# parrot
+#port="wlx940c6d87e5cc"
+#monport="wlan0mon" 
+
+#unbunto
 port="wlx940c6d87e5cc"    
 monport="wlxe894f6236dca" 
 
