@@ -5,8 +5,7 @@
 /etc/passwd : Password stored 
 /etc/sudoers: the output for the command whicl lists what a user can  do 
 /etc/services: service names and port numbers . 
-
-
+/etc/proxychains.conf: proxychains settings. 
 
 
         

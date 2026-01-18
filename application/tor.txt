@@ -1,0 +1,4 @@
+apt-get install tor: install/update your Tor packages.
+service tor start:   start the Tor service.
+ervice tor status:   check Tor's availability.
+service tor stop:    stop the Tor service.
