@@ -5,11 +5,21 @@ Get started with Cyber Security in 25 Days - Learn the basics by doing a new, be
 
 https://tryhackme.com/room/25daysofchristmas
 https://kevinovitz.github.io/TryHackMe_Writeups/25daysofchristmas/25daysofchristmas/
+Deploy the machine :
 sudo openvpn zam.ovpn
 
 [Day 1] Inventory Management
- Deploy the machine and access the website at http://<your_machines_ip>:3000
+ 
 
+ a.What is the name of the cookie used for authentication?
+   1. Access the website at http://<your_machines_ip>:3000
+   2. On the login Register as user  on the website.
+   3. Login and open the developer tools to look at the cookie stored in our browser. in the menu chose storage look for "Cookies" on the left side
+     authid 
+ b.  
+    If you decode the cookie, what is the value of the fixed part of the cookie?
 
-
- What is the name of the cookie used for authentication?
+    use Cyber Chef. https://www.cyberchef.dev/cyberchef 
+	 on the right side window input the cookie
+     
+ 
