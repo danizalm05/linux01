@@ -5,11 +5,11 @@ Get started with Cyber Security in 25 Days - Learn the basics by doing a new, be
 
 https://tryhackme.com/room/25daysofchristmas
 https://kevinovitz.github.io/TryHackMe_Writeups/25daysofchristmas/25daysofchristmas/
+sudo openvpn zam.ovpn
 
 [Day 1] Inventory Management
- Deploy the machine and access the website at http://<your_machines_ip>:3000 - it can take up to 3 minutes for your machine to boot!
+ Deploy the machine and access the website at http://<your_machines_ip>:3000
 
-Supporting material for the challenge is here!
-Answer the questions below
 
-What is the name of the cookie used for authentication?
+
+ What is the name of the cookie used for authentication?
