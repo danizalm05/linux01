@@ -14,12 +14,23 @@ sudo openvpn zam.ovpn
  a.What is the name of the cookie used for authentication?
    1. Access the website at http://<your_machines_ip>:3000
    2. On the login Register as user  on the website.
-   3. Login and open the developer tools to look at the cookie stored in our browser. in the menu chose storage look for "Cookies" on the left side
+   3. Login and open the developer tools to look at the cookie stored in our browser. navigated to the Storage tab (in Firefox) or Application tab (in Chrome/Edge).
+   Within this tab, selecte  the Cookies menu on the left-hand side. 
      authid 
  b.  
     If you decode the cookie, what is the value of the fixed part of the cookie?
 
     use Cyber Chef. https://www.cyberchef.dev/cyberchef 
 	 on the right side window input the cookie
-     
+	 from the left tab drag  option "From base64" yow will get output
+	 <user name>
+	 so the fix part is "v4er9ll1!ss7"   
+ c. After accessing his account, what did the user mcinventory    request?     
+     This question is about a specfic user "mcinventory"
+     Add   user  "mcinventory" in front of the fixed part of the cookie 
+	      mcinventoryv4er9ll1!ss
+		   
+	 and encoding it through Cyber Chef using "Tobase64" we get the following cookie:
+	    bWNpbnZlbnRvcnl2NGVyOWxsMSFzcw== 
+	 Change the value of our existing cookie to the value we just created and reload the page. Looks like we are now logged in as mcinventory. On the home page we can see what het requested.	
  
