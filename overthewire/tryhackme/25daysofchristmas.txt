@@ -4,7 +4,10 @@ Get started with Cyber Security in 25 Days - Learn the basics by doing a new, be
 
 
 https://tryhackme.com/room/25daysofchristmas
+
 https://kevinovitz.github.io/TryHackMe_Writeups/25daysofchristmas/25daysofchristmas/
+https://muirlandoracle.co.uk/2020/01/06/tryhackme-christmas-2019-challenge-write-up/#Day_One_-_Inventory_Management
+
 Deploy the machine :
 sudo openvpn zam.ovpn
 
@@ -18,19 +21,37 @@ sudo openvpn zam.ovpn
    Within this tab, selecte  the Cookies menu on the left-hand side. 
      authid 
  b.  
+    authid:"Y2N2NGVyOWxsMSFzcw%3D%3D"
     If you decode the cookie, what is the value of the fixed part of the cookie?
 
-    use Cyber Chef. https://www.cyberchef.dev/cyberchef 
+     When you consider that “%3D” translates to “=” we can tell that this cookie is encoded with Base64.
+	 Search up “base64 decode online” 
+     You can use 'Cyber Chef'. https://www.cyberchef.dev/cyberchef 
 	 on the right side window input the cookie
 	 from the left tab drag  option "From base64" yow will get output
-	 <user name>
+	 <user name>v4er9ll1!ss7
 	 so the fix part is "v4er9ll1!ss7"   
+	 
+	 
  c. After accessing his account, what did the user mcinventory    request?     
-     This question is about a specfic user "mcinventory"
+     This question is about the specfic user: "mcinventory"
      Add   user  "mcinventory" in front of the fixed part of the cookie 
 	      mcinventoryv4er9ll1!ss
 		   
 	 and encoding it through Cyber Chef using "Tobase64" we get the following cookie:
 	    bWNpbnZlbnRvcnl2NGVyOWxsMSFzcw== 
-	 Change the value of our existing cookie to the value we just created and reload the page. Looks like we are now logged in as mcinventory. On the home page we can see what het requested.	
+	 you can also use the command:
+	           echo -ne 'mcinventoryv4er9ll1!ss' | base64
+	 Change the value of our existing cookie to the value we just created and reload the page. 
+	 As far as the server is concerned, because you gave it Mcinventory’s key when it asked, you must be Mcinventory — so it let you in without credentials.
+	 
+	 Looks like we are now logged in as mcinventory. On the home page we can see what het requested.	
+	 
+	  In the entries table, mcinventory requested:
+	                       firewall.
  
+ 
+     cookies that have fixed values are bad as it allows attackers to guess the pattern and values.
+
+    a new cookie can be created from Firefox 
+	     dev tools > storage > cookies > add new
