@@ -15,4 +15,11 @@ sudo openvpn zam.ovpn
  
  a. What is the path of the hidden page?
  
-  You can use DirSearch or Gobuster . 
+  You can use Gobuster .   -dirb  -ffuf  
+  
+  gobuster dir \
+  -u http://[your-ip-here]:3000 \
+  -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt \
+  -t 50
+   
+  https://vedantbaghel007.medium.com/advent-of-cyber-1-2019-4b3f620d353d
