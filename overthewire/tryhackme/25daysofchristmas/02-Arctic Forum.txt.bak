@@ -17,7 +17,7 @@ sudo openvpn zam.ovpn
   run gobuster:
 
   gobuster dir \
-  -u http://10.82.136.47:3000 \
+  -u http://10.81.175.78:3000 \
   -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt \
   -t 50
    
@@ -50,16 +50,10 @@ b. What is the password you found?
     Admin portal created by arctic digital design - check out our github repo
     -->
 	
-	Searching for 'Arctic Digital Design' we find the following Github page 
-	with some default credentials:
+	Searching for 'Arctic Digital Design' we find the following Github page with some default credentials:
 	
 	    "Previous versions of this software have been shipped out. The credentials to log in are:
 
         username: admin
         password: defaultpass
         ** the login portal accepts usernames instead of emails **"
-c. 
-I can not connect to http://ipaddresshere:3000/sysadmin 
-maybe there is a problem with the page.
-Acorrding o the sulotion we sould login from above, you can view the entries on the page after you login to see 
-that the party is: BYOE(Bring your own eggnog).

@@ -6,7 +6,7 @@
   -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt \
   -x php,html,txt \
   -t 50
-
+  --debug 
 -u – כתובת האתר (ה-target)
 -w – wordlist (רשימת מילים) – חשוב להשתמש ב-wordlist טוב
 -x – סיומות קבצים נוספות שמחפשים (למשל php, html, asp וכו')
