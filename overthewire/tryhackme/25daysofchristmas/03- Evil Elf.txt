@@ -1,0 +1,60 @@
+
+https://tryhackme.com/room/25daysofchristmas
+
+https://kevinovitz.github.io/TryHackMe_Writeups/25daysofchristmas/25daysofchristmas/
+https://muirlandoracle.co.uk/2020/01/06/tryhackme-christmas-2019-challenge-write-up/#Day_Three_-_Evil_Elf
+Deploy the machine :
+sudo openvpn zam.ovpn
+
+[03- Evil-Elftxt]
+An Elf-ministrator, has a network capture file from a computer and needs help to figure out what went on! Are you able to help?
+
+Supporting material for the challenge can be found here! https://docs.google.com/document/d/1ZVsOtW7mM-4neZZ4QtYCEp__exiMrvlUCXTxhB-zyxk/edit?usp=sharing
+ 
+
+a.    Whats the destination IP on packet number 998?
+Dowmload the capture file and opening it in Wireshark, Looking at entry 998 we can see its destination ip in the destination column.
+
+ Internet Protocol Version 4, Src: 10.10.186.136, Dst: 63.32.89.195
+
+So dst is :    63.32.89.195
+
+
+b. What item is on the Christmas list?
+
+Filter on either http or telnet to find any plain-text data.    (only telnet gives results) 
+3 hits for telnet. In the first one, we see a command which writes an item to the christmas list.
+The last lines are:
+ Telnet
+    Data: echo 'ps4' > christmas_list.txt\n
+so there is one item which is:  'ps4'
+
+c. Crack buddy's password!
+
+in the 2'd telnet last line we see the command:
+   cat /etc/shadow\n
+   so the next telnet out put sould be the shadow file
+in the 3'rd telnet outputput we can see the 'shadow' file output 
+and in the last line will see:
+buddy:$6$3GvJsNPG$ZrSFprHS13divBhlaKg1rYrYLJ7m1xsYRKxlLh0A1sUc/6SUd7UvekBOtSnSyBwk3vCDqBhrgxQpkdsNN6aYP1:18233:0:99999:7:::
+
+
+Copy and paste just this part $6$3GvJsNPG$ZrSFprHS13divBhlaKg1rYrYLJ7m1xsYRKxlLh0A1sUc/6SUd7UvekBOtSnSyBwk3vCDqBhrgxQpkdsNN6aYP1  
+ into the “hash.txt” 
+ the  string   starts with $6. look in this url:  https://hashcat.net/wiki/doku.php?id=example_hashes
+ and you will find  the line Hash-Mode    1800 	sha512crypt $6$, SHA512 (Unix) 2
+ 
+ hashcat -m  < Hash-Mode>   <hash file location>  <wordlist file location>
+ hashcat -m 1800 hash.txt  rockyou.txt
+
+
+
+ copy Buddy’s Password Hash
+
+$6$3GvJsNPG$ZrSFprHS13divBhlaKg1rYrYLJ7m1xsYRKxlLh0A1sUc/6SUd7UvekBOtSnSyBwk3vCDqBhrgxQpkdsNN6aYP1
+
+you can use https://hashes.com/en/tools/hash_identifier    to identife the hase type mode
+
+ which is  : sha512crypt $6$, SHA512 (Unix) 2 (code 1800)
+ 
+ to crak use https://hsh.lol/ insert the hash string and  hash identifer 
