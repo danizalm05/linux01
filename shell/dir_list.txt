@@ -3,6 +3,8 @@
   
 
 /etc/passwd : Password stored 
+/etc/shadow: file that actually contains password hashes of the user.
+
 /etc/sudoers: the output for the command whicl lists what a user can  do 
 /etc/services: service names and port numbers . 
 /etc/proxychains.conf: proxychains settings. 
@@ -24,10 +26,36 @@ passward  files
  
 
 
-dir lists
+dir  names lists
 =====================
 /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt	
                    #Commonly used for directory brute-forcing.
 
 /usr/share/dirb/wordlists
 /usr/share/dirb/wordlists/vulns
+
+
+           Common layout of the root directory 
+  -----------------------------------------------------------
+/bin - contains programs in the form of binary files that user can run
+     
+     /bin/sh    :common shell 
+     /bin/bash  :common shell 
+
+
+/boot - contains the files needed to start the system
+/dev - used to represent devices(mostly virtual) that correspond to particular functions
+/etc - contain configuration files for services on a computer and some system files
+/usr - contain executable files(programs) for most system programs
+/home - contains home directories for personal users
+    /home/username
+	 .bash_history:  file which keeps commands the user has run
+	  
+/lib - contain libraries(which contain extra functions) that are used by executable files in the /bin directories
+/var - mostly contain files that store information about how services run(also known as log files)
+/proc - contains information about processes running on the system
+/mnt - used to mount file systems. Mounts are usually used when users want to access other file systems on their system
+/opt - contains optional software
+/media - contains removable hardware e.g. USB 
+/tmp - contains temporary files. This folder is usually cleared on reboot so doesn’t store persistent files
+/root - contains files created by the super user(more on this later)
