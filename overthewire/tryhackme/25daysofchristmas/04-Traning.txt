@@ -1,0 +1,21 @@
+
+https://tryhackme.com/room/25daysofchristmas
+
+https://kevinovitz.github.io/TryHackMe_Writeups/25daysofchristmas/25daysofchristmas/#day-4-training
+ 
+https://muirlandoracle.co.uk/2020/01/06/tryhackme-christmas-2019-challenge-write-up/#Day_Four_-_Training 
+ 
+Deploy the machine :
+sudo openvpn zam.ovpn
+
+[04- Traning]
+ 
+ 
+
+a.    
+
+
+b.  
+  
+
+c.  
