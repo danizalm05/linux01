@@ -50,7 +50,23 @@ $ grep "hap*[e-z]n[a-i]d" kafka.txt
 
 Use (dot).*: Nothing or any numbers of characters:
 $ grep "hap.*ed" kafka.txtchmod 755 reg-exp
+ 
+ 
+cat * | grep -Eo "([0-9]{1,3}[\.]){3}[0-9]{1,3}" : Find ip pattern in all the files in the dir 
+ 
+ ([0-9]{1,3}[\.]):  look for between one and three numbers (0–9), followed by a period
+ {3} says that we’re looking for three repetitions of the prior instruction
+ [0-9]{1,3} looks for one more set of one to three numbers between 0 and 9 ,without the trailing period
+ 
+ cat * :gets the contents of every file in the directory  
+ 
+  -E : using an extended regex,  
+  -o : output the bit that it matched, not the entire line.
+ 
  #
+ 
+ 
+ 
 
 #  Regular Expressions
 #  http://regexstorm.net/tester

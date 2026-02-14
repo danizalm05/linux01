@@ -4,6 +4,12 @@ grep: Search file(s) for lines that match a given pattern
   
   grep -n "millionth"  data.txt:  find the lines in file data.txt of 
           string  millionth
+
+  grep -l -e "password" -f * :   Fiels that contains string 'passward' in all fiels in this dir
+         -l tells grep to output the file name,
+         -e specifies the string that we’re looking  
+		 -f tells grep which file(s) to search —  '*' signifies all of the files   
+
   grep -r pico web_copy:  recursively search (-r) for string 'pico' in the directory 'web_copy'
   grep -oE 'picoCTF{.*}' data.txt:   o  output only matched text.  E  regular expression
   grep -r. : recursively scan for everything so all conntend of the directory is displayed
