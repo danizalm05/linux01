@@ -1,0 +1,17 @@
+
+https://tryhackme.com/room/25daysofchristmas
+
+https://kevinovitz.github.io/TryHackMe_Writeups/25daysofchristmas/25daysofchristmas/
+https://muirlandoracle.co.uk/2020/01/06/tryhackme-christmas-2019-challenge-write-up/#Day_Four_-_Training
+
+Deploy the machine :
+sudo openvpn zam.ovpn
+
+[04- Traning]
+
+Access the machine via SSH on port 22 using the command:
+    ssh mcsysadmin@[your-machines-ip]
+    username: mcsysadmin
+    password: bestelf1234
+	
+a. How many visible files are there in the home directory(excluding ./ and ../)?	
