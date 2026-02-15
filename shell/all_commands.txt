@@ -487,6 +487,8 @@ seq Print numeric sequences:
          seq 1 255
 set Manipulate shell variables and functions
 sftp Secure File Transfer Program
+sha1sum:  calculates and verifies SHA-1 hashes. ( vulnerable to collision attacks)
+   sha1sum filename
 shift Shift positional parameters
 shopt Shell Options
 shutdown Shutdown or restart linux
