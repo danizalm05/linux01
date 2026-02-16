@@ -63,15 +63,13 @@ f. 		  What is the sha1 hash of file8?
 	   
 g. What is mcsysadmin’s password hash?	  
 
-  The   way of getting unix password hashes is by looking at the /etc/shadow 
-  file — but without sudo permissions we aren’t able to read it.
+  The   way of getting unix password hashes is by looking at the /etc/shadow file — but without sudo permissions we aren’t able to read it.
   
   so 
   run: find / 2>>/dev/null | grep "shadow.bak"
   
   This lists all of the files on the system 
-   (using 2>>/dev/null to ignore any files that throw up errors when we try
-   to read them), 
+   (using 2>>/dev/null to ignore any files that throw up errors when we try to read them), 
   then pipes the output to grep which looks for “shadow.bak.” Result! 
   There’s a file called “shadow.bak” in the /var directory:
      /var/shadow.bak
