@@ -1,0 +1,53 @@
+ 
+https://tryhackme.com/room/25daysofchristmas
+
+https://kevinovitz.github.io/TryHackMe_Writeups/25daysofchristmas/25daysofchristmas/#day-5-ho-ho-hosint
+ 
+https://muirlandoracle.co.uk/2020/01/06/tryhackme-christmas-2019-challenge-write-up/#Day_Four_-_Training
+
+ 
+
+[Day 5] Ho-Ho-Hosint
+ 
+Elf Lola is an elf-of-interest. Has she been helping the Christmas Monster?
+ lets use all available data to find more information about her!
+ We must protect The Best Festival Company!
+task file: https://tryhackme-vm-upload.s3.eu-west-1.amazonaws.com/thegrinch_1575500350327.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA2YR2KKQMWLXEMXW4%2F20260219%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20260219T150041Z&X-Amz-Expires=120&X-Amz-Signature=79f04d7d2f8e1ce11d24082954c2f52781043a7eec7536da98b90ecc8b81ba0b&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject
+Resources available here https://tryhackme.com/resources/blog/ho-ho 
+ 
+ 
+This challenge is an OSINT (Open-source intelligence) challenge. 
+We’re given an image of the Grinch and told to perform an OSINT attack on 
+“Elf Lola”. As per usual, TryHackMe have provided supporting material — 
+ this time in the form of a blog post.
+ 
+In the challenge, there will be three main OSINT techniques:
+1. Image Metadata -
+2. WayBack Machine -
+3. Reverse Image Search -
+	
+a. What is Lola's date of birth? Format: Month Date, Year(e.g November 12, 2019)
+   hint: What information can you get from exiftool? Are they using the 
+   same Creator name on any social networks... Twitter Perhaps?
+  
+  Answer : download the task file,it's an image and use exiftools.
+   in the this case i am using an oline https://exifmeta.com/
+   upload the image on Creator you will see: 	  "JLolax1" 
+  Lets look  that name anywhere else?  in Social media is the obvious place to start
+  Google Dorks reveal precious little, so we’re stuck searching the internet the old
+  fashioned way. Facebook is a dead-end, but the next site on the list — Twitter — scores
+  a match:
+  
+  output :
+      
+	 
+b.	  
+	 
+	 output :
+	    
+c. 
+
+    run:  
+	output:
+	     answer: file6
+ 
