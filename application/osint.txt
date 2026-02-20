@@ -1,0 +1,11 @@
+                         OSINT (Open-source intelligence)  
+						 
+						 
+https://osintframework.com/						 
+1. Image Metadata - Image metadata is text information that is pertaining to an image file.
+        
+2. WayBack Machine -  a digital archive of the World Wide Web. It takes a snapshot of a website. 
+For example, here is what Google looked like on 8th Feb 1999: https://web.archive.org/web/19990208004515/http://google.com/
+
+3. Reverse Image Search - search the internet with an image
+ 
