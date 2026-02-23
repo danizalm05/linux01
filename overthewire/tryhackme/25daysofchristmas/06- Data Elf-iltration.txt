@@ -3,10 +3,11 @@ https://tryhackme.com/room/25daysofchristmas
 
  
  
-https://muirlandoracle.co.uk/2020/01/06/tryhackme-christmas-2019-challenge-write-up/#Day_Four_-_Training
+https://muirlandoracle.co.uk/2020/01/06/tryhackme-christmas-2019-challenge-write-up/ 
 
+https://kevinovitz.github.io/TryHackMe_Writeups/25daysofchristmas/25daysofchristmas/#day-6-data-elf-iltration
  
-https://kevinovitz.github.io/TryHackMe_Writeups/25daysofchristmas/25daysofchristmas/#day-5-ho-ho-hosint
+ 
 
  
  
@@ -23,10 +24,20 @@ https://docs.google.com/document/d/17vU134ZfKiiE-DgiynrO0MySo4_VCGCpw2YJV_Kp3Pk/
  In this task we are looking at a network capture to identify any information we need.
   
 a.  What data was exfiltrated via DNS?
-  Answer : 
- 
-  
-  
+
+  1. download ( holidaythief.pcap ) and open  it up in Wireshark.
+  It   has hinted that the data was exfiltrated via DNS .
+  Start by filtering for packets operating with the DNS  .
+  Straight away we can see that the third packet (and   more) is querying a hex string subdomain of the holidaythief.com domain.
+   try converting the hex string into ASCII text.
+   43616e64792043616e652053657269616c204e756d6265722038343931
+   using https://www.rapidtables.com/convert/number/hex-to-ascii.html
+   the result is :
+             Candy Cane Serial Number 8491
+   
+   You can also use: 
+   echo  43616e64792043616e652053657269616c204e756d6265722038343931 | xxd -r -p
+
   
       
 b.	  

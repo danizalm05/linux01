@@ -65,6 +65,8 @@ sudo john --wordlist=/usr/share/wordlists/rockyou.txt  decrypted1.txt
  nikto: web server and CGI scanner , informational checks.
     nikto -h http://$IP 
 	
-decoding	
+                decoding	
+https://www.cyberchef.dev/cyberchef#google_vignette
 https://www.dcode.fr/hash-function	
+https://www.rapidtables.com/convert/number/   Number Converter
  	

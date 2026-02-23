@@ -625,6 +625,11 @@ vdir Verbosely list directory contents (`ls -l -b')
 vi Text Editor
 vmstat Report virtual memory statistics
 
+
+xxd - Hexadecimal dump   of   data or from hex to ascii
+     
+    xxd -r -p [file or string] : from hex to ascii
+    xxd -b Filename : get binary output
         w
 -----------------------
 wait Wait for a process to complete •
