@@ -1,6 +1,6 @@
                          [Day 6] Data Elf-iltration
 https://tryhackme.com/room/25daysofchristmas
-
+ 
  
  
 https://muirlandoracle.co.uk/2020/01/06/tryhackme-christmas-2019-challenge-write-up/ 
@@ -11,7 +11,7 @@ https://kevinovitz.github.io/TryHackMe_Writeups/25daysofchristmas/25daysofchrist
 
  
  
-Data Exfiltration:  data  was stolen ffrom a server
+Data Exfiltration:  data  was stolen from a server
  
 
 Resources available here 
@@ -26,7 +26,7 @@ https://docs.google.com/document/d/17vU134ZfKiiE-DgiynrO0MySo4_VCGCpw2YJV_Kp3Pk/
 a.  What data was exfiltrated via DNS?
 
   1. download ( holidaythief.pcap ) and open  it up in Wireshark.
-  It   has hinted that the data was exfiltrated via DNS .
+  It has hinted that the data was exfiltrated via DNS .
   Start by filtering for packets operating with the DNS  .
   Straight away we can see that the third packet (and   more) is querying a hex string subdomain of the holidaythief.com domain.
    try converting the hex string into ASCII text.
@@ -40,10 +40,16 @@ a.  What data was exfiltrated via DNS?
 
   
       
-b.	  
-	 
-	 answer :  
-	    
+b.	What did Little Timmy want to be for Christmas?
+    answer:  We know that the user has been making DNS queries, let’s see if they were looking for anything specific. Changing the filter to http.
+	 we find a zip archive and an image. We can save these objects to our computer. 
+	
+    File -> Export Objects -> HTTP we’ll be given the option to save the captured files.  
+    
+
+
+
+	
 c.   
      answer :  
 
