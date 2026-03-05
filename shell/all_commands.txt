@@ -217,6 +217,11 @@ fold Wrap text to fit a specified width.
 for Expand words, and execute commands
 format Format disks or tapes
 free Display memory usage
+fcrackzip: Crack zip file protected with a passward.
+  fcrackzip -b -D -p /usr/share/wordlists/rockyou.txt christmaslists.zip
+    -b -> specify bruteforce attack
+    -D -> specify using a dictionary
+    -p -> specify dictionary file to use
 fsck File system consistency check and repair
 ftp File Transfer Protocol
 function Define Function Macros

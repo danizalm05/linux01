@@ -46,13 +46,38 @@ b.	What did Little Timmy want to be for Christmas?
 	
     File -> Export Objects -> HTTP we’ll be given the option to save the captured files.  
     
-
-
-
-	
-c.   
-     answer :  
-
-d.  
-e.  
+	Two files:    christmaslists.zip , TryHackMe.jpg
  
+    fcrackzip -b -D -p /usr/share/wordlists/rockyou.txt christmaslists.zip
+    output: possible pw found: december ()
+    
+     unzip christmaslists.zip  using pw ='december'
+
+    and run  cat christmaslisttimmy.txt
+	output:
+	  Dear Santa,
+			For Christmas I would like to be a PenTester! Not the Bic kind!
+			Thank you,
+		Little Timmy.
+answer:  PenTester
+c.   What was hidden within the file?
+      answer :  
+       we can use steghide.
+       steghide extract -sf ~/Downloads/TryHackMe.jpg
+              extract  -> specifies extracting hidden data
+              -sf      -> specifies file to extract from
+			  
+ or we can upload the file  'TryHackMe.jpg' to https://www.boxentriq.com/steganography/steghide-extractor
+ or
+ https://futureboy.us/stegano/decinput.html
+ after extreaction the output is :
+                            ARPAWOCKY
+			                  RFC527
+
+                    Twas brillig, and the Protocols
+                         Did USER-SERVER in the wabe.
+                    All mimsey was the FTP,
+                         And the RJE outgrabe,.........
+
+answer : RFC527	 
+						 
