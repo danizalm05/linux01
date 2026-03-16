@@ -12,28 +12,19 @@ Nmap flag 	    Description
 -sV 	        Attempts to determine the version of the services running
 -p <x> or -p- 	Port scan for port <x> or scan all ports
 -Pn 	        Disable host discovery and scan for open ports
--A 	            Enables OS and version detection, executes in-build scripts 
-                 for further enumeration 
+-A 	            Enables OS and version detection, executes in-build scripts for further enumeration 
 -sC 	        Scan with the default Nmap scripts
 -v 	            Verbose mode
 -sU 	        UDP port scan
 -sS 	        TCP SYN port scan
 EXAMPLES:
-  
-sudo nmap -A -p- -vv -oN "<output-filename>" <machine-ip>
--A  detect OS, software versions, apply the basic script set,provide a traceroute; 
-    this switch is the equivalent of the combined -O -sV -sC --traceroute 
--p- scan all ports. 
--vv -requesting the very verbose mode of nmap
--oN <filename> option sends the results to a txt file.
-
   nmap -sC -sV -oN  outresult.txt <IP> 
   nmap -sV <ip>
   nmap -sV --script vuln -v <IP>
           --script :Scripting Engine.
            vuln :Investigate vulnerabilities or exploit vulnerable servic
 
-  
+
 
   nmap -sC -sV -vvv   <IP>
   sudo nmap -vv -sS    --script vuln <IP>
@@ -47,7 +38,7 @@ sudo nmap -A -p- -vv -oN "<output-filename>" <machine-ip>
   nmap -v -A scanme.nmap.org
   nmap -v -sn 192.168.0.0/16 10.0.0.0/8
   nmap -v -iR 10000 -Pn -p 80
-  nmap -sT -p port-number -O -sC -sV -T[1-5] -oA output-file ip-address
+
 
   nmap -sC -sV -oN   <file name to store> <ip>  #Store results in a file    
     -sV parameter for version information 
@@ -63,7 +54,6 @@ sudo nmap -A -p- -vv -oN "<output-filename>" <machine-ip>
 -v 	Verbose mode
 -sU 	UDP port scan
 -sS 	TCP SYN port scan
-
 
 
 
@@ -225,4 +215,3 @@ Example Usage
 
 nmap --script smb-os-discovery.nse -p445 127.0.0.1
 sudo nmap -sU -sS --script smb-os-discovery.nse -p U:137,T:139 127.0.0.1
-
