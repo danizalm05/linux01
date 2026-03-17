@@ -1,20 +1,21 @@
 
                            [Day 7] Skilling Up
+Christmas NMAP Scanning
+
 https://tryhackme.com/room/25daysofchristmas
 
 https://muirlandoracle.co.uk/2020/01/06/tryhackme-christmas-2019-challenge-write-up/#Day_Seven_-_Skilling_Up						   
 
+https://zacheller.dev/thm-25daysofchristmas
+
 This is an enumeration challenge. 
-
-
- 
 Check out the supporting material 
   https://docs.google.com/document/d/1q0FziVZM3zCWhcgtPpljVPzkBX0fMAh6ebrXVM5rg08/edit?tab=t.0
   
   answers to the first three questions can all be found with a single nmap 
 command:
 
-sudo nmap -A -p- -vv -oN "<output-filename>" <machine-ip>
+sudo nmap -A -p- -vv -oN "<filename>" <machine-ip>
 -A  detect OS, software versions, apply the basic script set,provide a traceroute; 
     this switch is the equivalent of the combined -O -sV -sC --traceroute 
 -p- scan all ports. 
@@ -22,3 +23,53 @@ sudo nmap -A -p- -vv -oN "<output-filename>" <machine-ip>
 -oN <filename> option sends the results to a txt file.
 
 a. how many TCP ports under 1000 are open?
+  nmap -p1-1000 10.114.167.27
+      Starting Nmap 7.94SVN ( https://nmap.org ) at 2026-03-17 16:43 IST
+      Nmap scan report for 10.114.167.27
+      Host is up (0.11s latency).
+      Not shown: 997 closed tcp ports (conn-refused)
+     PORT    STATE SERVICE
+     22/tcp  open  ssh
+     111/tcp open  rpcbind
+     999/tcp open  garcon
+
+
+     so the answer is 3
+	 
+b.  What is the name of the OS of the host? 
+ sudo  nmap -sT -O 10.114.167.27
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2026-03-17 16:48 IST
+Nmap scan report for 10.114.167.27
+Host is up (0.13s latency).
+Not shown: 997 closed tcp ports (conn-refused)
+PORT    STATE SERVICE
+22/tcp  open  ssh
+111/tcp open  rpcbind
+999/tcp open  garcon
+Aggressive OS guesses: Linux 3.1 (91%), Linux 3.2 (91%), AXIS 210A or 211 Network Camera (Linux 2.6.17) (91%), Linux 3.10 - 3.13 (90%), Lexmark C534dn printer (89%), ASUS RT-N56U WAP (Linux 3.4) (89%), Linux 3.16 (89%), Sony X75CH-series Android TV (Android 5.0) (89%), Linux 2.6.32 (89%), Linux 3.11 (89%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 3 hops
+
+OS detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 29.10 seconds
+
+
+answer :  Linux 3.1 (91%),
+c. What version of SSH is running?
+  sudo nmap -p22 -sV  10.114.167.27
+    
+
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.4 (protocol 2.0)
+  answer OpenSSH 7.4
+  
+d.  What is the name of the file that is accessible on the server you found running?
+
+ nmap -p999 -sV  10.114.167.27
+ output: 
+     PORT    STATE SERVICE VERSION
+     999/tcp open  http    SimpleHTTPServer 0.6 (Python 3.6.12)
+	 
+  So we can tell that there is an HTTP service running .
+  
+   At http://IP:999 we can find file:   'interesting.file'

@@ -12,8 +12,12 @@ Nmap flag 	    Description
 -sV 	        Attempts to determine the version of the services running
 -p <x> or -p- 	Port scan for port <x> or scan all ports
 -Pn 	        Disable host discovery and scan for open ports
--A 	            Enables OS and version detection, executes in-build scripts 
-                 for further enumeration 
+
+-A 	            detect OS, software versions, 
+                this switch is the equivalent of the combined -O -sV -sC --traceroute     
+
+-vv -requesting the very verbose mode of nmap
+-oN <filename> option sends the results to a txt file.
 -sC 	        Scan with the default Nmap scripts
 -v 	            Verbose mode
 -sU 	        UDP port scan
@@ -21,11 +25,8 @@ Nmap flag 	    Description
 EXAMPLES:
   
 sudo nmap -A -p- -vv -oN "<output-filename>" <machine-ip>
--A  detect OS, software versions, apply the basic script set,provide a traceroute; 
-    this switch is the equivalent of the combined -O -sV -sC --traceroute 
--p- scan all ports. 
--vv -requesting the very verbose mode of nmap
--oN <filename> option sends the results to a txt file.
+
+
 
   nmap -sC -sV -oN  outresult.txt <IP> 
   nmap -sV <ip>
@@ -42,13 +43,15 @@ sudo nmap -A -p- -vv -oN "<output-filename>" <machine-ip>
    --script vuln: check for vlunnerabilities
    
   sudo nmap 10.82.181.162 -sS -p 0-4999 -vv
-  
-  nmap -p80,139,445,10000,20000 -A 192.168.1.205# Scan ports 80, 139 ....
+  nmap -p1-1000  10.114.167.27 #how many TCP ports under 1000 are open?
+  sudo  nmap -sT -O IP # name of the OS
+  nmap -p80,139,445,10000,20000 -A 192.168.1.205 # Scan ports 80, 139 ....
   nmap -v -A scanme.nmap.org
   nmap -v -sn 192.168.0.0/16 10.0.0.0/8
   nmap -v -iR 10000 -Pn -p 80
   nmap -sT -p port-number -O -sC -sV -T[1-5] -oA output-file ip-address
-
+ 
+  sudo nmap -p22 -sV  IP #  What version of SSH is running? (port22)
   nmap -sC -sV -oN   <file name to store> <ip>  #Store results in a file    
     -sV parameter for version information 
     -sC parameter for script information. 
