@@ -7,13 +7,15 @@ https://tryhackme.com/room/25daysofchristmas
 https://muirlandoracle.co.uk/2020/01/06/tryhackme-christmas-2019-challenge-write-up/#Day_Eight_-_SUID_Shenanigans
 samanthactf.medium.com/tryhackme-advent-of-cyber-day-8-suid-shenanigans-a1a94316df9e 
 
-Elf Holly is suspicious of Elf-ministrator and wants to get onto the root account of a server he setup to see what files are on his account. The problem is, Holly is a low-privileged user.. can you escalate her privileges and hack your way into the root account?
+Elf Holly is suspicious of Elf-ministrator and wants to get onto the root account of a server he setup to see what files are on his account. 
+The problem is, Holly is a low-privileged user. can you escalate her privileges and hack your way into the root account?
 
 Deploy and into the machine.
+
 Username: holly
 Password: tuD@4vt0G*TU
 
-SSH is not running on the standard port.. You might need to scan the machine to find which port is running on.
+SSH is not running on the standard port. You might need to scan the machine to find which port is running on.
  nmap <machine_ip> -p <start_port>-<end_port>
 
 Read the supporting materials here:  
@@ -22,5 +24,23 @@ Read the supporting materials here:
 networks. 
 
 
-What port is SSH running on?
+a. What port is SSH running on?
+Hint: 65534 is the port number.. But can you find out how to login via SSH on this port?
+answer
+you can use the command 'nmap -p- -sV 10.112.141.25' but it will take a long time
+so we cand use the hint - 65534
 
+ssh holly@<targetmachine> -p 65534
+
+Then enter the password provided:
+
+so the port of SSH is 65534
+
+b. You don't  have the ability to read the file: /home/igor/flag1.txt.
+     cat: flag1.txt: Permission denied.
+	
+ Using the supporting materials as my guide,
+ (https://tryhackme.com/resources/blog/linux-privilege-escalation-suid/)
+ I executed the following command:
+
+    find / -user igor -perm -4000 -exec ls -ldb {} \; 2>/dev/null	

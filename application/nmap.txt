@@ -23,6 +23,8 @@ Nmap flag 	    Description
 -sU 	        UDP port scan
 -sS 	        TCP SYN port scan
 EXAMPLES:
+
+nmap -p- -sV <machine-ip>    -sV identifies the service on any open ports.
   
 sudo nmap -A -p- -vv -oN "<output-filename>" <machine-ip>
 
