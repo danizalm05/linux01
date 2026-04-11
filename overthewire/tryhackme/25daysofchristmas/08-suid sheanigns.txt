@@ -27,7 +27,13 @@ networks.
 a. What port is SSH running on?
 Hint: 65534 is the port number.. But can you find out how to login via SSH on this port?
 answer
-you can use the command 'nmap -p- -sV 10.112.141.25' but it will take a long time
+ 
+
+
+you can use the command 'nmap -p- -sV 10.112.141.25' 
+        -Sv : Search (by default on TCP) for service version detection
+        -p- : Search all ports
+but it will take a long time
 so we cand use the hint - 65534
 
 ssh holly@<targetmachine> -p 65534
@@ -36,8 +42,29 @@ Then enter the password provided:
 
 so the port of SSH is 65534
 
-b. You don't  have the ability to read the file: /home/igor/flag1.txt.
+b.  Find and run a file as igor. Read the file /home/igor/flag1.txt
+   The word Find in the original text is be highlighted
+answer:
+You don't  have the ability to read the file: /home/igor/flag1.txt.
      cat: flag1.txt: Permission denied.
+ Igor is presumably another user on the system, but why would find be highlighted? Given that this task is about SUID bits, let’s have a look to see who exactly is executing the find command. 	
+  Usually it would be the current user, but what if the file which executes the find command (/usr/bin/find ) was owned by someone else, with, perhaps, the s bit set?
+
+Run the command:
+
+ls -l /usr/bin/find
+
+Yes! The find command is actually owned by Igor — but we have permission to run it because it has the SUID bit set.
+
+ SUID bit allows anyone to execute a file as if they were its owner. A good example of this would be the passwd binary, which allows a user to change their password. This file is owned by root, but all users need to be able to change their own passwords — thus the file has its SUID bit set to allow anyone to run the file as if they were the owner (i.e. root)!
+
+ The find command comes with the option to execute further commands, like so:
+ find file-name -exec command \;	
+	
+ Wwe know where the flag is ( home/igor/flag1.txt ), because we can navigate into Igor’s home directory as Holly and see for ourselves. In this instance we may as well use the command:
+ 
+  find /home/igor/flag1.txt -exec cat /home/igor/flag1.txt \;	
+	
 	
  Using the supporting materials as my guide,
  (https://tryhackme.com/resources/blog/linux-privilege-escalation-suid/)
