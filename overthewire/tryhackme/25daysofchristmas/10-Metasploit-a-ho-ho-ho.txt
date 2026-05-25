@@ -1,0 +1,18 @@
+
+                           Day Ten — Metasploit-a-ho-ho-ho 
+ VPN Configuration:    https://tryhackme.com/manage-account/access
+
+https://tryhackme.com/room/25daysofchristmas
+https://muirlandoracle.co.uk/2020/01/06/tryhackme-christmas-2019-challenge-write-up/#Day_Ten_-_Metasploit-a-ho-ho-ho
+
+ 
+https://blog.dhilipsanjay.in/ctfs/tryhackme/tryhackme/adventofcyber1/day10-metasploit-a-ho-ho-ho
+
+ We’ve been given access to a vulnerable machine which we need to access using Metasploit. Today’s support materials come in the form of a blog post. As this challenge is about Metasploit rather than enumeration, we’re going to take for granted (i.e. I enumerated it and that’s what I’m telling you) that the target is a Linux web server is running a vulnerable version of Apache Struts2. The blog post example uses CVE-2017–5638, which is also the exploit that we’re going to use on the server.
+
+Let’s load up Metasploit ( msfconsole ) and break into this machine!
+
+a.  
+
+b.  
+ THM{8c8211826239d849fa8d6df03749c3a2}
