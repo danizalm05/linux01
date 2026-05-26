@@ -11,8 +11,8 @@ connect from linux to the remote mechine
 3. At the top of the page copy the IP of the mechine
 4. from linux run: 'sudo openvpn *.ovpn'
 5. from another terminal run: ping
-6. Check that there is a connection.
+6.       Check that there is a connection.
 
-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
+
 
  
