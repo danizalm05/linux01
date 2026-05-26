@@ -13,4 +13,6 @@ connect from linux to the remote mechine
 5. from another terminal run: ping
 6. Check that there is a connection.
 
+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
+
  
