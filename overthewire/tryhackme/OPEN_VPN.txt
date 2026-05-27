@@ -4,7 +4,7 @@ How to connect to 'tryhackme' remote mechine.
 VPN Configuration file: https://tryhackme.com/manage-account/access
 Download the *.ovpn file
 
-connect from linux to the remote mechine
+ How to connect from linux to the remote mechine
 ---------------------------
 1. from the web page press the 'start mechine' buton
 2. Wait for 60 sec.
