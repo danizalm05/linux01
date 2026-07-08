@@ -5,6 +5,7 @@
 https://tryhackme.com/room/25daysofchristmas
 https://tryhackme.com/resources/blog/metasploit
 
+
 https://www.aldeid.com/wiki/TryHackMe-Advent-of-Cyber/10-Metasploit-a-ho-ho-ho
 
 
@@ -21,6 +22,8 @@ The vulnerability, tracked as CVE-2025-68493, affects multiple versions of the w
 framework .
  
 
+Let's scan the IP first. 
+ 
 
 Let’s load up Metasploit ( msfconsole ) and break into this machine!
 1.  msfconsole
