@@ -50,10 +50,11 @@ framework .
 
  According google  apache showcase.action:
  
- The term apache showcase.action refers to the demo endpoints in the Apache Struts Showcase application (struts2-showcase), a widely used demonstration web app for the Java MVC framework.
+ The term apache showcase.action refers to the demo endpoints in the Apache Struts Showcase application
+ (struts2-showcase), a widely used demonstration web app for the Java MVC framework.
  
- 
- 
+ Metasploit
+ ------------
 Let’s load up Metasploit ( msfconsole ) and break into this machine!
 1.  msfconsole
 2. search Struts2
